@@ -1,1 +1,1 @@
-# figmagen
+# Figmagen
