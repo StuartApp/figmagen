@@ -9,6 +9,7 @@ import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import java.io.File
+import java.util.Locale
 import kotlin.coroutines.resumeWithException
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.async
@@ -36,8 +37,13 @@ import okio.IOException
  * ```
  */
 val language: String =
-    checkNotNull(args.firstOrNull()?.substringAfter("=")) { "Language is missing" }
-val token: String = checkNotNull(args.getOrNull(1)?.substringAfter("=")) { "Token is missing" }
+    checkNotNull(args.firstOrNull { it.startsWith("language=") }?.substringAfter("=")) {
+        "Language is missing"
+    }
+val token: String =
+    checkNotNull(args.firstOrNull { it.startsWith("token=") }?.substringAfter("=")) {
+        "Token is missing"
+    }
 
 val client = OkHttpClient()
 
@@ -67,7 +73,9 @@ runBlocking {
     val darkColors = async { getColors(darkColorsFileKey, darkColorsNodeIds.await()) }
 
     when (language) {
-        "${Language.Kotlin}" -> TODO("Language not implemented")
+        "${Language.Kotlin}" -> {
+            generateKotlinColors(getColorsMap(lightColors.await(), darkColors.await()))
+        }
         "${Language.Swift}" -> {
             generateSwiftColors(getColorsMap(lightColors.await(), darkColors.await()))
         }
@@ -158,7 +166,7 @@ fun generateSwiftColors(colors: Map<String, List<KeirinColor>>) {
             mkdirs()
         }
 
-    for (color in colors) {
+    colors.forEach { color ->
         val (lightColor, darkColor) = color.value
         val fileName =
             "${lightColor.name.replace("/", "-").substringAfter("-")}.colorset/Contents.json"
@@ -240,6 +248,108 @@ fun generateSwiftColors(colors: Map<String, List<KeirinColor>>) {
     println("iOS colors generated")
 }
 
+fun generateKotlinColors(colors: Map<String, List<KeirinColor>>) {
+    val tempDir = File("colors/kotlin/generated/") // TODO: Delete
+    val kotlinFile = File("$tempDir/shared/ui/design-system/core/commonMain/kotlin/Colors.kt")
+
+    val lines = buildList {
+        add("package com.stuart.shared.ui.designSystem.core")
+
+        add("")
+
+        add("import androidx.compose.runtime.Stable")
+        add("import androidx.compose.runtime.getValue")
+        add("import androidx.compose.runtime.mutableStateOf")
+        add("import androidx.compose.runtime.setValue")
+        add("import androidx.compose.ui.graphics.Color")
+
+        add("")
+
+        val groupedColorsByTheme =
+            colors
+                .flatMap { it.value }
+                .sortedBy {
+                    // krnLight/primary/main
+                    it.name.substringBefore("/") // krnLight
+                }
+                .groupBy { it.name.substringBefore("/") }
+
+        groupedColorsByTheme.forEach { (theme, colorsByTheme) ->
+            add("internal val ${theme.substringAfter("krn")}ColorPalette =") // Light
+            add("    Colors(")
+
+            colorsByTheme
+                .sortedBy { it.name.substringAfter("/").substringBefore("/") } // primary
+                .groupBy { it.name.substringAfter("/").substringBefore("/") }
+                .forEach { (name, colorsByName) ->
+                    add("        $name =")
+                    add("            Colors.${name.capitalize()}(") // Colors.Primary
+                    colorsByName.forEach { color ->
+                        val red = color.red
+                        val green = color.green
+                        val blue = color.blue
+                        val alpha = color.alpha
+                        add("                ${color.name.substringAfterLast("/")} =") // primary =
+                        add("                    Color(")
+                        add("                        red = ${red}F,")
+                        add("                        green = ${green}F,")
+                        add("                        blue = ${blue}F,")
+                        add("                        alpha = ${alpha}F,")
+                        add("                    ),")
+                    }
+                    add("            ),")
+                }
+            add("    )")
+        }
+
+        add("")
+        add("@Stable")
+        add("""@Suppress("LongParameterList")""")
+        add("class Colors(")
+        colors.map { it.key.substringBefore("/") }.distinct().sorted().forEach { name ->
+            add("    $name: ${name.capitalize()},") // primary: Primary
+        }
+        add(") {")
+
+        val groupedColorsByParent =
+            colors
+                .flatMap { it.value }
+                .distinctBy { it.name.substringAfter("/") }
+                .sortedBy { it.name.substringAfter("/") }
+                .groupBy {
+                    it.name.substringAfter("/").substringBefore("/").capitalize()
+                } // primary
+
+        groupedColorsByParent.forEach { (key, value) ->
+            add("    @Stable")
+            add("    class $key(") // Primary
+            value.forEach { keirinColor ->
+                val paramName = keirinColor.name.substringAfterLast("/")
+                add("        $paramName: Color,") // main: Color,
+            }
+            add("    ) {")
+            value.forEach { keirinColor ->
+                val variableName = keirinColor.name.substringAfterLast("/")
+                add(
+                    "        var $variableName by mutableStateOf($variableName)"
+                ) // var main by mutableStateOf(main)
+                add("            private set")
+            }
+            add("    }")
+        }
+        add("}")
+        add("")
+    }
+
+    kotlinFile.apply {
+        parentFile.mkdirs()
+        createNewFile()
+        writeText(lines.joinToString("\n"))
+    }
+
+    println("Kotlin Compose colors generated")
+}
+
 enum class Language {
     Kotlin,
     Swift;
@@ -249,10 +359,10 @@ enum class Language {
 
 data class KeirinColor(
     val name: String,
-    val red: Double,
-    val green: Double,
-    val blue: Double,
-    val alpha: Double
+    val red: Float,
+    val green: Float,
+    val blue: Float,
+    val alpha: Float
 )
 
 object Figma {
@@ -273,7 +383,7 @@ object Figma {
 
     data class Fill(val color: Color?)
 
-    data class Color(val r: Double, val g: Double, val b: Double, val a: Double)
+    data class Color(val r: Float, val g: Float, val b: Float, val a: Float)
 }
 
 suspend fun Call.await(): Response = suspendCancellableCoroutine { continuation ->
@@ -297,3 +407,7 @@ fun String.dashToCamelCase(): String =
     split("").reduce { acc, c ->
         if (acc.lastOrNull() == '-') "${acc.dropLast(1)}${c.uppercase()}" else "$acc$c"
     }
+
+fun String.capitalize(): String = replaceFirstChar {
+    if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString()
+}
