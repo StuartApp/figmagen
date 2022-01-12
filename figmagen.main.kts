@@ -24,16 +24,18 @@ import okhttp3.Response
 import okio.IOException
 
 /**
+ * Save it inside `.scripts` directory which must be in the root project directory
+ *
  * How to run:
  *
  * ```kotlin
- * kotlin figmagen.main.kts language=[language] token=[token]
+ * kotlin .scripts/figmagen.main.kts language=[language] token=[token]
  * ```
  *
  * Example:
  *
  * ```kotlin
- * kotlin figmagen.main.kts language=swift token=292559-ac1725a4-0f54-43e1-9421-9eaa09213859
+ * kotlin .scripts/figmagen.main.kts language=swift token=292559-ac1725a4-0f54-43e1-9421-9eaa09213859
  * ```
  */
 val language: String =
@@ -158,8 +160,7 @@ fun getColorsMap(
 }
 
 fun generateSwiftColors(colors: Map<String, List<KeirinColor>>) {
-    val tempDir = File("colors/ios/generated/") // TODO: Delete
-    val iosDir = "$tempDir/Stuart/Stuart/Shared/UI/Core/KeirinColors/Sources/KeirinColors"
+    val iosDir = "Stuart/Stuart/Shared/UI/Core/KeirinColors/Sources/KeirinColors"
     val iosAssetsDir =
         File("$iosDir/Colors.xcassets/").apply {
             deleteRecursively()
@@ -249,8 +250,7 @@ fun generateSwiftColors(colors: Map<String, List<KeirinColor>>) {
 }
 
 fun generateKotlinColors(colors: Map<String, List<KeirinColor>>) {
-    val tempDir = File("colors/kotlin/generated/") // TODO: Delete
-    val kotlinFile = File("$tempDir/shared/ui/design-system/core/commonMain/kotlin/Colors.kt")
+    val kotlinFile = File("shared/ui/design-system/core/commonMain/kotlin/Colors.kt")
 
     val lines = buildList {
         add("package com.stuart.shared.ui.designSystem.core")
