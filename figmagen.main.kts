@@ -307,9 +307,28 @@ fun generateKotlinColors(colors: Map<String, List<KeirinColor>>) {
         add("""@Suppress("LongParameterList")""")
         add("class Colors(")
         colors.map { it.key.substringBefore("/") }.distinct().sorted().forEach { name ->
-            add("    $name: ${name.capitalize()},") // primary: Primary
+            add("    val $name: ${name.capitalize()},") // primary: Primary
         }
         add(") {")
+
+        add("")
+
+        add("    fun update(other: Colors) {")
+        colors.map { it.key.substringBefore("/") }.distinct().sorted().forEach { name ->
+            add("        $name.update(other.$name)") // primary: Primary
+        }
+        add("    }")
+
+        add("")
+
+        add("    fun copy() =")
+        add("        Colors(")
+        colors.map { it.key.substringBefore("/") }.distinct().sorted().forEach { name ->
+            add("            $name.copy(),") // primary: Primary
+        }
+        add("        )")
+
+        add("")
 
         val groupedColorsByParent =
             colors
@@ -329,12 +348,29 @@ fun generateKotlinColors(colors: Map<String, List<KeirinColor>>) {
             }
             add("    ) {")
             value.forEach { keirinColor ->
-                val variableName = keirinColor.name.substringAfterLast("/")
-                add(
-                    "        var $variableName by mutableStateOf($variableName)"
-                ) // var main by mutableStateOf(main)
+                val variableName = keirinColor.name.substringAfterLast("/") // main
+                add("        var $variableName by mutableStateOf($variableName)")
                 add("            private set")
             }
+
+            add("")
+
+            add("        fun update(other: $key) {")
+            value.forEach { keirinColor ->
+                val paramName = keirinColor.name.substringAfterLast("/") // main
+                add("            $paramName = other.$paramName")
+            }
+            add("        }")
+
+            add("")
+
+            add("        fun copy() =")
+            add("            $key(")
+            value.forEach { keirinColor ->
+                val paramName = keirinColor.name.substringAfterLast("/") // main
+                add("                $paramName = $paramName,")
+            }
+            add("            )")
             add("    }")
         }
         add("}")
