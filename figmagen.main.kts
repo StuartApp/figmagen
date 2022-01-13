@@ -375,6 +375,16 @@ fun generateKotlinColors(colors: Map<String, List<KeirinColor>>) {
         }
         add("}")
         add("")
+
+        add("fun contentColorFor(color: Color): Color =")
+        add("    when (color) {")
+        groupedColorsByParent
+            .flatMap { it.value.map { keirinColor -> keirinColor.name } }
+            .distinctBy { name -> name.substringAfter("/") }
+            .filter { name -> name.endsWith("Contrast") }
+        add("    }")
+
+        add("")
     }
 
     kotlinFile.apply {
