@@ -28,13 +28,13 @@ import okio.IOException
  *
  * How to run:
  *
- * ```kotlin
+ * ```shell
  * kotlin .scripts/figmagen.main.kts language=[language] token=[token]
  * ```
  *
  * Example:
  *
- * ```kotlin
+ * ```shell
  * kotlin .scripts/figmagen.main.kts language=swift token=292559-ac1725a4-0f54-43e1-9421-9eaa09213859
  * ```
  */
@@ -129,8 +129,9 @@ suspend fun getColors(fileKey: String, nodeIds: List<String>): List<KeirinColor>
 
         return data.nodes
             .filter {
-                val name = it.value.document.name
-                name.startsWith("krnLight") || name.startsWith("krnDark")
+                val name = it.value.document.name.substringBefore("/").filterNot(Char::isWhitespace)
+                // krnLight, krnDark, krnLight-library
+                name == "krnLight" || name == "krnDark"
             }
             .map { nodes ->
                 val name = nodes.value.document.name
@@ -160,9 +161,9 @@ fun getColorsMap(
 }
 
 fun generateSwiftColors(colors: Map<String, List<KeirinColor>>) {
-    val iosDir = "Stuart/Stuart/Shared/UI/Core/KeirinColors/Sources/KeirinColors/Resources"
+    val iosDir = "Stuart/Stuart/Shared/UI/Core/KeirinColors/Sources/KeirinColors/"
     val iosAssetsDir =
-        File("$iosDir/Colors.xcassets/").apply {
+        File("$iosDir/Resources/Colors.xcassets/").apply {
             deleteRecursively()
             mkdirs()
         }
@@ -241,6 +242,7 @@ fun generateSwiftColors(colors: Map<String, List<KeirinColor>>) {
                         add(colorLine.prependIndent("    "))
                     }
                     add("}")
+                    add("")
                 }
                 .joinToString("\n")
 
