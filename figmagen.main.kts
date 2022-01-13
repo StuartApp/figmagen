@@ -259,11 +259,14 @@ fun generateKotlinColors(colors: Map<String, List<KeirinColor>>) {
 
         add("")
 
+        add("import androidx.compose.runtime.Composable")
+        add("import androidx.compose.runtime.ReadOnlyComposable")
         add("import androidx.compose.runtime.Stable")
         add("import androidx.compose.runtime.getValue")
         add("import androidx.compose.runtime.mutableStateOf")
         add("import androidx.compose.runtime.setValue")
         add("import androidx.compose.ui.graphics.Color")
+        add("import androidx.compose.ui.graphics.takeOrElse")
 
         add("")
 
@@ -341,6 +344,22 @@ fun generateKotlinColors(colors: Map<String, List<KeirinColor>>) {
                     it.name.substringAfter("/").substringBefore("/").capitalize()
                 } // primary
 
+        add("    fun contentColorFor(color: Color): Color =")
+        add("        when (color) {")
+        groupedColorsByParent
+            .flatMap { it.value.map { keirinColor -> keirinColor.name } }
+            .distinctBy { name -> name.substringAfter("/") }
+            .filter { name -> name.endsWith("Contrast") }
+            .forEach { name -> // krnLight/primary/main
+                val value = name.substringAfter("/").replace("/", ".") // primary.mainContrast
+                val param = value.substringBefore("Contrast") // primary.main
+                add("            $param -> $value")
+            }
+        add("            else -> Color.Unspecified")
+        add("        }")
+
+        add("")
+
         groupedColorsByParent.forEach { (key, value) ->
             add("    @Stable")
             add("    class $key(") // Primary
@@ -378,13 +397,12 @@ fun generateKotlinColors(colors: Map<String, List<KeirinColor>>) {
         add("}")
         add("")
 
-        add("fun contentColorFor(color: Color): Color =")
-        add("    when (color) {")
-        groupedColorsByParent
-            .flatMap { it.value.map { keirinColor -> keirinColor.name } }
-            .distinctBy { name -> name.substringAfter("/") }
-            .filter { name -> name.endsWith("Contrast") }
-        add("    }")
+        add("@Composable")
+        add("@ReadOnlyComposable")
+        add("fun contentColorFor(color: Color) =")
+        add(
+            "    KeirinTheme.colors.contentColorFor(color).takeOrElse { LocalContentColor.current }"
+        )
 
         add("")
     }
