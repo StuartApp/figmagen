@@ -160,7 +160,7 @@ fun getColorsMap(
 }
 
 fun generateSwiftColors(colors: Map<String, List<KeirinColor>>) {
-    val iosDir = "Stuart/Stuart/Shared/UI/Core/KeirinColors/Sources/KeirinColors"
+    val iosDir = "Stuart/Stuart/Shared/UI/Core/KeirinColors/Sources/KeirinColors/Resources"
     val iosAssetsDir =
         File("$iosDir/Colors.xcassets/").apply {
             deleteRecursively()
@@ -237,7 +237,7 @@ fun generateSwiftColors(colors: Map<String, List<KeirinColor>>) {
                         val variableName = fileName.dashToCamelCase()
 
                         val colorLine =
-                            """public static let $variableName = Color.init("$fileName")"""
+                            """public static let $variableName = Color("$fileName", bundle: .fixedBundleModule)"""
                         add(colorLine.prependIndent("    "))
                     }
                     add("}")
