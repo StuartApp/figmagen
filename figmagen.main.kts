@@ -61,8 +61,8 @@ val baseRequest: Request.Builder = Request.Builder().addHeader("X-FIGMA-TOKEN", 
 val moshi: Moshi = Moshi.Builder().addLast(KotlinJsonAdapterFactory()).build()
 
 runBlocking {
-    val lightColorsFileKey = "2q2V7H3JXbohe14zNPRnWU"
-    val darkColorsFileKey = "Lyk5Tk6tIRoi8ojq9EHZKo"
+    val lightColorsFileKey = "CitvEDDeY9iPMsqFopPQy7"
+    val darkColorsFileKey = "oFOQjGPnEe7RSr1nDgLrCB"
 
     val lightColorsNodeIds = async {
         getStyles(lightColorsFileKey).meta.styles.map(Figma.Style::node_id)
@@ -154,7 +154,15 @@ fun getColorsMap(
     val darkColorNames = darkColors.map(::sanitizeKeirinColorName).toSortedSet()
 
     check(lightColorNames == darkColorNames) {
-        "Light and dark colors are not matching, cry to the designers"
+        val lightMissingColors = darkColorNames - lightColorNames
+        val darkMissingColors = lightColorNames - darkColorNames
+
+        """ 
+            |Light and dark colors are not matching, cry to the designers
+            |Light missing colors: ${lightMissingColors.joinToString()}
+            |Dark missing colors: ${darkMissingColors.joinToString()}
+            |
+        """.trimMargin()
     }
 
     return (lightColors + darkColors).groupBy { it.name.substringAfter("/") }
