@@ -260,7 +260,8 @@ fun generateSwiftColors(colors: Map<String, List<KeirinColor>>) {
 }
 
 fun generateKotlinColors(colors: Map<String, List<KeirinColor>>) {
-    val kotlinFile = File("shared/ui/design-system/core/commonMain/kotlin/Colors.kt")
+    val kotlinProjectDir = File("shared/ui/design-system/")
+    val kotlinFile = File("$kotlinProjectDir/core/commonMain/kotlin/Colors.kt")
 
     val lines = buildList {
         add("package com.stuart.shared.ui.designSystem.core")
@@ -420,6 +421,66 @@ fun generateKotlinColors(colors: Map<String, List<KeirinColor>>) {
         createNewFile()
         writeText(lines.joinToString("\n"))
     }
+
+    val colorGroupPreviews: Map<String, List<String>> =
+        colors
+            .values
+            .flatMap { keirinColors -> keirinColors.map { color -> color.name } }
+            .map { color -> color.substringAfter("/") }
+            .distinct()
+            .groupBy { colorName -> colorName.substringBefore("/") }
+            .map { (name, colors) -> name to colors.map { it.replace("/", ".") } }
+            .sortedBy { it.first }
+            .toMap()
+
+    val kotlinColorsPreviewContent: String =
+        buildList {
+                add("package com.stuart.shared.ui.designSystemPreview.generated")
+                add("")
+                add("import androidx.compose.runtime.Composable")
+                add("import androidx.compose.ui.graphics.Color")
+                add("import com.stuart.shared.ui.designSystem.core.Colors")
+                add("")
+                add(
+                    "data class ColorGroupPreview(val name: String, val colors: Map<String, Color>)"
+                )
+                add("")
+                add("@Composable")
+                add("fun Colors.toPreview(): List<ColorGroupPreview> =")
+                add("    listOf(")
+                colorGroupPreviews.forEach { group ->
+                    add("        ColorGroupPreview(")
+                    val groupName = group.key
+                    add("""            name = "$groupName",""")
+                    add("            colors =")
+                    add("                mapOf(")
+                    group.value
+                        .map { groupAndName -> // primary.main
+                            groupAndName.substringAfter(".") to groupAndName
+                        }
+                        .forEach { (name, groupColor) ->
+                            add("""                    "$name" to $groupColor,""")
+                        }
+                    add("                ),")
+                    add("        ),")
+                }
+                add("    )")
+                add("")
+            }
+            .joinToString("\n")
+
+    File("$kotlinProjectDir/preview-android/main/kotlin/generated/ColorsPreviewAndroid.kt").apply {
+        parentFile.mkdirs()
+        createNewFile()
+        writeText(kotlinColorsPreviewContent)
+    }
+
+    File("$kotlinProjectDir/preview-desktop/jvmMain/kotlin/generated/ColorsPreviewDesktop.kt")
+        .apply {
+            parentFile.mkdirs()
+            createNewFile()
+            writeText(kotlinColorsPreviewContent)
+        }
 
     println("Kotlin Compose colors generated")
 }
