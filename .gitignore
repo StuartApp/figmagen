@@ -1,4 +1,3 @@
 .idea/
-colors/
-shared/
-Stuart/
+build/
+.gradle/
