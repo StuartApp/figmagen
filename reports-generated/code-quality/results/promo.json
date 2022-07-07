@@ -1,1 +1,85 @@
-{"version":"3","listProblem":[]}
+{"version":"3","listProblem":[{
+  "tool": "Code Inspection",
+  "category": "Style issues",
+  "type": "Class member can have 'private' visibility",
+  "severity": "Info",
+  "comment": "Function 'clear' could be private",
+  "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
+  "sources": [
+    {
+      "type": "file",
+      "path": "figmagen-core/main/kotlin/com/stuart/figmagen/tree/TreeNode.kt",
+      "language": "kotlin",
+      "line": 92,
+      "offset": 5,
+      "length": 6,
+      "code": {
+        "startLine": 90,
+        "length": 6,
+        "offset": 70,
+        "surroundingCode": "\n    /** Remove all children from root and every node in tree. */\n    public fun clear() {\n        _parent = null\n        _children.forEach { it.clear() }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "figmagen.figmagen-core.main",
+    "inspectionName": "MemberVisibilityCanBePrivate"
+  },
+  "hash": "c4d9c1e0a671e9a335cddc136f6acd9102869d5e5db2fd0dd9035c54c4e5e05f"
+},{
+  "tool": "Code Inspection",
+  "category": "Style issues",
+  "type": "Class member can have 'private' visibility",
+  "severity": "Info",
+  "comment": "Function 'nodeCount' could be private",
+  "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
+  "sources": [
+    {
+      "type": "file",
+      "path": "figmagen-core/main/kotlin/com/stuart/figmagen/tree/TreeNode.kt",
+      "language": "kotlin",
+      "line": 63,
+      "offset": 5,
+      "length": 6,
+      "code": {
+        "startLine": 61,
+        "length": 6,
+        "offset": 61,
+        "surroundingCode": "     * @return All child and nested child count.\n     */\n    public fun nodeCount(): Int {\n        if (_children.isEmpty()) return 0\n        return _children.size + _children.sumOf { it.nodeCount() }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "figmagen.figmagen-core.main",
+    "inspectionName": "MemberVisibilityCanBePrivate"
+  },
+  "hash": "5253fa296a54ffb3fa0e402b3ea6f664ed02c2ba0f65ad7b24a8dd89ae508dad"
+},{
+  "tool": "Code Inspection",
+  "category": "Style issues",
+  "type": "Class member can have 'private' visibility",
+  "severity": "Info",
+  "comment": "Function 'height' could be private",
+  "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
+  "sources": [
+    {
+      "type": "file",
+      "path": "figmagen-core/main/kotlin/com/stuart/figmagen/tree/TreeNode.kt",
+      "language": "kotlin",
+      "line": 71,
+      "offset": 5,
+      "length": 6,
+      "code": {
+        "startLine": 69,
+        "length": 6,
+        "offset": 111,
+        "surroundingCode": "     * @return The number of edges on the longest path between current node and a descendant leaf.\n     */\n    public fun height(): Int {\n        val childrenMaxDepth = _children.maxOfOrNull(TreeNode<T>::height) ?: -1\n        return childrenMaxDepth + 1"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "figmagen.figmagen-core.main",
+    "inspectionName": "MemberVisibilityCanBePrivate"
+  },
+  "hash": "cc6f23386958233fb52e7df3c4b8c13162fb64f894dc5041f2a61e364a5f7e86"
+}]}
