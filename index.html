@@ -269,6 +269,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#download" class="md-nav__link">
+    Download
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#usage" class="md-nav__link">
     Usage
   </a>
@@ -596,6 +603,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#download" class="md-nav__link">
+    Download
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#usage" class="md-nav__link">
     Usage
   </a>
@@ -673,16 +687,23 @@
 
 
 
-<p><img alt="Kotlin version" src="https://img.shields.io/badge/kotlin-1.7.0-blueviolet?logo=kotlin&amp;logoColor=white" />
-<a href="https://repo1.maven.org/maven2/com/stuart/figmagen/figmagen-core/"><img alt="MavenCentral" src="https://img.shields.io/maven-central/v/com.stuart.figmagen/figmagen-core?label=MavenCentral" /></a>
-<a href="https://oss.sonatype.org/content/repositories/snapshots/com/stuart/figmagen/figmagen-core/"><img alt="Snapshot" src="https://img.shields.io/nexus/s/com.stuart.figmagen/figmagen-core?server=https%3A%2F%2Foss.sonatype.org%2F&amp;label=Snapshot" /></a></p>
-<p><a href="https://github.com/StuartApp/figmagen/tree/main"><img alt="Build" src="https://img.shields.io/github/workflow/status/StuartApp/figmagen/build-kotlin?label=Build&amp;logo=GitHub" /></a></p>
+<p><a href="https://repo1.maven.org/maven2/com/stuart/figmagen/figmagen-core/"><img alt="MavenCentral" src="https://img.shields.io/maven-central/v/com.stuart.figmagen/figmagen-core?label=MavenCentral" /></a>
+<a href="https://s01.oss.sonatype.org/content/repositories/snapshots/com/stuart/figmagen/figmagen-core/"><img alt="Snapshot" src="https://img.shields.io/nexus/s/com.stuart.figmagen/figmagen-core?server=https%3A%2F%2Fs01.oss.sonatype.org%2F&amp;label=Snapshot" /></a>
+<a href="https://github.com/StuartApp/figmagen/tree/main"><img alt="Build" src="https://img.shields.io/github/workflow/status/StuartApp/figmagen/build-kotlin?label=Build&amp;logo=GitHub" /></a></p>
 <h1 id="figmagen">Figmagen<a class="headerlink" href="#figmagen" title="Permanent link">&para;</a></h1>
 <p>Generate tokens from Figma easily for multiple languages or frameworks</p>
+<h2 id="download">Download<a class="headerlink" href="#download" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="n">dependencies</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">implementation</span><span class="p">(</span><span class="s">&quot;com.stuart.figmagen:figmagen-core:</span><span class="si">$</span><span class="n">version</span><span class="s">&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Kotlin Compose extensions</span><span class="w"></span>
+<span class="w">    </span><span class="n">implementation</span><span class="p">(</span><span class="s">&quot;com.stuart.figmagen:figmagen-kotlin-compose-ext:</span><span class="si">$</span><span class="n">version</span><span class="s">&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
 <ol>
 <li>Create a new instance
-   of <a href="figmagen-core/src/main/kotlin/com/stuart/figmagen/Figmagen.kt"><code>Figmagen</code></a>:</li>
+   of <a href="figmagen-core/main/kotlin/com/stuart/figmagen/Figmagen.kt"><code>Figmagen</code></a>:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="c1">// figmaToken is optional as it can be provided</span><span class="w"></span>
 <span class="c1">// using `FIGMA_TOKEN` environment variable</span><span class="w"></span>
@@ -713,7 +734,7 @@ the functionality of each language or platform, for example <code>KotlinComposeC
 extends <code>ColorsTask</code> and it has default bindings to generate Kotlin classes, properties and so on.</p>
 <p>There are default implementations for all tasks, but if one is missing, they can be extended easily
 to adapt your needs. Feels free to ask for more tasks or contribute them :)</p>
-<h3 id="colorstask"><a href="figmagen-core/src/main/kotlin/com/stuart/figmagen/tasks/ColorsTask.kt">ColorsTask</a><a class="headerlink" href="#colorstask" title="Permanent link">&para;</a></h3>
+<h3 id="colorstask"><a href="figmagen-core/main/kotlin/com/stuart/figmagen/tasks/ColorsTask.kt">ColorsTask</a><a class="headerlink" href="#colorstask" title="Permanent link">&para;</a></h3>
 <p>After providing a list of theme files, it has a <code>getColors</code> function with return a list of all
 colors of all themes provided.</p>
 <h4 id="extending-colorstask">Extending ColorsTask<a class="headerlink" href="#extending-colorstask" title="Permanent link">&para;</a></h4>
@@ -726,7 +747,7 @@ colors of all themes provided.</p>
 <h2 id="implementation-for-basic-tasks">Implementation for basic tasks<a class="headerlink" href="#implementation-for-basic-tasks" title="Permanent link">&para;</a></h2>
 <h3 id="colortasks">ColorTasks<a class="headerlink" href="#colortasks" title="Permanent link">&para;</a></h3>
 <ul>
-<li><a href="exts/figmagen-kotlin-compose-ext/src/main/kotlin/com/stuart/figmagen/kotlin/compose/extensions/KotlinComposeColorsTask.kt">Kotlin Compose Colors task</a></li>
+<li><a href="exts/figmagen-kotlin-compose-ext/main/kotlin/com/stuart/figmagen/kotlin/compose/extensions/KotlinComposeColorsTask.kt">Kotlin Compose Colors task</a></li>
 </ul>
 
               
