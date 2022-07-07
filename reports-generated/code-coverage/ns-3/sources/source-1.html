@@ -1,0 +1,312 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > KotlinComposeColorsTask</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.stuart.figmagen.kotlin.compose.extensions</a>
+</div>
+
+<h1>Coverage Summary for Class: KotlinComposeColorsTask (com.stuart.figmagen.kotlin.compose.extensions)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+<th class="coverageStat 
+">
+  Instruction, %
+</th>
+</tr>
+<tr>
+  <td class="name">KotlinComposeColorsTask</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+    <td class="coverageStat"/>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (9/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (44/44)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">KotlinComposeColorsTask$contentColorFor$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+    <td class="coverageStat"/>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (8/8)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">KotlinComposeColorsTask$run$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    83.3%
+  </span>
+  <span class="absValue">
+    (10/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    94.4%
+  </span>
+  <span class="absValue">
+    (17/18)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    92.7%
+  </span>
+  <span class="absValue">
+    (140/151)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">KotlinComposeColorsTask$run$2$sanitizedContent$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (6/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (23/23)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (7/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    88.9%
+  </span>
+  <span class="absValue">
+    (16/18)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    96.6%
+  </span>
+  <span class="absValue">
+    (28/29)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    95.1%
+  </span>
+  <span class="absValue">
+    (215/226)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.stuart.figmagen.kotlin.compose.extensions
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import com.stuart.figmagen.kotlin.compose.extensions.internal.buildColorFile
+<i class="no-highlight">4</i>&nbsp;import com.stuart.figmagen.models.Color
+<i class="no-highlight">5</i>&nbsp;import com.stuart.figmagen.models.ColorFile
+<i class="no-highlight">6</i>&nbsp;import com.stuart.figmagen.models.TaskFile
+<i class="no-highlight">7</i>&nbsp;import com.stuart.figmagen.models.toTree
+<i class="no-highlight">8</i>&nbsp;import com.stuart.figmagen.tasks.ColorsTask
+<i class="no-highlight">9</i>&nbsp;import com.stuart.figmagen.tasks.ThemeFile
+<i class="no-highlight">10</i>&nbsp;import kotlinx.coroutines.coroutineScope
+<i class="no-highlight">11</i>&nbsp;
+<i class="no-highlight">12</i>&nbsp;/**
+<i class="no-highlight">13</i>&nbsp; * Implementation for generating a Kotlin file with all colors for Compose.
+<i class="no-highlight">14</i>&nbsp; *
+<i class="no-highlight">15</i>&nbsp; * @property packageName The package that the generated file will have at the top.
+<i class="no-highlight">16</i>&nbsp; * @property checkColorCorrectness If there are more than one theme, it can check all themes has the
+<i class="no-highlight">17</i>&nbsp; * same number and names of color tokens. If one is missing in one theme, it crashes indicating the
+<i class="no-highlight">18</i>&nbsp; * missing one/s.
+<i class="no-highlight">19</i>&nbsp; * @property outputPath The path where the file will be generated
+<i class="no-highlight">20</i>&nbsp; * @property themeFiles the list of figma files associated to a specific theme by name.
+<i class="no-highlight">21</i>&nbsp; */
+<i class="no-highlight">22</i>&nbsp;public open class KotlinComposeColorsTask(
+<b class="fc"><i class="no-highlight">23</i>&nbsp;    private val packageName: String,</b>
+<b class="fc"><i class="no-highlight">24</i>&nbsp;    private val checkColorCorrectness: Boolean,</b>
+<b class="fc"><i class="no-highlight">25</i>&nbsp;    private val outputPath: String,</b>
+<i class="no-highlight">26</i>&nbsp;    vararg themeFiles: ThemeFile,
+<b class="fc"><i class="no-highlight">27</i>&nbsp;) : ColorsTask() {</b>
+<i class="no-highlight">28</i>&nbsp;
+<b class="fc"><i class="no-highlight">29</i>&nbsp;    private val colors: MutableList&lt;Color&gt; = mutableListOf()</b>
+<i class="no-highlight">30</i>&nbsp;
+<b class="fc"><i class="no-highlight">31</i>&nbsp;    internal open var contentColorFor: ((ColorFile) -&gt; String?)? = null</b>
+<i class="no-highlight">32</i>&nbsp;
+<b class="fc"><i class="no-highlight">33</i>&nbsp;    override val themeFiles: List&lt;ThemeFile&gt; = themeFiles.toList()</b>
+<i class="no-highlight">34</i>&nbsp;
+<b class="fc"><i class="no-highlight">35</i>&nbsp;    override suspend fun run(): List&lt;TaskFile&gt; = coroutineScope {</b>
+<b class="fc"><i class="no-highlight">36</i>&nbsp;        colors.addAll(getColors())</b>
+<i class="no-highlight">37</i>&nbsp;
+<b class="fc"><i class="no-highlight">38</i>&nbsp;        if (checkColorCorrectness) checkThemesCorrectness(colors)</b>
+<i class="no-highlight">39</i>&nbsp;
+<b class="fc"><i class="no-highlight">40</i>&nbsp;        val content = colors.toTree().buildColorFile(packageName, contentColorFor).toString()</b>
+<i class="no-highlight">41</i>&nbsp;
+<b class="fc"><i class="no-highlight">42</i>&nbsp;        val sanitizedContent =</b>
+<b class="fc"><i class="no-highlight">43</i>&nbsp;            buildList {</b>
+<b class="fc"><i class="no-highlight">44</i>&nbsp;                    val colorQualifiedName = &quot;androidx.compose.ui.graphics.Color&quot;</b>
+<b class="fc"><i class="no-highlight">45</i>&nbsp;                    for (line in content.lines()) {</b>
+<b class="fc"><i class="no-highlight">46</i>&nbsp;                        val lineWithoutWhiteSpaces = line.filterNot(Char::isWhitespace)</b>
+<b class="fc"><i class="no-highlight">47</i>&nbsp;                        when {</b>
+<b class="pc"><i class="no-highlight">48</i>&nbsp;                            lineWithoutWhiteSpaces.startsWith(&quot;import kotlin.Unit&quot;) -&gt; {}</b>
+<b class="fc"><i class="no-highlight">49</i>&nbsp;                            !lineWithoutWhiteSpaces.startsWith(&quot;import&quot;) &amp;&amp;</b>
+<b class="pc"><i class="no-highlight">50</i>&nbsp;                                lineWithoutWhiteSpaces.contains(colorQualifiedName) -&gt; {</b>
+<b class="nc"><i class="no-highlight">51</i>&nbsp;                                add(line.replace(&quot;androidx.compose.ui.graphics.Color&quot;, &quot;Color&quot;))</b>
+<i class="no-highlight">52</i>&nbsp;                            }
+<b class="fc"><i class="no-highlight">53</i>&nbsp;                            else -&gt; add(line)</b>
+<i class="no-highlight">54</i>&nbsp;                        }
+<i class="no-highlight">55</i>&nbsp;                    }
+<b class="fc"><i class="no-highlight">56</i>&nbsp;                }</b>
+<b class="fc"><i class="no-highlight">57</i>&nbsp;                .joinToString(&quot;\n&quot;) { line -&gt;</b>
+<b class="fc"><i class="no-highlight">58</i>&nbsp;                    if (line.lastOrNull()?.isWhitespace() == true) line.dropLast(1) else line</b>
+<i class="no-highlight">59</i>&nbsp;                }
+<i class="no-highlight">60</i>&nbsp;
+<b class="fc"><i class="no-highlight">61</i>&nbsp;        listOf(</b>
+<b class="fc"><i class="no-highlight">62</i>&nbsp;            TaskFile(outputPath, sanitizedContent),</b>
+<i class="no-highlight">63</i>&nbsp;        )
+<i class="no-highlight">64</i>&nbsp;    }
+<i class="no-highlight">65</i>&nbsp;
+<i class="no-highlight">66</i>&nbsp;    public fun contentColorFor(predicate: ((List&lt;Color&gt;, ColorFile) -&gt; String?)) {
+<b class="fc"><i class="no-highlight">67</i>&nbsp;        contentColorFor = { predicate(colors, it) }</b>
+<i class="no-highlight">68</i>&nbsp;    }
+<i class="no-highlight">69</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-07-07 12:15</div>
+</div>
+</body>
+</html>

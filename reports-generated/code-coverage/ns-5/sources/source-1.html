@@ -1,0 +1,259 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Color</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.stuart.figmagen.models</a>
+</div>
+
+<h1>Coverage Summary for Class: Color (com.stuart.figmagen.models)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+<th class="coverageStat 
+">
+  Instruction, %
+</th>
+</tr>
+<tr>
+  <td class="name">Color</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+    <td class="coverageStat"/>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (8/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (92/92)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">Color$RGBA</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+    <td class="coverageStat"/>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (22/22)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/2)
+  </span>
+</td>
+    <td class="coverageStat"/>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (9/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (114/114)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.stuart.figmagen.models
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import com.stuart.figmagen.tree.TreeNode
+<i class="no-highlight">4</i>&nbsp;
+<i class="no-highlight">5</i>&nbsp;/**
+<i class="no-highlight">6</i>&nbsp; * @property path Full path including all groups of the color -&gt; `color/customer/primary/main`
+<i class="no-highlight">7</i>&nbsp; * @property theme The theme which the color belongs -&gt; `light`
+<i class="no-highlight">8</i>&nbsp; * @property rgba RGBA color values
+<i class="no-highlight">9</i>&nbsp; * @property name The color name, should be the same that the last group -&gt; `main`
+<i class="no-highlight">10</i>&nbsp; * @property directories is the list of all color important directories -&gt; `(customer/primary)`
+<i class="no-highlight">11</i>&nbsp; * @property nameAsColorFile transform the `Color` in `ColorFile.Color`.
+<i class="no-highlight">12</i>&nbsp; * @property pathAsList the path split by `/` so it returns `List&lt;String&gt;` instead of `String`.
+<i class="no-highlight">13</i>&nbsp; *
+<i class="no-highlight">14</i>&nbsp; * A valid color must have a `path` with at least three files, two directories (`color/group`) and
+<i class="no-highlight">15</i>&nbsp; * the value (`value`), for example: `color/group/value/`
+<i class="no-highlight">16</i>&nbsp; */
+<b class="fc"><i class="no-highlight">17</i>&nbsp;public data class Color(</b>
+<b class="fc"><i class="no-highlight">18</i>&nbsp;    val path: String,</b>
+<b class="fc"><i class="no-highlight">19</i>&nbsp;    val theme: String,</b>
+<b class="fc"><i class="no-highlight">20</i>&nbsp;    val rgba: RGBA,</b>
+<i class="no-highlight">21</i>&nbsp;) {
+<b class="fc"><i class="no-highlight">22</i>&nbsp;    val name: String = path.split(&quot;/&quot;).last()</b>
+<i class="no-highlight">23</i>&nbsp;
+<b class="fc"><i class="no-highlight">24</i>&nbsp;    public val directories: List&lt;String&gt; = path.split(&quot;/&quot;).drop(1).dropLast(1)</b>
+<i class="no-highlight">25</i>&nbsp;
+<b class="fc"><i class="no-highlight">26</i>&nbsp;    public val nameAsColorFile: ColorFile.Color = ColorFile.Color(this)</b>
+<i class="no-highlight">27</i>&nbsp;
+<b class="fc"><i class="no-highlight">28</i>&nbsp;    public val pathAsList: List&lt;String&gt; = path.split(&quot;/&quot;)</b>
+<i class="no-highlight">29</i>&nbsp;
+<b class="fc"><i class="no-highlight">30</i>&nbsp;    public data class RGBA(val red: Float, val green: Float, val blue: Float, val alpha: Float)</b>
+<i class="no-highlight">31</i>&nbsp;}
+<i class="no-highlight">32</i>&nbsp;
+<i class="no-highlight">33</i>&nbsp;/**
+<i class="no-highlight">34</i>&nbsp; * Transform a list of `Color` into a tree of `ColorFile`.
+<i class="no-highlight">35</i>&nbsp; *
+<i class="no-highlight">36</i>&nbsp; * ```markdown
+<i class="no-highlight">37</i>&nbsp; * colors
+<i class="no-highlight">38</i>&nbsp; * ├── primary
+<i class="no-highlight">39</i>&nbsp; * │   ├── main
+<i class="no-highlight">40</i>&nbsp; * │   ├── soft
+<i class="no-highlight">41</i>&nbsp; * │   └── contrast
+<i class="no-highlight">42</i>&nbsp; * │       ├── main
+<i class="no-highlight">43</i>&nbsp; * │       └── soft
+<i class="no-highlight">44</i>&nbsp; * └── secondary
+<i class="no-highlight">45</i>&nbsp; *     ├── main
+<i class="no-highlight">46</i>&nbsp; *     └── soft
+<i class="no-highlight">47</i>&nbsp; * ```
+<i class="no-highlight">48</i>&nbsp; */
+<i class="no-highlight">49</i>&nbsp;public fun List&lt;Color&gt;.toTree(): TreeNode&lt;ColorFile&gt; {
+<i class="no-highlight">50</i>&nbsp;    val treeNode: TreeNode&lt;ColorFile&gt; = TreeNode(ColorFile.Root())
+<i class="no-highlight">51</i>&nbsp;
+<i class="no-highlight">52</i>&nbsp;    for (color in this) {
+<i class="no-highlight">53</i>&nbsp;        treeNode.add(
+<i class="no-highlight">54</i>&nbsp;            remainingPath = color.directories.joinToString(&quot;/&quot;),
+<i class="no-highlight">55</i>&nbsp;            originalPath = color.directories.joinToString(&quot;/&quot;),
+<i class="no-highlight">56</i>&nbsp;            color = color,
+<i class="no-highlight">57</i>&nbsp;        )
+<i class="no-highlight">58</i>&nbsp;    }
+<i class="no-highlight">59</i>&nbsp;
+<i class="no-highlight">60</i>&nbsp;    return treeNode
+<i class="no-highlight">61</i>&nbsp;}
+<i class="no-highlight">62</i>&nbsp;
+<i class="no-highlight">63</i>&nbsp;private fun TreeNode&lt;ColorFile&gt;.add(
+<i class="no-highlight">64</i>&nbsp;    remainingPath: String,
+<i class="no-highlight">65</i>&nbsp;    originalPath: String,
+<i class="no-highlight">66</i>&nbsp;    color: Color,
+<i class="no-highlight">67</i>&nbsp;) {
+<i class="no-highlight">68</i>&nbsp;    val directory = remainingPath.substringBefore(&quot;/&quot;).takeIf { it.isNotBlank() }
+<i class="no-highlight">69</i>&nbsp;    val parentPath = originalPath.substringBefore(remainingPath).dropLastWhile { it == &#39;/&#39; }
+<i class="no-highlight">70</i>&nbsp;    val parentPathAsList = parentPath.split(&quot;/&quot;).filter { it.isNotBlank() }
+<i class="no-highlight">71</i>&nbsp;    val nextRemainingPath =
+<i class="no-highlight">72</i>&nbsp;        remainingPath.takeIf { it.contains(&quot;/&quot;) }?.substringAfter(&quot;/&quot;)?.dropWhile { it == &#39;/&#39; }
+<i class="no-highlight">73</i>&nbsp;    if (directory != null) {
+<i class="no-highlight">74</i>&nbsp;        val dirNode = ColorFile.Directory(directory, parentPathAsList)
+<i class="no-highlight">75</i>&nbsp;        val newOrFoundNode = findOrAddColorFile(dirNode)
+<i class="no-highlight">76</i>&nbsp;        if (nextRemainingPath != null) {
+<i class="no-highlight">77</i>&nbsp;            newOrFoundNode.add(nextRemainingPath, originalPath, color)
+<i class="no-highlight">78</i>&nbsp;        } else newOrFoundNode.child(ColorFile.Color(color))
+<i class="no-highlight">79</i>&nbsp;    }
+<i class="no-highlight">80</i>&nbsp;}
+<i class="no-highlight">81</i>&nbsp;
+<i class="no-highlight">82</i>&nbsp;private fun TreeNode&lt;ColorFile&gt;.findOrAddColorFile(
+<i class="no-highlight">83</i>&nbsp;    dirNode: ColorFile.Directory,
+<i class="no-highlight">84</i>&nbsp;): TreeNode&lt;ColorFile&gt; =
+<i class="no-highlight">85</i>&nbsp;    root.firstOrNull { (dirNode == it.value) || (dirNode.isInPreviousColorFileParents(it.value)) }
+<i class="no-highlight">86</i>&nbsp;        ?: child(dirNode)
+<i class="no-highlight">87</i>&nbsp;
+<i class="no-highlight">88</i>&nbsp;private fun ColorFile.isInPreviousColorFileParents(other: ColorFile): Boolean =
+<i class="no-highlight">89</i>&nbsp;    runCatching {
+<i class="no-highlight">90</i>&nbsp;            val parentDirName = parentDirectories.last()
+<i class="no-highlight">91</i>&nbsp;            other.name == parentDirName &amp;&amp; other.parentDirectories == parentDirectories
+<i class="no-highlight">92</i>&nbsp;        }
+<i class="no-highlight">93</i>&nbsp;        .getOrElse { false }
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-07-07 12:15</div>
+</div>
+</body>
+</html>

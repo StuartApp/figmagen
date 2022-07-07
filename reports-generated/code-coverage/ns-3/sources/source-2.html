@@ -1,0 +1,152 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > MockKotlinComposeColorsTask</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.stuart.figmagen.kotlin.compose.extensions</a>
+</div>
+
+<h1>Coverage Summary for Class: MockKotlinComposeColorsTask (com.stuart.figmagen.kotlin.compose.extensions)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+<th class="coverageStat 
+">
+  Instruction, %
+</th>
+</tr>
+<tr>
+  <td class="name">MockKotlinComposeColorsTask</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/3)
+  </span>
+</td>
+    <td class="coverageStat"/>
+<td class="coverageStat">
+  <span class="percent">
+    83.3%
+  </span>
+  <span class="absValue">
+    (5/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    93.5%
+  </span>
+  <span class="absValue">
+    (29/31)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.stuart.figmagen.kotlin.compose.extensions
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import com.stuart.figmagen.models.Color
+<i class="no-highlight">4</i>&nbsp;import com.stuart.figmagen.models.ColorFile
+<i class="no-highlight">5</i>&nbsp;import com.stuart.figmagen.models.FileKey
+<i class="no-highlight">6</i>&nbsp;import com.stuart.figmagen.tasks.ThemeFile
+<i class="no-highlight">7</i>&nbsp;
+<i class="no-highlight">8</i>&nbsp;/**
+<i class="no-highlight">9</i>&nbsp; * To avoid calling the Figma API and testing locally
+<i class="no-highlight">10</i>&nbsp; *
+<i class="no-highlight">11</i>&nbsp; * @property packageName The package that the generated file will have at the top.
+<i class="no-highlight">12</i>&nbsp; * @property checkColorCorrectness If there are more than one theme, it can check all themes has the
+<i class="no-highlight">13</i>&nbsp; * same number and names of color tokens. If one is missing in one theme, it crashes indicating the
+<i class="no-highlight">14</i>&nbsp; * missing one/s.
+<i class="no-highlight">15</i>&nbsp; * @property outputPath The path where the file will be generated.
+<i class="no-highlight">16</i>&nbsp; * @property colors list of colors.
+<i class="no-highlight">17</i>&nbsp; */
+<i class="no-highlight">18</i>&nbsp;public class MockKotlinComposeColorsTask(
+<i class="no-highlight">19</i>&nbsp;    packageName: String,
+<b class="nc"><i class="no-highlight">20</i>&nbsp;    checkColorCorrectness: Boolean = true,</b>
+<i class="no-highlight">21</i>&nbsp;    outputPath: String,
+<b class="fc"><i class="no-highlight">22</i>&nbsp;    private val colors: List&lt;Color&gt;</b>
+<b class="fc"><i class="no-highlight">23</i>&nbsp;) : KotlinComposeColorsTask(packageName, checkColorCorrectness, outputPath) {</b>
+<i class="no-highlight">24</i>&nbsp;
+<b class="fc"><i class="no-highlight">25</i>&nbsp;    override var contentColorFor: ((ColorFile) -&gt; String?)? = null</b>
+<i class="no-highlight">26</i>&nbsp;
+<b class="fc"><i class="no-highlight">27</i>&nbsp;    override val themeFiles: List&lt;ThemeFile&gt; = listOf(ThemeFile(&quot;light&quot;, FileKey(&quot;mock-file-key&quot;)))</b>
+<i class="no-highlight">28</i>&nbsp;
+<b class="fc"><i class="no-highlight">29</i>&nbsp;    override suspend fun getColors(themeFile: ThemeFile): List&lt;Color&gt; = colors</b>
+<i class="no-highlight">30</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-07-07 12:15</div>
+</div>
+</body>
+</html>

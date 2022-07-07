@@ -1,0 +1,48 @@
+{
+  "modules": [
+    {
+      "name": "figmagen",
+      "languageLevel": 11
+    },
+    {
+      "name": "figmagen.exts",
+      "languageLevel": 11
+    },
+    {
+      "name": "figmagen.figmagen-core",
+      "languageLevel": 11
+    },
+    {
+      "name": "figmagen.figmagen-test",
+      "languageLevel": 11
+    },
+    {
+      "name": "figmagen.exts.figmagen-kotlin-compose-ext",
+      "languageLevel": 11
+    },
+    {
+      "name": "figmagen.figmagen-core.test",
+      "languageLevel": 8
+    },
+    {
+      "name": "figmagen.figmagen-core.main",
+      "languageLevel": 8
+    },
+    {
+      "name": "figmagen.figmagen-test.test",
+      "languageLevel": 8
+    },
+    {
+      "name": "figmagen.figmagen-test.main",
+      "languageLevel": 8
+    },
+    {
+      "name": "figmagen.exts.figmagen-kotlin-compose-ext.test",
+      "languageLevel": 8
+    },
+    {
+      "name": "figmagen.exts.figmagen-kotlin-compose-ext.main",
+      "languageLevel": 8
+    }
+  ]
+}

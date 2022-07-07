@@ -1,0 +1,29 @@
+{"version":"3","listProblem":[{
+  "tool": "Code Inspection",
+  "category": "Probable bugs",
+  "type": "Private data class constructor is exposed via the 'copy' method",
+  "severity": "High",
+  "comment": "Private primary constructor is exposed via the generated 'copy()' method of a 'data' class.",
+  "detailsInfo": "Reports the `private` primary constructor in data classes.\n\n\n`data` classes have a `copy()` factory method that can be used similarly to a constructor.\nA constructor should not be marked as `private` to provide enough safety.\n\n**Example:**\n\n\n      data class User private constructor(val name: String)\n\nA quick-fix changes the constructor visibility modifier to `public`:\n\n\n      data class User(val name: String)\n",
+  "sources": [
+    {
+      "type": "file",
+      "path": "figmagen-core/main/kotlin/com/stuart/figmagen/tree/TreeNode.kt",
+      "language": "kotlin",
+      "line": 4,
+      "offset": 1,
+      "length": 7,
+      "code": {
+        "startLine": 2,
+        "length": 7,
+        "offset": 31,
+        "surroundingCode": "\npublic data class TreeNode<T>\nprivate constructor(\n    public val value: T,\n    private val _children: MutableList<TreeNode<T>> = mutableListOf()"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "figmagen.figmagen-core.main",
+    "inspectionName": "DataClassPrivateConstructor"
+  },
+  "hash": "4ae46284320fb0d8a8f0a09c600a092caf5b69cb63577e2a6af7857de5fd74a1"
+}]}

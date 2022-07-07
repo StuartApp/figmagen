@@ -1,0 +1,181 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > GetStylesKt</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.stuart.figmagen.internal</a>
+</div>
+
+<h1>Coverage Summary for Class: GetStylesKt (com.stuart.figmagen.internal)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+<th class="coverageStat 
+">
+  Instruction, %
+</th>
+</tr>
+<tr>
+  <td class="name">GetStylesKt</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (4/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    78.6%
+  </span>
+  <span class="absValue">
+    (11/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    68.8%
+  </span>
+  <span class="absValue">
+    (66/96)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">GetStylesKt$getStyles$1</td>
+    <td class="coverageStat"/>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (4/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    78.6%
+  </span>
+  <span class="absValue">
+    (11/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    68.8%
+  </span>
+  <span class="absValue">
+    (66/96)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.stuart.figmagen.internal
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import okhttp3.Request
+<i class="no-highlight">4</i>&nbsp;
+<i class="no-highlight">5</i>&nbsp;internal suspend fun getStyles(fileKey: String, token: String): List&lt;FigmaApi.Style&gt; {
+<b class="fc"><i class="no-highlight">6</i>&nbsp;    val request: Request =</b>
+<b class="fc"><i class="no-highlight">7</i>&nbsp;        baseRequest(token)</b>
+<b class="fc"><i class="no-highlight">8</i>&nbsp;            .url(baseUrl.newBuilder().addPathSegment(fileKey).addPathSegment(&quot;styles&quot;).build())</b>
+<b class="fc"><i class="no-highlight">9</i>&nbsp;            .build()</b>
+<i class="no-highlight">10</i>&nbsp;
+<b class="fc"><i class="no-highlight">11</i>&nbsp;    val response = client.newCall(request).await()</b>
+<i class="no-highlight">12</i>&nbsp;
+<b class="fc"><i class="no-highlight">13</i>&nbsp;    val content: String =</b>
+<b class="pc"><i class="no-highlight">14</i>&nbsp;        checkNotNull(response.body?.string()) {</b>
+<b class="nc"><i class="no-highlight">15</i>&nbsp;            &quot;The request body for getting the Figma styles must not be null, check the file provided&quot;</b>
+<i class="no-highlight">16</i>&nbsp;        }
+<i class="no-highlight">17</i>&nbsp;
+<b class="pc"><i class="no-highlight">18</i>&nbsp;    return if (response.code == 200) {</b>
+<b class="fc"><i class="no-highlight">19</i>&nbsp;        val figmaStyleWrapper: FigmaApi.StyleWrapper =</b>
+<b class="pc"><i class="no-highlight">20</i>&nbsp;            checkNotNull(styleWrapperJsonAdapter.fromJson(content)) {</b>
+<b class="nc"><i class="no-highlight">21</i>&nbsp;                &quot;There were an issue parsing the content to `FigmaApi.StyleWrapper`&quot;</b>
+<i class="no-highlight">22</i>&nbsp;            }
+<b class="fc"><i class="no-highlight">23</i>&nbsp;        figmaStyleWrapper.meta.styles</b>
+<b class="nc"><i class="no-highlight">24</i>&nbsp;    } else error(&quot;There is an error: Status code: ${response.code}, body: $content&quot;)</b>
+<i class="no-highlight">25</i>&nbsp;}
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-07-07 12:15</div>
+</div>
+</body>
+</html>

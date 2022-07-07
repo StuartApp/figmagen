@@ -1,0 +1,497 @@
+{"version":"3","listProblem":[{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Cannot access class 'org.gradle.accessors.dm.LibrariesForLibs'. Check your module classpath for missing or conflicting dependencies",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "build.gradle.kts",
+      "language": "kotlin",
+      "line": 3,
+      "offset": 19,
+      "length": 4,
+      "code": {
+        "startLine": 1,
+        "length": 4,
+        "offset": 51,
+        "surroundingCode": "buildscript {\n    dependencies {\n        classpath(libs.kotlin.kotlinGradlePlugin)\n    }\n}"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "figmagen",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "3f3cd3aa269aecfe3f5a425e0328894f0c5965c36483a40eb20a14ecf8d7f344"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference. None of the following candidates is applicable because of receiver type mismatch: public val Class.kotlin: KClass defined in kotlin.jvm",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "build.gradle.kts",
+      "language": "kotlin",
+      "line": 3,
+      "offset": 24,
+      "length": 6,
+      "code": {
+        "startLine": 1,
+        "length": 6,
+        "offset": 56,
+        "surroundingCode": "buildscript {\n    dependencies {\n        classpath(libs.kotlin.kotlinGradlePlugin)\n    }\n}"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "figmagen",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "f0de82323d72219e408a596fb5a11310fd830fd0a772431c84ca5751ed0c71f8"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "'val Project.libs: LibrariesForLibs' can't be called in this context by implicit receiver. Use the explicit one if necessary",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "build.gradle.kts",
+      "language": "kotlin",
+      "line": 8,
+      "offset": 11,
+      "length": 4,
+      "code": {
+        "startLine": 6,
+        "length": 4,
+        "offset": 21,
+        "surroundingCode": "\nplugins {\n    alias(libs.plugins.hubdle)\n}\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "figmagen",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "82739cd5fef2c5cc4bcdb62edfe240e052f21b1398f3b652e528d9e462db8f7a"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Cannot access class 'org.gradle.accessors.dm.LibrariesForLibs'. Check your module classpath for missing or conflicting dependencies",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "build.gradle.kts",
+      "language": "kotlin",
+      "line": 8,
+      "offset": 11,
+      "length": 4,
+      "code": {
+        "startLine": 6,
+        "length": 4,
+        "offset": 21,
+        "surroundingCode": "\nplugins {\n    alias(libs.plugins.hubdle)\n}\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "figmagen",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "435099bb7f8ec282634a51795db7ef0669b1b0b4e7dcbe4a5623427ca945c866"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "'val Project.libs: LibrariesForLibs' can't be called in this context by implicit receiver. Use the explicit one if necessary",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "figmagen-core/build.gradle.kts",
+      "language": "kotlin",
+      "line": 2,
+      "offset": 11,
+      "length": 4,
+      "code": {
+        "startLine": 1,
+        "length": 4,
+        "offset": 20,
+        "surroundingCode": "plugins {\n    alias(libs.plugins.hubdle)\n}\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "figmagen.figmagen-core",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "756caf42778100ad62610f9b5e921af3002d9b0216a0e55f3edb63cf9e8ef9a5"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Cannot access class 'org.gradle.accessors.dm.LibrariesForLibs'. Check your module classpath for missing or conflicting dependencies",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "figmagen-core/build.gradle.kts",
+      "language": "kotlin",
+      "line": 2,
+      "offset": 11,
+      "length": 4,
+      "code": {
+        "startLine": 1,
+        "length": 4,
+        "offset": 20,
+        "surroundingCode": "plugins {\n    alias(libs.plugins.hubdle)\n}\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "figmagen.figmagen-core",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "dc807501516b3fb4a9b694b47ec75afa43bd87efb6a93a8909d7eb353597ff70"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Function invocation 'plugins(...)' expected",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "figmagen-core/build.gradle.kts",
+      "language": "kotlin",
+      "line": 2,
+      "offset": 16,
+      "length": 7,
+      "code": {
+        "startLine": 1,
+        "length": 7,
+        "offset": 25,
+        "surroundingCode": "plugins {\n    alias(libs.plugins.hubdle)\n}\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "figmagen.figmagen-core",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "c97d58d8daca358a8269e0862a4b6e3836a3c52d9fb386cafb50651781cbfe4c"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference. None of the following candidates is applicable because of receiver type mismatch: public fun Project.plugins(block: PluginDependenciesSpec.() -> Unit): Nothing defined in org.gradle.kotlin.dsl",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "figmagen-core/build.gradle.kts",
+      "language": "kotlin",
+      "line": 2,
+      "offset": 16,
+      "length": 7,
+      "code": {
+        "startLine": 1,
+        "length": 7,
+        "offset": 25,
+        "surroundingCode": "plugins {\n    alias(libs.plugins.hubdle)\n}\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "figmagen.figmagen-core",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "86b7f5b9d7a5773f91241aef21699d8878caa7f6cc50e8a0cc3786cf89e976f2"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "'val Project.libs: LibrariesForLibs' can't be called in this context by implicit receiver. Use the explicit one if necessary",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "figmagen-test/build.gradle.kts",
+      "language": "kotlin",
+      "line": 2,
+      "offset": 11,
+      "length": 4,
+      "code": {
+        "startLine": 1,
+        "length": 4,
+        "offset": 20,
+        "surroundingCode": "plugins {\n    alias(libs.plugins.hubdle)\n}\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "figmagen.figmagen-test",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "43c4f75f97b19b0a4325f77df3efef25c5a1517cff7b7849768fc7db78859f03"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Cannot access class 'org.gradle.accessors.dm.LibrariesForLibs'. Check your module classpath for missing or conflicting dependencies",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "figmagen-test/build.gradle.kts",
+      "language": "kotlin",
+      "line": 2,
+      "offset": 11,
+      "length": 4,
+      "code": {
+        "startLine": 1,
+        "length": 4,
+        "offset": 20,
+        "surroundingCode": "plugins {\n    alias(libs.plugins.hubdle)\n}\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "figmagen.figmagen-test",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "88a3f55305434eef83b32ba0b099b20dede5d04823f97234ac8c600f01fc9da3"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Function invocation 'plugins(...)' expected",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "figmagen-test/build.gradle.kts",
+      "language": "kotlin",
+      "line": 2,
+      "offset": 16,
+      "length": 7,
+      "code": {
+        "startLine": 1,
+        "length": 7,
+        "offset": 25,
+        "surroundingCode": "plugins {\n    alias(libs.plugins.hubdle)\n}\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "figmagen.figmagen-test",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "34021cb21e77038aa66ca4be8b05551c802e64283bc3b2cddbace908921ec041"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference. None of the following candidates is applicable because of receiver type mismatch: public fun Project.plugins(block: PluginDependenciesSpec.() -> Unit): Nothing defined in org.gradle.kotlin.dsl",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "figmagen-test/build.gradle.kts",
+      "language": "kotlin",
+      "line": 2,
+      "offset": 16,
+      "length": 7,
+      "code": {
+        "startLine": 1,
+        "length": 7,
+        "offset": 25,
+        "surroundingCode": "plugins {\n    alias(libs.plugins.hubdle)\n}\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "figmagen.figmagen-test",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "e75dbdd3ff84fc084537f035e319cefc9b66a3188c1af3b8e673c0498043f0f7"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "'val Project.libs: LibrariesForLibs' can't be called in this context by implicit receiver. Use the explicit one if necessary",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "exts/figmagen-kotlin-compose-ext/build.gradle.kts",
+      "language": "kotlin",
+      "line": 2,
+      "offset": 11,
+      "length": 4,
+      "code": {
+        "startLine": 1,
+        "length": 4,
+        "offset": 20,
+        "surroundingCode": "plugins {\n    alias(libs.plugins.hubdle)\n}\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "figmagen.exts.figmagen-kotlin-compose-ext",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "33faca458ae314f7743161f749bd23b7d765f568ea250a027fd86bb6c64a7a24"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Cannot access class 'org.gradle.accessors.dm.LibrariesForLibs'. Check your module classpath for missing or conflicting dependencies",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "exts/figmagen-kotlin-compose-ext/build.gradle.kts",
+      "language": "kotlin",
+      "line": 2,
+      "offset": 11,
+      "length": 4,
+      "code": {
+        "startLine": 1,
+        "length": 4,
+        "offset": 20,
+        "surroundingCode": "plugins {\n    alias(libs.plugins.hubdle)\n}\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "figmagen.exts.figmagen-kotlin-compose-ext",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "11381fa96b0b0e99e18f418f9a8127b2538c74476e4399486d7abbc15b47aec1"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Function invocation 'plugins(...)' expected",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "exts/figmagen-kotlin-compose-ext/build.gradle.kts",
+      "language": "kotlin",
+      "line": 2,
+      "offset": 16,
+      "length": 7,
+      "code": {
+        "startLine": 1,
+        "length": 7,
+        "offset": 25,
+        "surroundingCode": "plugins {\n    alias(libs.plugins.hubdle)\n}\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "figmagen.exts.figmagen-kotlin-compose-ext",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "b76651d1d212327a3a247240fbd725a8571e71f85a91f940d359e80d9ebbb2b3"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference. None of the following candidates is applicable because of receiver type mismatch: public fun Project.plugins(block: PluginDependenciesSpec.() -> Unit): Nothing defined in org.gradle.kotlin.dsl",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "exts/figmagen-kotlin-compose-ext/build.gradle.kts",
+      "language": "kotlin",
+      "line": 2,
+      "offset": 16,
+      "length": 7,
+      "code": {
+        "startLine": 1,
+        "length": 7,
+        "offset": 25,
+        "surroundingCode": "plugins {\n    alias(libs.plugins.hubdle)\n}\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "figmagen.exts.figmagen-kotlin-compose-ext",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "42e5dff0aabe5f9b8869cea112787e749a6c5ac19fd0d6e2725f413d0df00108"
+}]}

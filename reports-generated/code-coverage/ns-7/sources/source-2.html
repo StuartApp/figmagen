@@ -1,0 +1,148 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > FakeGeneratorKt</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/highlight-idea.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.stuart.figmagen.test.fakes</a>
+</div>
+
+<h1>Coverage Summary for Class: FakeGeneratorKt (com.stuart.figmagen.test.fakes)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+<th class="coverageStat 
+">
+  Instruction, %
+</th>
+</tr>
+<tr>
+  <td class="name">FakeGeneratorKt</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    83.3%
+  </span>
+  <span class="absValue">
+    (5/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (8/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    95%
+  </span>
+  <span class="absValue">
+    (38/40)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.stuart.figmagen.test.fakes
+<i class="no-highlight">2</i>&nbsp;
+<i class="no-highlight">3</i>&nbsp;import com.stuart.figmagen.models.Color
+<i class="no-highlight">4</i>&nbsp;import com.stuart.figmagen.models.ColorFile
+<i class="no-highlight">5</i>&nbsp;import com.stuart.figmagen.models.parentDirectories as originalParentDirectories
+<i class="no-highlight">6</i>&nbsp;
+<i class="no-highlight">7</i>&nbsp;public fun ColorFile.colorFileDirectory(name: String): ColorFile.Directory {
+<b class="fc"><i class="no-highlight">8</i>&nbsp;    val currentDirectory =</b>
+<b class="fc"><i class="no-highlight">9</i>&nbsp;        when (val currentColorFile = this) {</b>
+<b class="pc"><i class="no-highlight">10</i>&nbsp;            is ColorFile.Color,</b>
+<b class="fc"><i class="no-highlight">11</i>&nbsp;            is ColorFile.Directory -&gt; currentColorFile.name</b>
+<b class="fc"><i class="no-highlight">12</i>&nbsp;            is ColorFile.Root -&gt; null</b>
+<i class="no-highlight">13</i>&nbsp;        }
+<b class="fc"><i class="no-highlight">14</i>&nbsp;    val parentDirectories = originalParentDirectories + listOfNotNull(currentDirectory)</b>
+<b class="fc"><i class="no-highlight">15</i>&nbsp;    return ColorFile.Directory(name = name, parentDirectories = parentDirectories)</b>
+<i class="no-highlight">16</i>&nbsp;}
+<i class="no-highlight">17</i>&nbsp;
+<i class="no-highlight">18</i>&nbsp;@Suppress(&quot;unused&quot;)
+<b class="fc"><i class="no-highlight">19</i>&nbsp;public fun ColorFile.colorFileColor(color: Color): ColorFile.Color = ColorFile.Color(color = color)</b>
+</div>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+        var codeBlock = document.getElementById('sourceCode');
+
+        if (codeBlock) {
+            hljs.highlightBlock(codeBlock);
+        }
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2022-07-07 12:15</div>
+</div>
+</body>
+</html>
