@@ -1,0 +1,1 @@
+sourceset_dependencies = '{":figmagen-core:dokkaHtmlPartial/main":[],":exts:figmagen-kotlin-compose-ext:dokkaHtmlPartial/main":[],":figmagen-test:dokkaHtmlPartial/main":[]}'

@@ -1,0 +1,12 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+
+module:figmagen-core
+com.stuart.figmagen
+com.stuart.figmagen.models
+com.stuart.figmagen.tasks
+com.stuart.figmagen.tree
+module:figmagen-test
+com.stuart.figmagen.test.fakes
+module:figmagen-kotlin-compose-ext
+com.stuart.figmagen.kotlin.compose.extensions
