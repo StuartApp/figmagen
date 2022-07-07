@@ -1,16 +1,20 @@
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+pluginManagement {
+    val hubdleVersion: String =
+        file("$rootDir/gradle/libs.versions.toml")
+            .readLines()
+            .first { it.contains("hubdle") }
+            .split("\"")[1]
 
-dependencyResolutionManagement {
     repositories {
+        gradlePluginPortal()
         mavenCentral()
+    }
+
+    plugins {
+        id("com.javiersc.hubdle.settings") version hubdleVersion
     }
 }
 
-include(
-    ":exts:figmagen-kotlin-compose-ext",
-)
-
-include(
-    ":figmagen-core",
-    ":figmagen-test",
-)
+plugins {
+    id("com.javiersc.hubdle.settings")
+}

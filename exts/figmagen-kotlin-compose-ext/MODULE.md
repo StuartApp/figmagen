@@ -1,9 +1,9 @@
 # Module figmagen-kotlin-compose-ext
 
-## [KotlinComposeColorsTask](src/main/kotlin/com/stuart/figmagen/kotlin/compose/extensions/KotlinComposeColorsTask.kt)
+## [KotlinComposeColorsTask](/main/kotlin/com/stuart/figmagen/kotlin/compose/extensions/KotlinComposeColorsTask.kt)
 
 The Kotlin Compose task generates a file with all the necessary info, a sample of this can be seen
-[here](src/test/resources/Colors.expected.kotlin)
+[here](test/resources/MockColors.expected.kotlin)
 
 It needs 4 arguments:
 

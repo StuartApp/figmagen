@@ -1,7 +1,22 @@
-plugins {
-    alias(libs.plugins.semver)
+buildscript {
+    dependencies {
+        classpath(libs.kotlin.kotlinGradlePlugin)
+    }
 }
 
-allprojects {
-    group = "com.stuart.figmagen"
+plugins {
+    alias(libs.plugins.hubdle)
+}
+
+hubdle {
+    config {
+        analysis()
+        binaryCompatibilityValidator()
+        coverage()
+        documentation {
+            changelog()
+            site()
+        }
+        nexus()
+    }
 }

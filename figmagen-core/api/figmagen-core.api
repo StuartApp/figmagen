@@ -1,0 +1,193 @@
+public abstract class com/stuart/figmagen/Figmagen {
+	public final fun addTask (Lcom/stuart/figmagen/Task;)V
+	public final fun generate (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun removeTask (Lcom/stuart/figmagen/Task;)V
+	public final fun removeTask (Lkotlin/jvm/functions/Function1;)V
+}
+
+public final class com/stuart/figmagen/FigmagenKt {
+	public static final fun Figmagen (Ljava/lang/String;)Lcom/stuart/figmagen/Figmagen;
+	public static synthetic fun Figmagen$default (Ljava/lang/String;ILjava/lang/Object;)Lcom/stuart/figmagen/Figmagen;
+}
+
+public abstract class com/stuart/figmagen/Task {
+	public field figmaToken Ljava/lang/String;
+	public fun <init> ()V
+	public final fun getFigmaToken ()Ljava/lang/String;
+	public abstract fun run (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun setFigmaToken (Ljava/lang/String;)V
+}
+
+public final class com/stuart/figmagen/models/Color {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lcom/stuart/figmagen/models/Color$RGBA;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Lcom/stuart/figmagen/models/Color$RGBA;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lcom/stuart/figmagen/models/Color$RGBA;)Lcom/stuart/figmagen/models/Color;
+	public static synthetic fun copy$default (Lcom/stuart/figmagen/models/Color;Ljava/lang/String;Ljava/lang/String;Lcom/stuart/figmagen/models/Color$RGBA;ILjava/lang/Object;)Lcom/stuart/figmagen/models/Color;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDirectories ()Ljava/util/List;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getNameAsColorFile ()Lcom/stuart/figmagen/models/ColorFile$Color;
+	public final fun getPath ()Ljava/lang/String;
+	public final fun getPathAsList ()Ljava/util/List;
+	public final fun getRgba ()Lcom/stuart/figmagen/models/Color$RGBA;
+	public final fun getTheme ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/stuart/figmagen/models/Color$RGBA {
+	public fun <init> (FFFF)V
+	public final fun component1 ()F
+	public final fun component2 ()F
+	public final fun component3 ()F
+	public final fun component4 ()F
+	public final fun copy (FFFF)Lcom/stuart/figmagen/models/Color$RGBA;
+	public static synthetic fun copy$default (Lcom/stuart/figmagen/models/Color$RGBA;FFFFILjava/lang/Object;)Lcom/stuart/figmagen/models/Color$RGBA;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAlpha ()F
+	public final fun getBlue ()F
+	public final fun getGreen ()F
+	public final fun getRed ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract class com/stuart/figmagen/models/ColorFile {
+	public final fun asString ()Ljava/lang/String;
+	public abstract fun getName ()Ljava/lang/String;
+	public final fun isColor ()Z
+	public final fun isDirectory ()Z
+	public final fun isRoot ()Z
+}
+
+public final class com/stuart/figmagen/models/ColorFile$Color : com/stuart/figmagen/models/ColorFile {
+	public fun <init> (Lcom/stuart/figmagen/models/Color;)V
+	public final fun component1 ()Lcom/stuart/figmagen/models/Color;
+	public final fun copy (Lcom/stuart/figmagen/models/Color;)Lcom/stuart/figmagen/models/ColorFile$Color;
+	public static synthetic fun copy$default (Lcom/stuart/figmagen/models/ColorFile$Color;Lcom/stuart/figmagen/models/Color;ILjava/lang/Object;)Lcom/stuart/figmagen/models/ColorFile$Color;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColor ()Lcom/stuart/figmagen/models/Color;
+	public fun getName ()Ljava/lang/String;
+	public final fun getParentDirectories ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/stuart/figmagen/models/ColorFile$Directory : com/stuart/figmagen/models/ColorFile {
+	public fun <init> (Ljava/lang/String;Ljava/util/List;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/util/List;)Lcom/stuart/figmagen/models/ColorFile$Directory;
+	public static synthetic fun copy$default (Lcom/stuart/figmagen/models/ColorFile$Directory;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lcom/stuart/figmagen/models/ColorFile$Directory;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getName ()Ljava/lang/String;
+	public final fun getParentDirectories ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/stuart/figmagen/models/ColorFile$Root : com/stuart/figmagen/models/ColorFile {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun copy (Ljava/lang/String;Ljava/util/List;)Lcom/stuart/figmagen/models/ColorFile$Root;
+	public static synthetic fun copy$default (Lcom/stuart/figmagen/models/ColorFile$Root;Ljava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lcom/stuart/figmagen/models/ColorFile$Root;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getName ()Ljava/lang/String;
+	public final fun getParentDirectories ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/stuart/figmagen/models/ColorFileKt {
+	public static final fun getParentDirectories (Lcom/stuart/figmagen/models/ColorFile;)Ljava/util/List;
+	public static final fun toCamelCase (Lcom/stuart/figmagen/models/ColorFile;)Ljava/lang/String;
+}
+
+public final class com/stuart/figmagen/models/ColorKt {
+	public static final fun toTree (Ljava/util/List;)Lcom/stuart/figmagen/tree/TreeNode;
+}
+
+public final class com/stuart/figmagen/models/FileKey {
+	public static final synthetic fun box-impl (Ljava/lang/String;)Lcom/stuart/figmagen/models/FileKey;
+	public static fun constructor-impl (Ljava/lang/String;)Ljava/lang/String;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/lang/String;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/lang/String;Ljava/lang/String;)Z
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/lang/String;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/lang/String;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/lang/String;
+}
+
+public final class com/stuart/figmagen/models/TaskFile {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lcom/stuart/figmagen/models/TaskFile;
+	public static synthetic fun copy$default (Lcom/stuart/figmagen/models/TaskFile;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/stuart/figmagen/models/TaskFile;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getContent ()Ljava/lang/String;
+	public final fun getPath ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract class com/stuart/figmagen/tasks/ColorsTask : com/stuart/figmagen/Task {
+	public fun <init> ()V
+	public final fun checkThemesCorrectness (Ljava/util/List;)V
+	public fun getColors (Lcom/stuart/figmagen/tasks/ThemeFile;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun getColors (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getThemeFiles ()Ljava/util/List;
+	public abstract fun run (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/stuart/figmagen/tasks/ThemeFile {
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2-wRMsxSI ()Ljava/lang/String;
+	public final fun copy-S6aZbL4 (Ljava/lang/String;Ljava/lang/String;)Lcom/stuart/figmagen/tasks/ThemeFile;
+	public static synthetic fun copy-S6aZbL4$default (Lcom/stuart/figmagen/tasks/ThemeFile;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/stuart/figmagen/tasks/ThemeFile;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFileKey-wRMsxSI ()Ljava/lang/String;
+	public final fun getTheme ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/stuart/figmagen/tree/TreeNode : java/lang/Iterable, kotlin/jvm/internal/markers/KMappedMarker {
+	public fun <init> (Ljava/lang/Object;)V
+	public final fun addChild (Ljava/lang/Object;)V
+	public final fun child (Ljava/lang/Object;)Lcom/stuart/figmagen/tree/TreeNode;
+	public final fun clear ()V
+	public final fun component1 ()Ljava/lang/Object;
+	public final fun copy (Ljava/lang/Object;Ljava/util/List;)Lcom/stuart/figmagen/tree/TreeNode;
+	public static synthetic fun copy$default (Lcom/stuart/figmagen/tree/TreeNode;Ljava/lang/Object;Ljava/util/List;ILjava/lang/Object;)Lcom/stuart/figmagen/tree/TreeNode;
+	public final fun depth ()I
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getChildren ()Ljava/util/List;
+	public final fun getParent ()Lcom/stuart/figmagen/tree/TreeNode;
+	public final fun getRoot ()Lcom/stuart/figmagen/tree/TreeNode;
+	public final fun getValue ()Ljava/lang/Object;
+	public fun hashCode ()I
+	public final fun height ()I
+	public fun iterator ()Ljava/util/Iterator;
+	public final fun nodeCount ()I
+	public final fun prettyString (Lkotlin/jvm/functions/Function1;)Ljava/lang/String;
+	public static synthetic fun prettyString$default (Lcom/stuart/figmagen/tree/TreeNode;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ljava/lang/String;
+	public final fun removeChild (Lcom/stuart/figmagen/tree/TreeNode;)Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/stuart/figmagen/tree/TreeNodeDslKt {
+	public static final fun node (Lcom/stuart/figmagen/tree/TreeNode;Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Lcom/stuart/figmagen/tree/TreeNode;
+	public static synthetic fun node$default (Lcom/stuart/figmagen/tree/TreeNode;Ljava/lang/Object;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/stuart/figmagen/tree/TreeNode;
+	public static final fun tree (Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)Lcom/stuart/figmagen/tree/TreeNode;
+	public static synthetic fun tree$default (Ljava/lang/Object;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/stuart/figmagen/tree/TreeNode;
+}
+

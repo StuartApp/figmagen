@@ -1,12 +1,20 @@
 plugins {
-    alias(libs.plugins.kotlin.jvm)
-    publish
+    alias(libs.plugins.hubdle)
 }
 
-kotlin {
-    explicitApi()
-}
+hubdle {
+    config {
+        explicitApi()
+        publishing()
+    }
 
-dependencies {
-    api(projects.figmagenCore)
+    kotlin {
+        jvm {
+            main {
+                dependencies {
+                    api(projects.figmagenCore)
+                }
+            }
+        }
+    }
 }

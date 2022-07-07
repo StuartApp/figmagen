@@ -1,0 +1,18 @@
+public final class com/stuart/figmagen/test/fakes/FakeColorFileTreeDslKt {
+	public static final fun fakeColor (Lcom/stuart/figmagen/tree/TreeNode;Lcom/stuart/figmagen/models/Color;)Lcom/stuart/figmagen/tree/TreeNode;
+	public static final fun fakeColorFileTree (Lkotlin/jvm/functions/Function1;)Lcom/stuart/figmagen/tree/TreeNode;
+	public static synthetic fun fakeColorFileTree$default (Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/stuart/figmagen/tree/TreeNode;
+	public static final fun fakeDirectory (Lcom/stuart/figmagen/tree/TreeNode;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Lcom/stuart/figmagen/tree/TreeNode;
+	public static synthetic fun fakeDirectory$default (Lcom/stuart/figmagen/tree/TreeNode;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/stuart/figmagen/tree/TreeNode;
+}
+
+public final class com/stuart/figmagen/test/fakes/FakeGeneratorKt {
+	public static final fun colorFileColor (Lcom/stuart/figmagen/models/ColorFile;Lcom/stuart/figmagen/models/Color;)Lcom/stuart/figmagen/models/ColorFile$Color;
+	public static final fun colorFileDirectory (Lcom/stuart/figmagen/models/ColorFile;Ljava/lang/String;)Lcom/stuart/figmagen/models/ColorFile$Directory;
+}
+
+public final class com/stuart/figmagen/test/fakes/UtilsKt {
+	public static final fun createTemporalDir ()Ljava/io/File;
+	public static final fun getResource (Ljava/lang/Object;Ljava/lang/String;)Ljava/io/File;
+}
+

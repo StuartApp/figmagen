@@ -1,0 +1,14 @@
+public class com/stuart/figmagen/kotlin/compose/extensions/KotlinComposeColorsTask : com/stuart/figmagen/tasks/ColorsTask {
+	public fun <init> (Ljava/lang/String;ZLjava/lang/String;[Lcom/stuart/figmagen/tasks/ThemeFile;)V
+	public final fun contentColorFor (Lkotlin/jvm/functions/Function2;)V
+	public fun getThemeFiles ()Ljava/util/List;
+	public fun run (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class com/stuart/figmagen/kotlin/compose/extensions/MockKotlinComposeColorsTask : com/stuart/figmagen/kotlin/compose/extensions/KotlinComposeColorsTask {
+	public fun <init> (Ljava/lang/String;ZLjava/lang/String;Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/lang/String;ZLjava/lang/String;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getColors (Lcom/stuart/figmagen/tasks/ThemeFile;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public fun getThemeFiles ()Ljava/util/List;
+}
+

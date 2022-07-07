@@ -1,11 +1,26 @@
+[![MavenCentral](https://img.shields.io/maven-central/v/com.stuart.figmagen/figmagen-core?label=MavenCentral)](https://repo1.maven.org/maven2/com/stuart/figmagen/figmagen-core/)
+[![Snapshot](https://img.shields.io/nexus/s/com.stuart.figmagen/figmagen-core?server=https%3A%2F%2Fs01.oss.sonatype.org%2F&label=Snapshot)](https://s01.oss.sonatype.org/content/repositories/snapshots/com/stuart/figmagen/figmagen-core/)
+[![Build](https://img.shields.io/github/workflow/status/StuartApp/figmagen/build-kotlin?label=Build&logo=GitHub)](https://github.com/StuartApp/figmagen/tree/main)
+
 # Figmagen
 
 Generate tokens from Figma easily for multiple languages or frameworks
 
+## Download
+
+```kotlin
+dependencies {
+    implementation("com.stuart.figmagen:figmagen-core:$version")
+    
+    // Kotlin Compose extensions
+    implementation("com.stuart.figmagen:figmagen-kotlin-compose-ext:$version")
+}
+```
+
 ## Usage
 
 1. Create a new instance
-   of [`Figmagen`](figmagen-core/src/main/kotlin/com/stuart/figmagen/Figmagen.kt):
+   of [`Figmagen`](figmagen-core/main/kotlin/com/stuart/figmagen/Figmagen.kt):
 
 ```kotlin
 // figmaToken is optional as it can be provided
@@ -44,7 +59,7 @@ extends `ColorsTask` and it has default bindings to generate Kotlin classes, pro
 There are default implementations for all tasks, but if one is missing, they can be extended easily
 to adapt your needs. Feels free to ask for more tasks or contribute them :)
 
-### [ColorsTask](figmagen-core/src/main/kotlin/com/stuart/figmagen/tasks/ColorsTask.kt)
+### [ColorsTask](figmagen-core/main/kotlin/com/stuart/figmagen/tasks/ColorsTask.kt)
 
 After providing a list of theme files, it has a `getColors` function with return a list of all
 colors of all themes provided.
@@ -60,4 +75,4 @@ colors of all themes provided.
 
 ### ColorTasks
 
-- [Kotlin Compose Colors task](exts/figmagen-kotlin-compose-ext/src/main/kotlin/com/stuart/figmagen/kotlin/compose/extensions/KotlinComposeColorsTask.kt)
+- [Kotlin Compose Colors task](exts/figmagen-kotlin-compose-ext/main/kotlin/com/stuart/figmagen/kotlin/compose/extensions/KotlinComposeColorsTask.kt)

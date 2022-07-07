@@ -1,0 +1,244 @@
+name: build-kotlin
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**.md'
+
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - '**.md'
+
+env:
+  FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  build:
+    if: (!contains(github.actor, '[bot]'))
+
+    runs-on: 'ubuntu-latest'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.0.2
+        with:
+          fetch-depth: 0
+
+      - name: Set up Java
+        uses: actions/setup-java@v3.4.0
+        with:
+          distribution: 'zulu'
+          java-version: 11
+
+      - name: Build
+        uses: gradle/gradle-build-action@v2.2.1
+        with:
+          arguments: build
+
+      - name: Upload all tests report
+        uses: actions/upload-artifact@v3.1.0
+        with:
+          name: 'report-all-tests'
+          path: 'build/reports/allTests'
+
+      - name: Upload code coverage report
+        uses: actions/upload-artifact@v3.1.0
+        with:
+          name: 'report-code-coverage'
+          path: 'build/reports/kover'
+
+      - name: Upload Code Scanning code analysis report
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: 'build/reports/detekt/detekt.sarif'
+
+      - name: Upload code analysis report
+        uses: actions/upload-artifact@v3.1.0
+        with:
+          name: 'report-code-analysis'
+          path: 'build/reports/detekt'
+
+  code-quality-check:
+    if: (!contains(github.actor, '[bot]'))
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.0.2
+        with:
+          fetch-depth: 0
+
+      - name: Set up Java
+        uses: actions/setup-java@v3.4.0
+        with:
+          distribution: 'zulu'
+          java-version: 11
+
+      - name: Code quality
+        uses: JetBrains/qodana-action@v5.1.0
+
+      - name: Upload code quality report
+        uses: actions/upload-artifact@v3.1.0
+        with:
+          name: 'report-code-quality'
+          path: ${{ runner.temp }}/qodana/results/report
+
+  deploy-reports:
+    if: (!contains(github.actor, '[bot]'))
+    needs: [ build, code-quality-check ]
+
+    runs-on: 'ubuntu-latest'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.0.2
+        with:
+          fetch-depth: 0
+
+      - name: Set up Java
+        uses: actions/setup-java@v3.4.0
+        with:
+          distribution: 'zulu'
+          java-version: 11
+
+      - name: Download all tests reports
+        uses: actions/download-artifact@v3
+        with:
+          name: 'report-all-tests'
+          path: 'build/reports-generated/all-tests'
+
+      - name: Download code analysis reports
+        uses: actions/download-artifact@v3
+        with:
+          name: 'report-code-analysis'
+          path: 'build/reports-generated/code-analysis/'
+
+      - name: Rename code analysis report
+        run: |
+          mkdir -p build/reports/detekt
+          cp build/reports-generated/code-analysis/detekt.xml build/reports/detekt/detekt.xml
+          mv build/reports-generated/code-analysis/detekt.html build/reports-generated/code-analysis/index.html
+
+      - name: Download code coverage reports
+        uses: actions/download-artifact@v3
+        with:
+          name: 'report-code-coverage'
+          path: '${{ runner.temp }}/reports/code-coverage'
+
+      - name: Rename code coverage report
+        run: |
+          mv ${{ runner.temp }}/reports/code-coverage/html build/reports-generated/code-coverage
+          mkdir -p build/reports/kover
+          mv ${{ runner.temp }}/reports/code-coverage/report.xml build/reports/kover/report.xml
+
+      - name: Download code quality reports
+        uses: actions/download-artifact@v3
+        with:
+          name: 'report-code-quality'
+          path: 'build/reports-generated/code-quality'
+
+      - name: printSemver
+        uses: gradle/gradle-build-action@v2.2.1
+        with:
+          arguments: printSemver --rerun-tasks
+
+      - name: Set version to an environment variable
+        if: (github.event_name == 'push') || (github.event_name == 'workflow_dispatch')
+        run: echo "lib_version=$(head -n 1 build/semver/version.txt)" >> $GITHUB_ENV
+
+      - name: Deploy reports to GitHub Pages
+        if: (github.event_name == 'push') || (github.event_name == 'workflow_dispatch')
+        uses: JamesIves/github-pages-deploy-action@v4.3.4
+        with:
+          branch: 'gh-pages'
+          folder: 'build/reports-generated/'
+          clean: true
+          single-commit: false
+          commit-message: 'Deploy ${{ env.lib_version }} reports'
+          target-folder: 'reports-generated/'
+          clean-exclude: |
+            !reports-generated/**
+
+  publish-snapshot:
+    if: |
+      !cancelled() && !failure() &&
+      (!contains(github.actor, '[bot]') && ((github.event_name == 'push') || (github.event_name == 'workflow_dispatch')))
+    needs: [ build, code-quality-check ]
+
+    runs-on: 'ubuntu-latest'
+
+    env:
+      NEXUS_USER: '${{ secrets.NEXUS_USER }}'
+      NEXUS_TOKEN: '${{ secrets.NEXUS_TOKEN }}'
+      NEXUS_STAGING_PROFILE_ID: '${{ secrets.NEXUS_STAGING_PROFILE_ID }}'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.0.2
+        with:
+          fetch-depth: 0
+
+      - name: Set up Java
+        uses: actions/setup-java@v3.4.0
+        with:
+          distribution: 'zulu'
+          java-version: 11
+
+      - name: Publish snapshot
+        uses: gradle/gradle-build-action@v2.2.1
+        with:
+          arguments: publishToSonatype -Psemver.stage=snapshot
+
+  deploy-docs:
+    if: (!contains(github.actor, '[bot]') && ((github.event_name == 'push') || (github.event_name == 'workflow_dispatch')))
+
+    needs: publish-snapshot
+
+    runs-on: 'ubuntu-latest'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.0.2
+        with:
+          fetch-depth: 0
+
+      - name: Set up Java
+        uses: actions/setup-java@v3.4.0
+        with:
+          distribution: 'zulu'
+          java-version: 11
+
+      - name: Generate docs
+        uses: gradle/gradle-build-action@v2.2.1
+        with:
+          arguments: buildSite -Psemver.stage=snapshot
+
+      - name: printSemver
+        uses: gradle/gradle-build-action@v2.2.1
+        with:
+          arguments: printSemver -Psemver.stage=snapshot --rerun-tasks
+
+      - name: Set version to an environment variable
+        run: echo "lib_version=$(head -n 1 build/semver/version.txt)" >> $GITHUB_ENV
+
+      - name: Deploy all docs to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.3.4
+        with:
+          branch: 'gh-pages'
+          folder: 'build/docs/_site'
+          single-commit: false
+          commit-message: 'Deploy ${{ env.lib_version }} all docs'
+          clean: true
+          clean-exclude: |
+            api/versions/**
+            reports-generated/**

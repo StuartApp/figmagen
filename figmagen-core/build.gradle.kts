@@ -1,25 +1,31 @@
 plugins {
-    alias(libs.plugins.kotlin.jvm)
-    publish
+    alias(libs.plugins.hubdle)
 }
 
-kotlin {
-    explicitApi()
-
-    sourceSets.all {
-        languageSettings.optIn("kotlinx.coroutines.ExperimentalCoroutinesApi")
+hubdle {
+    config {
+        explicitApi()
+        publishing()
     }
-}
 
-dependencies {
-    implementation(libs.coroutines.core)
-    implementation(libs.moshi)
-    implementation(libs.moshi.adapters)
-    implementation(libs.moshi.kotlin)
-    implementation(libs.okhttp)
-
-    testImplementation(libs.coroutines.test)
-    testImplementation(libs.kotlin.test)
-    testImplementation(libs.kotlin.test.junit)
-    testImplementation(projects.figmagenTest)
+    kotlin {
+        jvm {
+            features {
+                coroutines()
+            }
+            main {
+                dependencies {
+                    implementation(libs.moshi)
+                    implementation(libs.moshi.adapters)
+                    implementation(libs.moshi.kotlin)
+                    implementation(libs.okhttp)
+                }
+            }
+            test {
+                dependencies {
+                    implementation(projects.figmagenTest)
+                }
+            }
+        }
+    }
 }
