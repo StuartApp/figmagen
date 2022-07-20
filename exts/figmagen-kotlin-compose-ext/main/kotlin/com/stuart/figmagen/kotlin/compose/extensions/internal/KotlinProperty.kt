@@ -8,13 +8,36 @@ internal data class KotlinProperty(
     var returnType: String,
     var value: String,
     var isDelegate: Boolean = false,
+    var isGetter: Boolean = false,
     var isPrivateSet: Boolean = false,
 ) {
-    override fun toString(): String = buildString {
-        val assignmentSymbol = if (isDelegate) "by" else "="
-        appendLine("$visibility $mutability $name: $returnType $assignmentSymbol $value")
-        if (isPrivateSet) appendLine("private set".prependIndent())
-    }
+    override fun toString(): String =
+        buildString {
+                val assignment =
+                    when {
+                        isDelegate -> "by"
+                        isGetter -> "\nget() =\n".prependIndent()
+                        else -> "="
+                    }
+                val body: String =
+                    if (isGetter) {
+                        value
+                            .lines()
+                            .mapIndexed { index, line ->
+                                val indent: String = if (index == 0) "   " else "    "
+                                line.prependIndent(indent)
+                            }
+                            .joinToString("\n")
+                    } else {
+                        value
+                    }
+
+                val property = "$visibility $mutability $name: $returnType $assignment $body"
+                appendLine(property)
+                if (isPrivateSet) appendLine("private set".prependIndent())
+            }
+            .lines()
+            .joinToString("\n") { it.dropLastWhile(Char::isWhitespace) }
 }
 
 internal fun buildKotlinProperty(

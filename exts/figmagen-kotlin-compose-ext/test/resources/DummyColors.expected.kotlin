@@ -7,7 +7,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.takeOrElse
 
 internal val lightColors: Colors =
     Colors(
@@ -18,273 +17,182 @@ internal val lightColors: Colors =
         tertiary = lightTertiary,
     )
 
-private val lightPrimary: Colors.Primary =
-    Colors.Primary(
-        contrast = lightPrimaryContrast,
-        main = lightPrimaryMain,
-        soft = lightPrimarySoft,
-    )
+private val lightPrimary: Colors.Primary
+    get() =
+        Colors.Primary(
+            contrast = lightPrimaryContrast,
+            main = lightPrimaryMain,
+            soft = lightPrimarySoft,
+        )
 
-private val lightPrimaryContrast: Colors.Primary.Contrast =
-    Colors.Primary.Contrast(
-        high = lightPrimaryContrastHigh,
-        main = lightPrimaryContrastMain,
-    )
+private val lightPrimaryContrast: Colors.Primary.Contrast
+    get() =
+        Colors.Primary.Contrast(
+            high = lightPrimaryContrastHigh,
+            main = lightPrimaryContrastMain,
+        )
 
-private val lightPrimaryContrastHigh: Color =
-    Color(
-        red = 0.0,
-        green = 1.0,
-        blue = 0.0,
-        alpha = 1.0,
-    )
+private val lightPrimaryContrastHigh: Color
+    get() =
+        Color(
+            red = 0.0F,
+            green = 1.0F,
+            blue = 0.0F,
+            alpha = 1.0F,
+        )
 
-private val lightPrimaryContrastMain: Color =
-    Color(
-        red = 1.0,
-        green = 1.0,
-        blue = 1.0,
-        alpha = 1.0,
-    )
+private val lightPrimaryContrastMain: Color
+    get() =
+        Color(
+            red = 1.0F,
+            green = 1.0F,
+            blue = 1.0F,
+            alpha = 1.0F,
+        )
 
-private val lightPrimaryContrastHigh: Color =
-    Color(
-        red = 0.0,
-        green = 1.0,
-        blue = 0.76,
-        alpha = 1.0,
-    )
+private val lightPrimaryMain: Color
+    get() =
+        Color(
+            red = 0.0F,
+            green = 0.35686275F,
+            blue = 1.0F,
+            alpha = 1.0F,
+        )
 
-private val lightPrimaryContrastMain: Color =
-    Color(
-        red = 1.0,
-        green = 1.0,
-        blue = 1.0,
-        alpha = 1.0,
-    )
+private val lightPrimarySoft: Color
+    get() =
+        Color(
+            red = 0.8F,
+            green = 0.87058824F,
+            blue = 1.0F,
+            alpha = 1.0F,
+        )
 
-private val lightPrimaryMain: Color =
-    Color(
-        red = 0.0,
-        green = 0.35686275,
-        blue = 1.0,
-        alpha = 1.0,
-    )
+private val lightSurface: Colors.Surface
+    get() =
+        Colors.Surface(
+            contrast = lightSurfaceContrast,
+            main = lightSurfaceMain,
+            soft = lightSurfaceSoft,
+        )
 
-private val lightPrimarySoft: Color =
-    Color(
-        red = 0.8,
-        green = 0.87058824,
-        blue = 1.0,
-        alpha = 1.0,
-    )
+private val lightSurfaceContrast: Colors.Surface.Contrast
+    get() =
+        Colors.Surface.Contrast(
+            high = lightSurfaceContrastHigh,
+            main = lightSurfaceContrastMain,
+        )
 
-private val lightPrimaryMain: Color =
-    Color(
-        red = 0.15686275,
-        green = 0.43529412,
-        blue = 0.92941177,
-        alpha = 1.0,
-    )
+private val lightSurfaceContrastHigh: Color
+    get() =
+        Color(
+            red = 0.5019608F,
+            green = 0.0F,
+            blue = 0.5019608F,
+            alpha = 1.0F,
+        )
 
-private val lightPrimarySoft: Color =
-    Color(
-        red = 0.18350515,
-        green = 0.2804982,
-        blue = 0.4583185,
-        alpha = 1.0,
-    )
+private val lightSurfaceContrastMain: Color
+    get() =
+        Color(
+            red = 0.21568628F,
+            green = 0.25490198F,
+            blue = 0.31764707F,
+            alpha = 1.0F,
+        )
 
-private val lightSurface: Colors.Surface =
-    Colors.Surface(
-        contrast = lightSurfaceContrast,
-        main = lightSurfaceMain,
-        soft = lightSurfaceSoft,
-    )
+private val lightSurfaceMain: Color
+    get() =
+        Color(
+            red = 1.0F,
+            green = 1.0F,
+            blue = 1.0F,
+            alpha = 1.0F,
+        )
 
-private val lightSurfaceContrast: Colors.Surface.Contrast =
-    Colors.Surface.Contrast(
-        high = lightSurfaceContrastHigh,
-        main = lightSurfaceContrastMain,
-    )
+private val lightSurfaceSoft: Color
+    get() =
+        Color(
+            red = 0.93333334F,
+            green = 0.96862745F,
+            blue = 1.0F,
+            alpha = 1.0F,
+        )
 
-private val lightSurfaceContrastHigh: Color =
-    Color(
-        red = 0.5019608,
-        green = 0.0,
-        blue = 0.5019608,
-        alpha = 1.0,
-    )
+private val lightDisabled: Colors.Disabled
+    get() =
+        Colors.Disabled(
+            main = lightDisabledMain,
+            soft = lightDisabledSoft,
+        )
 
-private val lightSurfaceContrastMain: Color =
-    Color(
-        red = 0.21568628,
-        green = 0.25490198,
-        blue = 0.31764707,
-        alpha = 1.0,
-    )
+private val lightDisabledMain: Color
+    get() =
+        Color(
+            red = 0.5921569F,
+            green = 0.6392157F,
+            blue = 0.6862745F,
+            alpha = 1.0F,
+        )
 
-private val lightSurfaceContrastHigh: Color =
-    Color(
-        red = 0.37145114,
-        green = 0.0,
-        blue = 0.5019608,
-        alpha = 1.0,
-    )
+private val lightDisabledSoft: Color
+    get() =
+        Color(
+            red = 0.81960785F,
+            green = 0.8352941F,
+            blue = 0.85882354F,
+            alpha = 1.0F,
+        )
 
-private val lightSurfaceContrastMain: Color =
-    Color(
-        red = 0.9585108,
-        green = 0.9585108,
-        blue = 0.9585108,
-        alpha = 1.0,
-    )
+private val lightSecondary: Colors.Secondary
+    get() =
+        Colors.Secondary(
+            main = lightSecondaryMain,
+            soft = lightSecondarySoft,
+        )
 
-private val lightSurfaceMain: Color =
-    Color(
-        red = 1.0,
-        green = 1.0,
-        blue = 1.0,
-        alpha = 1.0,
-    )
+private val lightSecondaryMain: Color
+    get() =
+        Color(
+            red = 0.23137255F,
+            green = 0.80784315F,
+            blue = 0.6745098F,
+            alpha = 1.0F,
+        )
 
-private val lightSurfaceSoft: Color =
-    Color(
-        red = 0.93333334,
-        green = 0.96862745,
-        blue = 1.0,
-        alpha = 1.0,
-    )
+private val lightSecondarySoft: Color
+    get() =
+        Color(
+            red = 0.83137256F,
+            green = 0.9411765F,
+            blue = 0.92941177F,
+            alpha = 1.0F,
+        )
 
-private val lightSurfaceSoft: Color =
-    Color(
-        red = 0.21568628,
-        green = 0.24313726,
-        blue = 0.27058825,
-        alpha = 1.0,
-    )
+private val lightTertiary: Colors.Tertiary
+    get() =
+        Colors.Tertiary(
+            main = lightTertiaryMain,
+            soft = lightTertiarySoft,
+        )
 
-private val lightSurfaceMain: Color =
-    Color(
-        red = 0.15415183,
-        green = 0.15415183,
-        blue = 0.15415183,
-        alpha = 1.0,
-    )
+private val lightTertiaryMain: Color
+    get() =
+        Color(
+            red = 1.0F,
+            green = 0.7529412F,
+            blue = 0.18431373F,
+            alpha = 1.0F,
+        )
 
-private val lightDisabled: Colors.Disabled =
-    Colors.Disabled(
-        main = lightDisabledMain,
-        soft = lightDisabledSoft,
-    )
-
-private val lightDisabledMain: Color =
-    Color(
-        red = 0.5921569,
-        green = 0.6392157,
-        blue = 0.6862745,
-        alpha = 1.0,
-    )
-
-private val lightDisabledSoft: Color =
-    Color(
-        red = 0.81960785,
-        green = 0.8352941,
-        blue = 0.85882354,
-        alpha = 1.0,
-    )
-
-private val lightDisabledSoft: Color =
-    Color(
-        red = 0.4392157,
-        green = 0.4627451,
-        blue = 0.5058824,
-        alpha = 1.0,
-    )
-
-private val lightDisabledMain: Color =
-    Color(
-        red = 0.3254902,
-        green = 0.3529412,
-        blue = 0.38431373,
-        alpha = 1.0,
-    )
-
-private val lightSecondary: Colors.Secondary =
-    Colors.Secondary(
-        main = lightSecondaryMain,
-        soft = lightSecondarySoft,
-    )
-
-private val lightSecondaryMain: Color =
-    Color(
-        red = 0.23137255,
-        green = 0.80784315,
-        blue = 0.6745098,
-        alpha = 1.0,
-    )
-
-private val lightSecondarySoft: Color =
-    Color(
-        red = 0.83137256,
-        green = 0.9411765,
-        blue = 0.92941177,
-        alpha = 1.0,
-    )
-
-private val lightSecondaryMain: Color =
-    Color(
-        red = 0.23137255,
-        green = 0.80784315,
-        blue = 0.6745098,
-        alpha = 1.0,
-    )
-
-private val lightSecondarySoft: Color =
-    Color(
-        red = 0.37254903,
-        green = 0.627451,
-        blue = 0.6,
-        alpha = 1.0,
-    )
-
-private val lightTertiary: Colors.Tertiary =
-    Colors.Tertiary(
-        main = lightTertiaryMain,
-        soft = lightTertiarySoft,
-    )
-
-private val lightTertiaryMain: Color =
-    Color(
-        red = 1.0,
-        green = 0.7529412,
-        blue = 0.18431373,
-        alpha = 1.0,
-    )
-
-private val lightTertiarySoft: Color =
-    Color(
-        red = 1.0,
-        green = 0.9764706,
-        blue = 0.9137255,
-        alpha = 1.0,
-    )
-
-private val lightTertiarySoft: Color =
-    Color(
-        red = 0.5568628,
-        green = 0.4862745,
-        blue = 0.2901961,
-        alpha = 1.0,
-    )
-
-private val lightTertiaryMain: Color =
-    Color(
-        red = 1.0,
-        green = 0.7529412,
-        blue = 0.18431373,
-        alpha = 1.0,
-    )
+private val lightTertiarySoft: Color
+    get() =
+        Color(
+            red = 1.0F,
+            green = 0.9764706F,
+            blue = 0.9137255F,
+            alpha = 1.0F,
+        )
 
 internal val darkColors: Colors =
     Colors(
@@ -295,273 +203,182 @@ internal val darkColors: Colors =
         tertiary = darkTertiary,
     )
 
-private val darkPrimary: Colors.Primary =
-    Colors.Primary(
-        contrast = darkPrimaryContrast,
-        main = darkPrimaryMain,
-        soft = darkPrimarySoft,
-    )
+private val darkPrimary: Colors.Primary
+    get() =
+        Colors.Primary(
+            contrast = darkPrimaryContrast,
+            main = darkPrimaryMain,
+            soft = darkPrimarySoft,
+        )
 
-private val darkPrimaryContrast: Colors.Primary.Contrast =
-    Colors.Primary.Contrast(
-        high = darkPrimaryContrastHigh,
-        main = darkPrimaryContrastMain,
-    )
+private val darkPrimaryContrast: Colors.Primary.Contrast
+    get() =
+        Colors.Primary.Contrast(
+            high = darkPrimaryContrastHigh,
+            main = darkPrimaryContrastMain,
+        )
 
-private val darkPrimaryContrastHigh: Color =
-    Color(
-        red = 0.0,
-        green = 1.0,
-        blue = 0.0,
-        alpha = 1.0,
-    )
+private val darkPrimaryContrastHigh: Color
+    get() =
+        Color(
+            red = 0.0F,
+            green = 1.0F,
+            blue = 0.76F,
+            alpha = 1.0F,
+        )
 
-private val darkPrimaryContrastMain: Color =
-    Color(
-        red = 1.0,
-        green = 1.0,
-        blue = 1.0,
-        alpha = 1.0,
-    )
+private val darkPrimaryContrastMain: Color
+    get() =
+        Color(
+            red = 1.0F,
+            green = 1.0F,
+            blue = 1.0F,
+            alpha = 1.0F,
+        )
 
-private val darkPrimaryContrastHigh: Color =
-    Color(
-        red = 0.0,
-        green = 1.0,
-        blue = 0.76,
-        alpha = 1.0,
-    )
+private val darkPrimaryMain: Color
+    get() =
+        Color(
+            red = 0.15686275F,
+            green = 0.43529412F,
+            blue = 0.92941177F,
+            alpha = 1.0F,
+        )
 
-private val darkPrimaryContrastMain: Color =
-    Color(
-        red = 1.0,
-        green = 1.0,
-        blue = 1.0,
-        alpha = 1.0,
-    )
+private val darkPrimarySoft: Color
+    get() =
+        Color(
+            red = 0.18350515F,
+            green = 0.2804982F,
+            blue = 0.4583185F,
+            alpha = 1.0F,
+        )
 
-private val darkPrimaryMain: Color =
-    Color(
-        red = 0.0,
-        green = 0.35686275,
-        blue = 1.0,
-        alpha = 1.0,
-    )
+private val darkSurface: Colors.Surface
+    get() =
+        Colors.Surface(
+            contrast = darkSurfaceContrast,
+            soft = darkSurfaceSoft,
+            main = darkSurfaceMain,
+        )
 
-private val darkPrimarySoft: Color =
-    Color(
-        red = 0.8,
-        green = 0.87058824,
-        blue = 1.0,
-        alpha = 1.0,
-    )
+private val darkSurfaceContrast: Colors.Surface.Contrast
+    get() =
+        Colors.Surface.Contrast(
+            high = darkSurfaceContrastHigh,
+            main = darkSurfaceContrastMain,
+        )
 
-private val darkPrimaryMain: Color =
-    Color(
-        red = 0.15686275,
-        green = 0.43529412,
-        blue = 0.92941177,
-        alpha = 1.0,
-    )
+private val darkSurfaceContrastHigh: Color
+    get() =
+        Color(
+            red = 0.37145114F,
+            green = 0.0F,
+            blue = 0.5019608F,
+            alpha = 1.0F,
+        )
 
-private val darkPrimarySoft: Color =
-    Color(
-        red = 0.18350515,
-        green = 0.2804982,
-        blue = 0.4583185,
-        alpha = 1.0,
-    )
+private val darkSurfaceContrastMain: Color
+    get() =
+        Color(
+            red = 0.9585108F,
+            green = 0.9585108F,
+            blue = 0.9585108F,
+            alpha = 1.0F,
+        )
 
-private val darkSurface: Colors.Surface =
-    Colors.Surface(
-        contrast = darkSurfaceContrast,
-        soft = darkSurfaceSoft,
-        main = darkSurfaceMain,
-    )
+private val darkSurfaceSoft: Color
+    get() =
+        Color(
+            red = 0.21568628F,
+            green = 0.24313726F,
+            blue = 0.27058825F,
+            alpha = 1.0F,
+        )
 
-private val darkSurfaceContrast: Colors.Surface.Contrast =
-    Colors.Surface.Contrast(
-        high = darkSurfaceContrastHigh,
-        main = darkSurfaceContrastMain,
-    )
+private val darkSurfaceMain: Color
+    get() =
+        Color(
+            red = 0.15415183F,
+            green = 0.15415183F,
+            blue = 0.15415183F,
+            alpha = 1.0F,
+        )
 
-private val darkSurfaceContrastHigh: Color =
-    Color(
-        red = 0.5019608,
-        green = 0.0,
-        blue = 0.5019608,
-        alpha = 1.0,
-    )
+private val darkDisabled: Colors.Disabled
+    get() =
+        Colors.Disabled(
+            soft = darkDisabledSoft,
+            main = darkDisabledMain,
+        )
 
-private val darkSurfaceContrastMain: Color =
-    Color(
-        red = 0.21568628,
-        green = 0.25490198,
-        blue = 0.31764707,
-        alpha = 1.0,
-    )
+private val darkDisabledSoft: Color
+    get() =
+        Color(
+            red = 0.4392157F,
+            green = 0.4627451F,
+            blue = 0.5058824F,
+            alpha = 1.0F,
+        )
 
-private val darkSurfaceContrastHigh: Color =
-    Color(
-        red = 0.37145114,
-        green = 0.0,
-        blue = 0.5019608,
-        alpha = 1.0,
-    )
+private val darkDisabledMain: Color
+    get() =
+        Color(
+            red = 0.3254902F,
+            green = 0.3529412F,
+            blue = 0.38431373F,
+            alpha = 1.0F,
+        )
 
-private val darkSurfaceContrastMain: Color =
-    Color(
-        red = 0.9585108,
-        green = 0.9585108,
-        blue = 0.9585108,
-        alpha = 1.0,
-    )
+private val darkSecondary: Colors.Secondary
+    get() =
+        Colors.Secondary(
+            main = darkSecondaryMain,
+            soft = darkSecondarySoft,
+        )
 
-private val darkSurfaceMain: Color =
-    Color(
-        red = 1.0,
-        green = 1.0,
-        blue = 1.0,
-        alpha = 1.0,
-    )
+private val darkSecondaryMain: Color
+    get() =
+        Color(
+            red = 0.23137255F,
+            green = 0.80784315F,
+            blue = 0.6745098F,
+            alpha = 1.0F,
+        )
 
-private val darkSurfaceSoft: Color =
-    Color(
-        red = 0.93333334,
-        green = 0.96862745,
-        blue = 1.0,
-        alpha = 1.0,
-    )
+private val darkSecondarySoft: Color
+    get() =
+        Color(
+            red = 0.37254903F,
+            green = 0.627451F,
+            blue = 0.6F,
+            alpha = 1.0F,
+        )
 
-private val darkSurfaceSoft: Color =
-    Color(
-        red = 0.21568628,
-        green = 0.24313726,
-        blue = 0.27058825,
-        alpha = 1.0,
-    )
+private val darkTertiary: Colors.Tertiary
+    get() =
+        Colors.Tertiary(
+            soft = darkTertiarySoft,
+            main = darkTertiaryMain,
+        )
 
-private val darkSurfaceMain: Color =
-    Color(
-        red = 0.15415183,
-        green = 0.15415183,
-        blue = 0.15415183,
-        alpha = 1.0,
-    )
+private val darkTertiarySoft: Color
+    get() =
+        Color(
+            red = 0.5568628F,
+            green = 0.4862745F,
+            blue = 0.2901961F,
+            alpha = 1.0F,
+        )
 
-private val darkDisabled: Colors.Disabled =
-    Colors.Disabled(
-        soft = darkDisabledSoft,
-        main = darkDisabledMain,
-    )
-
-private val darkDisabledMain: Color =
-    Color(
-        red = 0.5921569,
-        green = 0.6392157,
-        blue = 0.6862745,
-        alpha = 1.0,
-    )
-
-private val darkDisabledSoft: Color =
-    Color(
-        red = 0.81960785,
-        green = 0.8352941,
-        blue = 0.85882354,
-        alpha = 1.0,
-    )
-
-private val darkDisabledSoft: Color =
-    Color(
-        red = 0.4392157,
-        green = 0.4627451,
-        blue = 0.5058824,
-        alpha = 1.0,
-    )
-
-private val darkDisabledMain: Color =
-    Color(
-        red = 0.3254902,
-        green = 0.3529412,
-        blue = 0.38431373,
-        alpha = 1.0,
-    )
-
-private val darkSecondary: Colors.Secondary =
-    Colors.Secondary(
-        main = darkSecondaryMain,
-        soft = darkSecondarySoft,
-    )
-
-private val darkSecondaryMain: Color =
-    Color(
-        red = 0.23137255,
-        green = 0.80784315,
-        blue = 0.6745098,
-        alpha = 1.0,
-    )
-
-private val darkSecondarySoft: Color =
-    Color(
-        red = 0.83137256,
-        green = 0.9411765,
-        blue = 0.92941177,
-        alpha = 1.0,
-    )
-
-private val darkSecondaryMain: Color =
-    Color(
-        red = 0.23137255,
-        green = 0.80784315,
-        blue = 0.6745098,
-        alpha = 1.0,
-    )
-
-private val darkSecondarySoft: Color =
-    Color(
-        red = 0.37254903,
-        green = 0.627451,
-        blue = 0.6,
-        alpha = 1.0,
-    )
-
-private val darkTertiary: Colors.Tertiary =
-    Colors.Tertiary(
-        soft = darkTertiarySoft,
-        main = darkTertiaryMain,
-    )
-
-private val darkTertiaryMain: Color =
-    Color(
-        red = 1.0,
-        green = 0.7529412,
-        blue = 0.18431373,
-        alpha = 1.0,
-    )
-
-private val darkTertiarySoft: Color =
-    Color(
-        red = 1.0,
-        green = 0.9764706,
-        blue = 0.9137255,
-        alpha = 1.0,
-    )
-
-private val darkTertiarySoft: Color =
-    Color(
-        red = 0.5568628,
-        green = 0.4862745,
-        blue = 0.2901961,
-        alpha = 1.0,
-    )
-
-private val darkTertiaryMain: Color =
-    Color(
-        red = 1.0,
-        green = 0.7529412,
-        blue = 0.18431373,
-        alpha = 1.0,
-    )
+private val darkTertiaryMain: Color
+    get() =
+        Color(
+            red = 1.0F,
+            green = 0.7529412F,
+            blue = 0.18431373F,
+            alpha = 1.0F,
+        )
 
 @Stable
 public class Colors(
@@ -598,9 +415,11 @@ public class Colors(
         )
     }
 
+    @Composable
+    @ReadOnlyComposable
     public fun contentColorFor(
         color: Color,
-    ): Colors {
+    ): Color {
         return when (color) {
             primary.main -> primary.contrast.main
             surface.main -> surface.contrast.main
@@ -621,18 +440,12 @@ public class Colors(
         public var soft: Color by mutableStateOf(soft)
             private set
 
-        public var main: Color by mutableStateOf(main)
-            private set
-
-        public var soft: Color by mutableStateOf(soft)
-            private set
-
         internal fun update(
             other: Primary,
         ) {
             contrast.update(other.contrast)
-            main.update(other.main)
-            soft.update(other.soft)
+            main = other.main
+            soft = other.soft
         }
 
         internal fun copy(
@@ -659,17 +472,11 @@ public class Colors(
             public var main: Color by mutableStateOf(main)
                 private set
 
-            public var high: Color by mutableStateOf(high)
-                private set
-
-            public var main: Color by mutableStateOf(main)
-                private set
-
             internal fun update(
                 other: Contrast,
             ) {
-                high.update(other.high)
-                main.update(other.main)
+                high = other.high
+                main = other.main
             }
 
             internal fun copy(
@@ -697,18 +504,12 @@ public class Colors(
         public var soft: Color by mutableStateOf(soft)
             private set
 
-        public var soft: Color by mutableStateOf(soft)
-            private set
-
-        public var main: Color by mutableStateOf(main)
-            private set
-
         internal fun update(
             other: Surface,
         ) {
             contrast.update(other.contrast)
-            main.update(other.main)
-            soft.update(other.soft)
+            main = other.main
+            soft = other.soft
         }
 
         internal fun copy(
@@ -735,17 +536,11 @@ public class Colors(
             public var main: Color by mutableStateOf(main)
                 private set
 
-            public var high: Color by mutableStateOf(high)
-                private set
-
-            public var main: Color by mutableStateOf(main)
-                private set
-
             internal fun update(
                 other: Contrast,
             ) {
-                high.update(other.high)
-                main.update(other.main)
+                high = other.high
+                main = other.main
             }
 
             internal fun copy(
@@ -772,17 +567,11 @@ public class Colors(
         public var soft: Color by mutableStateOf(soft)
             private set
 
-        public var soft: Color by mutableStateOf(soft)
-            private set
-
-        public var main: Color by mutableStateOf(main)
-            private set
-
         internal fun update(
             other: Disabled,
         ) {
-            main.update(other.main)
-            soft.update(other.soft)
+            main = other.main
+            soft = other.soft
         }
 
         internal fun copy(
@@ -808,17 +597,11 @@ public class Colors(
         public var soft: Color by mutableStateOf(soft)
             private set
 
-        public var main: Color by mutableStateOf(main)
-            private set
-
-        public var soft: Color by mutableStateOf(soft)
-            private set
-
         internal fun update(
             other: Secondary,
         ) {
-            main.update(other.main)
-            soft.update(other.soft)
+            main = other.main
+            soft = other.soft
         }
 
         internal fun copy(
@@ -844,17 +627,11 @@ public class Colors(
         public var soft: Color by mutableStateOf(soft)
             private set
 
-        public var soft: Color by mutableStateOf(soft)
-            private set
-
-        public var main: Color by mutableStateOf(main)
-            private set
-
         internal fun update(
             other: Tertiary,
         ) {
-            main.update(other.main)
-            soft.update(other.soft)
+            main = other.main
+            soft = other.soft
         }
 
         internal fun copy(

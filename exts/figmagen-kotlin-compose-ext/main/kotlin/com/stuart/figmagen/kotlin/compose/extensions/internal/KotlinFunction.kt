@@ -9,6 +9,9 @@ internal data class KotlinFunction(
     var body: String? = null,
 ) {
     override fun toString(): String = buildString {
+        for (annotation in annotations) {
+            appendLine("@$annotation")
+        }
         val returningType = if (returnType != null) ": $returnType" else ""
         if (valueArguments.isEmpty()) {
             appendLine("$visibility fun $name()$returningType {")

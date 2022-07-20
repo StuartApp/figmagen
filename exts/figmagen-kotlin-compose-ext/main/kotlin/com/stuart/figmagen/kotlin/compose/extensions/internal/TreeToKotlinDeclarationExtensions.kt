@@ -21,7 +21,6 @@ internal fun TreeNode<ColorFile>.buildColorFile(
                     "androidx.compose.runtime.mutableStateOf",
                     "androidx.compose.runtime.setValue",
                     "androidx.compose.ui.graphics.Color",
-                    "androidx.compose.ui.graphics.takeOrElse",
                 )
             properties += buildAllThemeVariables()
             classes += colorsClass
@@ -33,15 +32,30 @@ internal fun TreeNode<ColorFile>.buildColorFile(
 internal fun TreeNode<ColorFile>.buildAllThemeVariables(): List<KotlinProperty> =
     mapNotNull { node -> (node.value as? ColorFile.Color)?.color?.theme }
         .toSet()
-        .flatMap { theme -> map { colorFileNode -> colorFileNode.buildProperty(theme) } }
+        .flatMap { theme ->
+            mapNotNull { colorFileNode ->
+                val isSameTheme = (colorFileNode.value as? ColorFile.Color)?.color?.theme == theme
+                if (isSameTheme || !colorFileNode.value.isColor) {
+                    colorFileNode.buildProperty(theme)
+                } else {
+                    null
+                }
+            }
+        }
 
 internal fun TreeNode<ColorFile>.buildProperty(theme: String): KotlinProperty {
     val colorFile = value
     val parents = value.parentDirectories.joinToString("", transform = String::capitalize)
     val body = buildString {
-        appendLine()
+        val type = calculateType(colorFile)
+        if (type == "Colors") appendLine() else append("")
         if (colorFile !is ColorFile.Color) {
-            appendLine(("${calculateType(colorFile)}(").prependIndent())
+            if (type == "Colors") {
+                append(("$type(").prependIndent())
+                appendLine()
+            } else {
+                appendLine(("$type("))
+            }
             val sanitizedChildren =
                 children.filter {
                     val nestedColorFile: ColorFile = it.value
@@ -59,11 +73,11 @@ internal fun TreeNode<ColorFile>.buildProperty(theme: String): KotlinProperty {
             }
         } else {
             val color = colorFile.color
-            appendLine("Color(".prependIndent())
-            appendLine("red = ${color.rgba.red},".prependIndent("        "))
-            appendLine("green = ${color.rgba.green},".prependIndent("        "))
-            appendLine("blue = ${color.rgba.blue},".prependIndent("        "))
-            appendLine("alpha = ${color.rgba.alpha},".prependIndent("        "))
+            appendLine("Color(")
+            appendLine("red = ${color.rgba.red}F,".prependIndent("        "))
+            appendLine("green = ${color.rgba.green}F,".prependIndent("        "))
+            appendLine("blue = ${color.rgba.blue}F,".prependIndent("        "))
+            appendLine("alpha = ${color.rgba.alpha}F,".prependIndent("        "))
         }
         append(")".prependIndent())
     }
@@ -77,6 +91,7 @@ internal fun TreeNode<ColorFile>.buildProperty(theme: String): KotlinProperty {
     ) {
         visibility =
             if (returnType == "Colors") KotlinVisibility.Internal else KotlinVisibility.Private
+        isGetter = returnType != "Colors"
     }
 }
 
@@ -148,7 +163,11 @@ internal fun KotlinClass.addUpdateFunction(node: TreeNode<ColorFile>) {
             this.valueArguments += buildKotlinValueArgument("other", parentClass.name)
             this.body = buildString {
                 for (argument in arguments) {
-                    appendLine("${argument.name}.update(other.${argument.name})")
+                    if (argument.isColor) {
+                        appendLine("${argument.name} = other.${argument.name}")
+                    } else {
+                        appendLine("${argument.name}.update(other.${argument.name})")
+                    }
                 }
             }
         }
@@ -194,6 +213,7 @@ internal fun KotlinClass.addVariableStates(node: TreeNode<ColorFile>) {
     val parentClass: KotlinClass = this
     node.children
         .filter { it.value.isColor }
+        .distinctBy { childNode -> childNode.value.name }
         .forEach { childNode ->
             val childColorFile = childNode.value
             val propertyState =
@@ -225,8 +245,10 @@ internal fun KotlinClass.addContentColorFunction(
 
     val contentColorForFunction =
         buildKotlinFunction("contentColorFor") {
+            annotations += buildKotlinAnnotation("Composable")
+            annotations += buildKotlinAnnotation("ReadOnlyComposable")
             valueArguments += buildKotlinValueArgument(name = "color", type = "Color")
-            returnType = "Colors"
+            returnType = "Color"
             body = buildString {
                 appendLine("return when (color) {")
                 for (argument in arguments) {
