@@ -1,1 +1,29 @@
-{"version":"3","listProblem":[]}
+{"version":"3","listProblem":[{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unused symbol",
+  "severity": "High",
+  "comment": "Class \"VarArgs\" is never used",
+  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "exts/figmagen-kotlin-compose-ext/main/kotlin/com/stuart/figmagen/kotlin/compose/extensions/internal/KotlinMutability.kt",
+      "language": "kotlin",
+      "line": 8,
+      "offset": 5,
+      "length": 7,
+      "code": {
+        "startLine": 6,
+        "length": 7,
+        "offset": 22,
+        "surroundingCode": "    Val,\n    Var,\n    VarArgs,\n    Empty,\n    ;"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "figmagen.exts.figmagen-kotlin-compose-ext.main",
+    "inspectionName": "UnusedSymbol"
+  },
+  "hash": "817f380998ab383bb523e8b6c090b8b0dba4e0fb62b9722c3a3b2371393002fa"
+}]}

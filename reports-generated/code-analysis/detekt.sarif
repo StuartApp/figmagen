@@ -15,6 +15,27 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
+                  "uri": "exts/figmagen-kotlin-compose-ext/main/kotlin/com/stuart/figmagen/kotlin/compose/extensions/internal/TreeToKotlinDeclarationExtensions.kt",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startColumn": 1,
+                  "startLine": 1
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "File '/home/runner/work/figmagen/figmagen/exts/figmagen-kotlin-compose-ext/main/kotlin/com/stuart/figmagen/kotlin/compose/extensions/internal/TreeToKotlinDeclarationExtensions.kt' with '13' functions detected. Defined threshold inside files is set to '11'"
+          },
+          "ruleId": "detekt.complexity.TooManyFunctions"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
                   "uri": "figmagen-core/main/kotlin/com/stuart/figmagen/tree/TreeNode.kt",
                   "uriBaseId": "%SRCROOT%"
                 },
@@ -27,27 +48,6 @@
           ],
           "message": {
             "text": "Class 'TreeNode' with '11' functions detected. Defined threshold inside classes is set to '11'"
-          },
-          "ruleId": "detekt.complexity.TooManyFunctions"
-        },
-        {
-          "level": "warning",
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "exts/figmagen-kotlin-compose-ext/main/kotlin/com/stuart/figmagen/kotlin/compose/extensions/internal/TreeToKotlinDeclarationExtensions.kt",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startColumn": 1,
-                  "startLine": 1
-                }
-              }
-            }
-          ],
-          "message": {
-            "text": "File '/home/runner/work/figmagen/figmagen/exts/figmagen-kotlin-compose-ext/main/kotlin/com/stuart/figmagen/kotlin/compose/extensions/internal/TreeToKotlinDeclarationExtensions.kt' with '12' functions detected. Defined threshold inside files is set to '11'"
           },
           "ruleId": "detekt.complexity.TooManyFunctions"
         },
@@ -99,6 +99,69 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
+                  "uri": "settings.gradle.kts",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startColumn": 2,
+                  "startLine": 20
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "The file /home/runner/work/figmagen/figmagen/settings.gradle.kts is not ending with a new line."
+          },
+          "ruleId": "detekt.style.NewLineAtEndOfFile"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "build.gradle.kts",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startColumn": 2,
+                  "startLine": 22
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "The file /home/runner/work/figmagen/figmagen/build.gradle.kts is not ending with a new line."
+          },
+          "ruleId": "detekt.style.NewLineAtEndOfFile"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "figmagen-core/main/kotlin/com/stuart/figmagen/internal/GetStyles.kt",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "startColumn": 33,
+                  "startLine": 18
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "This expression contains a magic number. Consider defining it to a well named constant."
+          },
+          "ruleId": "detekt.style.MagicNumber"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
                   "uri": "figmagen-core/main/kotlin/com/stuart/figmagen/tasks/ColorsTask.kt",
                   "uriBaseId": "%SRCROOT%"
                 },
@@ -141,27 +204,6 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "figmagen-core/main/kotlin/com/stuart/figmagen/internal/GetStyles.kt",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startColumn": 33,
-                  "startLine": 18
-                }
-              }
-            }
-          ],
-          "message": {
-            "text": "This expression contains a magic number. Consider defining it to a well named constant."
-          },
-          "ruleId": "detekt.style.MagicNumber"
-        },
-        {
-          "level": "warning",
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
                   "uri": "figmagen-core/main/kotlin/com/stuart/figmagen/Figmagen.kt",
                   "uriBaseId": "%SRCROOT%"
                 },
@@ -176,48 +218,6 @@
             "text": "An abstract class without an abstract member can be refactored to a concrete class."
           },
           "ruleId": "detekt.style.UnnecessaryAbstractClass"
-        },
-        {
-          "level": "warning",
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "build.gradle.kts",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startColumn": 2,
-                  "startLine": 22
-                }
-              }
-            }
-          ],
-          "message": {
-            "text": "The file /home/runner/work/figmagen/figmagen/build.gradle.kts is not ending with a new line."
-          },
-          "ruleId": "detekt.style.NewLineAtEndOfFile"
-        },
-        {
-          "level": "warning",
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "settings.gradle.kts",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "startColumn": 2,
-                  "startLine": 20
-                }
-              }
-            }
-          ],
-          "message": {
-            "text": "The file /home/runner/work/figmagen/figmagen/settings.gradle.kts is not ending with a new line."
-          },
-          "ruleId": "detekt.style.NewLineAtEndOfFile"
         }
       ],
       "tool": {
