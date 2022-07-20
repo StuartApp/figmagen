@@ -18,8 +18,8 @@ internal val lightColors: Colors =
         disabled = lightDisabled,
     )
 
-private val lightPrimary: Primary =
-    Primary(
+private val lightPrimary: Colors.Primary =
+    Colors.Primary(
         main = lightPrimaryMain,
         soft = lightPrimarySoft,
         contrast = lightPrimaryContrast,
@@ -41,8 +41,8 @@ private val lightPrimarySoft: Color =
         alpha = 1.0,
     )
 
-private val lightPrimaryContrast: Contrast =
-    Contrast(
+private val lightPrimaryContrast: Colors.Primary.Contrast =
+    Colors.Primary.Contrast(
         main = lightPrimaryContrastMain,
         high = lightPrimaryContrastHigh,
     )
@@ -63,8 +63,8 @@ private val lightPrimaryContrastHigh: Color =
         alpha = 1.0,
     )
 
-private val lightSecondary: Secondary =
-    Secondary(
+private val lightSecondary: Colors.Secondary =
+    Colors.Secondary(
         main = lightSecondaryMain,
         soft = lightSecondarySoft,
     )
@@ -85,8 +85,8 @@ private val lightSecondarySoft: Color =
         alpha = 1.0,
     )
 
-private val lightTertiary: Tertiary =
-    Tertiary(
+private val lightTertiary: Colors.Tertiary =
+    Colors.Tertiary(
         main = lightTertiaryMain,
         soft = lightTertiarySoft,
     )
@@ -107,8 +107,8 @@ private val lightTertiarySoft: Color =
         alpha = 1.0,
     )
 
-private val lightSurface: Surface =
-    Surface(
+private val lightSurface: Colors.Surface =
+    Colors.Surface(
         main = lightSurfaceMain,
         soft = lightSurfaceSoft,
         contrast = lightSurfaceContrast,
@@ -130,8 +130,8 @@ private val lightSurfaceSoft: Color =
         alpha = 1.0,
     )
 
-private val lightSurfaceContrast: Contrast =
-    Contrast(
+private val lightSurfaceContrast: Colors.Surface.Contrast =
+    Colors.Surface.Contrast(
         high = lightSurfaceContrastHigh,
         main = lightSurfaceContrastMain,
     )
@@ -152,8 +152,8 @@ private val lightSurfaceContrastMain: Color =
         alpha = 1.0,
     )
 
-private val lightDisabled: Disabled =
-    Disabled(
+private val lightDisabled: Colors.Disabled =
+    Colors.Disabled(
         main = lightDisabledMain,
         soft = lightDisabledSoft,
     )

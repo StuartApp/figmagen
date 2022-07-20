@@ -18,15 +18,15 @@ internal val lightColors: Colors =
         tertiary = lightTertiary,
     )
 
-private val lightPrimary: Primary =
-    Primary(
+private val lightPrimary: Colors.Primary =
+    Colors.Primary(
         contrast = lightPrimaryContrast,
         main = lightPrimaryMain,
         soft = lightPrimarySoft,
     )
 
-private val lightPrimaryContrast: Contrast =
-    Contrast(
+private val lightPrimaryContrast: Colors.Primary.Contrast =
+    Colors.Primary.Contrast(
         high = lightPrimaryContrastHigh,
         main = lightPrimaryContrastMain,
     )
@@ -95,15 +95,15 @@ private val lightPrimarySoft: Color =
         alpha = 1.0,
     )
 
-private val lightSurface: Surface =
-    Surface(
+private val lightSurface: Colors.Surface =
+    Colors.Surface(
         contrast = lightSurfaceContrast,
         main = lightSurfaceMain,
         soft = lightSurfaceSoft,
     )
 
-private val lightSurfaceContrast: Contrast =
-    Contrast(
+private val lightSurfaceContrast: Colors.Surface.Contrast =
+    Colors.Surface.Contrast(
         high = lightSurfaceContrastHigh,
         main = lightSurfaceContrastMain,
     )
@@ -172,8 +172,8 @@ private val lightSurfaceMain: Color =
         alpha = 1.0,
     )
 
-private val lightDisabled: Disabled =
-    Disabled(
+private val lightDisabled: Colors.Disabled =
+    Colors.Disabled(
         main = lightDisabledMain,
         soft = lightDisabledSoft,
     )
@@ -210,8 +210,8 @@ private val lightDisabledMain: Color =
         alpha = 1.0,
     )
 
-private val lightSecondary: Secondary =
-    Secondary(
+private val lightSecondary: Colors.Secondary =
+    Colors.Secondary(
         main = lightSecondaryMain,
         soft = lightSecondarySoft,
     )
@@ -248,8 +248,8 @@ private val lightSecondarySoft: Color =
         alpha = 1.0,
     )
 
-private val lightTertiary: Tertiary =
-    Tertiary(
+private val lightTertiary: Colors.Tertiary =
+    Colors.Tertiary(
         main = lightTertiaryMain,
         soft = lightTertiarySoft,
     )
@@ -295,15 +295,15 @@ internal val darkColors: Colors =
         tertiary = darkTertiary,
     )
 
-private val darkPrimary: Primary =
-    Primary(
+private val darkPrimary: Colors.Primary =
+    Colors.Primary(
         contrast = darkPrimaryContrast,
         main = darkPrimaryMain,
         soft = darkPrimarySoft,
     )
 
-private val darkPrimaryContrast: Contrast =
-    Contrast(
+private val darkPrimaryContrast: Colors.Primary.Contrast =
+    Colors.Primary.Contrast(
         high = darkPrimaryContrastHigh,
         main = darkPrimaryContrastMain,
     )
@@ -372,15 +372,15 @@ private val darkPrimarySoft: Color =
         alpha = 1.0,
     )
 
-private val darkSurface: Surface =
-    Surface(
+private val darkSurface: Colors.Surface =
+    Colors.Surface(
         contrast = darkSurfaceContrast,
         soft = darkSurfaceSoft,
         main = darkSurfaceMain,
     )
 
-private val darkSurfaceContrast: Contrast =
-    Contrast(
+private val darkSurfaceContrast: Colors.Surface.Contrast =
+    Colors.Surface.Contrast(
         high = darkSurfaceContrastHigh,
         main = darkSurfaceContrastMain,
     )
@@ -449,8 +449,8 @@ private val darkSurfaceMain: Color =
         alpha = 1.0,
     )
 
-private val darkDisabled: Disabled =
-    Disabled(
+private val darkDisabled: Colors.Disabled =
+    Colors.Disabled(
         soft = darkDisabledSoft,
         main = darkDisabledMain,
     )
@@ -487,8 +487,8 @@ private val darkDisabledMain: Color =
         alpha = 1.0,
     )
 
-private val darkSecondary: Secondary =
-    Secondary(
+private val darkSecondary: Colors.Secondary =
+    Colors.Secondary(
         main = darkSecondaryMain,
         soft = darkSecondarySoft,
     )
@@ -525,8 +525,8 @@ private val darkSecondarySoft: Color =
         alpha = 1.0,
     )
 
-private val darkTertiary: Tertiary =
-    Tertiary(
+private val darkTertiary: Colors.Tertiary =
+    Colors.Tertiary(
         soft = darkTertiarySoft,
         main = darkTertiaryMain,
     )

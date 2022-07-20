@@ -41,7 +41,7 @@ internal fun TreeNode<ColorFile>.buildProperty(theme: String): KotlinProperty {
     val body = buildString {
         appendLine()
         if (colorFile !is ColorFile.Color) {
-            appendLine(("${colorFile.name.capitalize()}(").prependIndent())
+            appendLine(("${calculateType(colorFile)}(").prependIndent())
             val sanitizedChildren =
                 children.filter {
                     val nestedColorFile: ColorFile = it.value
@@ -67,15 +67,30 @@ internal fun TreeNode<ColorFile>.buildProperty(theme: String): KotlinProperty {
         }
         append(")".prependIndent())
     }
+
+    val returnType = calculateType(colorFile)
+
     return buildKotlinProperty(
         name = "$theme$parents${colorFile.name.capitalize()}",
-        returnType = if (colorFile.isColor) "Color" else colorFile.name.capitalize(),
+        returnType = returnType,
         value = body,
     ) {
         visibility =
             if (returnType == "Colors") KotlinVisibility.Internal else KotlinVisibility.Private
     }
 }
+
+private fun calculateType(colorFile: ColorFile) =
+    when {
+        colorFile.isColor -> "Color"
+        colorFile.isRoot -> "Colors"
+        else -> {
+            val nextDirs =
+                colorFile.parentDirectories.joinToString(".", transform = String::capitalize)
+            val currentDir = colorFile.name.capitalize()
+            "Colors.$nextDirs.$currentDir".dropLastWhile { it == '.' }.replace("..", ".")
+        }
+    }
 
 private fun TreeNode<ColorFile>.buildColorsClass(
     kclass: KotlinClass = buildKotlinClass(name = "Colors"),
