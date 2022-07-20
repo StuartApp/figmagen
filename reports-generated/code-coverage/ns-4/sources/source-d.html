@@ -128,29 +128,34 @@ Current scope:     <a href="../../index.html">all classes</a>
 <pre>
 <div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.stuart.figmagen.kotlin.compose.extensions.internal
 <i class="no-highlight">2</i>&nbsp;
-<i class="no-highlight">3</i>&nbsp;internal data class KotlinValueArgument(
-<i class="no-highlight">4</i>&nbsp;    var visibility: KotlinVisibility = KotlinVisibility.Public,
-<i class="no-highlight">5</i>&nbsp;    var mutability: KotlinMutability = KotlinMutability.Val,
-<i class="no-highlight">6</i>&nbsp;    var name: String,
-<i class="no-highlight">7</i>&nbsp;    var type: String,
-<i class="no-highlight">8</i>&nbsp;    var defaultValue: String? = null
-<i class="no-highlight">9</i>&nbsp;) {
-<i class="no-highlight">10</i>&nbsp;    override fun toString(): String = buildString {
-<i class="no-highlight">11</i>&nbsp;        val defaultValue = if (defaultValue?.isNotBlank() == true) &quot; = $defaultValue&quot; else &quot;&quot;
-<i class="no-highlight">12</i>&nbsp;        val preName = if (mutability != KotlinMutability.Empty) &quot;$visibility $mutability &quot; else &quot;&quot;
-<i class="no-highlight">13</i>&nbsp;        append(&quot;$preName$name: $type$defaultValue&quot;)
-<i class="no-highlight">14</i>&nbsp;    }
-<i class="no-highlight">15</i>&nbsp;}
-<i class="no-highlight">16</i>&nbsp;
-<i class="no-highlight">17</i>&nbsp;internal fun buildKotlinValueArgument(
-<i class="no-highlight">18</i>&nbsp;    name: String,
-<i class="no-highlight">19</i>&nbsp;    type: String,
-<b class="fc"><i class="no-highlight">20</i>&nbsp;    builder: KotlinValueArgument.() -&gt; Unit = {}</b>
-<i class="no-highlight">21</i>&nbsp;): KotlinValueArgument {
-<b class="fc"><i class="no-highlight">22</i>&nbsp;    val valueArgument = KotlinValueArgument(name = name, type = type)</b>
-<b class="fc"><i class="no-highlight">23</i>&nbsp;    builder(valueArgument)</b>
-<b class="fc"><i class="no-highlight">24</i>&nbsp;    return valueArgument</b>
-<i class="no-highlight">25</i>&nbsp;}
+<i class="no-highlight">3</i>&nbsp;import com.javiersc.kotlin.stdlib.isNotNullNorBlank
+<i class="no-highlight">4</i>&nbsp;
+<i class="no-highlight">5</i>&nbsp;internal data class KotlinValueArgument(
+<i class="no-highlight">6</i>&nbsp;    var visibility: KotlinVisibility = KotlinVisibility.Public,
+<i class="no-highlight">7</i>&nbsp;    var mutability: KotlinMutability = KotlinMutability.Val,
+<i class="no-highlight">8</i>&nbsp;    var name: String,
+<i class="no-highlight">9</i>&nbsp;    var type: String,
+<i class="no-highlight">10</i>&nbsp;    var defaultValue: String? = null
+<i class="no-highlight">11</i>&nbsp;) {
+<i class="no-highlight">12</i>&nbsp;    override fun toString(): String = buildString {
+<i class="no-highlight">13</i>&nbsp;        val defValue = defaultValue
+<i class="no-highlight">14</i>&nbsp;        val defaultValue =
+<i class="no-highlight">15</i>&nbsp;            if (defValue.isNotNullNorBlank()) &quot; = ${defValue.sanitizeKotlinKeyword()}&quot; else &quot;&quot;
+<i class="no-highlight">16</i>&nbsp;        val preName = if (mutability != KotlinMutability.Empty) &quot;$visibility $mutability &quot; else &quot;&quot;
+<i class="no-highlight">17</i>&nbsp;        val parameterName = &quot;$preName${name.sanitizeKotlinKeyword()}&quot;
+<i class="no-highlight">18</i>&nbsp;        append(&quot;$parameterName: $type$defaultValue&quot;)
+<i class="no-highlight">19</i>&nbsp;    }
+<i class="no-highlight">20</i>&nbsp;}
+<i class="no-highlight">21</i>&nbsp;
+<i class="no-highlight">22</i>&nbsp;internal fun buildKotlinValueArgument(
+<i class="no-highlight">23</i>&nbsp;    name: String,
+<i class="no-highlight">24</i>&nbsp;    type: String,
+<b class="fc"><i class="no-highlight">25</i>&nbsp;    builder: KotlinValueArgument.() -&gt; Unit = {}</b>
+<i class="no-highlight">26</i>&nbsp;): KotlinValueArgument {
+<b class="fc"><i class="no-highlight">27</i>&nbsp;    val valueArgument = KotlinValueArgument(name = name, type = type)</b>
+<b class="fc"><i class="no-highlight">28</i>&nbsp;    builder(valueArgument)</b>
+<b class="fc"><i class="no-highlight">29</i>&nbsp;    return valueArgument</b>
+<i class="no-highlight">30</i>&nbsp;}
 </div>
 </pre>
 </div>
@@ -177,7 +182,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2022-07-20 11:27</div>
+    <div style="float:right;">generated on 2022-07-20 12:36</div>
 </div>
 </body>
 </html>

@@ -159,25 +159,26 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">31</i>&nbsp;                    } else {
 <i class="no-highlight">32</i>&nbsp;                        value
 <i class="no-highlight">33</i>&nbsp;                    }
-<i class="no-highlight">34</i>&nbsp;
-<i class="no-highlight">35</i>&nbsp;                val property = &quot;$visibility $mutability $name: $returnType $assignment $body&quot;
-<i class="no-highlight">36</i>&nbsp;                appendLine(property)
-<i class="no-highlight">37</i>&nbsp;                if (isPrivateSet) appendLine(&quot;private set&quot;.prependIndent())
-<i class="no-highlight">38</i>&nbsp;            }
-<i class="no-highlight">39</i>&nbsp;            .lines()
-<i class="no-highlight">40</i>&nbsp;            .joinToString(&quot;\n&quot;) { it.dropLastWhile(Char::isWhitespace) }
-<i class="no-highlight">41</i>&nbsp;}
-<i class="no-highlight">42</i>&nbsp;
-<i class="no-highlight">43</i>&nbsp;internal fun buildKotlinProperty(
-<i class="no-highlight">44</i>&nbsp;    name: String,
-<i class="no-highlight">45</i>&nbsp;    returnType: String,
-<i class="no-highlight">46</i>&nbsp;    value: String,
-<b class="nc"><i class="no-highlight">47</i>&nbsp;    builder: KotlinProperty.() -&gt; Unit = {}</b>
-<i class="no-highlight">48</i>&nbsp;): KotlinProperty {
-<b class="fc"><i class="no-highlight">49</i>&nbsp;    val property = KotlinProperty(name = name, returnType = returnType, value = value)</b>
-<b class="fc"><i class="no-highlight">50</i>&nbsp;    builder(property)</b>
-<b class="fc"><i class="no-highlight">51</i>&nbsp;    return property</b>
-<i class="no-highlight">52</i>&nbsp;}
+<i class="no-highlight">34</i>&nbsp;                val propName = name.sanitizeKotlinKeyword()
+<i class="no-highlight">35</i>&nbsp;
+<i class="no-highlight">36</i>&nbsp;                val property = &quot;$visibility $mutability $propName: $returnType $assignment $body&quot;
+<i class="no-highlight">37</i>&nbsp;                appendLine(property)
+<i class="no-highlight">38</i>&nbsp;                if (isPrivateSet) appendLine(&quot;private set&quot;.prependIndent())
+<i class="no-highlight">39</i>&nbsp;            }
+<i class="no-highlight">40</i>&nbsp;            .lines()
+<i class="no-highlight">41</i>&nbsp;            .joinToString(&quot;\n&quot;) { it.dropLastWhile(Char::isWhitespace) }
+<i class="no-highlight">42</i>&nbsp;}
+<i class="no-highlight">43</i>&nbsp;
+<i class="no-highlight">44</i>&nbsp;internal fun buildKotlinProperty(
+<i class="no-highlight">45</i>&nbsp;    name: String,
+<i class="no-highlight">46</i>&nbsp;    returnType: String,
+<i class="no-highlight">47</i>&nbsp;    value: String,
+<b class="nc"><i class="no-highlight">48</i>&nbsp;    builder: KotlinProperty.() -&gt; Unit = {}</b>
+<i class="no-highlight">49</i>&nbsp;): KotlinProperty {
+<b class="fc"><i class="no-highlight">50</i>&nbsp;    val property = KotlinProperty(name = name, returnType = returnType, value = value)</b>
+<b class="fc"><i class="no-highlight">51</i>&nbsp;    builder(property)</b>
+<b class="fc"><i class="no-highlight">52</i>&nbsp;    return property</b>
+<i class="no-highlight">53</i>&nbsp;}
 </div>
 </pre>
 </div>
@@ -204,7 +205,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2022-07-20 11:27</div>
+    <div style="float:right;">generated on 2022-07-20 12:36</div>
 </div>
 </body>
 </html>

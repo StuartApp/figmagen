@@ -137,34 +137,35 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">9</i>&nbsp;    var body: String? = null,
 <i class="no-highlight">10</i>&nbsp;) {
 <i class="no-highlight">11</i>&nbsp;    override fun toString(): String = buildString {
-<i class="no-highlight">12</i>&nbsp;        for (annotation in annotations) {
-<i class="no-highlight">13</i>&nbsp;            appendLine(&quot;@$annotation&quot;)
-<i class="no-highlight">14</i>&nbsp;        }
-<i class="no-highlight">15</i>&nbsp;        val returningType = if (returnType != null) &quot;: $returnType&quot; else &quot;&quot;
-<i class="no-highlight">16</i>&nbsp;        if (valueArguments.isEmpty()) {
-<i class="no-highlight">17</i>&nbsp;            appendLine(&quot;$visibility fun $name()$returningType {&quot;)
-<i class="no-highlight">18</i>&nbsp;        } else {
-<i class="no-highlight">19</i>&nbsp;            appendLine(&quot;$visibility fun $name(&quot;)
-<i class="no-highlight">20</i>&nbsp;            for (valueArgument in valueArguments) {
-<i class="no-highlight">21</i>&nbsp;                val sanitizedValueArgument =
-<i class="no-highlight">22</i>&nbsp;                    valueArgument.apply { mutability = KotlinMutability.Empty }
-<i class="no-highlight">23</i>&nbsp;                appendLine(&quot;$sanitizedValueArgument,&quot;.prependIndent())
-<i class="no-highlight">24</i>&nbsp;            }
-<i class="no-highlight">25</i>&nbsp;            appendLine(&quot;)$returningType {&quot;)
-<i class="no-highlight">26</i>&nbsp;        }
-<i class="no-highlight">27</i>&nbsp;        body?.indented()?.dropLastWhile(String::isBlank)?.forEach(::appendLine)
-<i class="no-highlight">28</i>&nbsp;        appendLine(&quot;}&quot;)
-<i class="no-highlight">29</i>&nbsp;    }
-<i class="no-highlight">30</i>&nbsp;}
-<i class="no-highlight">31</i>&nbsp;
-<i class="no-highlight">32</i>&nbsp;internal fun buildKotlinFunction(
-<i class="no-highlight">33</i>&nbsp;    name: String,
-<b class="nc"><i class="no-highlight">34</i>&nbsp;    builder: KotlinFunction.() -&gt; Unit = {}</b>
-<i class="no-highlight">35</i>&nbsp;): KotlinFunction {
-<b class="fc"><i class="no-highlight">36</i>&nbsp;    val function = KotlinFunction(name = name)</b>
-<b class="fc"><i class="no-highlight">37</i>&nbsp;    builder(function)</b>
-<b class="fc"><i class="no-highlight">38</i>&nbsp;    return function</b>
-<i class="no-highlight">39</i>&nbsp;}
+<i class="no-highlight">12</i>&nbsp;        val funName = name.sanitizeKotlinKeyword()
+<i class="no-highlight">13</i>&nbsp;        for (annotation in annotations) {
+<i class="no-highlight">14</i>&nbsp;            appendLine(&quot;@$annotation&quot;)
+<i class="no-highlight">15</i>&nbsp;        }
+<i class="no-highlight">16</i>&nbsp;        val returningType = if (returnType != null) &quot;: $returnType&quot; else &quot;&quot;
+<i class="no-highlight">17</i>&nbsp;        if (valueArguments.isEmpty()) {
+<i class="no-highlight">18</i>&nbsp;            appendLine(&quot;$visibility fun $funName()$returningType {&quot;)
+<i class="no-highlight">19</i>&nbsp;        } else {
+<i class="no-highlight">20</i>&nbsp;            appendLine(&quot;$visibility fun $funName(&quot;)
+<i class="no-highlight">21</i>&nbsp;            for (valueArgument in valueArguments) {
+<i class="no-highlight">22</i>&nbsp;                val sanitizedValueArgument =
+<i class="no-highlight">23</i>&nbsp;                    valueArgument.apply { mutability = KotlinMutability.Empty }
+<i class="no-highlight">24</i>&nbsp;                appendLine(&quot;$sanitizedValueArgument,&quot;.prependIndent())
+<i class="no-highlight">25</i>&nbsp;            }
+<i class="no-highlight">26</i>&nbsp;            appendLine(&quot;)$returningType {&quot;)
+<i class="no-highlight">27</i>&nbsp;        }
+<i class="no-highlight">28</i>&nbsp;        body?.indented()?.dropLastWhile(String::isBlank)?.forEach(::appendLine)
+<i class="no-highlight">29</i>&nbsp;        appendLine(&quot;}&quot;)
+<i class="no-highlight">30</i>&nbsp;    }
+<i class="no-highlight">31</i>&nbsp;}
+<i class="no-highlight">32</i>&nbsp;
+<i class="no-highlight">33</i>&nbsp;internal fun buildKotlinFunction(
+<i class="no-highlight">34</i>&nbsp;    name: String,
+<b class="nc"><i class="no-highlight">35</i>&nbsp;    builder: KotlinFunction.() -&gt; Unit = {}</b>
+<i class="no-highlight">36</i>&nbsp;): KotlinFunction {
+<b class="fc"><i class="no-highlight">37</i>&nbsp;    val function = KotlinFunction(name = name)</b>
+<b class="fc"><i class="no-highlight">38</i>&nbsp;    builder(function)</b>
+<b class="fc"><i class="no-highlight">39</i>&nbsp;    return function</b>
+<i class="no-highlight">40</i>&nbsp;}
 </div>
 </pre>
 </div>
@@ -191,7 +192,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2022-07-20 11:27</div>
+    <div style="float:right;">generated on 2022-07-20 12:36</div>
 </div>
 </body>
 </html>
