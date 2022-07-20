@@ -135,7 +135,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.0",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10",
           "type": "Library"
         },
         {
@@ -167,7 +167,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: com.javiersc.kotlin:kotlin-stdlib-jvm:0.1.0-alpha.7",
+          "name": "Gradle: com.javiersc.kotlin:kotlin-stdlib-jvm:0.1.0-alpha.11",
           "type": "Library"
         },
         {
@@ -175,11 +175,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.0",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.0",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.10",
           "type": "Library"
         },
         {
@@ -187,7 +187,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.0",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.10",
           "type": "Library"
         },
         {
@@ -280,7 +280,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.0",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10",
           "type": "Library"
         },
         {
@@ -300,19 +300,19 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: com.javiersc.kotlin:kotlin-stdlib-jvm:0.1.0-alpha.7",
+          "name": "Gradle: com.javiersc.kotlin:kotlin-stdlib-jvm:0.1.0-alpha.11",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.0",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.0",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.10",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.0",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.10",
           "type": "Library"
         },
         {
@@ -347,7 +347,7 @@
           "type": "Module"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.0",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10",
           "type": "Library"
         },
         {
@@ -355,7 +355,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: com.javiersc.kotlin:kotlin-stdlib-jvm:0.1.0-alpha.7",
+          "name": "Gradle: com.javiersc.kotlin:kotlin-stdlib-jvm:0.1.0-alpha.11",
           "type": "Library"
         },
         {
@@ -363,11 +363,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.0",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.0",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.10",
           "type": "Library"
         },
         {
@@ -375,7 +375,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.0",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.10",
           "type": "Library"
         },
         {
@@ -484,23 +484,23 @@
           "type": "Module"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.0",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10",
           "type": "Library"
         },
         {
-          "name": "Gradle: com.javiersc.kotlin:kotlin-stdlib-jvm:0.1.0-alpha.7",
+          "name": "Gradle: com.javiersc.kotlin:kotlin-stdlib-jvm:0.1.0-alpha.11",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.0",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.0",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.10",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.0",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.10",
           "type": "Library"
         },
         {
@@ -578,7 +578,7 @@
           "type": "Module"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.0",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10",
           "type": "Library"
         },
         {
@@ -594,7 +594,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: com.javiersc.kotlin:kotlin-stdlib-jvm:0.1.0-alpha.7",
+          "name": "Gradle: com.javiersc.kotlin:kotlin-stdlib-jvm:0.1.0-alpha.11",
           "type": "Library"
         },
         {
@@ -602,11 +602,11 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.0",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.0",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.10",
           "type": "Library"
         },
         {
@@ -614,7 +614,7 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.0",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.10",
           "type": "Library"
         },
         {
@@ -719,7 +719,7 @@
           "type": "Module"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.0",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10",
           "type": "Library"
         },
         {
@@ -727,19 +727,19 @@
           "type": "Library"
         },
         {
-          "name": "Gradle: com.javiersc.kotlin:kotlin-stdlib-jvm:0.1.0-alpha.7",
+          "name": "Gradle: com.javiersc.kotlin:kotlin-stdlib-jvm:0.1.0-alpha.11",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.0",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.0",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.10",
           "type": "Library"
         },
         {
-          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.0",
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.10",
           "type": "Library"
         },
         {

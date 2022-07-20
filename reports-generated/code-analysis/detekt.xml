@@ -14,7 +14,7 @@
 	<error line="20" column="2" severity="warning" message="The file /home/runner/work/figmagen/figmagen/settings.gradle.kts is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
 </file>
 <file name="build.gradle.kts">
-	<error line="22" column="2" severity="warning" message="The file /home/runner/work/figmagen/figmagen/build.gradle.kts is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
+	<error line="21" column="2" severity="warning" message="The file /home/runner/work/figmagen/figmagen/build.gradle.kts is not ending with a new line." source="detekt.NewLineAtEndOfFile" />
 </file>
 <file name="figmagen-core/main/kotlin/com/stuart/figmagen/internal/GetStyles.kt">
 	<error line="18" column="33" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
@@ -24,6 +24,6 @@
 	<error line="95" column="61" severity="warning" message="This expression contains a magic number. Consider defining it to a well named constant." source="detekt.MagicNumber" />
 </file>
 <file name="figmagen-core/main/kotlin/com/stuart/figmagen/Figmagen.kt">
-	<error line="6" column="1" severity="warning" message="An abstract class without an abstract member can be refactored to a concrete class." source="detekt.UnnecessaryAbstractClass" />
+	<error line="21" column="23" severity="warning" message="An abstract class without an abstract member can be refactored to a concrete class." source="detekt.UnnecessaryAbstractClass" />
 </file>
 </checkstyle>

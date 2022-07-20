@@ -170,9 +170,9 @@
 
 <div>
   <ul>
-    <li>2,175 lines of code (loc)</li>
-    <li>1,667 source lines of code (sloc)</li>
-    <li>1,221 logical lines of code (lloc)</li>
+    <li>2,178 lines of code (loc)</li>
+    <li>1,669 source lines of code (sloc)</li>
+    <li>1,222 logical lines of code (lloc)</li>
     <li>183 comment lines of code (cloc)</li>
     <li>187 cyclomatic complexity (mcc)</li>
     <li>145 cognitive complexity</li>
@@ -189,6 +189,7 @@
   <h3>complexity: 2</h3>
   <details id="TooManyFunctions" open="open">
     <summary class="rule-container"><span class="rule">TooManyFunctions: 2 </span><span class="description">Too many functions inside a/an file/class/object/interface always indicate a violation of the single responsibility principle. Maybe the file/class/object/interface wants to manage too many things at once. Extract functionality which clearly belongs together.</span></summary>
+<a href="https://detekt.dev/docs/rules/complexity#toomanyfunctions">Documentation</a>
     <ul>
       <li><span class="location">exts/figmagen-kotlin-compose-ext/main/kotlin/com/stuart/figmagen/kotlin/compose/extensions/internal/TreeToKotlinDeclarationExtensions.kt:1:1</span><span class="message">File '/home/runner/work/figmagen/figmagen/exts/figmagen-kotlin-compose-ext/main/kotlin/com/stuart/figmagen/kotlin/compose/extensions/internal/TreeToKotlinDeclarationExtensions.kt' with '13' functions detected. Defined threshold inside files is set to '11'</span>
         <pre><code><span class="lineno">   1 </span><span class="error">package com.stuart.figmagen.kotlin.compose.extensions.internal</span>
@@ -211,6 +212,7 @@
   <h3>naming: 1</h3>
   <details id="ConstructorParameterNaming" open="open">
     <summary class="rule-container"><span class="rule">ConstructorParameterNaming: 1 </span><span class="description">Constructor parameter names should follow the naming convention set in the projects configuration.</span></summary>
+<a href="https://detekt.dev/docs/rules/naming#constructorparameternaming">Documentation</a>
     <ul>
       <li><span class="location">figmagen-core/main/kotlin/com/stuart/figmagen/tree/TreeNode.kt:6:5</span><span class="message">Constructor private parameter names should match the pattern: [a-z][A-Za-z0-9]*</span>
         <pre><code><span class="lineno">   3 </span>public data class TreeNode&lt;T&gt;
@@ -227,6 +229,7 @@
   <h3>potential-bugs: 1</h3>
   <details id="IteratorNotThrowingNoSuchElementException" open="open">
     <summary class="rule-container"><span class="rule">IteratorNotThrowingNoSuchElementException: 1 </span><span class="description">The `next()` method of an `Iterator` implementation should throw a `NoSuchElementException` when there are no more elements to return.</span></summary>
+<a href="https://detekt.dev/docs/rules/potential-bugs#iteratornotthrowingnosuchelementexception">Documentation</a>
     <ul>
       <li><span class="location">figmagen-core/main/kotlin/com/stuart/figmagen/tree/PreOrderTreeIterator.kt:5:16</span><span class="message">This implementation of Iterator does not correctly implement the next() method as it doesn't throw a NoSuchElementException when no elements remain in the Iterator.</span>
         <pre><code><span class="lineno">   2 </span>
@@ -243,6 +246,7 @@
   <h3>style: 6</h3>
   <details id="MagicNumber" open="open">
     <summary class="rule-container"><span class="rule">MagicNumber: 3 </span><span class="description">Report magic numbers. Magic number is a numeric literal that is not defined as a constant and hence it's unclear what the purpose of this number is. It's better to declare such numbers as constants and give them a proper name. By default, -1, 0, 1, and 2 are not considered to be magic numbers.</span></summary>
+<a href="https://detekt.dev/docs/rules/style#magicnumber">Documentation</a>
     <ul>
       <li><span class="location">figmagen-core/main/kotlin/com/stuart/figmagen/internal/GetStyles.kt:18:33</span><span class="message">This expression contains a magic number. Consider defining it to a well named constant.</span>
         <pre><code><span class="lineno">  15 </span>            &quot;The request body for getting the Figma styles must not be null, check the file provided&quot;
@@ -278,12 +282,13 @@
   </details>
   <details id="NewLineAtEndOfFile" open="open">
     <summary class="rule-container"><span class="rule">NewLineAtEndOfFile: 2 </span><span class="description">Checks whether files end with a line separator.</span></summary>
+<a href="https://detekt.dev/docs/rules/style#newlineatendoffile">Documentation</a>
     <ul>
-      <li><span class="location">build.gradle.kts:22:2</span><span class="message">The file /home/runner/work/figmagen/figmagen/build.gradle.kts is not ending with a new line.</span>
-        <pre><code><span class="lineno">  19 </span>        }
-<span class="lineno">  20 </span>        nexus()
-<span class="lineno">  21 </span>    }
-<span class="lineno">  22 </span>}
+      <li><span class="location">build.gradle.kts:21:2</span><span class="message">The file /home/runner/work/figmagen/figmagen/build.gradle.kts is not ending with a new line.</span>
+        <pre><code><span class="lineno">  18 </span>        }
+<span class="lineno">  19 </span>        nexus()
+<span class="lineno">  20 </span>    }
+<span class="lineno">  21 </span>}
 </code></pre>
       </li>
       <li><span class="location">settings.gradle.kts:20:2</span><span class="message">The file /home/runner/work/figmagen/figmagen/settings.gradle.kts is not ending with a new line.</span>
@@ -297,15 +302,16 @@
   </details>
   <details id="UnnecessaryAbstractClass" open="open">
     <summary class="rule-container"><span class="rule">UnnecessaryAbstractClass: 1 </span><span class="description">An abstract class is unnecessary and can be refactored. An abstract class should have both abstract and concrete properties or functions. An abstract class without a concrete member can be refactored to an interface. An abstract class without an abstract member can be refactored to a concrete class.</span></summary>
+<a href="https://detekt.dev/docs/rules/style#unnecessaryabstractclass">Documentation</a>
     <ul>
-      <li><span class="location">figmagen-core/main/kotlin/com/stuart/figmagen/Figmagen.kt:6:1</span><span class="message">An abstract class without an abstract member can be refactored to a concrete class.</span>
-        <pre><code><span class="lineno">   3 </span>import com.stuart.figmagen.internal.getFigmaTokenFromEnv
-<span class="lineno">   4 </span>import java.io.File
-<span class="lineno">   5 </span>
-<span class="lineno">   6 </span><span class="error">/**</span>
-<span class="lineno">   7 </span><span class="error"> * Figmagen uses a list of provided tasks and executes them. The default instance can be created so:</span>
-<span class="lineno">   8 </span><span class="error"> *</span>
-<span class="lineno">   9 </span><span class="error"> * ```kotlin</span>
+      <li><span class="location">figmagen-core/main/kotlin/com/stuart/figmagen/Figmagen.kt:21:23</span><span class="message">An abstract class without an abstract member can be refactored to a concrete class.</span>
+        <pre><code><span class="lineno">  18 </span> *
+<span class="lineno">  19 </span> * `Figmagen::generate` function is `suspend`, it is necessary to use Kotlin Coroutines to run it.
+<span class="lineno">  20 </span> */
+<span class="lineno">  21 </span>public abstract class <span class="error">Figmagen</span> internal constructor(internal val figmaToken: String) {
+<span class="lineno">  22 </span>
+<span class="lineno">  23 </span>    private val tasks: MutableList&lt;Task&gt; = mutableListOf()
+<span class="lineno">  24 </span>
 </code></pre>
       </li>
     </ul>
@@ -313,7 +319,7 @@
 </div>
 
 
-generated with <a href="https://detekt.dev/">detekt version 1.20.0</a> on 2022-07-20 11:10:32 UTC.
+generated with <a href="https://detekt.dev/">detekt version 1.21.0</a> on 2022-07-20 11:26:33 UTC.
 
 </body>
 </html>
