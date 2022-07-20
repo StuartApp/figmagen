@@ -14,7 +14,6 @@ hubdle {
         binaryCompatibilityValidator()
         coverage()
         documentation {
-            changelog()
             site()
         }
         nexus()

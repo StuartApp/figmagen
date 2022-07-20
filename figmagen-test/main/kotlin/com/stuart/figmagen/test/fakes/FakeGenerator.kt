@@ -1,3 +1,5 @@
+@file:Suppress("UnusedReceiverParameter")
+
 package com.stuart.figmagen.test.fakes
 
 import com.stuart.figmagen.models.Color
@@ -15,5 +17,4 @@ public fun ColorFile.colorFileDirectory(name: String): ColorFile.Directory {
     return ColorFile.Directory(name = name, parentDirectories = parentDirectories)
 }
 
-@Suppress("unused")
 public fun ColorFile.colorFileColor(color: Color): ColorFile.Color = ColorFile.Color(color = color)
