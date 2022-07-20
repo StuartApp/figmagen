@@ -55,26 +55,26 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    85.7%
+    87.5%
   </span>
   <span class="absValue">
-    (48/56)
+    (63/72)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    99.1%
+    99.2%
   </span>
   <span class="absValue">
-    (113/114)
+    (123/124)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    98.6%
+    98.5%
   </span>
   <span class="absValue">
-    (858/870)
+    (925/939)
   </span>
 </td>
 </tr>
@@ -204,7 +204,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     100%
   </span>
   <span class="absValue">
-    (14/14)
+    (16/16)
   </span>
 </td>
 <td class="coverageStat">
@@ -212,7 +212,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     100%
   </span>
   <span class="absValue">
-    (150/150)
+    (164/164)
   </span>
 </td>
   </tr>
@@ -294,7 +294,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     100%
   </span>
   <span class="absValue">
-    (2/2)
+    (4/4)
   </span>
 </td>
 <td class="coverageStat">
@@ -302,7 +302,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     100%
   </span>
   <span class="absValue">
-    (6/6)
+    (8/8)
   </span>
 </td>
 <td class="coverageStat">
@@ -310,12 +310,12 @@ Current scope:     <a href="../../index.html">all classes</a>
     100%
   </span>
   <span class="absValue">
-    (73/73)
+    (100/100)
   </span>
 </td>
   </tr>
   <tr>
-    <td class="name">TreeToKotlinDeclarationExtensionsKt$addVariableStates$2$propertyState$1</td>
+    <td class="name">TreeToKotlinDeclarationExtensionsKt$addVariableStates$3$propertyState$1</td>
 <td class="coverageStat">
   <span class="percent">
     100%
@@ -358,7 +358,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     100%
   </span>
   <span class="absValue">
-    (12/12)
+    (11/11)
   </span>
 </td>
 <td class="coverageStat">
@@ -366,7 +366,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     100%
   </span>
   <span class="absValue">
-    (63/63)
+    (59/59)
   </span>
 </td>
   </tr>
@@ -385,7 +385,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     100%
   </span>
   <span class="absValue">
-    (2/2)
+    (4/4)
   </span>
 </td>
 <td class="coverageStat">
@@ -393,7 +393,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     100%
   </span>
   <span class="absValue">
-    (2/2)
+    (3/3)
   </span>
 </td>
 <td class="coverageStat">
@@ -401,7 +401,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     100%
   </span>
   <span class="absValue">
-    (10/10)
+    (20/20)
   </span>
 </td>
   </tr>
@@ -501,26 +501,26 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    88.9%
+    90.2%
   </span>
   <span class="absValue">
-    (64/72)
+    (83/92)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    99.4%
+    99.5%
   </span>
   <span class="absValue">
-    (169/170)
+    (183/184)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    99.1%
+    99%
   </span>
   <span class="absValue">
-    (1341/1353)
+    (1455/1469)
   </span>
 </td>
 </tr>
@@ -554,233 +554,255 @@ Current scope:     <a href="../../index.html">all classes</a>
 <b class="fc"><i class="no-highlight">21</i>&nbsp;                    &quot;androidx.compose.runtime.mutableStateOf&quot;,</b>
 <b class="fc"><i class="no-highlight">22</i>&nbsp;                    &quot;androidx.compose.runtime.setValue&quot;,</b>
 <b class="fc"><i class="no-highlight">23</i>&nbsp;                    &quot;androidx.compose.ui.graphics.Color&quot;,</b>
-<b class="fc"><i class="no-highlight">24</i>&nbsp;                    &quot;androidx.compose.ui.graphics.takeOrElse&quot;,</b>
-<i class="no-highlight">25</i>&nbsp;                )
-<b class="fc"><i class="no-highlight">26</i>&nbsp;            properties += buildAllThemeVariables()</b>
-<b class="fc"><i class="no-highlight">27</i>&nbsp;            classes += colorsClass</b>
-<i class="no-highlight">28</i>&nbsp;        }
-<i class="no-highlight">29</i>&nbsp;
-<b class="fc"><i class="no-highlight">30</i>&nbsp;    return colorFile</b>
-<i class="no-highlight">31</i>&nbsp;}
-<i class="no-highlight">32</i>&nbsp;
-<i class="no-highlight">33</i>&nbsp;internal fun TreeNode&lt;ColorFile&gt;.buildAllThemeVariables(): List&lt;KotlinProperty&gt; =
-<b class="pc"><i class="no-highlight">34</i>&nbsp;    mapNotNull { node -&gt; (node.value as? ColorFile.Color)?.color?.theme }</b>
-<b class="fc"><i class="no-highlight">35</i>&nbsp;        .toSet()</b>
-<b class="fc"><i class="no-highlight">36</i>&nbsp;        .flatMap { theme -&gt; map { colorFileNode -&gt; colorFileNode.buildProperty(theme) } }</b>
-<i class="no-highlight">37</i>&nbsp;
-<i class="no-highlight">38</i>&nbsp;internal fun TreeNode&lt;ColorFile&gt;.buildProperty(theme: String): KotlinProperty {
-<b class="fc"><i class="no-highlight">39</i>&nbsp;    val colorFile = value</b>
-<b class="fc"><i class="no-highlight">40</i>&nbsp;    val parents = value.parentDirectories.joinToString(&quot;&quot;, transform = String::capitalize)</b>
-<b class="fc"><i class="no-highlight">41</i>&nbsp;    val body = buildString {</b>
-<b class="fc"><i class="no-highlight">42</i>&nbsp;        appendLine()</b>
-<b class="fc"><i class="no-highlight">43</i>&nbsp;        if (colorFile !is ColorFile.Color) {</b>
-<b class="fc"><i class="no-highlight">44</i>&nbsp;            appendLine((&quot;${calculateType(colorFile)}(&quot;).prependIndent())</b>
-<b class="fc"><i class="no-highlight">45</i>&nbsp;            val sanitizedChildren =</b>
-<b class="fc"><i class="no-highlight">46</i>&nbsp;                children.filter {</b>
-<b class="fc"><i class="no-highlight">47</i>&nbsp;                    val nestedColorFile: ColorFile = it.value</b>
-<b class="fc"><i class="no-highlight">48</i>&nbsp;                    nestedColorFile !is ColorFile.Color || nestedColorFile.color.theme == theme</b>
-<i class="no-highlight">49</i>&nbsp;                }
-<b class="fc"><i class="no-highlight">50</i>&nbsp;            for (child in sanitizedChildren) {</b>
-<b class="fc"><i class="no-highlight">51</i>&nbsp;                val childName = child.value.name</b>
-<b class="fc"><i class="no-highlight">52</i>&nbsp;                val childParents =</b>
-<b class="fc"><i class="no-highlight">53</i>&nbsp;                    child.value.parentDirectories.joinToString(&quot;&quot;, transform = String::capitalize)</b>
-<b class="fc"><i class="no-highlight">54</i>&nbsp;                appendLine(</b>
-<b class="fc"><i class="no-highlight">55</i>&nbsp;                    (&quot;$childName = $theme$childParents${childName.capitalize()},&quot;).prependIndent(</b>
-<b class="fc"><i class="no-highlight">56</i>&nbsp;                        &quot;        &quot;</b>
-<i class="no-highlight">57</i>&nbsp;                    )
-<i class="no-highlight">58</i>&nbsp;                )
-<i class="no-highlight">59</i>&nbsp;            }
-<i class="no-highlight">60</i>&nbsp;        } else {
-<b class="fc"><i class="no-highlight">61</i>&nbsp;            val color = colorFile.color</b>
-<b class="fc"><i class="no-highlight">62</i>&nbsp;            appendLine(&quot;Color(&quot;.prependIndent())</b>
-<b class="fc"><i class="no-highlight">63</i>&nbsp;            appendLine(&quot;red = ${color.rgba.red},&quot;.prependIndent(&quot;        &quot;))</b>
-<b class="fc"><i class="no-highlight">64</i>&nbsp;            appendLine(&quot;green = ${color.rgba.green},&quot;.prependIndent(&quot;        &quot;))</b>
-<b class="fc"><i class="no-highlight">65</i>&nbsp;            appendLine(&quot;blue = ${color.rgba.blue},&quot;.prependIndent(&quot;        &quot;))</b>
-<b class="fc"><i class="no-highlight">66</i>&nbsp;            appendLine(&quot;alpha = ${color.rgba.alpha},&quot;.prependIndent(&quot;        &quot;))</b>
-<i class="no-highlight">67</i>&nbsp;        }
-<b class="fc"><i class="no-highlight">68</i>&nbsp;        append(&quot;)&quot;.prependIndent())</b>
-<b class="fc"><i class="no-highlight">69</i>&nbsp;    }</b>
-<i class="no-highlight">70</i>&nbsp;
-<b class="fc"><i class="no-highlight">71</i>&nbsp;    val returnType = calculateType(colorFile)</b>
-<i class="no-highlight">72</i>&nbsp;
-<b class="fc"><i class="no-highlight">73</i>&nbsp;    return buildKotlinProperty(</b>
-<b class="fc"><i class="no-highlight">74</i>&nbsp;        name = &quot;$theme$parents${colorFile.name.capitalize()}&quot;,</b>
-<b class="fc"><i class="no-highlight">75</i>&nbsp;        returnType = returnType,</b>
-<b class="fc"><i class="no-highlight">76</i>&nbsp;        value = body,</b>
-<i class="no-highlight">77</i>&nbsp;    ) {
-<b class="fc"><i class="no-highlight">78</i>&nbsp;        visibility =</b>
-<b class="fc"><i class="no-highlight">79</i>&nbsp;            if (returnType == &quot;Colors&quot;) KotlinVisibility.Internal else KotlinVisibility.Private</b>
-<i class="no-highlight">80</i>&nbsp;    }
-<i class="no-highlight">81</i>&nbsp;}
-<i class="no-highlight">82</i>&nbsp;
-<i class="no-highlight">83</i>&nbsp;private fun calculateType(colorFile: ColorFile) =
-<b class="fc"><i class="no-highlight">84</i>&nbsp;    when {</b>
-<b class="fc"><i class="no-highlight">85</i>&nbsp;        colorFile.isColor -&gt; &quot;Color&quot;</b>
-<b class="fc"><i class="no-highlight">86</i>&nbsp;        colorFile.isRoot -&gt; &quot;Colors&quot;</b>
-<i class="no-highlight">87</i>&nbsp;        else -&gt; {
-<b class="fc"><i class="no-highlight">88</i>&nbsp;            val nextDirs =</b>
-<b class="fc"><i class="no-highlight">89</i>&nbsp;                colorFile.parentDirectories.joinToString(&quot;.&quot;, transform = String::capitalize)</b>
-<b class="fc"><i class="no-highlight">90</i>&nbsp;            val currentDir = colorFile.name.capitalize()</b>
-<b class="pc"><i class="no-highlight">91</i>&nbsp;            &quot;Colors.$nextDirs.$currentDir&quot;.dropLastWhile { it == &#39;.&#39; }.replace(&quot;..&quot;, &quot;.&quot;)</b>
-<i class="no-highlight">92</i>&nbsp;        }
-<i class="no-highlight">93</i>&nbsp;    }
-<i class="no-highlight">94</i>&nbsp;
-<i class="no-highlight">95</i>&nbsp;private fun TreeNode&lt;ColorFile&gt;.buildColorsClass(
-<b class="fc"><i class="no-highlight">96</i>&nbsp;    kclass: KotlinClass = buildKotlinClass(name = &quot;Colors&quot;),</b>
-<b class="nc"><i class="no-highlight">97</i>&nbsp;    contentColorFor: ((ColorFile) -&gt; String?)? = null,</b>
-<i class="no-highlight">98</i>&nbsp;): KotlinClass {
-<b class="fc"><i class="no-highlight">99</i>&nbsp;    kclass.annotations += buildKotlinAnnotation(&quot;Stable&quot;)</b>
-<b class="fc"><i class="no-highlight">100</i>&nbsp;    kclass.addConstructorParameters(this)</b>
-<b class="fc"><i class="no-highlight">101</i>&nbsp;    kclass.addUpdateFunction(this)</b>
-<b class="fc"><i class="no-highlight">102</i>&nbsp;    kclass.addCopyFunction(this)</b>
-<b class="fc"><i class="no-highlight">103</i>&nbsp;    kclass.addNestedClasses(this)</b>
-<b class="fc"><i class="no-highlight">104</i>&nbsp;    kclass.addVariableStates(this)</b>
-<b class="pc"><i class="no-highlight">105</i>&nbsp;    if (contentColorFor != null &amp;&amp; this.value.isRoot) {</b>
-<b class="fc"><i class="no-highlight">106</i>&nbsp;        kclass.addContentColorFunction(this, contentColorFor)</b>
-<i class="no-highlight">107</i>&nbsp;    }
-<i class="no-highlight">108</i>&nbsp;
-<b class="fc"><i class="no-highlight">109</i>&nbsp;    children.forEach { node -&gt;</b>
-<b class="fc"><i class="no-highlight">110</i>&nbsp;        val nestedClass: KotlinClass? = kclass.findByColorFileOrNull(node.value)</b>
-<b class="fc"><i class="no-highlight">111</i>&nbsp;        if (nestedClass != null) node.buildColorsClass(kclass = nestedClass, contentColorFor)</b>
-<b class="fc"><i class="no-highlight">112</i>&nbsp;    }</b>
-<i class="no-highlight">113</i>&nbsp;
-<b class="fc"><i class="no-highlight">114</i>&nbsp;    return kclass</b>
-<i class="no-highlight">115</i>&nbsp;}
-<i class="no-highlight">116</i>&nbsp;
-<i class="no-highlight">117</i>&nbsp;internal fun KotlinClass.findByColorFileOrNull(colorFile: ColorFile): KotlinClass? {
-<b class="fc"><i class="no-highlight">118</i>&nbsp;    val className = colorFile.name.capitalize()</b>
-<b class="fc"><i class="no-highlight">119</i>&nbsp;    return when {</b>
-<b class="fc"><i class="no-highlight">120</i>&nbsp;        this.classes.isEmpty() -&gt; null</b>
-<b class="fc"><i class="no-highlight">121</i>&nbsp;        this.classes.any { kclass -&gt; kclass.name == className } -&gt; {</b>
-<b class="fc"><i class="no-highlight">122</i>&nbsp;            this.classes.first { kclass -&gt; kclass.name == className }</b>
-<i class="no-highlight">123</i>&nbsp;        }
-<b class="fc"><i class="no-highlight">124</i>&nbsp;        else -&gt; this.classes.map { kclass -&gt; kclass.findByColorFileOrNull(colorFile) }.firstOrNull()</b>
-<i class="no-highlight">125</i>&nbsp;    }
-<i class="no-highlight">126</i>&nbsp;}
-<i class="no-highlight">127</i>&nbsp;
-<i class="no-highlight">128</i>&nbsp;internal fun KotlinClass.addConstructorParameters(node: TreeNode&lt;ColorFile&gt;) {
-<b class="fc"><i class="no-highlight">129</i>&nbsp;    val arguments: List&lt;ColorFile&gt; = node.children.map(TreeNode&lt;ColorFile&gt;::value)</b>
-<b class="fc"><i class="no-highlight">130</i>&nbsp;    valueArguments +=</b>
-<b class="fc"><i class="no-highlight">131</i>&nbsp;        arguments.distinctBy(ColorFile::name).map { colorFile -&gt;</b>
-<b class="fc"><i class="no-highlight">132</i>&nbsp;            buildKotlinValueArgument(</b>
-<b class="fc"><i class="no-highlight">133</i>&nbsp;                name = colorFile.name,</b>
-<b class="fc"><i class="no-highlight">134</i>&nbsp;                type = if (colorFile.isColor) &quot;Color&quot; else colorFile.name.capitalize(),</b>
-<i class="no-highlight">135</i>&nbsp;            ) {
-<b class="fc"><i class="no-highlight">136</i>&nbsp;                mutability = if (colorFile.isColor) KotlinMutability.Empty else KotlinMutability.Val</b>
-<i class="no-highlight">137</i>&nbsp;            }
+<i class="no-highlight">24</i>&nbsp;                )
+<b class="fc"><i class="no-highlight">25</i>&nbsp;            properties += buildAllThemeVariables()</b>
+<b class="fc"><i class="no-highlight">26</i>&nbsp;            classes += colorsClass</b>
+<i class="no-highlight">27</i>&nbsp;        }
+<i class="no-highlight">28</i>&nbsp;
+<b class="fc"><i class="no-highlight">29</i>&nbsp;    return colorFile</b>
+<i class="no-highlight">30</i>&nbsp;}
+<i class="no-highlight">31</i>&nbsp;
+<i class="no-highlight">32</i>&nbsp;internal fun TreeNode&lt;ColorFile&gt;.buildAllThemeVariables(): List&lt;KotlinProperty&gt; =
+<b class="pc"><i class="no-highlight">33</i>&nbsp;    mapNotNull { node -&gt; (node.value as? ColorFile.Color)?.color?.theme }</b>
+<b class="fc"><i class="no-highlight">34</i>&nbsp;        .toSet()</b>
+<b class="fc"><i class="no-highlight">35</i>&nbsp;        .flatMap { theme -&gt;</b>
+<b class="fc"><i class="no-highlight">36</i>&nbsp;            mapNotNull { colorFileNode -&gt;</b>
+<b class="pc"><i class="no-highlight">37</i>&nbsp;                val isSameTheme = (colorFileNode.value as? ColorFile.Color)?.color?.theme == theme</b>
+<b class="fc"><i class="no-highlight">38</i>&nbsp;                if (isSameTheme || !colorFileNode.value.isColor) {</b>
+<b class="fc"><i class="no-highlight">39</i>&nbsp;                    colorFileNode.buildProperty(theme)</b>
+<i class="no-highlight">40</i>&nbsp;                } else {
+<b class="fc"><i class="no-highlight">41</i>&nbsp;                    null</b>
+<i class="no-highlight">42</i>&nbsp;                }
+<i class="no-highlight">43</i>&nbsp;            }
+<i class="no-highlight">44</i>&nbsp;        }
+<i class="no-highlight">45</i>&nbsp;
+<i class="no-highlight">46</i>&nbsp;internal fun TreeNode&lt;ColorFile&gt;.buildProperty(theme: String): KotlinProperty {
+<b class="fc"><i class="no-highlight">47</i>&nbsp;    val colorFile = value</b>
+<b class="fc"><i class="no-highlight">48</i>&nbsp;    val parents = value.parentDirectories.joinToString(&quot;&quot;, transform = String::capitalize)</b>
+<b class="fc"><i class="no-highlight">49</i>&nbsp;    val body = buildString {</b>
+<b class="fc"><i class="no-highlight">50</i>&nbsp;        val type = calculateType(colorFile)</b>
+<b class="fc"><i class="no-highlight">51</i>&nbsp;        if (type == &quot;Colors&quot;) appendLine() else append(&quot;&quot;)</b>
+<b class="fc"><i class="no-highlight">52</i>&nbsp;        if (colorFile !is ColorFile.Color) {</b>
+<b class="fc"><i class="no-highlight">53</i>&nbsp;            if (type == &quot;Colors&quot;) {</b>
+<b class="fc"><i class="no-highlight">54</i>&nbsp;                append((&quot;$type(&quot;).prependIndent())</b>
+<b class="fc"><i class="no-highlight">55</i>&nbsp;                appendLine()</b>
+<i class="no-highlight">56</i>&nbsp;            } else {
+<b class="fc"><i class="no-highlight">57</i>&nbsp;                appendLine((&quot;$type(&quot;))</b>
+<i class="no-highlight">58</i>&nbsp;            }
+<b class="fc"><i class="no-highlight">59</i>&nbsp;            val sanitizedChildren =</b>
+<b class="fc"><i class="no-highlight">60</i>&nbsp;                children.filter {</b>
+<b class="fc"><i class="no-highlight">61</i>&nbsp;                    val nestedColorFile: ColorFile = it.value</b>
+<b class="fc"><i class="no-highlight">62</i>&nbsp;                    nestedColorFile !is ColorFile.Color || nestedColorFile.color.theme == theme</b>
+<i class="no-highlight">63</i>&nbsp;                }
+<b class="fc"><i class="no-highlight">64</i>&nbsp;            for (child in sanitizedChildren) {</b>
+<b class="fc"><i class="no-highlight">65</i>&nbsp;                val childName = child.value.name</b>
+<b class="fc"><i class="no-highlight">66</i>&nbsp;                val childParents =</b>
+<b class="fc"><i class="no-highlight">67</i>&nbsp;                    child.value.parentDirectories.joinToString(&quot;&quot;, transform = String::capitalize)</b>
+<b class="fc"><i class="no-highlight">68</i>&nbsp;                appendLine(</b>
+<b class="fc"><i class="no-highlight">69</i>&nbsp;                    (&quot;$childName = $theme$childParents${childName.capitalize()},&quot;).prependIndent(</b>
+<b class="fc"><i class="no-highlight">70</i>&nbsp;                        &quot;        &quot;</b>
+<i class="no-highlight">71</i>&nbsp;                    )
+<i class="no-highlight">72</i>&nbsp;                )
+<i class="no-highlight">73</i>&nbsp;            }
+<i class="no-highlight">74</i>&nbsp;        } else {
+<b class="fc"><i class="no-highlight">75</i>&nbsp;            val color = colorFile.color</b>
+<b class="fc"><i class="no-highlight">76</i>&nbsp;            appendLine(&quot;Color(&quot;)</b>
+<b class="fc"><i class="no-highlight">77</i>&nbsp;            appendLine(&quot;red = ${color.rgba.red}F,&quot;.prependIndent(&quot;        &quot;))</b>
+<b class="fc"><i class="no-highlight">78</i>&nbsp;            appendLine(&quot;green = ${color.rgba.green}F,&quot;.prependIndent(&quot;        &quot;))</b>
+<b class="fc"><i class="no-highlight">79</i>&nbsp;            appendLine(&quot;blue = ${color.rgba.blue}F,&quot;.prependIndent(&quot;        &quot;))</b>
+<b class="fc"><i class="no-highlight">80</i>&nbsp;            appendLine(&quot;alpha = ${color.rgba.alpha}F,&quot;.prependIndent(&quot;        &quot;))</b>
+<i class="no-highlight">81</i>&nbsp;        }
+<b class="fc"><i class="no-highlight">82</i>&nbsp;        append(&quot;)&quot;.prependIndent())</b>
+<b class="fc"><i class="no-highlight">83</i>&nbsp;    }</b>
+<i class="no-highlight">84</i>&nbsp;
+<b class="fc"><i class="no-highlight">85</i>&nbsp;    val returnType = calculateType(colorFile)</b>
+<i class="no-highlight">86</i>&nbsp;
+<b class="fc"><i class="no-highlight">87</i>&nbsp;    return buildKotlinProperty(</b>
+<b class="fc"><i class="no-highlight">88</i>&nbsp;        name = &quot;$theme$parents${colorFile.name.capitalize()}&quot;,</b>
+<b class="fc"><i class="no-highlight">89</i>&nbsp;        returnType = returnType,</b>
+<b class="fc"><i class="no-highlight">90</i>&nbsp;        value = body,</b>
+<i class="no-highlight">91</i>&nbsp;    ) {
+<b class="fc"><i class="no-highlight">92</i>&nbsp;        visibility =</b>
+<b class="fc"><i class="no-highlight">93</i>&nbsp;            if (returnType == &quot;Colors&quot;) KotlinVisibility.Internal else KotlinVisibility.Private</b>
+<b class="fc"><i class="no-highlight">94</i>&nbsp;        isGetter = returnType != &quot;Colors&quot;</b>
+<i class="no-highlight">95</i>&nbsp;    }
+<i class="no-highlight">96</i>&nbsp;}
+<i class="no-highlight">97</i>&nbsp;
+<i class="no-highlight">98</i>&nbsp;private fun calculateType(colorFile: ColorFile) =
+<b class="fc"><i class="no-highlight">99</i>&nbsp;    when {</b>
+<b class="fc"><i class="no-highlight">100</i>&nbsp;        colorFile.isColor -&gt; &quot;Color&quot;</b>
+<b class="fc"><i class="no-highlight">101</i>&nbsp;        colorFile.isRoot -&gt; &quot;Colors&quot;</b>
+<i class="no-highlight">102</i>&nbsp;        else -&gt; {
+<b class="fc"><i class="no-highlight">103</i>&nbsp;            val nextDirs =</b>
+<b class="fc"><i class="no-highlight">104</i>&nbsp;                colorFile.parentDirectories.joinToString(&quot;.&quot;, transform = String::capitalize)</b>
+<b class="fc"><i class="no-highlight">105</i>&nbsp;            val currentDir = colorFile.name.capitalize()</b>
+<b class="pc"><i class="no-highlight">106</i>&nbsp;            &quot;Colors.$nextDirs.$currentDir&quot;.dropLastWhile { it == &#39;.&#39; }.replace(&quot;..&quot;, &quot;.&quot;)</b>
+<i class="no-highlight">107</i>&nbsp;        }
+<i class="no-highlight">108</i>&nbsp;    }
+<i class="no-highlight">109</i>&nbsp;
+<i class="no-highlight">110</i>&nbsp;private fun TreeNode&lt;ColorFile&gt;.buildColorsClass(
+<b class="fc"><i class="no-highlight">111</i>&nbsp;    kclass: KotlinClass = buildKotlinClass(name = &quot;Colors&quot;),</b>
+<b class="nc"><i class="no-highlight">112</i>&nbsp;    contentColorFor: ((ColorFile) -&gt; String?)? = null,</b>
+<i class="no-highlight">113</i>&nbsp;): KotlinClass {
+<b class="fc"><i class="no-highlight">114</i>&nbsp;    kclass.annotations += buildKotlinAnnotation(&quot;Stable&quot;)</b>
+<b class="fc"><i class="no-highlight">115</i>&nbsp;    kclass.addConstructorParameters(this)</b>
+<b class="fc"><i class="no-highlight">116</i>&nbsp;    kclass.addUpdateFunction(this)</b>
+<b class="fc"><i class="no-highlight">117</i>&nbsp;    kclass.addCopyFunction(this)</b>
+<b class="fc"><i class="no-highlight">118</i>&nbsp;    kclass.addNestedClasses(this)</b>
+<b class="fc"><i class="no-highlight">119</i>&nbsp;    kclass.addVariableStates(this)</b>
+<b class="pc"><i class="no-highlight">120</i>&nbsp;    if (contentColorFor != null &amp;&amp; this.value.isRoot) {</b>
+<b class="fc"><i class="no-highlight">121</i>&nbsp;        kclass.addContentColorFunction(this, contentColorFor)</b>
+<i class="no-highlight">122</i>&nbsp;    }
+<i class="no-highlight">123</i>&nbsp;
+<b class="fc"><i class="no-highlight">124</i>&nbsp;    children.forEach { node -&gt;</b>
+<b class="fc"><i class="no-highlight">125</i>&nbsp;        val nestedClass: KotlinClass? = kclass.findByColorFileOrNull(node.value)</b>
+<b class="fc"><i class="no-highlight">126</i>&nbsp;        if (nestedClass != null) node.buildColorsClass(kclass = nestedClass, contentColorFor)</b>
+<b class="fc"><i class="no-highlight">127</i>&nbsp;    }</b>
+<i class="no-highlight">128</i>&nbsp;
+<b class="fc"><i class="no-highlight">129</i>&nbsp;    return kclass</b>
+<i class="no-highlight">130</i>&nbsp;}
+<i class="no-highlight">131</i>&nbsp;
+<i class="no-highlight">132</i>&nbsp;internal fun KotlinClass.findByColorFileOrNull(colorFile: ColorFile): KotlinClass? {
+<b class="fc"><i class="no-highlight">133</i>&nbsp;    val className = colorFile.name.capitalize()</b>
+<b class="fc"><i class="no-highlight">134</i>&nbsp;    return when {</b>
+<b class="fc"><i class="no-highlight">135</i>&nbsp;        this.classes.isEmpty() -&gt; null</b>
+<b class="fc"><i class="no-highlight">136</i>&nbsp;        this.classes.any { kclass -&gt; kclass.name == className } -&gt; {</b>
+<b class="fc"><i class="no-highlight">137</i>&nbsp;            this.classes.first { kclass -&gt; kclass.name == className }</b>
 <i class="no-highlight">138</i>&nbsp;        }
-<i class="no-highlight">139</i>&nbsp;}
-<i class="no-highlight">140</i>&nbsp;
-<i class="no-highlight">141</i>&nbsp;internal fun KotlinClass.addUpdateFunction(node: TreeNode&lt;ColorFile&gt;) {
-<b class="fc"><i class="no-highlight">142</i>&nbsp;    val parentClass = this</b>
-<b class="fc"><i class="no-highlight">143</i>&nbsp;    val arguments: List&lt;ColorFile&gt; =</b>
-<b class="fc"><i class="no-highlight">144</i>&nbsp;        node.children.map(TreeNode&lt;ColorFile&gt;::value).distinctBy(ColorFile::name)</b>
-<b class="fc"><i class="no-highlight">145</i>&nbsp;    functions +=</b>
-<b class="fc"><i class="no-highlight">146</i>&nbsp;        buildKotlinFunction(name = &quot;update&quot;) {</b>
-<b class="fc"><i class="no-highlight">147</i>&nbsp;            this.visibility = KotlinVisibility.Internal</b>
-<b class="fc"><i class="no-highlight">148</i>&nbsp;            this.valueArguments += buildKotlinValueArgument(&quot;other&quot;, parentClass.name)</b>
-<b class="fc"><i class="no-highlight">149</i>&nbsp;            this.body = buildString {</b>
-<b class="fc"><i class="no-highlight">150</i>&nbsp;                for (argument in arguments) {</b>
-<b class="fc"><i class="no-highlight">151</i>&nbsp;                    appendLine(&quot;${argument.name}.update(other.${argument.name})&quot;)</b>
-<i class="no-highlight">152</i>&nbsp;                }
-<b class="fc"><i class="no-highlight">153</i>&nbsp;            }</b>
-<i class="no-highlight">154</i>&nbsp;        }
-<i class="no-highlight">155</i>&nbsp;}
-<i class="no-highlight">156</i>&nbsp;
-<i class="no-highlight">157</i>&nbsp;internal fun KotlinClass.addCopyFunction(node: TreeNode&lt;ColorFile&gt;) {
-<b class="fc"><i class="no-highlight">158</i>&nbsp;    val parentClass = this</b>
-<b class="fc"><i class="no-highlight">159</i>&nbsp;    val arguments: List&lt;ColorFile&gt; =</b>
-<b class="fc"><i class="no-highlight">160</i>&nbsp;        node.children.map(TreeNode&lt;ColorFile&gt;::value).distinctBy(ColorFile::name)</b>
-<b class="fc"><i class="no-highlight">161</i>&nbsp;    functions +=</b>
-<b class="fc"><i class="no-highlight">162</i>&nbsp;        buildKotlinFunction(name = &quot;copy&quot;) {</b>
-<b class="fc"><i class="no-highlight">163</i>&nbsp;            this.valueArguments +=</b>
-<b class="fc"><i class="no-highlight">164</i>&nbsp;                arguments.map { colorFile: ColorFile -&gt;</b>
-<b class="fc"><i class="no-highlight">165</i>&nbsp;                    val type = if (colorFile.isColor) &quot;Color&quot; else colorFile.name.capitalize()</b>
-<b class="fc"><i class="no-highlight">166</i>&nbsp;                    buildKotlinValueArgument(colorFile.name, type = type) {</b>
-<b class="fc"><i class="no-highlight">167</i>&nbsp;                        defaultValue = &quot;this.${colorFile.name}&quot;</b>
-<i class="no-highlight">168</i>&nbsp;                    }
-<i class="no-highlight">169</i>&nbsp;                }
-<b class="fc"><i class="no-highlight">170</i>&nbsp;            this.visibility = KotlinVisibility.Internal</b>
-<b class="fc"><i class="no-highlight">171</i>&nbsp;            this.returnType = parentClass.name</b>
-<b class="fc"><i class="no-highlight">172</i>&nbsp;            this.body = buildString {</b>
-<b class="fc"><i class="no-highlight">173</i>&nbsp;                appendLine(&quot;return ${parentClass.name}(&quot;)</b>
-<b class="fc"><i class="no-highlight">174</i>&nbsp;                for (argument in arguments) {</b>
-<b class="fc"><i class="no-highlight">175</i>&nbsp;                    appendLine(&quot;${argument.name} = ${argument.name}.copy(),&quot;.prependIndent())</b>
-<i class="no-highlight">176</i>&nbsp;                }
-<b class="fc"><i class="no-highlight">177</i>&nbsp;                appendLine(&quot;)&quot;)</b>
-<b class="fc"><i class="no-highlight">178</i>&nbsp;            }</b>
-<i class="no-highlight">179</i>&nbsp;        }
-<i class="no-highlight">180</i>&nbsp;}
-<i class="no-highlight">181</i>&nbsp;
-<i class="no-highlight">182</i>&nbsp;internal fun KotlinClass.addNestedClasses(node: TreeNode&lt;ColorFile&gt;) {
-<b class="fc"><i class="no-highlight">183</i>&nbsp;    val parentClass: KotlinClass = this</b>
-<b class="fc"><i class="no-highlight">184</i>&nbsp;    node.children</b>
-<b class="pc"><i class="no-highlight">185</i>&nbsp;        .filter { it.value.isRoot || it.value.isDirectory }</b>
-<b class="fc"><i class="no-highlight">186</i>&nbsp;        .forEach { childNode -&gt;</b>
-<b class="fc"><i class="no-highlight">187</i>&nbsp;            val childColorFile = childNode.value</b>
-<b class="fc"><i class="no-highlight">188</i>&nbsp;            val nestedClass = buildKotlinClass(name = childColorFile.name.capitalize())</b>
-<b class="fc"><i class="no-highlight">189</i>&nbsp;            parentClass.classes += nestedClass</b>
-<b class="fc"><i class="no-highlight">190</i>&nbsp;        }</b>
-<i class="no-highlight">191</i>&nbsp;}
-<i class="no-highlight">192</i>&nbsp;
-<i class="no-highlight">193</i>&nbsp;internal fun KotlinClass.addVariableStates(node: TreeNode&lt;ColorFile&gt;) {
-<b class="fc"><i class="no-highlight">194</i>&nbsp;    val parentClass: KotlinClass = this</b>
-<b class="fc"><i class="no-highlight">195</i>&nbsp;    node.children</b>
-<b class="fc"><i class="no-highlight">196</i>&nbsp;        .filter { it.value.isColor }</b>
-<b class="fc"><i class="no-highlight">197</i>&nbsp;        .forEach { childNode -&gt;</b>
-<b class="fc"><i class="no-highlight">198</i>&nbsp;            val childColorFile = childNode.value</b>
-<b class="fc"><i class="no-highlight">199</i>&nbsp;            val propertyState =</b>
-<b class="fc"><i class="no-highlight">200</i>&nbsp;                buildKotlinProperty(</b>
-<b class="fc"><i class="no-highlight">201</i>&nbsp;                    name = childColorFile.name,</b>
-<b class="fc"><i class="no-highlight">202</i>&nbsp;                    returnType = &quot;Color&quot;,</b>
-<b class="fc"><i class="no-highlight">203</i>&nbsp;                    value = &quot;mutableStateOf(${childColorFile.name})&quot;,</b>
-<i class="no-highlight">204</i>&nbsp;                ) {
-<b class="fc"><i class="no-highlight">205</i>&nbsp;                    mutability = KotlinMutability.Var</b>
-<b class="fc"><i class="no-highlight">206</i>&nbsp;                    isDelegate = true</b>
-<b class="fc"><i class="no-highlight">207</i>&nbsp;                    isPrivateSet = true</b>
-<i class="no-highlight">208</i>&nbsp;                }
-<b class="fc"><i class="no-highlight">209</i>&nbsp;            parentClass.properties += propertyState</b>
-<b class="fc"><i class="no-highlight">210</i>&nbsp;        }</b>
-<i class="no-highlight">211</i>&nbsp;}
-<i class="no-highlight">212</i>&nbsp;
-<i class="no-highlight">213</i>&nbsp;internal fun KotlinClass.addContentColorFunction(
-<i class="no-highlight">214</i>&nbsp;    node: TreeNode&lt;ColorFile&gt;,
-<i class="no-highlight">215</i>&nbsp;    predicate: ((ColorFile) -&gt; String?),
-<i class="no-highlight">216</i>&nbsp;) {
-<b class="fc"><i class="no-highlight">217</i>&nbsp;    val parentClass: KotlinClass = this</b>
-<b class="fc"><i class="no-highlight">218</i>&nbsp;    val arguments =</b>
-<b class="fc"><i class="no-highlight">219</i>&nbsp;        node</b>
-<b class="fc"><i class="no-highlight">220</i>&nbsp;            .asSequence()</b>
-<b class="fc"><i class="no-highlight">221</i>&nbsp;            .filter { it.value.isColor }</b>
-<b class="fc"><i class="no-highlight">222</i>&nbsp;            .map { it.value }</b>
-<b class="fc"><i class="no-highlight">223</i>&nbsp;            .filterIsInstance&lt;ColorFile.Color&gt;()</b>
-<b class="fc"><i class="no-highlight">224</i>&nbsp;            .toList()</b>
-<i class="no-highlight">225</i>&nbsp;
-<b class="fc"><i class="no-highlight">226</i>&nbsp;    val contentColorForFunction =</b>
-<b class="fc"><i class="no-highlight">227</i>&nbsp;        buildKotlinFunction(&quot;contentColorFor&quot;) {</b>
-<b class="fc"><i class="no-highlight">228</i>&nbsp;            valueArguments += buildKotlinValueArgument(name = &quot;color&quot;, type = &quot;Color&quot;)</b>
-<b class="fc"><i class="no-highlight">229</i>&nbsp;            returnType = &quot;Colors&quot;</b>
-<b class="fc"><i class="no-highlight">230</i>&nbsp;            body = buildString {</b>
-<b class="fc"><i class="no-highlight">231</i>&nbsp;                appendLine(&quot;return when (color) {&quot;)</b>
-<b class="fc"><i class="no-highlight">232</i>&nbsp;                for (argument in arguments) {</b>
-<b class="fc"><i class="no-highlight">233</i>&nbsp;                    val parents = argument.parentDirectories.joinToString(&quot;.&quot;)</b>
-<b class="fc"><i class="no-highlight">234</i>&nbsp;                    val property = argument.name</b>
-<b class="fc"><i class="no-highlight">235</i>&nbsp;                    val newColor = predicate(argument)</b>
-<b class="fc"><i class="no-highlight">236</i>&nbsp;                    if (newColor != null) {</b>
-<b class="fc"><i class="no-highlight">237</i>&nbsp;                        val newLine = &quot;$parents.$property -&gt; $newColor&quot;.prependIndent()</b>
-<b class="fc"><i class="no-highlight">238</i>&nbsp;                        if (!lines().contains(newLine)) appendLine(newLine)</b>
-<i class="no-highlight">239</i>&nbsp;                    }
-<i class="no-highlight">240</i>&nbsp;                }
-<b class="fc"><i class="no-highlight">241</i>&nbsp;                appendLine(&quot;else -&gt; Color.Unspecified&quot;.prependIndent())</b>
-<b class="fc"><i class="no-highlight">242</i>&nbsp;                appendLine(&quot;}&quot;)</b>
-<b class="fc"><i class="no-highlight">243</i>&nbsp;            }</b>
-<i class="no-highlight">244</i>&nbsp;        }
-<b class="fc"><i class="no-highlight">245</i>&nbsp;    parentClass.functions += contentColorForFunction</b>
-<i class="no-highlight">246</i>&nbsp;}
-<i class="no-highlight">247</i>&nbsp;
-<b class="pc"><i class="no-highlight">248</i>&nbsp;internal fun String.capitalize(): String = replaceFirstChar {</b>
-<b class="pc"><i class="no-highlight">249</i>&nbsp;    if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString()</b>
-<i class="no-highlight">250</i>&nbsp;}
+<b class="fc"><i class="no-highlight">139</i>&nbsp;        else -&gt; this.classes.map { kclass -&gt; kclass.findByColorFileOrNull(colorFile) }.firstOrNull()</b>
+<i class="no-highlight">140</i>&nbsp;    }
+<i class="no-highlight">141</i>&nbsp;}
+<i class="no-highlight">142</i>&nbsp;
+<i class="no-highlight">143</i>&nbsp;internal fun KotlinClass.addConstructorParameters(node: TreeNode&lt;ColorFile&gt;) {
+<b class="fc"><i class="no-highlight">144</i>&nbsp;    val arguments: List&lt;ColorFile&gt; = node.children.map(TreeNode&lt;ColorFile&gt;::value)</b>
+<b class="fc"><i class="no-highlight">145</i>&nbsp;    valueArguments +=</b>
+<b class="fc"><i class="no-highlight">146</i>&nbsp;        arguments.distinctBy(ColorFile::name).map { colorFile -&gt;</b>
+<b class="fc"><i class="no-highlight">147</i>&nbsp;            buildKotlinValueArgument(</b>
+<b class="fc"><i class="no-highlight">148</i>&nbsp;                name = colorFile.name,</b>
+<b class="fc"><i class="no-highlight">149</i>&nbsp;                type = if (colorFile.isColor) &quot;Color&quot; else colorFile.name.capitalize(),</b>
+<i class="no-highlight">150</i>&nbsp;            ) {
+<b class="fc"><i class="no-highlight">151</i>&nbsp;                mutability = if (colorFile.isColor) KotlinMutability.Empty else KotlinMutability.Val</b>
+<i class="no-highlight">152</i>&nbsp;            }
+<i class="no-highlight">153</i>&nbsp;        }
+<i class="no-highlight">154</i>&nbsp;}
+<i class="no-highlight">155</i>&nbsp;
+<i class="no-highlight">156</i>&nbsp;internal fun KotlinClass.addUpdateFunction(node: TreeNode&lt;ColorFile&gt;) {
+<b class="fc"><i class="no-highlight">157</i>&nbsp;    val parentClass = this</b>
+<b class="fc"><i class="no-highlight">158</i>&nbsp;    val arguments: List&lt;ColorFile&gt; =</b>
+<b class="fc"><i class="no-highlight">159</i>&nbsp;        node.children.map(TreeNode&lt;ColorFile&gt;::value).distinctBy(ColorFile::name)</b>
+<b class="fc"><i class="no-highlight">160</i>&nbsp;    functions +=</b>
+<b class="fc"><i class="no-highlight">161</i>&nbsp;        buildKotlinFunction(name = &quot;update&quot;) {</b>
+<b class="fc"><i class="no-highlight">162</i>&nbsp;            this.visibility = KotlinVisibility.Internal</b>
+<b class="fc"><i class="no-highlight">163</i>&nbsp;            this.valueArguments += buildKotlinValueArgument(&quot;other&quot;, parentClass.name)</b>
+<b class="fc"><i class="no-highlight">164</i>&nbsp;            this.body = buildString {</b>
+<b class="fc"><i class="no-highlight">165</i>&nbsp;                for (argument in arguments) {</b>
+<b class="fc"><i class="no-highlight">166</i>&nbsp;                    if (argument.isColor) {</b>
+<b class="fc"><i class="no-highlight">167</i>&nbsp;                        appendLine(&quot;${argument.name} = other.${argument.name}&quot;)</b>
+<i class="no-highlight">168</i>&nbsp;                    } else {
+<b class="fc"><i class="no-highlight">169</i>&nbsp;                        appendLine(&quot;${argument.name}.update(other.${argument.name})&quot;)</b>
+<i class="no-highlight">170</i>&nbsp;                    }
+<i class="no-highlight">171</i>&nbsp;                }
+<b class="fc"><i class="no-highlight">172</i>&nbsp;            }</b>
+<i class="no-highlight">173</i>&nbsp;        }
+<i class="no-highlight">174</i>&nbsp;}
+<i class="no-highlight">175</i>&nbsp;
+<i class="no-highlight">176</i>&nbsp;internal fun KotlinClass.addCopyFunction(node: TreeNode&lt;ColorFile&gt;) {
+<b class="fc"><i class="no-highlight">177</i>&nbsp;    val parentClass = this</b>
+<b class="fc"><i class="no-highlight">178</i>&nbsp;    val arguments: List&lt;ColorFile&gt; =</b>
+<b class="fc"><i class="no-highlight">179</i>&nbsp;        node.children.map(TreeNode&lt;ColorFile&gt;::value).distinctBy(ColorFile::name)</b>
+<b class="fc"><i class="no-highlight">180</i>&nbsp;    functions +=</b>
+<b class="fc"><i class="no-highlight">181</i>&nbsp;        buildKotlinFunction(name = &quot;copy&quot;) {</b>
+<b class="fc"><i class="no-highlight">182</i>&nbsp;            this.valueArguments +=</b>
+<b class="fc"><i class="no-highlight">183</i>&nbsp;                arguments.map { colorFile: ColorFile -&gt;</b>
+<b class="fc"><i class="no-highlight">184</i>&nbsp;                    val type = if (colorFile.isColor) &quot;Color&quot; else colorFile.name.capitalize()</b>
+<b class="fc"><i class="no-highlight">185</i>&nbsp;                    buildKotlinValueArgument(colorFile.name, type = type) {</b>
+<b class="fc"><i class="no-highlight">186</i>&nbsp;                        defaultValue = &quot;this.${colorFile.name}&quot;</b>
+<i class="no-highlight">187</i>&nbsp;                    }
+<i class="no-highlight">188</i>&nbsp;                }
+<b class="fc"><i class="no-highlight">189</i>&nbsp;            this.visibility = KotlinVisibility.Internal</b>
+<b class="fc"><i class="no-highlight">190</i>&nbsp;            this.returnType = parentClass.name</b>
+<b class="fc"><i class="no-highlight">191</i>&nbsp;            this.body = buildString {</b>
+<b class="fc"><i class="no-highlight">192</i>&nbsp;                appendLine(&quot;return ${parentClass.name}(&quot;)</b>
+<b class="fc"><i class="no-highlight">193</i>&nbsp;                for (argument in arguments) {</b>
+<b class="fc"><i class="no-highlight">194</i>&nbsp;                    appendLine(&quot;${argument.name} = ${argument.name}.copy(),&quot;.prependIndent())</b>
+<i class="no-highlight">195</i>&nbsp;                }
+<b class="fc"><i class="no-highlight">196</i>&nbsp;                appendLine(&quot;)&quot;)</b>
+<b class="fc"><i class="no-highlight">197</i>&nbsp;            }</b>
+<i class="no-highlight">198</i>&nbsp;        }
+<i class="no-highlight">199</i>&nbsp;}
+<i class="no-highlight">200</i>&nbsp;
+<i class="no-highlight">201</i>&nbsp;internal fun KotlinClass.addNestedClasses(node: TreeNode&lt;ColorFile&gt;) {
+<b class="fc"><i class="no-highlight">202</i>&nbsp;    val parentClass: KotlinClass = this</b>
+<b class="fc"><i class="no-highlight">203</i>&nbsp;    node.children</b>
+<b class="pc"><i class="no-highlight">204</i>&nbsp;        .filter { it.value.isRoot || it.value.isDirectory }</b>
+<b class="fc"><i class="no-highlight">205</i>&nbsp;        .forEach { childNode -&gt;</b>
+<b class="fc"><i class="no-highlight">206</i>&nbsp;            val childColorFile = childNode.value</b>
+<b class="fc"><i class="no-highlight">207</i>&nbsp;            val nestedClass = buildKotlinClass(name = childColorFile.name.capitalize())</b>
+<b class="fc"><i class="no-highlight">208</i>&nbsp;            parentClass.classes += nestedClass</b>
+<b class="fc"><i class="no-highlight">209</i>&nbsp;        }</b>
+<i class="no-highlight">210</i>&nbsp;}
+<i class="no-highlight">211</i>&nbsp;
+<i class="no-highlight">212</i>&nbsp;internal fun KotlinClass.addVariableStates(node: TreeNode&lt;ColorFile&gt;) {
+<b class="fc"><i class="no-highlight">213</i>&nbsp;    val parentClass: KotlinClass = this</b>
+<b class="fc"><i class="no-highlight">214</i>&nbsp;    node.children</b>
+<b class="fc"><i class="no-highlight">215</i>&nbsp;        .filter { it.value.isColor }</b>
+<b class="fc"><i class="no-highlight">216</i>&nbsp;        .distinctBy { childNode -&gt; childNode.value.name }</b>
+<b class="fc"><i class="no-highlight">217</i>&nbsp;        .forEach { childNode -&gt;</b>
+<b class="fc"><i class="no-highlight">218</i>&nbsp;            val childColorFile = childNode.value</b>
+<b class="fc"><i class="no-highlight">219</i>&nbsp;            val propertyState =</b>
+<b class="fc"><i class="no-highlight">220</i>&nbsp;                buildKotlinProperty(</b>
+<b class="fc"><i class="no-highlight">221</i>&nbsp;                    name = childColorFile.name,</b>
+<b class="fc"><i class="no-highlight">222</i>&nbsp;                    returnType = &quot;Color&quot;,</b>
+<b class="fc"><i class="no-highlight">223</i>&nbsp;                    value = &quot;mutableStateOf(${childColorFile.name})&quot;,</b>
+<i class="no-highlight">224</i>&nbsp;                ) {
+<b class="fc"><i class="no-highlight">225</i>&nbsp;                    mutability = KotlinMutability.Var</b>
+<b class="fc"><i class="no-highlight">226</i>&nbsp;                    isDelegate = true</b>
+<b class="fc"><i class="no-highlight">227</i>&nbsp;                    isPrivateSet = true</b>
+<i class="no-highlight">228</i>&nbsp;                }
+<b class="fc"><i class="no-highlight">229</i>&nbsp;            parentClass.properties += propertyState</b>
+<b class="fc"><i class="no-highlight">230</i>&nbsp;        }</b>
+<i class="no-highlight">231</i>&nbsp;}
+<i class="no-highlight">232</i>&nbsp;
+<i class="no-highlight">233</i>&nbsp;internal fun KotlinClass.addContentColorFunction(
+<i class="no-highlight">234</i>&nbsp;    node: TreeNode&lt;ColorFile&gt;,
+<i class="no-highlight">235</i>&nbsp;    predicate: ((ColorFile) -&gt; String?),
+<i class="no-highlight">236</i>&nbsp;) {
+<b class="fc"><i class="no-highlight">237</i>&nbsp;    val parentClass: KotlinClass = this</b>
+<b class="fc"><i class="no-highlight">238</i>&nbsp;    val arguments =</b>
+<b class="fc"><i class="no-highlight">239</i>&nbsp;        node</b>
+<b class="fc"><i class="no-highlight">240</i>&nbsp;            .asSequence()</b>
+<b class="fc"><i class="no-highlight">241</i>&nbsp;            .filter { it.value.isColor }</b>
+<b class="fc"><i class="no-highlight">242</i>&nbsp;            .map { it.value }</b>
+<b class="fc"><i class="no-highlight">243</i>&nbsp;            .filterIsInstance&lt;ColorFile.Color&gt;()</b>
+<b class="fc"><i class="no-highlight">244</i>&nbsp;            .toList()</b>
+<i class="no-highlight">245</i>&nbsp;
+<b class="fc"><i class="no-highlight">246</i>&nbsp;    val contentColorForFunction =</b>
+<b class="fc"><i class="no-highlight">247</i>&nbsp;        buildKotlinFunction(&quot;contentColorFor&quot;) {</b>
+<b class="fc"><i class="no-highlight">248</i>&nbsp;            annotations += buildKotlinAnnotation(&quot;Composable&quot;)</b>
+<b class="fc"><i class="no-highlight">249</i>&nbsp;            annotations += buildKotlinAnnotation(&quot;ReadOnlyComposable&quot;)</b>
+<b class="fc"><i class="no-highlight">250</i>&nbsp;            valueArguments += buildKotlinValueArgument(name = &quot;color&quot;, type = &quot;Color&quot;)</b>
+<b class="fc"><i class="no-highlight">251</i>&nbsp;            returnType = &quot;Color&quot;</b>
+<b class="fc"><i class="no-highlight">252</i>&nbsp;            body = buildString {</b>
+<b class="fc"><i class="no-highlight">253</i>&nbsp;                appendLine(&quot;return when (color) {&quot;)</b>
+<b class="fc"><i class="no-highlight">254</i>&nbsp;                for (argument in arguments) {</b>
+<b class="fc"><i class="no-highlight">255</i>&nbsp;                    val parents = argument.parentDirectories.joinToString(&quot;.&quot;)</b>
+<b class="fc"><i class="no-highlight">256</i>&nbsp;                    val property = argument.name</b>
+<b class="fc"><i class="no-highlight">257</i>&nbsp;                    val newColor = predicate(argument)</b>
+<b class="fc"><i class="no-highlight">258</i>&nbsp;                    if (newColor != null) {</b>
+<b class="fc"><i class="no-highlight">259</i>&nbsp;                        val newLine = &quot;$parents.$property -&gt; $newColor&quot;.prependIndent()</b>
+<b class="fc"><i class="no-highlight">260</i>&nbsp;                        if (!lines().contains(newLine)) appendLine(newLine)</b>
+<i class="no-highlight">261</i>&nbsp;                    }
+<i class="no-highlight">262</i>&nbsp;                }
+<b class="fc"><i class="no-highlight">263</i>&nbsp;                appendLine(&quot;else -&gt; Color.Unspecified&quot;.prependIndent())</b>
+<b class="fc"><i class="no-highlight">264</i>&nbsp;                appendLine(&quot;}&quot;)</b>
+<b class="fc"><i class="no-highlight">265</i>&nbsp;            }</b>
+<i class="no-highlight">266</i>&nbsp;        }
+<b class="fc"><i class="no-highlight">267</i>&nbsp;    parentClass.functions += contentColorForFunction</b>
+<i class="no-highlight">268</i>&nbsp;}
+<i class="no-highlight">269</i>&nbsp;
+<b class="pc"><i class="no-highlight">270</i>&nbsp;internal fun String.capitalize(): String = replaceFirstChar {</b>
+<b class="pc"><i class="no-highlight">271</i>&nbsp;    if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString()</b>
+<i class="no-highlight">272</i>&nbsp;}
 </div>
 </pre>
 </div>
@@ -807,7 +829,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2022-07-20 10:04</div>
+    <div style="float:right;">generated on 2022-07-20 11:10</div>
 </div>
 </body>
 </html>

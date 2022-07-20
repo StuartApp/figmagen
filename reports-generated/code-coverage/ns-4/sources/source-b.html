@@ -64,10 +64,10 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    86.4%
+    87%
   </span>
   <span class="absValue">
-    (19/22)
+    (20/23)
   </span>
 </td>
 </tr>
@@ -112,10 +112,10 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    86.4%
+    87%
   </span>
   <span class="absValue">
-    (19/22)
+    (20/23)
   </span>
 </td>
 </tr>
@@ -136,25 +136,48 @@ Current scope:     <a href="../../index.html">all classes</a>
 <i class="no-highlight">8</i>&nbsp;    var returnType: String,
 <i class="no-highlight">9</i>&nbsp;    var value: String,
 <i class="no-highlight">10</i>&nbsp;    var isDelegate: Boolean = false,
-<i class="no-highlight">11</i>&nbsp;    var isPrivateSet: Boolean = false,
-<i class="no-highlight">12</i>&nbsp;) {
-<i class="no-highlight">13</i>&nbsp;    override fun toString(): String = buildString {
-<i class="no-highlight">14</i>&nbsp;        val assignmentSymbol = if (isDelegate) &quot;by&quot; else &quot;=&quot;
-<i class="no-highlight">15</i>&nbsp;        appendLine(&quot;$visibility $mutability $name: $returnType $assignmentSymbol $value&quot;)
-<i class="no-highlight">16</i>&nbsp;        if (isPrivateSet) appendLine(&quot;private set&quot;.prependIndent())
-<i class="no-highlight">17</i>&nbsp;    }
-<i class="no-highlight">18</i>&nbsp;}
-<i class="no-highlight">19</i>&nbsp;
-<i class="no-highlight">20</i>&nbsp;internal fun buildKotlinProperty(
-<i class="no-highlight">21</i>&nbsp;    name: String,
-<i class="no-highlight">22</i>&nbsp;    returnType: String,
-<i class="no-highlight">23</i>&nbsp;    value: String,
-<b class="nc"><i class="no-highlight">24</i>&nbsp;    builder: KotlinProperty.() -&gt; Unit = {}</b>
-<i class="no-highlight">25</i>&nbsp;): KotlinProperty {
-<b class="fc"><i class="no-highlight">26</i>&nbsp;    val property = KotlinProperty(name = name, returnType = returnType, value = value)</b>
-<b class="fc"><i class="no-highlight">27</i>&nbsp;    builder(property)</b>
-<b class="fc"><i class="no-highlight">28</i>&nbsp;    return property</b>
-<i class="no-highlight">29</i>&nbsp;}
+<i class="no-highlight">11</i>&nbsp;    var isGetter: Boolean = false,
+<i class="no-highlight">12</i>&nbsp;    var isPrivateSet: Boolean = false,
+<i class="no-highlight">13</i>&nbsp;) {
+<i class="no-highlight">14</i>&nbsp;    override fun toString(): String =
+<i class="no-highlight">15</i>&nbsp;        buildString {
+<i class="no-highlight">16</i>&nbsp;                val assignment =
+<i class="no-highlight">17</i>&nbsp;                    when {
+<i class="no-highlight">18</i>&nbsp;                        isDelegate -&gt; &quot;by&quot;
+<i class="no-highlight">19</i>&nbsp;                        isGetter -&gt; &quot;\nget() =\n&quot;.prependIndent()
+<i class="no-highlight">20</i>&nbsp;                        else -&gt; &quot;=&quot;
+<i class="no-highlight">21</i>&nbsp;                    }
+<i class="no-highlight">22</i>&nbsp;                val body: String =
+<i class="no-highlight">23</i>&nbsp;                    if (isGetter) {
+<i class="no-highlight">24</i>&nbsp;                        value
+<i class="no-highlight">25</i>&nbsp;                            .lines()
+<i class="no-highlight">26</i>&nbsp;                            .mapIndexed { index, line -&gt;
+<i class="no-highlight">27</i>&nbsp;                                val indent: String = if (index == 0) &quot;   &quot; else &quot;    &quot;
+<i class="no-highlight">28</i>&nbsp;                                line.prependIndent(indent)
+<i class="no-highlight">29</i>&nbsp;                            }
+<i class="no-highlight">30</i>&nbsp;                            .joinToString(&quot;\n&quot;)
+<i class="no-highlight">31</i>&nbsp;                    } else {
+<i class="no-highlight">32</i>&nbsp;                        value
+<i class="no-highlight">33</i>&nbsp;                    }
+<i class="no-highlight">34</i>&nbsp;
+<i class="no-highlight">35</i>&nbsp;                val property = &quot;$visibility $mutability $name: $returnType $assignment $body&quot;
+<i class="no-highlight">36</i>&nbsp;                appendLine(property)
+<i class="no-highlight">37</i>&nbsp;                if (isPrivateSet) appendLine(&quot;private set&quot;.prependIndent())
+<i class="no-highlight">38</i>&nbsp;            }
+<i class="no-highlight">39</i>&nbsp;            .lines()
+<i class="no-highlight">40</i>&nbsp;            .joinToString(&quot;\n&quot;) { it.dropLastWhile(Char::isWhitespace) }
+<i class="no-highlight">41</i>&nbsp;}
+<i class="no-highlight">42</i>&nbsp;
+<i class="no-highlight">43</i>&nbsp;internal fun buildKotlinProperty(
+<i class="no-highlight">44</i>&nbsp;    name: String,
+<i class="no-highlight">45</i>&nbsp;    returnType: String,
+<i class="no-highlight">46</i>&nbsp;    value: String,
+<b class="nc"><i class="no-highlight">47</i>&nbsp;    builder: KotlinProperty.() -&gt; Unit = {}</b>
+<i class="no-highlight">48</i>&nbsp;): KotlinProperty {
+<b class="fc"><i class="no-highlight">49</i>&nbsp;    val property = KotlinProperty(name = name, returnType = returnType, value = value)</b>
+<b class="fc"><i class="no-highlight">50</i>&nbsp;    builder(property)</b>
+<b class="fc"><i class="no-highlight">51</i>&nbsp;    return property</b>
+<i class="no-highlight">52</i>&nbsp;}
 </div>
 </pre>
 </div>
@@ -181,7 +204,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2022-07-20 10:04</div>
+    <div style="float:right;">generated on 2022-07-20 11:10</div>
 </div>
 </body>
 </html>

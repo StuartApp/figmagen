@@ -1,29 +1,29 @@
 {"version":"3","listProblem":[{
   "tool": "Code Inspection",
   "category": "Redundant constructs",
-  "type": "Unused symbol",
-  "severity": "High",
-  "comment": "Class \"VarArgs\" is never used",
-  "detailsInfo": "Reports symbols that are not used or not reachable from entry points.",
+  "type": "Unnecessary type argument",
+  "severity": "Moderate",
+  "comment": "Remove explicit type arguments",
+  "detailsInfo": "Reports function calls with type arguments that can be automatically inferred. Such type arguments are redundant and can be safely omitted.\n\nUse the 'Remove explicit type arguments' quick-fix to clean up the code.\n\n**Examples:**\n\n\n      // 'String' type can be inferred here\n      fun foo(): MutableList<String> = mutableListOf<String>()\n\n      // Here 'String' cannot be inferred, type argument is required.\n      fun bar() = mutableListOf<String>()\n\nAfter the quick-fix is applied:\n\n\n      fun foo(): MutableList<String> = mutableListOf() <== Updated\n\n      fun bar() = mutableListOf<String>()\n",
   "sources": [
     {
       "type": "file",
-      "path": "exts/figmagen-kotlin-compose-ext/main/kotlin/com/stuart/figmagen/kotlin/compose/extensions/internal/KotlinMutability.kt",
+      "path": "figmagen-core/main/kotlin/com/stuart/figmagen/tree/TreeNode.kt",
       "language": "kotlin",
-      "line": 8,
-      "offset": 5,
-      "length": 7,
+      "line": 151,
+      "offset": 71,
+      "length": 3,
       "code": {
-        "startLine": 6,
-        "length": 7,
-        "offset": 22,
-        "surroundingCode": "    Val,\n    Var,\n    VarArgs,\n    Empty,\n    ;"
+        "startLine": 149,
+        "length": 3,
+        "offset": 73,
+        "surroundingCode": "}\n\nprivate fun <T> TreeNode<T>.findRoot(): TreeNode<T> = parent?.findRoot<T>() ?: this\n"
       }
     }
   ],
   "attributes": {
-    "module": "figmagen.exts.figmagen-kotlin-compose-ext.main",
-    "inspectionName": "UnusedSymbol"
+    "module": "figmagen.figmagen-core.main",
+    "inspectionName": "RemoveExplicitTypeArguments"
   },
-  "hash": "817f380998ab383bb523e8b6c090b8b0dba4e0fb62b9722c3a3b2371393002fa"
+  "hash": "02389e6c7fd3a1880fc59f376221524a4db3368b9bc295b966437902ea17534b"
 }]}
