@@ -106,6 +106,20 @@ internal val Color_Disabled_Soft =
         rgba = RGBA(0.82f, 0.84f, 0.86f, 1.0f),
     )
 
+internal val Color_Disabled_Package =
+    Color(
+        path = "color/disabled/package",
+        theme = "light",
+        rgba = RGBA(0.82f, 0.84f, 0.86f, 1.0f),
+    )
+
+internal val Color_Package_Main =
+    Color(
+        path = "color/package/main",
+        theme = "light",
+        rgba = RGBA(0.82f, 0.84f, 0.86f, 1.0f),
+    )
+
 val dummyLightColors =
     listOf(
         Color_Primary_Main,
@@ -122,6 +136,8 @@ val dummyLightColors =
         Color_Surface_Contrast_Main,
         Color_Disabled_Main,
         Color_Disabled_Soft,
+        Color_Disabled_Package,
+        Color_Package_Main,
     )
 
 internal val expectedDummyLight: TreeNode<ColorFile> = fakeColorFileTree {

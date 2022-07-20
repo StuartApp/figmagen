@@ -31,8 +31,9 @@ internal data class KotlinProperty(
                     } else {
                         value
                     }
+                val propName = name.sanitizeKotlinKeyword()
 
-                val property = "$visibility $mutability $name: $returnType $assignment $body"
+                val property = "$visibility $mutability $propName: $returnType $assignment $body"
                 appendLine(property)
                 if (isPrivateSet) appendLine("private set".prependIndent())
             }

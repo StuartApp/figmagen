@@ -15,6 +15,7 @@ internal val lightColors: Colors =
         tertiary = lightTertiary,
         surface = lightSurface,
         disabled = lightDisabled,
+        `package` = lightPackage,
     )
 
 private val lightPrimary: Colors.Primary
@@ -174,6 +175,7 @@ private val lightDisabled: Colors.Disabled
         Colors.Disabled(
             main = lightDisabledMain,
             soft = lightDisabledSoft,
+            `package` = lightDisabledPackage,
         )
 
 private val lightDisabledMain: Color
@@ -194,6 +196,30 @@ private val lightDisabledSoft: Color
             alpha = 1.0F,
         )
 
+private val lightDisabledPackage: Color
+    get() =
+        Color(
+            red = 0.82F,
+            green = 0.84F,
+            blue = 0.86F,
+            alpha = 1.0F,
+        )
+
+private val lightPackage: Colors.Package
+    get() =
+        Colors.Package(
+            main = lightPackageMain,
+        )
+
+private val lightPackageMain: Color
+    get() =
+        Color(
+            red = 0.82F,
+            green = 0.84F,
+            blue = 0.86F,
+            alpha = 1.0F,
+        )
+
 @Stable
 public class Colors(
     public val primary: Primary,
@@ -201,6 +227,7 @@ public class Colors(
     public val tertiary: Tertiary,
     public val surface: Surface,
     public val disabled: Disabled,
+    public val `package`: Package,
 ) {
 
     internal fun update(
@@ -211,6 +238,7 @@ public class Colors(
         tertiary.update(other.tertiary)
         surface.update(other.surface)
         disabled.update(other.disabled)
+        `package`.update(other.`package`)
     }
 
     internal fun copy(
@@ -219,6 +247,7 @@ public class Colors(
         tertiary: Tertiary = this.tertiary,
         surface: Surface = this.surface,
         disabled: Disabled = this.disabled,
+        `package`: Package = this.`package`,
     ): Colors {
         return Colors(
             primary = primary.copy(),
@@ -226,6 +255,7 @@ public class Colors(
             tertiary = tertiary.copy(),
             surface = surface.copy(),
             disabled = disabled.copy(),
+            `package` = `package`.copy(),
         )
     }
 
@@ -433,6 +463,7 @@ public class Colors(
     public class Disabled(
         main: Color,
         soft: Color,
+        `package`: Color,
     ) {
 
         public var main: Color by mutableStateOf(main)
@@ -441,20 +472,49 @@ public class Colors(
         public var soft: Color by mutableStateOf(soft)
             private set
 
+        public var `package`: Color by mutableStateOf(`package`)
+            private set
+
         internal fun update(
             other: Disabled,
         ) {
             main = other.main
             soft = other.soft
+            `package` = other.`package`
         }
 
         internal fun copy(
             main: Color = this.main,
             soft: Color = this.soft,
+            `package`: Color = this.`package`,
         ): Disabled {
             return Disabled(
                 main = main.copy(),
                 soft = soft.copy(),
+                `package` = `package`.copy(),
+            )
+        }
+    }
+
+    @Stable
+    public class Package(
+        main: Color,
+    ) {
+
+        public var main: Color by mutableStateOf(main)
+            private set
+
+        internal fun update(
+            other: Package,
+        ) {
+            main = other.main
+        }
+
+        internal fun copy(
+            main: Color = this.main,
+        ): Package {
+            return Package(
+                main = main.copy(),
             )
         }
     }

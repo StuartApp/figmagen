@@ -1,5 +1,7 @@
 package com.stuart.figmagen.kotlin.compose.extensions.internal
 
+import com.javiersc.kotlin.stdlib.isNotNullNorBlank
+
 internal data class KotlinValueArgument(
     var visibility: KotlinVisibility = KotlinVisibility.Public,
     var mutability: KotlinMutability = KotlinMutability.Val,
@@ -8,9 +10,12 @@ internal data class KotlinValueArgument(
     var defaultValue: String? = null
 ) {
     override fun toString(): String = buildString {
-        val defaultValue = if (defaultValue?.isNotBlank() == true) " = $defaultValue" else ""
+        val defValue = defaultValue
+        val defaultValue =
+            if (defValue.isNotNullNorBlank()) " = ${defValue.sanitizeKotlinKeyword()}" else ""
         val preName = if (mutability != KotlinMutability.Empty) "$visibility $mutability " else ""
-        append("$preName$name: $type$defaultValue")
+        val parameterName = "$preName${name.sanitizeKotlinKeyword()}"
+        append("$parameterName: $type$defaultValue")
     }
 }
 

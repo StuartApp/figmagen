@@ -65,11 +65,9 @@ internal fun TreeNode<ColorFile>.buildProperty(theme: String): KotlinProperty {
                 val childName = child.value.name
                 val childParents =
                     child.value.parentDirectories.joinToString("", transform = String::capitalize)
-                appendLine(
-                    ("$childName = $theme$childParents${childName.capitalize()},").prependIndent(
-                        "        "
-                    )
-                )
+                val paramName = childName.sanitizeKotlinKeyword()
+                val assignment = "$theme$childParents${childName.capitalize()}"
+                appendLine(("$paramName = $assignment,").prependIndent("        "))
             }
         } else {
             val color = colorFile.color
@@ -163,10 +161,11 @@ internal fun KotlinClass.addUpdateFunction(node: TreeNode<ColorFile>) {
             this.valueArguments += buildKotlinValueArgument("other", parentClass.name)
             this.body = buildString {
                 for (argument in arguments) {
+                    val argumentName = argument.name.sanitizeKotlinKeyword()
                     if (argument.isColor) {
-                        appendLine("${argument.name} = other.${argument.name}")
+                        appendLine("$argumentName = other.$argumentName")
                     } else {
-                        appendLine("${argument.name}.update(other.${argument.name})")
+                        appendLine("$argumentName.update(other.$argumentName)")
                     }
                 }
             }
@@ -191,7 +190,8 @@ internal fun KotlinClass.addCopyFunction(node: TreeNode<ColorFile>) {
             this.body = buildString {
                 appendLine("return ${parentClass.name}(")
                 for (argument in arguments) {
-                    appendLine("${argument.name} = ${argument.name}.copy(),".prependIndent())
+                    val paramName = argument.name.sanitizeKotlinKeyword()
+                    appendLine("$paramName = $paramName.copy(),".prependIndent())
                 }
                 appendLine(")")
             }
@@ -220,7 +220,7 @@ internal fun KotlinClass.addVariableStates(node: TreeNode<ColorFile>) {
                 buildKotlinProperty(
                     name = childColorFile.name,
                     returnType = "Color",
-                    value = "mutableStateOf(${childColorFile.name})",
+                    value = "mutableStateOf(${childColorFile.name.sanitizeKotlinKeyword()})",
                 ) {
                     mutability = KotlinMutability.Var
                     isDelegate = true

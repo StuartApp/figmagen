@@ -9,14 +9,15 @@ internal data class KotlinFunction(
     var body: String? = null,
 ) {
     override fun toString(): String = buildString {
+        val funName = name.sanitizeKotlinKeyword()
         for (annotation in annotations) {
             appendLine("@$annotation")
         }
         val returningType = if (returnType != null) ": $returnType" else ""
         if (valueArguments.isEmpty()) {
-            appendLine("$visibility fun $name()$returningType {")
+            appendLine("$visibility fun $funName()$returningType {")
         } else {
-            appendLine("$visibility fun $name(")
+            appendLine("$visibility fun $funName(")
             for (valueArgument in valueArguments) {
                 val sanitizedValueArgument =
                     valueArgument.apply { mutability = KotlinMutability.Empty }
