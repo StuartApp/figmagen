@@ -1,29 +1,57 @@
 {"version":"3","listProblem":[{
   "tool": "Code Inspection",
-  "category": "Redundant constructs",
-  "type": "Unnecessary type argument",
-  "severity": "Moderate",
-  "comment": "Remove explicit type arguments",
-  "detailsInfo": "Reports function calls with type arguments that can be automatically inferred. Such type arguments are redundant and can be safely omitted.\n\nUse the 'Remove explicit type arguments' quick-fix to clean up the code.\n\n**Examples:**\n\n\n      // 'String' type can be inferred here\n      fun foo(): MutableList<String> = mutableListOf<String>()\n\n      // Here 'String' cannot be inferred, type argument is required.\n      fun bar() = mutableListOf<String>()\n\nAfter the quick-fix is applied:\n\n\n      fun foo(): MutableList<String> = mutableListOf() <== Updated\n\n      fun bar() = mutableListOf<String>()\n",
+  "category": "Style issues",
+  "type": "Class member can have 'private' visibility",
+  "severity": "Info",
+  "comment": "Property 'visibility' could be private",
+  "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
   "sources": [
     {
       "type": "file",
-      "path": "figmagen-core/main/kotlin/com/stuart/figmagen/tree/TreeNodeDsl.kt",
+      "path": "exts/figmagen-swift-swiftui-ext/main/kotlin/com/stuart/figmagen/swift/swift/ui/extensions/internal/SwiftStruct.kt",
       "language": "kotlin",
-      "line": 7,
-      "offset": 24,
-      "length": 3,
+      "line": 4,
+      "offset": 9,
+      "length": 10,
       "code": {
-        "startLine": 5,
-        "length": 3,
-        "offset": 94,
-        "surroundingCode": "    builder: (TreeNode<T>.() -> TreeNode<T>)? = null,\n): TreeNode<T> {\n    val tree = TreeNode<T>(root)\n    builder?.invoke(tree)\n    return tree"
+        "startLine": 2,
+        "length": 10,
+        "offset": 37,
+        "surroundingCode": "\ninternal class SwiftStruct(\n    var visibility: SwiftVisibility = SwiftVisibility.Public,\n    var name: String,\n    val properties: MutableList<SwiftProperty> = mutableListOf(),"
       }
     }
   ],
   "attributes": {
-    "module": "figmagen.figmagen-core.main",
-    "inspectionName": "RemoveExplicitTypeArguments"
+    "module": "figmagen.exts.figmagen-swift-swiftui-ext.main",
+    "inspectionName": "MemberVisibilityCanBePrivate"
   },
-  "hash": "6a6984fde2abe3369727bf84cbcf7fa58ac17f4d787e11d36051a44858e1bb58"
+  "hash": "d41bfa8b18d61457a68a956a0882e9cc5fc4a2de71e2b5624c02c11f8716efcd"
+},{
+  "tool": "Code Inspection",
+  "category": "Style issues",
+  "type": "Class member can have 'private' visibility",
+  "severity": "Info",
+  "comment": "Property 'functions' could be private",
+  "detailsInfo": "Reports declarations that can be made `private` to follow the encapsulation principle.\n\n**Example:**\n\n\n    class Service(val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n\nAfter the quick-fix is applied (considering there are no usages of `url` outside of `Service` class):\n\n\n    class Service(private val url: String) {\n        fun connect(): URLConnection = URL(url).openConnection()\n    }\n",
+  "sources": [
+    {
+      "type": "file",
+      "path": "exts/figmagen-swift-swiftui-ext/main/kotlin/com/stuart/figmagen/swift/swift/ui/extensions/internal/SwiftStruct.kt",
+      "language": "kotlin",
+      "line": 7,
+      "offset": 9,
+      "length": 9,
+      "code": {
+        "startLine": 5,
+        "length": 9,
+        "offset": 96,
+        "surroundingCode": "    var name: String,\n    val properties: MutableList<SwiftProperty> = mutableListOf(),\n    val functions: MutableList<SwiftFunction> = mutableListOf(),\n    val classes: MutableList<SwiftStruct> = mutableListOf()\n) {"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "figmagen.exts.figmagen-swift-swiftui-ext.main",
+    "inspectionName": "MemberVisibilityCanBePrivate"
+  },
+  "hash": "9b578ebfec380b2dc4d24818388844acf70d499041b935b406f21a265803b218"
 }]}

@@ -563,13 +563,13 @@
           "path": "file://$PROJECT_DIR$/exts/figmagen-kotlin-compose-ext/test",
           "sourceFolders": [
             {
-              "path": "file://$PROJECT_DIR$/exts/figmagen-kotlin-compose-ext/test/kotlin",
-              "type": "TestSource",
+              "path": "file://$PROJECT_DIR$/exts/figmagen-kotlin-compose-ext/test/resources",
+              "type": "TestResource",
               "packagePrefix": ""
             },
             {
-              "path": "file://$PROJECT_DIR$/exts/figmagen-kotlin-compose-ext/test/resources",
-              "type": "TestResource",
+              "path": "file://$PROJECT_DIR$/exts/figmagen-kotlin-compose-ext/test/kotlin",
+              "type": "TestSource",
               "packagePrefix": ""
             }
           ]
@@ -798,13 +798,13 @@
           "path": "file://$PROJECT_DIR$/exts/figmagen-swift-swiftui-ext/test",
           "sourceFolders": [
             {
-              "path": "file://$PROJECT_DIR$/exts/figmagen-swift-swiftui-ext/test/kotlin",
-              "type": "TestSource",
+              "path": "file://$PROJECT_DIR$/exts/figmagen-swift-swiftui-ext/test/resources",
+              "type": "TestResource",
               "packagePrefix": ""
             },
             {
-              "path": "file://$PROJECT_DIR$/exts/figmagen-swift-swiftui-ext/test/resources",
-              "type": "TestResource",
+              "path": "file://$PROJECT_DIR$/exts/figmagen-swift-swiftui-ext/test/kotlin",
+              "type": "TestSource",
               "packagePrefix": ""
             }
           ]

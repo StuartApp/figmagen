@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html id="htmlId">
 <head>
-  <title>Coverage Report > SwiftFileKt</title>
+  <title>Coverage Report > SwiftFile</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/highlight-idea.css";
@@ -20,7 +20,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     <a href="../index.html">com.stuart.figmagen.swift.swift.ui.extensions.internal</a>
 </div>
 
-<h1>Coverage Summary for Class: SwiftFileKt (com.stuart.figmagen.swift.swift.ui.extensions.internal)</h1>
+<h1>Coverage Summary for Class: SwiftFile (com.stuart.figmagen.swift.swift.ui.extensions.internal)</h1>
 
 <table class="coverageStats">
 
@@ -44,7 +44,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 </th>
 </tr>
 <tr>
-  <td class="name">SwiftFileKt</td>
+  <td class="name">SwiftFile</td>
 <td class="coverageStat">
   <span class="percent">
     100%
@@ -53,41 +53,63 @@ Current scope:     <a href="../../index.html">all classes</a>
     (2/2)
   </span>
 </td>
-    <td class="coverageStat"/>
 <td class="coverageStat">
   <span class="percent">
-    80%
+    95%
   </span>
   <span class="absValue">
-    (4/5)
+    (19/20)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    91.7%
+    100%
   </span>
   <span class="absValue">
-    (33/36)
+    (23/23)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (291/291)
   </span>
 </td>
 </tr>
   <tr>
-    <td class="name">SwiftFileKt$buildSwiftFile$1</td>
+    <td class="name">SwiftFile$toString$2</td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    100%
   </span>
   <span class="absValue">
-    (0/1)
+    (1/1)
   </span>
 </td>
-    <td class="coverageStat"/>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    100%
   </span>
   <span class="absValue">
-    (0/1)
+    (2/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (10/10)
   </span>
 </td>
   </tr>
@@ -95,27 +117,34 @@ Current scope:     <a href="../../index.html">all classes</a>
   <td class="name"><strong>Total</strong></td>
 <td class="coverageStat">
   <span class="percent">
-    66.7%
+    100%
   </span>
   <span class="absValue">
-    (2/3)
-  </span>
-</td>
-    <td class="coverageStat"/>
-<td class="coverageStat">
-  <span class="percent">
-    66.7%
-  </span>
-  <span class="absValue">
-    (4/6)
+    (3/3)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    91.7%
+    95.5%
   </span>
   <span class="absValue">
-    (33/36)
+    (21/22)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (24/24)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (301/301)
   </span>
 </td>
 </tr>
@@ -128,47 +157,47 @@ Current scope:     <a href="../../index.html">all classes</a>
 <pre>
 <div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.stuart.figmagen.swift.swift.ui.extensions.internal
 <i class="no-highlight">2</i>&nbsp;
-<i class="no-highlight">3</i>&nbsp;internal data class SwiftFile(
-<i class="no-highlight">4</i>&nbsp;    val name: String,
-<i class="no-highlight">5</i>&nbsp;    val imports: MutableList&lt;String&gt; = mutableListOf(),
-<i class="no-highlight">6</i>&nbsp;    val properties: MutableList&lt;SwiftProperty&gt; = mutableListOf(),
-<i class="no-highlight">7</i>&nbsp;    val functions: MutableList&lt;SwiftFunction&gt; = mutableListOf(),
-<i class="no-highlight">8</i>&nbsp;    val classes: MutableList&lt;SwiftStruct&gt; = mutableListOf(),
+<b class="fc"><i class="no-highlight">3</i>&nbsp;internal data class SwiftFile(</b>
+<b class="fc"><i class="no-highlight">4</i>&nbsp;    val name: String,</b>
+<b class="fc"><i class="no-highlight">5</i>&nbsp;    val imports: MutableList&lt;String&gt; = mutableListOf(),</b>
+<b class="fc"><i class="no-highlight">6</i>&nbsp;    val properties: MutableList&lt;SwiftProperty&gt; = mutableListOf(),</b>
+<b class="fc"><i class="no-highlight">7</i>&nbsp;    val functions: MutableList&lt;SwiftFunction&gt; = mutableListOf(),</b>
+<b class="fc"><i class="no-highlight">8</i>&nbsp;    val classes: MutableList&lt;SwiftStruct&gt; = mutableListOf(),</b>
 <i class="no-highlight">9</i>&nbsp;) {
 <i class="no-highlight">10</i>&nbsp;    override fun toString(): String {
-<i class="no-highlight">11</i>&nbsp;        val lines =
-<i class="no-highlight">12</i>&nbsp;            buildString {
-<i class="no-highlight">13</i>&nbsp;                    imports.forEach { import -&gt; appendLine(&quot;import $import&quot;) }
-<i class="no-highlight">14</i>&nbsp;                    appendLine()
-<i class="no-highlight">15</i>&nbsp;                    properties.forEach(::appendLine)
-<i class="no-highlight">16</i>&nbsp;                    functions.forEach(::appendLine)
-<i class="no-highlight">17</i>&nbsp;                    classes.forEach(::appendLine)
-<i class="no-highlight">18</i>&nbsp;                }
-<i class="no-highlight">19</i>&nbsp;                .lines()
-<i class="no-highlight">20</i>&nbsp;                .dropLastWhile(String::isBlank)
+<b class="fc"><i class="no-highlight">11</i>&nbsp;        val lines =</b>
+<b class="fc"><i class="no-highlight">12</i>&nbsp;            buildString {</b>
+<b class="fc"><i class="no-highlight">13</i>&nbsp;                    imports.forEach { import -&gt; appendLine(&quot;import $import&quot;) }</b>
+<b class="fc"><i class="no-highlight">14</i>&nbsp;                    appendLine()</b>
+<b class="fc"><i class="no-highlight">15</i>&nbsp;                    properties.forEach(::appendLine)</b>
+<b class="fc"><i class="no-highlight">16</i>&nbsp;                    functions.forEach(::appendLine)</b>
+<b class="fc"><i class="no-highlight">17</i>&nbsp;                    classes.forEach(::appendLine)</b>
+<b class="fc"><i class="no-highlight">18</i>&nbsp;                }</b>
+<b class="fc"><i class="no-highlight">19</i>&nbsp;                .lines()</b>
+<b class="fc"><i class="no-highlight">20</i>&nbsp;                .dropLastWhile(String::isBlank)</b>
 <i class="no-highlight">21</i>&nbsp;
-<i class="no-highlight">22</i>&nbsp;        return lines
-<i class="no-highlight">23</i>&nbsp;            .mapIndexedNotNull { index, line -&gt;
-<i class="no-highlight">24</i>&nbsp;                val previousLine = lines.getOrNull(index - 1)?.filterNot(Char::isWhitespace)
-<i class="no-highlight">25</i>&nbsp;                val currentLine = line.filterNot(Char::isWhitespace)
-<i class="no-highlight">26</i>&nbsp;                val nextLine = lines.getOrNull(index + 1)?.filterNot(Char::isWhitespace)
+<b class="fc"><i class="no-highlight">22</i>&nbsp;        return lines</b>
+<b class="fc"><i class="no-highlight">23</i>&nbsp;            .mapIndexedNotNull { index, line -&gt;</b>
+<b class="fc"><i class="no-highlight">24</i>&nbsp;                val previousLine = lines.getOrNull(index - 1)?.filterNot(Char::isWhitespace)</b>
+<b class="fc"><i class="no-highlight">25</i>&nbsp;                val currentLine = line.filterNot(Char::isWhitespace)</b>
+<b class="fc"><i class="no-highlight">26</i>&nbsp;                val nextLine = lines.getOrNull(index + 1)?.filterNot(Char::isWhitespace)</b>
 <i class="no-highlight">27</i>&nbsp;
-<i class="no-highlight">28</i>&nbsp;                if (previousLine == &quot;}&quot; &amp;&amp; currentLine.isBlank() &amp;&amp; nextLine == &quot;}&quot;) null else line
+<b class="pc"><i class="no-highlight">28</i>&nbsp;                if (previousLine == &quot;}&quot; &amp;&amp; currentLine.isBlank() &amp;&amp; nextLine == &quot;}&quot;) null else line</b>
 <i class="no-highlight">29</i>&nbsp;            }
-<i class="no-highlight">30</i>&nbsp;            .joinToString(&quot;\n&quot;) { line -&gt; line.ifBlank { &quot;&quot; } } + &quot;\n&quot;
+<b class="fc"><i class="no-highlight">30</i>&nbsp;            .joinToString(&quot;\n&quot;) { line -&gt; line.ifBlank { &quot;&quot; } } + &quot;\n&quot;</b>
 <i class="no-highlight">31</i>&nbsp;    }
 <i class="no-highlight">32</i>&nbsp;}
 <i class="no-highlight">33</i>&nbsp;
 <i class="no-highlight">34</i>&nbsp;internal fun buildSwiftFile(
 <i class="no-highlight">35</i>&nbsp;    name: String,
-<b class="nc"><i class="no-highlight">36</i>&nbsp;    builder: SwiftFile.() -&gt; Unit = {},</b>
+<i class="no-highlight">36</i>&nbsp;    builder: SwiftFile.() -&gt; Unit = {},
 <i class="no-highlight">37</i>&nbsp;): SwiftFile {
-<b class="fc"><i class="no-highlight">38</i>&nbsp;    val file = SwiftFile(name = name)</b>
-<b class="fc"><i class="no-highlight">39</i>&nbsp;    builder(file)</b>
-<b class="fc"><i class="no-highlight">40</i>&nbsp;    return file</b>
+<i class="no-highlight">38</i>&nbsp;    val file = SwiftFile(name = name)
+<i class="no-highlight">39</i>&nbsp;    builder(file)
+<i class="no-highlight">40</i>&nbsp;    return file
 <i class="no-highlight">41</i>&nbsp;}
 <i class="no-highlight">42</i>&nbsp;
-<b class="fc"><i class="no-highlight">43</i>&nbsp;internal fun String.indented(): List&lt;String&gt; = lines().map { it.prependIndent() }</b>
+<i class="no-highlight">43</i>&nbsp;internal fun String.indented(): List&lt;String&gt; = lines().map { it.prependIndent() }
 </div>
 </pre>
 </div>
@@ -195,7 +224,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2022-11-15 12:59</div>
+    <div style="float:right;">generated on 2022-11-15 14:29</div>
 </div>
 </body>
 </html>
