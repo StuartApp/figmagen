@@ -471,6 +471,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="projects/exts/figmagen-swift-swiftui-ext/figmagen-swift-swiftui-ext/" class="md-nav__link">
+        figmagen-swift-swiftui-ext
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -696,23 +710,25 @@
 
 <span class="w">    </span><span class="c1">// Kotlin Compose extensions</span><span class="w"></span>
 <span class="w">    </span><span class="n">implementation</span><span class="p">(</span><span class="s">&quot;com.stuart.figmagen:figmagen-kotlin-compose-ext:</span><span class="si">$</span><span class="n">version</span><span class="s">&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// Swift SwiftUI extensions</span><span class="w"></span>
+<span class="w">    </span><span class="n">implementation</span><span class="p">(</span><span class="s">&quot;com.stuart.figmagen:figmagen-swift-swiftui-ext:</span><span class="si">$</span><span class="n">version</span><span class="s">&quot;</span><span class="p">)</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Create a new instance
-   of <a href="figmagen-core/main/kotlin/com/stuart/figmagen/Figmagen.kt"><code>Figmagen</code></a>:</li>
-</ol>
+<li>
+<p>Create a new instance
+   of <a href="figmagen-core/main/kotlin/com/stuart/figmagen/Figmagen.kt"><code>Figmagen</code></a>:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// figmaToken is optional as it can be provided</span><span class="w"></span>
 <span class="c1">// using `FIGMA_TOKEN` environment variable</span><span class="w"></span>
 <span class="kd">val</span><span class="w"> </span><span class="nv">figmagen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Figmagen</span><span class="p">(</span><span class="n">figmaToken</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;...&quot;</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
-<ol>
-<li>Add tasks to <code>Figmagen</code>:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">kotlinComposeColorsTask</span><span class="p">:</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
-<span class="w">    </span><span class="n">KotlinComposeColorsTask</span><span class="p">(</span><span class="w"></span>
-<span class="w">        </span><span class="n">packageName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;com.stuart.shared.ui.design.system.core&quot;</span><span class="p">,</span><span class="w"></span>
+</li>
+<li>
+<p>Add tasks to <code>Figmagen</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">val</span><span class="w"> </span><span class="nv">swiftUiColorsTask</span><span class="p">:</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">    </span><span class="n">SwiftUiColorsTask</span><span class="p">(</span><span class="w"></span>
 <span class="w">        </span><span class="n">checkColorCorrectness</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
 <span class="w">        </span><span class="n">outputPath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;some/path/to/module/with/Colors.kt&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">        </span><span class="n">ThemeFile</span><span class="p">(</span><span class="s">&quot;light&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">FileKey</span><span class="p">(</span><span class="s">&quot;auAVu6zRJ39zECKv6hWDmH&quot;</span><span class="p">)),</span><span class="w"></span>
@@ -721,8 +737,10 @@
 
 <span class="n">figmagen</span><span class="p">.</span><span class="na">addTask</span><span class="p">(</span><span class="n">kotlinComposeColorsTask</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
-<ol>
-<li>Generate all files from all tasks</li>
+</li>
+<li>
+<p>Generate all files from all tasks</p>
+</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="n">figmagen</span><span class="p">.</span><span class="na">generate</span><span class="p">()</span><span class="w"></span>
 </code></pre></div>
@@ -746,6 +764,7 @@ colors of all themes provided.</p>
 <h3 id="colortasks">ColorTasks<a class="headerlink" href="#colortasks" title="Permanent link">&para;</a></h3>
 <ul>
 <li><a href="exts/figmagen-kotlin-compose-ext/main/kotlin/com/stuart/figmagen/kotlin/compose/extensions/KotlinComposeColorsTask.kt">Kotlin Compose Colors task</a></li>
+<li><a href="exts/figmagen-swift-swiftui-ext/main/kotlin/com/stuart/figmagen/swift/swift/ui/extensions/SwiftUiColorsTask.kt">SwiftUiColorsTask</a></li>
 </ul>
 
               

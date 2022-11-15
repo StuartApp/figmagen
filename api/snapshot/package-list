@@ -10,3 +10,5 @@ module:figmagen-test
 com.stuart.figmagen.test.fakes
 module:figmagen-kotlin-compose-ext
 com.stuart.figmagen.kotlin.compose.extensions
+module:figmagen-swift-swiftui-ext
+com.stuart.figmagen.swift.swift.ui.extensions
