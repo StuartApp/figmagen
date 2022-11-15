@@ -1,1 +1,29 @@
-{"version":"3","listProblem":[]}
+{"version":"3","listProblem":[{
+  "tool": "Code Inspection",
+  "category": "Redundant constructs",
+  "type": "Unnecessary type argument",
+  "severity": "Moderate",
+  "comment": "Remove explicit type arguments",
+  "detailsInfo": "Reports function calls with type arguments that can be automatically inferred. Such type arguments are redundant and can be safely omitted.\n\nUse the 'Remove explicit type arguments' quick-fix to clean up the code.\n\n**Examples:**\n\n\n      // 'String' type can be inferred here\n      fun foo(): MutableList<String> = mutableListOf<String>()\n\n      // Here 'String' cannot be inferred, type argument is required.\n      fun bar() = mutableListOf<String>()\n\nAfter the quick-fix is applied:\n\n\n      fun foo(): MutableList<String> = mutableListOf() <== Updated\n\n      fun bar() = mutableListOf<String>()\n",
+  "sources": [
+    {
+      "type": "file",
+      "path": "figmagen-core/main/kotlin/com/stuart/figmagen/tree/TreeNodeDsl.kt",
+      "language": "kotlin",
+      "line": 7,
+      "offset": 24,
+      "length": 3,
+      "code": {
+        "startLine": 5,
+        "length": 3,
+        "offset": 94,
+        "surroundingCode": "    builder: (TreeNode<T>.() -> TreeNode<T>)? = null,\n): TreeNode<T> {\n    val tree = TreeNode<T>(root)\n    builder?.invoke(tree)\n    return tree"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "figmagen.figmagen-core.main",
+    "inspectionName": "RemoveExplicitTypeArguments"
+  },
+  "hash": "6a6984fde2abe3369727bf84cbcf7fa58ac17f4d787e11d36051a44858e1bb58"
+}]}

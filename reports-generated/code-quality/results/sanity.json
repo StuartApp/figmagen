@@ -6,6 +6,130 @@
     "Sanity"
   ],
   "severity": "Critical",
+  "comment": "'val Project.libs: LibrariesForLibs' can't be called in this context by implicit receiver. Use the explicit one if necessary",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "exts/figmagen-swift-swiftui-ext/build.gradle.kts",
+      "language": "kotlin",
+      "line": 2,
+      "offset": 11,
+      "length": 4,
+      "code": {
+        "startLine": 1,
+        "length": 4,
+        "offset": 20,
+        "surroundingCode": "plugins {\n    alias(libs.plugins.hubdle)\n}\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "figmagen.exts.figmagen-swift-swiftui-ext",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "2c82804f890d43f67c4d2a670da5af0382a07398c9940345d0c5d285d95865dc"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Cannot access class 'org.gradle.accessors.dm.LibrariesForLibs'. Check your module classpath for missing or conflicting dependencies",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "exts/figmagen-swift-swiftui-ext/build.gradle.kts",
+      "language": "kotlin",
+      "line": 2,
+      "offset": 11,
+      "length": 4,
+      "code": {
+        "startLine": 1,
+        "length": 4,
+        "offset": 20,
+        "surroundingCode": "plugins {\n    alias(libs.plugins.hubdle)\n}\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "figmagen.exts.figmagen-swift-swiftui-ext",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "8a2a6dac54a7f12e8486713f41b93b3a79f29b5703c58699e1c6ae17e1617e19"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Function invocation 'plugins(...)' expected",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "exts/figmagen-swift-swiftui-ext/build.gradle.kts",
+      "language": "kotlin",
+      "line": 2,
+      "offset": 16,
+      "length": 7,
+      "code": {
+        "startLine": 1,
+        "length": 7,
+        "offset": 25,
+        "surroundingCode": "plugins {\n    alias(libs.plugins.hubdle)\n}\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "figmagen.exts.figmagen-swift-swiftui-ext",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "368bdcf75f1a1a3576b61d674ac05ca500a8a7064b7bb37678c7eb3862e352d4"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
+  "comment": "Unresolved reference. None of the following candidates is applicable because of receiver type mismatch: public fun Project.plugins(block: PluginDependenciesSpec.() -> Unit): Nothing defined in org.gradle.kotlin.dsl",
+  "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "exts/figmagen-swift-swiftui-ext/build.gradle.kts",
+      "language": "kotlin",
+      "line": 2,
+      "offset": 16,
+      "length": 7,
+      "code": {
+        "startLine": 1,
+        "length": 7,
+        "offset": 25,
+        "surroundingCode": "plugins {\n    alias(libs.plugins.hubdle)\n}\n"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "figmagen.exts.figmagen-swift-swiftui-ext",
+    "inspectionName": "KotlinAnnotator"
+  },
+  "hash": "18921ab428bdc93eff08faf1cfcc0c4f113c73044a0e71e29fde241b7b3c1e75"
+},{
+  "tool": "Code Inspection",
+  "category": "General",
+  "type": "Kotlin annotator",
+  "tags": [
+    "Sanity"
+  ],
+  "severity": "Critical",
   "comment": "Cannot access class 'org.gradle.accessors.dm.LibrariesForLibs'. Check your module classpath for missing or conflicting dependencies",
   "detailsInfo": "Allows viewing the problems reported by the Kotlin annotator: compilation problems, references unresolved by the IDE, and so on.",
   "sources": [

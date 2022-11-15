@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html id="htmlId">
 <head>
-  <title>Coverage Report > UtilsKt</title>
+  <title>Coverage Report > SwiftFunction</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/highlight-idea.css";
@@ -17,10 +17,10 @@
 <div class="breadCrumbs">
 Current scope:     <a href="../../index.html">all classes</a>
     <span class="separator">|</span>
-    <a href="../index.html">com.stuart.figmagen.test.fakes</a>
+    <a href="../index.html">com.stuart.figmagen.swift.swift.ui.extensions.internal</a>
 </div>
 
-<h1>Coverage Summary for Class: UtilsKt (com.stuart.figmagen.test.fakes)</h1>
+<h1>Coverage Summary for Class: SwiftFunction (com.stuart.figmagen.swift.swift.ui.extensions.internal)</h1>
 
 <table class="coverageStats">
 <tr>
@@ -47,38 +47,45 @@ Current scope:     <a href="../../index.html">all classes</a>
 </th>
 </tr>
 <tr>
-  <td class="name">UtilsKt</td>
+  <td class="name">SwiftFunction</td>
 <td class="coverageStat">
   <span class="percent">
-    100%
+    0%
   </span>
   <span class="absValue">
-    (1/1)
+    (0/1)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    100%
+    0%
   </span>
   <span class="absValue">
-    (2/2)
-  </span>
-</td>
-    <td class="coverageStat"/>
-<td class="coverageStat">
-  <span class="percent">
-    100%
-  </span>
-  <span class="absValue">
-    (7/7)
+    (0/2)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    100%
+    0%
   </span>
   <span class="absValue">
-    (55/55)
+    (0/14)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/18)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/266)
   </span>
 </td>
 </tr>
@@ -90,23 +97,40 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.stuart.figmagen.test.fakes
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.stuart.figmagen.swift.swift.ui.extensions.internal
 <i class="no-highlight">2</i>&nbsp;
-<i class="no-highlight">3</i>&nbsp;import java.io.File
-<i class="no-highlight">4</i>&nbsp;import kotlin.io.path.createTempDirectory
-<i class="no-highlight">5</i>&nbsp;
-<i class="no-highlight">6</i>&nbsp;public fun Any.getResource(path: String): File =
-<b class="fc"><i class="no-highlight">7</i>&nbsp;    File(this.javaClass.classLoader.getResource(path).path)</b>
-<i class="no-highlight">8</i>&nbsp;
-<i class="no-highlight">9</i>&nbsp;public fun createTemporalDir(): File {
-<b class="fc"><i class="no-highlight">10</i>&nbsp;    val colorsDirectory =</b>
-<b class="fc"><i class="no-highlight">11</i>&nbsp;        File(&quot;${System.getProperty(&quot;user.dir&quot;)}/build/generated/kotlin/colors&quot;).apply { mkdirs() }</b>
-<i class="no-highlight">12</i>&nbsp;
-<b class="fc"><i class="no-highlight">13</i>&nbsp;    return createTempDirectory(directory = colorsDirectory.toPath()).toFile().apply {</b>
-<b class="fc"><i class="no-highlight">14</i>&nbsp;        parentFile.mkdirs()</b>
-<b class="fc"><i class="no-highlight">15</i>&nbsp;        createNewFile()</b>
-<b class="fc"><i class="no-highlight">16</i>&nbsp;    }</b>
-<i class="no-highlight">17</i>&nbsp;}
+<b class="nc"><i class="no-highlight">3</i>&nbsp;internal data class SwiftFunction(</b>
+<b class="nc"><i class="no-highlight">4</i>&nbsp;    var visibility: SwiftVisibility = SwiftVisibility.Public,</b>
+<b class="nc"><i class="no-highlight">5</i>&nbsp;    var name: String,</b>
+<b class="nc"><i class="no-highlight">6</i>&nbsp;    val valueArguments: MutableList&lt;SwiftValueArgument&gt; = mutableListOf(),</b>
+<b class="nc"><i class="no-highlight">7</i>&nbsp;    var returnType: String? = null,</b>
+<b class="nc"><i class="no-highlight">8</i>&nbsp;    var body: String? = null,</b>
+<i class="no-highlight">9</i>&nbsp;) {
+<b class="nc"><i class="no-highlight">10</i>&nbsp;    override fun toString(): String = buildString {</b>
+<b class="nc"><i class="no-highlight">11</i>&nbsp;        val funName = name</b>
+<b class="nc"><i class="no-highlight">12</i>&nbsp;        val returningType = if (returnType != null) &quot;: $returnType&quot; else &quot;&quot;</b>
+<b class="nc"><i class="no-highlight">13</i>&nbsp;        if (valueArguments.isEmpty()) {</b>
+<b class="nc"><i class="no-highlight">14</i>&nbsp;            appendLine(&quot;$visibility func $funName()$returningType {&quot;)</b>
+<i class="no-highlight">15</i>&nbsp;        } else {
+<b class="nc"><i class="no-highlight">16</i>&nbsp;            appendLine(&quot;$visibility func $funName(&quot;)</b>
+<b class="nc"><i class="no-highlight">17</i>&nbsp;            for (valueArgument in valueArguments) {</b>
+<b class="nc"><i class="no-highlight">18</i>&nbsp;                appendLine(&quot;$valueArgument,&quot;.prependIndent())</b>
+<i class="no-highlight">19</i>&nbsp;            }
+<b class="nc"><i class="no-highlight">20</i>&nbsp;            appendLine(&quot;)$returningType {&quot;)</b>
+<i class="no-highlight">21</i>&nbsp;        }
+<b class="nc"><i class="no-highlight">22</i>&nbsp;        body?.indented()?.dropLastWhile(String::isBlank)?.forEach(::appendLine)</b>
+<b class="nc"><i class="no-highlight">23</i>&nbsp;        appendLine(&quot;}&quot;)</b>
+<b class="nc"><i class="no-highlight">24</i>&nbsp;    }</b>
+<i class="no-highlight">25</i>&nbsp;}
+<i class="no-highlight">26</i>&nbsp;
+<i class="no-highlight">27</i>&nbsp;internal fun buildSwiftFunction(
+<i class="no-highlight">28</i>&nbsp;    name: String,
+<i class="no-highlight">29</i>&nbsp;    builder: SwiftFunction.() -&gt; Unit = {}
+<i class="no-highlight">30</i>&nbsp;): SwiftFunction {
+<i class="no-highlight">31</i>&nbsp;    val function = SwiftFunction(name = name)
+<i class="no-highlight">32</i>&nbsp;    builder(function)
+<i class="no-highlight">33</i>&nbsp;    return function
+<i class="no-highlight">34</i>&nbsp;}
 </div>
 </pre>
 </div>
@@ -133,7 +157,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2022-07-20 12:36</div>
+    <div style="float:right;">generated on 2022-11-15 12:59</div>
 </div>
 </body>
 </html>

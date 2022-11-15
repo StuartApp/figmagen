@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html id="htmlId">
 <head>
-  <title>Coverage Report > TreeNode</title>
+  <title>Coverage Report > ThemeFile</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/highlight-idea.css";
@@ -17,10 +17,10 @@
 <div class="breadCrumbs">
 Current scope:     <a href="../../index.html">all classes</a>
     <span class="separator">|</span>
-    <a href="../index.html">com.stuart.figmagen.tree</a>
+    <a href="../index.html">com.stuart.figmagen.tasks</a>
 </div>
 
-<h1>Coverage Summary for Class: TreeNode (com.stuart.figmagen.tree)</h1>
+<h1>Coverage Summary for Class: ThemeFile (com.stuart.figmagen.tasks)</h1>
 
 <table class="coverageStats">
 <tr>
@@ -47,7 +47,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 </th>
 </tr>
 <tr>
-  <td class="name">TreeNode</td>
+  <td class="name">ThemeFile</td>
 <td class="coverageStat">
   <span class="percent">
     100%
@@ -58,34 +58,27 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    41.2%
+    100%
   </span>
   <span class="absValue">
-    (7/17)
+    (1/1)
+  </span>
+</td>
+    <td class="coverageStat"/>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    0%
+    100%
   </span>
   <span class="absValue">
-    (0/28)
-  </span>
-</td>
-<td class="coverageStat">
-  <span class="percent">
-    27.3%
-  </span>
-  <span class="absValue">
-    (12/44)
-  </span>
-</td>
-<td class="coverageStat">
-  <span class="percent">
-    15.4%
-  </span>
-  <span class="absValue">
-    (47/305)
+    (12/12)
   </span>
 </td>
 </tr>
@@ -97,157 +90,19 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.stuart.figmagen.tree
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.stuart.figmagen.tasks
 <i class="no-highlight">2</i>&nbsp;
-<b class="fc"><i class="no-highlight">3</i>&nbsp;public data class TreeNode&lt;T&gt;</b>
-<i class="no-highlight">4</i>&nbsp;private constructor(
-<b class="fc"><i class="no-highlight">5</i>&nbsp;    public val value: T,</b>
-<b class="fc"><i class="no-highlight">6</i>&nbsp;    private val _children: MutableList&lt;TreeNode&lt;T&gt;&gt; = mutableListOf()</b>
-<i class="no-highlight">7</i>&nbsp;) : Iterable&lt;TreeNode&lt;T&gt;&gt; {
-<i class="no-highlight">8</i>&nbsp;
-<b class="fc"><i class="no-highlight">9</i>&nbsp;    public constructor(value: T) : this(value, mutableListOf())</b>
-<i class="no-highlight">10</i>&nbsp;
-<i class="no-highlight">11</i>&nbsp;    private var _parent: TreeNode&lt;T&gt;? = null
-<i class="no-highlight">12</i>&nbsp;    /** The converse notion of a child, an immediate ancestor. */
-<i class="no-highlight">13</i>&nbsp;    public val parent: TreeNode&lt;T&gt;?
-<b class="fc"><i class="no-highlight">14</i>&nbsp;        get() = _parent</b>
-<i class="no-highlight">15</i>&nbsp;
-<i class="no-highlight">16</i>&nbsp;    /** A group of nodes with the same parent. */
-<i class="no-highlight">17</i>&nbsp;    public val children: List&lt;TreeNode&lt;T&gt;&gt;
-<b class="fc"><i class="no-highlight">18</i>&nbsp;        get() = _children</b>
-<i class="no-highlight">19</i>&nbsp;
-<i class="no-highlight">20</i>&nbsp;    public val root: TreeNode&lt;T&gt;
-<b class="fc"><i class="no-highlight">21</i>&nbsp;        get() = findRoot()</b>
-<i class="no-highlight">22</i>&nbsp;
-<i class="no-highlight">23</i>&nbsp;    /**
-<i class="no-highlight">24</i>&nbsp;     * Add new child to current node or root.
-<i class="no-highlight">25</i>&nbsp;     *
-<i class="no-highlight">26</i>&nbsp;     * @param child A node which will be directly connected to current node.
-<i class="no-highlight">27</i>&nbsp;     */
-<i class="no-highlight">28</i>&nbsp;    public fun addChild(child: T) {
-<b class="nc"><i class="no-highlight">29</i>&nbsp;        child(child)</b>
-<i class="no-highlight">30</i>&nbsp;    }
-<i class="no-highlight">31</i>&nbsp;
-<i class="no-highlight">32</i>&nbsp;    /**
-<i class="no-highlight">33</i>&nbsp;     * Add new child to current node or root.
-<i class="no-highlight">34</i>&nbsp;     *
-<i class="no-highlight">35</i>&nbsp;     * @param child A node which will be directly connected to current node.
-<i class="no-highlight">36</i>&nbsp;     *
-<i class="no-highlight">37</i>&nbsp;     * @return the new child
-<i class="no-highlight">38</i>&nbsp;     */
-<i class="no-highlight">39</i>&nbsp;    public fun child(child: T): TreeNode&lt;T&gt; {
-<b class="fc"><i class="no-highlight">40</i>&nbsp;        val newChild = TreeNode(child)</b>
-<b class="fc"><i class="no-highlight">41</i>&nbsp;        newChild._parent = this</b>
-<b class="fc"><i class="no-highlight">42</i>&nbsp;        _children.add(newChild)</b>
-<b class="fc"><i class="no-highlight">43</i>&nbsp;        return newChild</b>
-<i class="no-highlight">44</i>&nbsp;    }
-<i class="no-highlight">45</i>&nbsp;
-<i class="no-highlight">46</i>&nbsp;    /**
-<i class="no-highlight">47</i>&nbsp;     * Removes a single instance of the specified node from this tree, if it is present.
-<i class="no-highlight">48</i>&nbsp;     *
-<i class="no-highlight">49</i>&nbsp;     * @return `true` if the node has been successfully removed; `false` if it was not present in
-<i class="no-highlight">50</i>&nbsp;     * the tree.
-<i class="no-highlight">51</i>&nbsp;     */
-<i class="no-highlight">52</i>&nbsp;    public fun removeChild(child: TreeNode&lt;T&gt;): Boolean {
-<b class="nc"><i class="no-highlight">53</i>&nbsp;        println(child.value)</b>
-<b class="nc"><i class="no-highlight">54</i>&nbsp;        val removed = child._parent?._children?.remove(child)</b>
-<b class="nc"><i class="no-highlight">55</i>&nbsp;        child._parent = null</b>
-<b class="nc"><i class="no-highlight">56</i>&nbsp;        return removed ?: false</b>
-<i class="no-highlight">57</i>&nbsp;    }
-<i class="no-highlight">58</i>&nbsp;
-<i class="no-highlight">59</i>&nbsp;    /**
-<i class="no-highlight">60</i>&nbsp;     * This function go through tree and counts children. Root element is not counted.
-<i class="no-highlight">61</i>&nbsp;     * @return All child and nested child count.
-<i class="no-highlight">62</i>&nbsp;     */
-<i class="no-highlight">63</i>&nbsp;    public fun nodeCount(): Int {
-<b class="nc"><i class="no-highlight">64</i>&nbsp;        if (_children.isEmpty()) return 0</b>
-<b class="nc"><i class="no-highlight">65</i>&nbsp;        return _children.size + _children.sumOf { it.nodeCount() }</b>
-<i class="no-highlight">66</i>&nbsp;    }
-<i class="no-highlight">67</i>&nbsp;
-<i class="no-highlight">68</i>&nbsp;    /**
-<i class="no-highlight">69</i>&nbsp;     * @return The number of edges on the longest path between current node and a descendant leaf.
-<i class="no-highlight">70</i>&nbsp;     */
-<i class="no-highlight">71</i>&nbsp;    public fun height(): Int {
-<b class="nc"><i class="no-highlight">72</i>&nbsp;        val childrenMaxDepth = _children.maxOfOrNull(TreeNode&lt;T&gt;::height) ?: -1</b>
-<b class="nc"><i class="no-highlight">73</i>&nbsp;        return childrenMaxDepth + 1</b>
-<i class="no-highlight">74</i>&nbsp;    }
-<i class="no-highlight">75</i>&nbsp;
-<i class="no-highlight">76</i>&nbsp;    /**
-<i class="no-highlight">77</i>&nbsp;     * Distance is the number of edges along the shortest path between two nodes.
-<i class="no-highlight">78</i>&nbsp;     * @return The distance between current node and the root.
-<i class="no-highlight">79</i>&nbsp;     */
-<i class="no-highlight">80</i>&nbsp;    public fun depth(): Int {
-<b class="nc"><i class="no-highlight">81</i>&nbsp;        var depth = 0</b>
-<b class="nc"><i class="no-highlight">82</i>&nbsp;        var tempParent = parent</b>
-<i class="no-highlight">83</i>&nbsp;
-<b class="nc"><i class="no-highlight">84</i>&nbsp;        while (tempParent != null) {</b>
-<b class="nc"><i class="no-highlight">85</i>&nbsp;            depth++</b>
-<b class="nc"><i class="no-highlight">86</i>&nbsp;            tempParent = tempParent.parent</b>
-<i class="no-highlight">87</i>&nbsp;        }
-<b class="nc"><i class="no-highlight">88</i>&nbsp;        return depth</b>
-<i class="no-highlight">89</i>&nbsp;    }
-<i class="no-highlight">90</i>&nbsp;
-<i class="no-highlight">91</i>&nbsp;    /** Remove all children from root and every node in tree. */
-<i class="no-highlight">92</i>&nbsp;    public fun clear() {
-<b class="nc"><i class="no-highlight">93</i>&nbsp;        _parent = null</b>
-<b class="nc"><i class="no-highlight">94</i>&nbsp;        _children.forEach { it.clear() }</b>
-<b class="nc"><i class="no-highlight">95</i>&nbsp;        _children.clear()</b>
-<i class="no-highlight">96</i>&nbsp;    }
-<i class="no-highlight">97</i>&nbsp;
-<i class="no-highlight">98</i>&nbsp;    override fun toString(): String {
-<b class="nc"><i class="no-highlight">99</i>&nbsp;        return value.toString()</b>
-<i class="no-highlight">100</i>&nbsp;    }
-<i class="no-highlight">101</i>&nbsp;
-<b class="nc"><i class="no-highlight">102</i>&nbsp;    public fun prettyString(onPrint: ((T) -&gt; String)? = null): String {</b>
-<b class="nc"><i class="no-highlight">103</i>&nbsp;        val stringBuilder = StringBuilder()</b>
-<b class="nc"><i class="no-highlight">104</i>&nbsp;        print(stringBuilder, &quot;&quot;, &quot;&quot;, onPrint)</b>
-<b class="nc"><i class="no-highlight">105</i>&nbsp;        return stringBuilder.toString()</b>
-<i class="no-highlight">106</i>&nbsp;    }
-<i class="no-highlight">107</i>&nbsp;
-<i class="no-highlight">108</i>&nbsp;    private fun print(
-<i class="no-highlight">109</i>&nbsp;        stringBuilder: StringBuilder,
-<i class="no-highlight">110</i>&nbsp;        prefix: String,
-<i class="no-highlight">111</i>&nbsp;        childrenPrefix: String,
-<i class="no-highlight">112</i>&nbsp;        onPrint: ((T) -&gt; String)?,
-<i class="no-highlight">113</i>&nbsp;    ) {
-<b class="nc"><i class="no-highlight">114</i>&nbsp;        stringBuilder.append(prefix)</b>
-<b class="nc"><i class="no-highlight">115</i>&nbsp;        stringBuilder.append(onPrint?.invoke(value) ?: value)</b>
-<b class="nc"><i class="no-highlight">116</i>&nbsp;        stringBuilder.append(&#39;\n&#39;)</b>
-<b class="nc"><i class="no-highlight">117</i>&nbsp;        val childIterator = _children.iterator()</b>
-<b class="nc"><i class="no-highlight">118</i>&nbsp;        while (childIterator.hasNext()) {</b>
-<b class="nc"><i class="no-highlight">119</i>&nbsp;            val node = childIterator.next()</b>
-<b class="nc"><i class="no-highlight">120</i>&nbsp;            if (childIterator.hasNext()) {</b>
-<b class="nc"><i class="no-highlight">121</i>&nbsp;                node.print(stringBuilder, &quot;$childrenPrefix├── &quot;, &quot;$childrenPrefix│   &quot;, onPrint)</b>
-<i class="no-highlight">122</i>&nbsp;            } else {
-<b class="nc"><i class="no-highlight">123</i>&nbsp;                node.print(stringBuilder, &quot;$childrenPrefix└── &quot;, &quot;$childrenPrefix    &quot;, onPrint)</b>
-<i class="no-highlight">124</i>&nbsp;            }
-<i class="no-highlight">125</i>&nbsp;        }
-<i class="no-highlight">126</i>&nbsp;    }
-<i class="no-highlight">127</i>&nbsp;
-<i class="no-highlight">128</i>&nbsp;    /**
-<i class="no-highlight">129</i>&nbsp;     * Tree is iterated by using `Pre-order Traversal Algorithm&quot;
-<i class="no-highlight">130</i>&nbsp;     * 1. Check if the current node is empty or null.
-<i class="no-highlight">131</i>&nbsp;     * 2. Display the data part of the root (or current node).
-<i class="no-highlight">132</i>&nbsp;     * 3. Traverse the left subtree by recursively calling the pre-order function.
-<i class="no-highlight">133</i>&nbsp;     * 4. Traverse the right subtree by recursively calling the pre-order function.
-<i class="no-highlight">134</i>&nbsp;     *
-<i class="no-highlight">135</i>&nbsp;     * ```markdown
-<i class="no-highlight">136</i>&nbsp;     *                  colors
-<i class="no-highlight">137</i>&nbsp;     *                  / |   \
-<i class="no-highlight">138</i>&nbsp;     *                 /  |     \
-<i class="no-highlight">139</i>&nbsp;     *               a    b       c
-<i class="no-highlight">140</i>&nbsp;     *              /  \       /  |  \
-<i class="no-highlight">141</i>&nbsp;     *            a1    a2    c1 c2  c3
-<i class="no-highlight">142</i>&nbsp;     *           /    / |  \
-<i class="no-highlight">143</i>&nbsp;     *         a11  a21 a22 a23
-<i class="no-highlight">144</i>&nbsp;     *
-<i class="no-highlight">145</i>&nbsp;     * Output: colors a a1 a11 a2 a21 a22 a23 b c c1 c2 c3
-<i class="no-highlight">146</i>&nbsp;     * ```
-<i class="no-highlight">147</i>&nbsp;     */
-<b class="fc"><i class="no-highlight">148</i>&nbsp;    override fun iterator(): Iterator&lt;TreeNode&lt;T&gt;&gt; = PreOrderTreeIterator(this)</b>
-<i class="no-highlight">149</i>&nbsp;}
-<i class="no-highlight">150</i>&nbsp;
-<i class="no-highlight">151</i>&nbsp;private fun &lt;T&gt; TreeNode&lt;T&gt;.findRoot(): TreeNode&lt;T&gt; = parent?.findRoot&lt;T&gt;() ?: this
+<i class="no-highlight">3</i>&nbsp;import com.stuart.figmagen.models.FileKey
+<i class="no-highlight">4</i>&nbsp;
+<i class="no-highlight">5</i>&nbsp;/**
+<i class="no-highlight">6</i>&nbsp; * A custom pair which match a theme with a Figma file.
+<i class="no-highlight">7</i>&nbsp; *
+<i class="no-highlight">8</i>&nbsp; * ```kotlin
+<i class="no-highlight">9</i>&nbsp; * val lightThemeFile = ThemeFile(&quot;light&quot;, &quot;auAVu6zRJ39zECKv6hWDmH&quot;)
+<i class="no-highlight">10</i>&nbsp; * val darkThemeFile = ThemeFile(&quot;light&quot;, &quot;wizOikAT1Wigtx6zHpfC87&quot;)
+<i class="no-highlight">11</i>&nbsp; * ```
+<i class="no-highlight">12</i>&nbsp; */
+<b class="fc"><i class="no-highlight">13</i>&nbsp;public data class ThemeFile(val theme: String, val fileKey: FileKey)</b>
 </div>
 </pre>
 </div>
@@ -274,7 +129,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2022-07-20 12:36</div>
+    <div style="float:right;">generated on 2022-11-15 12:59</div>
 </div>
 </body>
 </html>

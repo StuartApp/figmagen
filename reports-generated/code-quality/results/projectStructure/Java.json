@@ -21,6 +21,10 @@
       "languageLevel": 11
     },
     {
+      "name": "figmagen.exts.figmagen-swift-swiftui-ext",
+      "languageLevel": 11
+    },
+    {
       "name": "figmagen.figmagen-core.test",
       "languageLevel": 8
     },
@@ -42,6 +46,14 @@
     },
     {
       "name": "figmagen.exts.figmagen-kotlin-compose-ext.main",
+      "languageLevel": 8
+    },
+    {
+      "name": "figmagen.exts.figmagen-swift-swiftui-ext.test",
+      "languageLevel": 8
+    },
+    {
+      "name": "figmagen.exts.figmagen-swift-swiftui-ext.main",
       "languageLevel": 8
     }
   ]

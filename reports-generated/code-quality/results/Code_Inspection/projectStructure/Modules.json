@@ -96,6 +96,25 @@
       ]
     },
     {
+      "name": "figmagen.exts.figmagen-swift-swiftui-ext",
+      "contentEntries": [
+        {
+          "path": "file://$PROJECT_DIR$/exts/figmagen-swift-swiftui-ext",
+          "sourceFolders": []
+        }
+      ],
+      "orderEntries": [
+        {
+          "name": "jbr-11",
+          "type": "SDK"
+        },
+        {
+          "name": "<Module source>",
+          "type": "Own sources"
+        }
+      ]
+    },
+    {
       "name": "figmagen.figmagen-core.test",
       "contentEntries": [
         {
@@ -699,6 +718,241 @@
           "sourceFolders": [
             {
               "path": "file://$PROJECT_DIR$/exts/figmagen-kotlin-compose-ext/main/kotlin",
+              "type": "Source",
+              "packagePrefix": ""
+            }
+          ]
+        }
+      ],
+      "orderEntries": [
+        {
+          "name": "jbr-11",
+          "type": "SDK"
+        },
+        {
+          "name": "<Module source>",
+          "type": "Own sources"
+        },
+        {
+          "name": "figmagen.figmagen-core.main",
+          "type": "Module"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.3",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.javiersc.kotlin:kotlin-stdlib-jvm:0.1.0-alpha.11",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.10",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.10",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains:annotations:13.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.moshi:moshi-adapters:1.13.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.moshi:moshi-kotlin:1.13.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.moshi:moshi:1.13.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.okhttp3:okhttp:4.9.3",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.6.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.okio:okio:2.10.0",
+          "type": "Library"
+        }
+      ]
+    },
+    {
+      "name": "figmagen.exts.figmagen-swift-swiftui-ext.test",
+      "contentEntries": [
+        {
+          "path": "file://$PROJECT_DIR$/exts/figmagen-swift-swiftui-ext/test",
+          "sourceFolders": [
+            {
+              "path": "file://$PROJECT_DIR$/exts/figmagen-swift-swiftui-ext/test/kotlin",
+              "type": "TestSource",
+              "packagePrefix": ""
+            },
+            {
+              "path": "file://$PROJECT_DIR$/exts/figmagen-swift-swiftui-ext/test/resources",
+              "type": "TestResource",
+              "packagePrefix": ""
+            }
+          ]
+        }
+      ],
+      "orderEntries": [
+        {
+          "name": "jbr-11",
+          "type": "SDK"
+        },
+        {
+          "name": "<Module source>",
+          "type": "Own sources"
+        },
+        {
+          "name": "figmagen.exts.figmagen-swift-swiftui-ext.main",
+          "type": "Module"
+        },
+        {
+          "name": "figmagen.figmagen-test.main",
+          "type": "Module"
+        },
+        {
+          "name": "figmagen.figmagen-core.main",
+          "type": "Module"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-test:1.6.21",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-test-jvm:1.6.3",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.3",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.javiersc.kotlin:kotlin-stdlib-jvm:0.1.0-alpha.11",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: io.kotest:kotest-assertions-core-jvm:5.3.2",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.10",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-test-junit5:1.6.21",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.10",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains:annotations:13.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.junit.jupiter:junit-jupiter-api:5.6.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: io.kotest:kotest-assertions-shared-jvm:5.3.2",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.junit.platform:junit-platform-commons:1.6.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.apiguardian:apiguardian-api:1.1.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.opentest4j:opentest4j:1.2.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: io.kotest:kotest-assertions-api-jvm:5.3.2",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.moshi:moshi-adapters:1.13.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.moshi:moshi-kotlin:1.13.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.moshi:moshi:1.13.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.okhttp3:okhttp:4.9.3",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.6.21",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: com.squareup.okio:okio:2.10.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:1.6.3",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.junit.jupiter:junit-jupiter-engine:5.6.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: io.kotest:kotest-common-jvm:5.3.2",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: org.junit.platform:junit-platform-engine:1.6.0",
+          "type": "Library"
+        },
+        {
+          "name": "Gradle: io.github.java-diff-utils:java-diff-utils:4.11",
+          "type": "Library"
+        }
+      ]
+    },
+    {
+      "name": "figmagen.exts.figmagen-swift-swiftui-ext.main",
+      "contentEntries": [
+        {
+          "path": "file://$PROJECT_DIR$/exts/figmagen-swift-swiftui-ext/main",
+          "sourceFolders": [
+            {
+              "path": "file://$PROJECT_DIR$/exts/figmagen-swift-swiftui-ext/main/kotlin",
               "type": "Source",
               "packagePrefix": ""
             }

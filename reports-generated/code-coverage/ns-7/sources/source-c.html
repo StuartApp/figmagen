@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html id="htmlId">
 <head>
-  <title>Coverage Report > ThemeFile</title>
+  <title>Coverage Report > SwiftVisibility</title>
   <style type="text/css">
     @import "../../css/coverage.css";
     @import "../../css/highlight-idea.css";
@@ -17,10 +17,10 @@
 <div class="breadCrumbs">
 Current scope:     <a href="../../index.html">all classes</a>
     <span class="separator">|</span>
-    <a href="../index.html">com.stuart.figmagen.tasks</a>
+    <a href="../index.html">com.stuart.figmagen.swift.swift.ui.extensions.internal</a>
 </div>
 
-<h1>Coverage Summary for Class: ThemeFile (com.stuart.figmagen.tasks)</h1>
+<h1>Coverage Summary for Class: SwiftVisibility (com.stuart.figmagen.swift.swift.ui.extensions.internal)</h1>
 
 <table class="coverageStats">
 <tr>
@@ -47,7 +47,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 </th>
 </tr>
 <tr>
-  <td class="name">ThemeFile</td>
+  <td class="name">SwiftVisibility</td>
 <td class="coverageStat">
   <span class="percent">
     100%
@@ -61,7 +61,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     100%
   </span>
   <span class="absValue">
-    (1/1)
+    (2/2)
   </span>
 </td>
     <td class="coverageStat"/>
@@ -70,7 +70,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     100%
   </span>
   <span class="absValue">
-    (1/1)
+    (3/3)
   </span>
 </td>
 <td class="coverageStat">
@@ -78,7 +78,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     100%
   </span>
   <span class="absValue">
-    (12/12)
+    (27/27)
   </span>
 </td>
 </tr>
@@ -90,19 +90,16 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.stuart.figmagen.tasks
+<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.stuart.figmagen.swift.swift.ui.extensions.internal
 <i class="no-highlight">2</i>&nbsp;
-<i class="no-highlight">3</i>&nbsp;import com.stuart.figmagen.models.FileKey
+<i class="no-highlight">3</i>&nbsp;import java.util.Locale
 <i class="no-highlight">4</i>&nbsp;
-<i class="no-highlight">5</i>&nbsp;/**
-<i class="no-highlight">6</i>&nbsp; * A custom pair which match a theme with a Figma file.
-<i class="no-highlight">7</i>&nbsp; *
-<i class="no-highlight">8</i>&nbsp; * ```kotlin
-<i class="no-highlight">9</i>&nbsp; * val lightThemeFile = ThemeFile(&quot;light&quot;, &quot;auAVu6zRJ39zECKv6hWDmH&quot;)
-<i class="no-highlight">10</i>&nbsp; * val darkThemeFile = ThemeFile(&quot;light&quot;, &quot;wizOikAT1Wigtx6zHpfC87&quot;)
-<i class="no-highlight">11</i>&nbsp; * ```
-<i class="no-highlight">12</i>&nbsp; */
-<b class="fc"><i class="no-highlight">13</i>&nbsp;public data class ThemeFile(val theme: String, val fileKey: FileKey)</b>
+<i class="no-highlight">5</i>&nbsp;internal enum class SwiftVisibility {
+<b class="fc"><i class="no-highlight">6</i>&nbsp;    Public,</b>
+<b class="fc"><i class="no-highlight">7</i>&nbsp;    Private;</b>
+<i class="no-highlight">8</i>&nbsp;
+<b class="fc"><i class="no-highlight">9</i>&nbsp;    override fun toString(): String = name.lowercase(Locale.getDefault())</b>
+<i class="no-highlight">10</i>&nbsp;}
 </div>
 </pre>
 </div>
@@ -129,7 +126,7 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2022-07-20 12:36</div>
+    <div style="float:right;">generated on 2022-11-15 12:59</div>
 </div>
 </body>
 </html>

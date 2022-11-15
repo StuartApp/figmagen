@@ -153,29 +153,6 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "figmagen-core/main/kotlin/com/stuart/figmagen/internal/GetStyles.kt",
-                  "uriBaseId": "%SRCROOT%"
-                },
-                "region": {
-                  "endColumn": 36,
-                  "endLine": 18,
-                  "startColumn": 33,
-                  "startLine": 18
-                }
-              }
-            }
-          ],
-          "message": {
-            "text": "This expression contains a magic number. Consider defining it to a well named constant."
-          },
-          "ruleId": "detekt.style.MagicNumber"
-        },
-        {
-          "level": "warning",
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
                   "uri": "figmagen-core/main/kotlin/com/stuart/figmagen/tasks/ColorsTask.kt",
                   "uriBaseId": "%SRCROOT%"
                 },
@@ -207,6 +184,29 @@
                   "endLine": 95,
                   "startColumn": 61,
                   "startLine": 95
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "This expression contains a magic number. Consider defining it to a well named constant."
+          },
+          "ruleId": "detekt.style.MagicNumber"
+        },
+        {
+          "level": "warning",
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "figmagen-core/main/kotlin/com/stuart/figmagen/internal/GetStyles.kt",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "endColumn": 36,
+                  "endLine": 18,
+                  "startColumn": 33,
+                  "startLine": 18
                 }
               }
             }
