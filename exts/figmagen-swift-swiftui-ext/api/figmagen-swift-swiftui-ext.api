@@ -1,0 +1,6 @@
+public class com/stuart/figmagen/swift/swift/ui/extensions/SwiftUiColorsTask : com/stuart/figmagen/tasks/ColorsTask {
+	public fun <init> (ZLjava/lang/String;[Lcom/stuart/figmagen/tasks/ThemeFile;)V
+	public fun getThemeFiles ()Ljava/util/List;
+	public fun run (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+

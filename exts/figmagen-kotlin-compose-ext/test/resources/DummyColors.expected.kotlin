@@ -12,40 +12,24 @@ internal val lightColors: Colors =
     Colors(
         primary = lightPrimary,
         surface = lightSurface,
-        disabled = lightDisabled,
-        secondary = lightSecondary,
         tertiary = lightTertiary,
+        secondary = lightSecondary,
+        disabled = lightDisabled,
     )
 
 private val lightPrimary: Colors.Primary
     get() =
         Colors.Primary(
-            contrast = lightPrimaryContrast,
-            main = lightPrimaryMain,
             soft = lightPrimarySoft,
+            main = lightPrimaryMain,
+            contrast = lightPrimaryContrast,
         )
 
-private val lightPrimaryContrast: Colors.Primary.Contrast
-    get() =
-        Colors.Primary.Contrast(
-            high = lightPrimaryContrastHigh,
-            main = lightPrimaryContrastMain,
-        )
-
-private val lightPrimaryContrastHigh: Color
+private val lightPrimarySoft: Color
     get() =
         Color(
-            red = 0.0F,
-            green = 1.0F,
-            blue = 0.0F,
-            alpha = 1.0F,
-        )
-
-private val lightPrimaryContrastMain: Color
-    get() =
-        Color(
-            red = 1.0F,
-            green = 1.0F,
+            red = 0.8F,
+            green = 0.87058824F,
             blue = 1.0F,
             alpha = 1.0F,
         )
@@ -59,45 +43,45 @@ private val lightPrimaryMain: Color
             alpha = 1.0F,
         )
 
-private val lightPrimarySoft: Color
+private val lightPrimaryContrast: Colors.Primary.Contrast
+    get() =
+        Colors.Primary.Contrast(
+            main = lightPrimaryContrastMain,
+            high = lightPrimaryContrastHigh,
+        )
+
+private val lightPrimaryContrastMain: Color
     get() =
         Color(
-            red = 0.8F,
-            green = 0.87058824F,
+            red = 1.0F,
+            green = 1.0F,
             blue = 1.0F,
+            alpha = 1.0F,
+        )
+
+private val lightPrimaryContrastHigh: Color
+    get() =
+        Color(
+            red = 0.0F,
+            green = 1.0F,
+            blue = 0.0F,
             alpha = 1.0F,
         )
 
 private val lightSurface: Colors.Surface
     get() =
         Colors.Surface(
-            contrast = lightSurfaceContrast,
-            main = lightSurfaceMain,
             soft = lightSurfaceSoft,
+            main = lightSurfaceMain,
+            contrast = lightSurfaceContrast,
         )
 
-private val lightSurfaceContrast: Colors.Surface.Contrast
-    get() =
-        Colors.Surface.Contrast(
-            high = lightSurfaceContrastHigh,
-            main = lightSurfaceContrastMain,
-        )
-
-private val lightSurfaceContrastHigh: Color
+private val lightSurfaceSoft: Color
     get() =
         Color(
-            red = 0.5019608F,
-            green = 0.0F,
-            blue = 0.5019608F,
-            alpha = 1.0F,
-        )
-
-private val lightSurfaceContrastMain: Color
-    get() =
-        Color(
-            red = 0.21568628F,
-            green = 0.25490198F,
-            blue = 0.31764707F,
+            red = 0.93333334F,
+            green = 0.96862745F,
+            blue = 1.0F,
             alpha = 1.0F,
         )
 
@@ -110,79 +94,36 @@ private val lightSurfaceMain: Color
             alpha = 1.0F,
         )
 
-private val lightSurfaceSoft: Color
+private val lightSurfaceContrast: Colors.Surface.Contrast
+    get() =
+        Colors.Surface.Contrast(
+            main = lightSurfaceContrastMain,
+            high = lightSurfaceContrastHigh,
+        )
+
+private val lightSurfaceContrastMain: Color
     get() =
         Color(
-            red = 0.93333334F,
-            green = 0.96862745F,
-            blue = 1.0F,
+            red = 0.21568628F,
+            green = 0.25490198F,
+            blue = 0.31764707F,
             alpha = 1.0F,
         )
 
-private val lightDisabled: Colors.Disabled
-    get() =
-        Colors.Disabled(
-            main = lightDisabledMain,
-            soft = lightDisabledSoft,
-        )
-
-private val lightDisabledMain: Color
+private val lightSurfaceContrastHigh: Color
     get() =
         Color(
-            red = 0.5921569F,
-            green = 0.6392157F,
-            blue = 0.6862745F,
-            alpha = 1.0F,
-        )
-
-private val lightDisabledSoft: Color
-    get() =
-        Color(
-            red = 0.81960785F,
-            green = 0.8352941F,
-            blue = 0.85882354F,
-            alpha = 1.0F,
-        )
-
-private val lightSecondary: Colors.Secondary
-    get() =
-        Colors.Secondary(
-            main = lightSecondaryMain,
-            soft = lightSecondarySoft,
-        )
-
-private val lightSecondaryMain: Color
-    get() =
-        Color(
-            red = 0.23137255F,
-            green = 0.80784315F,
-            blue = 0.6745098F,
-            alpha = 1.0F,
-        )
-
-private val lightSecondarySoft: Color
-    get() =
-        Color(
-            red = 0.83137256F,
-            green = 0.9411765F,
-            blue = 0.92941177F,
+            red = 0.5019608F,
+            green = 0.0F,
+            blue = 0.5019608F,
             alpha = 1.0F,
         )
 
 private val lightTertiary: Colors.Tertiary
     get() =
         Colors.Tertiary(
-            main = lightTertiaryMain,
             soft = lightTertiarySoft,
-        )
-
-private val lightTertiaryMain: Color
-    get() =
-        Color(
-            red = 1.0F,
-            green = 0.7529412F,
-            blue = 0.18431373F,
-            alpha = 1.0F,
+            main = lightTertiaryMain,
         )
 
 private val lightTertiarySoft: Color
@@ -194,37 +135,87 @@ private val lightTertiarySoft: Color
             alpha = 1.0F,
         )
 
+private val lightTertiaryMain: Color
+    get() =
+        Color(
+            red = 1.0F,
+            green = 0.7529412F,
+            blue = 0.18431373F,
+            alpha = 1.0F,
+        )
+
+private val lightSecondary: Colors.Secondary
+    get() =
+        Colors.Secondary(
+            soft = lightSecondarySoft,
+            main = lightSecondaryMain,
+        )
+
+private val lightSecondarySoft: Color
+    get() =
+        Color(
+            red = 0.83137256F,
+            green = 0.9411765F,
+            blue = 0.92941177F,
+            alpha = 1.0F,
+        )
+
+private val lightSecondaryMain: Color
+    get() =
+        Color(
+            red = 0.23137255F,
+            green = 0.80784315F,
+            blue = 0.6745098F,
+            alpha = 1.0F,
+        )
+
+private val lightDisabled: Colors.Disabled
+    get() =
+        Colors.Disabled(
+            soft = lightDisabledSoft,
+            main = lightDisabledMain,
+        )
+
+private val lightDisabledSoft: Color
+    get() =
+        Color(
+            red = 0.81960785F,
+            green = 0.8352941F,
+            blue = 0.85882354F,
+            alpha = 1.0F,
+        )
+
+private val lightDisabledMain: Color
+    get() =
+        Color(
+            red = 0.5921569F,
+            green = 0.6392157F,
+            blue = 0.6862745F,
+            alpha = 1.0F,
+        )
+
 internal val darkColors: Colors =
     Colors(
         primary = darkPrimary,
         surface = darkSurface,
-        disabled = darkDisabled,
-        secondary = darkSecondary,
         tertiary = darkTertiary,
+        secondary = darkSecondary,
+        disabled = darkDisabled,
     )
 
 private val darkPrimary: Colors.Primary
     get() =
         Colors.Primary(
             contrast = darkPrimaryContrast,
-            main = darkPrimaryMain,
             soft = darkPrimarySoft,
+            main = darkPrimaryMain,
         )
 
 private val darkPrimaryContrast: Colors.Primary.Contrast
     get() =
         Colors.Primary.Contrast(
-            high = darkPrimaryContrastHigh,
             main = darkPrimaryContrastMain,
-        )
-
-private val darkPrimaryContrastHigh: Color
-    get() =
-        Color(
-            red = 0.0F,
-            green = 1.0F,
-            blue = 0.76F,
-            alpha = 1.0F,
+            high = darkPrimaryContrastHigh,
         )
 
 private val darkPrimaryContrastMain: Color
@@ -236,12 +227,12 @@ private val darkPrimaryContrastMain: Color
             alpha = 1.0F,
         )
 
-private val darkPrimaryMain: Color
+private val darkPrimaryContrastHigh: Color
     get() =
         Color(
-            red = 0.15686275F,
-            green = 0.43529412F,
-            blue = 0.92941177F,
+            red = 0.0F,
+            green = 1.0F,
+            blue = 0.76F,
             alpha = 1.0F,
         )
 
@@ -254,28 +245,28 @@ private val darkPrimarySoft: Color
             alpha = 1.0F,
         )
 
+private val darkPrimaryMain: Color
+    get() =
+        Color(
+            red = 0.15686275F,
+            green = 0.43529412F,
+            blue = 0.92941177F,
+            alpha = 1.0F,
+        )
+
 private val darkSurface: Colors.Surface
     get() =
         Colors.Surface(
             contrast = darkSurfaceContrast,
-            soft = darkSurfaceSoft,
             main = darkSurfaceMain,
+            soft = darkSurfaceSoft,
         )
 
 private val darkSurfaceContrast: Colors.Surface.Contrast
     get() =
         Colors.Surface.Contrast(
-            high = darkSurfaceContrastHigh,
             main = darkSurfaceContrastMain,
-        )
-
-private val darkSurfaceContrastHigh: Color
-    get() =
-        Color(
-            red = 0.37145114F,
-            green = 0.0F,
-            blue = 0.5019608F,
-            alpha = 1.0F,
+            high = darkSurfaceContrastHigh,
         )
 
 private val darkSurfaceContrastMain: Color
@@ -287,12 +278,12 @@ private val darkSurfaceContrastMain: Color
             alpha = 1.0F,
         )
 
-private val darkSurfaceSoft: Color
+private val darkSurfaceContrastHigh: Color
     get() =
         Color(
-            red = 0.21568628F,
-            green = 0.24313726F,
-            blue = 0.27058825F,
+            red = 0.37145114F,
+            green = 0.0F,
+            blue = 0.5019608F,
             alpha = 1.0F,
         )
 
@@ -305,70 +296,20 @@ private val darkSurfaceMain: Color
             alpha = 1.0F,
         )
 
-private val darkDisabled: Colors.Disabled
-    get() =
-        Colors.Disabled(
-            soft = darkDisabledSoft,
-            main = darkDisabledMain,
-        )
-
-private val darkDisabledSoft: Color
+private val darkSurfaceSoft: Color
     get() =
         Color(
-            red = 0.4392157F,
-            green = 0.4627451F,
-            blue = 0.5058824F,
-            alpha = 1.0F,
-        )
-
-private val darkDisabledMain: Color
-    get() =
-        Color(
-            red = 0.3254902F,
-            green = 0.3529412F,
-            blue = 0.38431373F,
-            alpha = 1.0F,
-        )
-
-private val darkSecondary: Colors.Secondary
-    get() =
-        Colors.Secondary(
-            main = darkSecondaryMain,
-            soft = darkSecondarySoft,
-        )
-
-private val darkSecondaryMain: Color
-    get() =
-        Color(
-            red = 0.23137255F,
-            green = 0.80784315F,
-            blue = 0.6745098F,
-            alpha = 1.0F,
-        )
-
-private val darkSecondarySoft: Color
-    get() =
-        Color(
-            red = 0.37254903F,
-            green = 0.627451F,
-            blue = 0.6F,
+            red = 0.21568628F,
+            green = 0.24313726F,
+            blue = 0.27058825F,
             alpha = 1.0F,
         )
 
 private val darkTertiary: Colors.Tertiary
     get() =
         Colors.Tertiary(
-            soft = darkTertiarySoft,
             main = darkTertiaryMain,
-        )
-
-private val darkTertiarySoft: Color
-    get() =
-        Color(
-            red = 0.5568628F,
-            green = 0.4862745F,
-            blue = 0.2901961F,
-            alpha = 1.0F,
+            soft = darkTertiarySoft,
         )
 
 private val darkTertiaryMain: Color
@@ -380,13 +321,72 @@ private val darkTertiaryMain: Color
             alpha = 1.0F,
         )
 
+private val darkTertiarySoft: Color
+    get() =
+        Color(
+            red = 0.5568628F,
+            green = 0.4862745F,
+            blue = 0.2901961F,
+            alpha = 1.0F,
+        )
+
+private val darkSecondary: Colors.Secondary
+    get() =
+        Colors.Secondary(
+            soft = darkSecondarySoft,
+            main = darkSecondaryMain,
+        )
+
+private val darkSecondarySoft: Color
+    get() =
+        Color(
+            red = 0.37254903F,
+            green = 0.627451F,
+            blue = 0.6F,
+            alpha = 1.0F,
+        )
+
+private val darkSecondaryMain: Color
+    get() =
+        Color(
+            red = 0.23137255F,
+            green = 0.80784315F,
+            blue = 0.6745098F,
+            alpha = 1.0F,
+        )
+
+private val darkDisabled: Colors.Disabled
+    get() =
+        Colors.Disabled(
+            main = darkDisabledMain,
+            soft = darkDisabledSoft,
+        )
+
+private val darkDisabledMain: Color
+    get() =
+        Color(
+            red = 0.3254902F,
+            green = 0.3529412F,
+            blue = 0.38431373F,
+            alpha = 1.0F,
+        )
+
+private val darkDisabledSoft: Color
+    get() =
+        Color(
+            red = 0.4392157F,
+            green = 0.4627451F,
+            blue = 0.5058824F,
+            alpha = 1.0F,
+        )
+
 @Stable
 public class Colors(
     public val primary: Primary,
     public val surface: Surface,
-    public val disabled: Disabled,
-    public val secondary: Secondary,
     public val tertiary: Tertiary,
+    public val secondary: Secondary,
+    public val disabled: Disabled,
 ) {
 
     internal fun update(
@@ -394,24 +394,24 @@ public class Colors(
     ) {
         primary.update(other.primary)
         surface.update(other.surface)
-        disabled.update(other.disabled)
-        secondary.update(other.secondary)
         tertiary.update(other.tertiary)
+        secondary.update(other.secondary)
+        disabled.update(other.disabled)
     }
 
     internal fun copy(
         primary: Primary = this.primary,
         surface: Surface = this.surface,
-        disabled: Disabled = this.disabled,
-        secondary: Secondary = this.secondary,
         tertiary: Tertiary = this.tertiary,
+        secondary: Secondary = this.secondary,
+        disabled: Disabled = this.disabled,
     ): Colors {
         return Colors(
             primary = primary.copy(),
             surface = surface.copy(),
-            disabled = disabled.copy(),
-            secondary = secondary.copy(),
             tertiary = tertiary.copy(),
+            secondary = secondary.copy(),
+            disabled = disabled.copy(),
         )
     }
 
@@ -429,63 +429,63 @@ public class Colors(
 
     @Stable
     public class Primary(
-        public val contrast: Contrast,
-        main: Color,
         soft: Color,
+        main: Color,
+        public val contrast: Contrast,
     ) {
 
-        public var main: Color by mutableStateOf(main)
+        public var soft: Color by mutableStateOf(soft)
             private set
 
-        public var soft: Color by mutableStateOf(soft)
+        public var main: Color by mutableStateOf(main)
             private set
 
         internal fun update(
             other: Primary,
         ) {
-            contrast.update(other.contrast)
-            main = other.main
             soft = other.soft
+            main = other.main
+            contrast.update(other.contrast)
         }
 
         internal fun copy(
-            contrast: Contrast = this.contrast,
-            main: Color = this.main,
             soft: Color = this.soft,
+            main: Color = this.main,
+            contrast: Contrast = this.contrast,
         ): Primary {
             return Primary(
-                contrast = contrast.copy(),
-                main = main.copy(),
                 soft = soft.copy(),
+                main = main.copy(),
+                contrast = contrast.copy(),
             )
         }
 
         @Stable
         public class Contrast(
-            high: Color,
             main: Color,
+            high: Color,
         ) {
 
-            public var high: Color by mutableStateOf(high)
+            public var main: Color by mutableStateOf(main)
                 private set
 
-            public var main: Color by mutableStateOf(main)
+            public var high: Color by mutableStateOf(high)
                 private set
 
             internal fun update(
                 other: Contrast,
             ) {
-                high = other.high
                 main = other.main
+                high = other.high
             }
 
             internal fun copy(
-                high: Color = this.high,
                 main: Color = this.main,
+                high: Color = this.high,
             ): Contrast {
                 return Contrast(
-                    high = high.copy(),
                     main = main.copy(),
+                    high = high.copy(),
                 )
             }
         }
@@ -493,154 +493,154 @@ public class Colors(
 
     @Stable
     public class Surface(
-        public val contrast: Contrast,
-        main: Color,
         soft: Color,
+        main: Color,
+        public val contrast: Contrast,
     ) {
 
-        public var main: Color by mutableStateOf(main)
+        public var soft: Color by mutableStateOf(soft)
             private set
 
-        public var soft: Color by mutableStateOf(soft)
+        public var main: Color by mutableStateOf(main)
             private set
 
         internal fun update(
             other: Surface,
         ) {
-            contrast.update(other.contrast)
-            main = other.main
             soft = other.soft
+            main = other.main
+            contrast.update(other.contrast)
         }
 
         internal fun copy(
-            contrast: Contrast = this.contrast,
-            main: Color = this.main,
             soft: Color = this.soft,
+            main: Color = this.main,
+            contrast: Contrast = this.contrast,
         ): Surface {
             return Surface(
-                contrast = contrast.copy(),
-                main = main.copy(),
                 soft = soft.copy(),
+                main = main.copy(),
+                contrast = contrast.copy(),
             )
         }
 
         @Stable
         public class Contrast(
-            high: Color,
             main: Color,
+            high: Color,
         ) {
 
-            public var high: Color by mutableStateOf(high)
+            public var main: Color by mutableStateOf(main)
                 private set
 
-            public var main: Color by mutableStateOf(main)
+            public var high: Color by mutableStateOf(high)
                 private set
 
             internal fun update(
                 other: Contrast,
             ) {
-                high = other.high
                 main = other.main
+                high = other.high
             }
 
             internal fun copy(
-                high: Color = this.high,
                 main: Color = this.main,
+                high: Color = this.high,
             ): Contrast {
                 return Contrast(
-                    high = high.copy(),
                     main = main.copy(),
+                    high = high.copy(),
                 )
             }
         }
     }
 
     @Stable
-    public class Disabled(
-        main: Color,
+    public class Tertiary(
         soft: Color,
+        main: Color,
     ) {
-
-        public var main: Color by mutableStateOf(main)
-            private set
 
         public var soft: Color by mutableStateOf(soft)
             private set
 
+        public var main: Color by mutableStateOf(main)
+            private set
+
         internal fun update(
-            other: Disabled,
+            other: Tertiary,
         ) {
-            main = other.main
             soft = other.soft
+            main = other.main
         }
 
         internal fun copy(
-            main: Color = this.main,
             soft: Color = this.soft,
-        ): Disabled {
-            return Disabled(
-                main = main.copy(),
+            main: Color = this.main,
+        ): Tertiary {
+            return Tertiary(
                 soft = soft.copy(),
+                main = main.copy(),
             )
         }
     }
 
     @Stable
     public class Secondary(
-        main: Color,
         soft: Color,
+        main: Color,
     ) {
 
-        public var main: Color by mutableStateOf(main)
+        public var soft: Color by mutableStateOf(soft)
             private set
 
-        public var soft: Color by mutableStateOf(soft)
+        public var main: Color by mutableStateOf(main)
             private set
 
         internal fun update(
             other: Secondary,
         ) {
-            main = other.main
             soft = other.soft
+            main = other.main
         }
 
         internal fun copy(
-            main: Color = this.main,
             soft: Color = this.soft,
+            main: Color = this.main,
         ): Secondary {
             return Secondary(
-                main = main.copy(),
                 soft = soft.copy(),
+                main = main.copy(),
             )
         }
     }
 
     @Stable
-    public class Tertiary(
-        main: Color,
+    public class Disabled(
         soft: Color,
+        main: Color,
     ) {
-
-        public var main: Color by mutableStateOf(main)
-            private set
 
         public var soft: Color by mutableStateOf(soft)
             private set
 
+        public var main: Color by mutableStateOf(main)
+            private set
+
         internal fun update(
-            other: Tertiary,
+            other: Disabled,
         ) {
-            main = other.main
             soft = other.soft
+            main = other.main
         }
 
         internal fun copy(
-            main: Color = this.main,
             soft: Color = this.soft,
-        ): Tertiary {
-            return Tertiary(
-                main = main.copy(),
+            main: Color = this.main,
+        ): Disabled {
+            return Disabled(
                 soft = soft.copy(),
+                main = main.copy(),
             )
         }
     }

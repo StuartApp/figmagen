@@ -11,9 +11,12 @@ Generate tokens from Figma easily for multiple languages or frameworks
 ```kotlin
 dependencies {
     implementation("com.stuart.figmagen:figmagen-core:$version")
-    
+
     // Kotlin Compose extensions
     implementation("com.stuart.figmagen:figmagen-kotlin-compose-ext:$version")
+
+    // Swift SwiftUI extensions
+    implementation("com.stuart.figmagen:figmagen-swift-swiftui-ext:$version")
 }
 ```
 
@@ -22,27 +25,25 @@ dependencies {
 1. Create a new instance
    of [`Figmagen`](figmagen-core/main/kotlin/com/stuart/figmagen/Figmagen.kt):
 
-```kotlin
-// figmaToken is optional as it can be provided
-// using `FIGMA_TOKEN` environment variable
-val figmagen = Figmagen(figmaToken = "...")
-```
+    ```kotlin
+    // figmaToken is optional as it can be provided
+    // using `FIGMA_TOKEN` environment variable
+    val figmagen = Figmagen(figmaToken = "...")
+    ```
 
 2. Add tasks to `Figmagen`:
 
-```kotlin
-
-val kotlinComposeColorsTask: Task =
-    KotlinComposeColorsTask(
-        packageName = "com.stuart.shared.ui.design.system.core",
-        checkColorCorrectness = true,
-        outputPath = "some/path/to/module/with/Colors.kt",
-        ThemeFile("light", FileKey("auAVu6zRJ39zECKv6hWDmH")),
-        ThemeFile("dark", FileKey("wizOikAT1Wigtx6zHpfC87")),
-    )
-
-figmagen.addTask(kotlinComposeColorsTask)
-```
+    ```kotlin
+    val swiftUiColorsTask: Task =
+        SwiftUiColorsTask(
+            checkColorCorrectness = true,
+            outputPath = "some/path/to/module/with/Colors.kt",
+            ThemeFile("light", FileKey("auAVu6zRJ39zECKv6hWDmH")),
+            ThemeFile("dark", FileKey("wizOikAT1Wigtx6zHpfC87")),
+        )
+    
+    figmagen.addTask(kotlinComposeColorsTask)
+    ```
 
 3. Generate all files from all tasks
 
@@ -76,3 +77,4 @@ colors of all themes provided.
 ### ColorTasks
 
 - [Kotlin Compose Colors task](exts/figmagen-kotlin-compose-ext/main/kotlin/com/stuart/figmagen/kotlin/compose/extensions/KotlinComposeColorsTask.kt)
+- [SwiftUiColorsTask](exts/figmagen-swift-swiftui-ext/main/kotlin/com/stuart/figmagen/swift/swift/ui/extensions/SwiftUiColorsTask.kt)
