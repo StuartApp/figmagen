@@ -7,9 +7,10 @@
   <title>Coverage Report > KotlinPropertyKt</title>
   <style type="text/css">
     @import "../../css/coverage.css";
-    @import "../../css/highlight-idea.css";
+    @import "../../css/idea.min.css";
   </style>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
 </head>
 
 <body>
@@ -126,60 +127,60 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.stuart.figmagen.kotlin.compose.extensions.internal
-<i class="no-highlight">2</i>&nbsp;
-<i class="no-highlight">3</i>&nbsp;internal data class KotlinProperty(
-<i class="no-highlight">4</i>&nbsp;    val annotations: MutableList&lt;KotlinAnnotation&gt; = mutableListOf(),
-<i class="no-highlight">5</i>&nbsp;    var visibility: KotlinVisibility = KotlinVisibility.Public,
-<i class="no-highlight">6</i>&nbsp;    var mutability: KotlinMutability = KotlinMutability.Val,
-<i class="no-highlight">7</i>&nbsp;    var name: String,
-<i class="no-highlight">8</i>&nbsp;    var returnType: String,
-<i class="no-highlight">9</i>&nbsp;    var value: String,
-<i class="no-highlight">10</i>&nbsp;    var isDelegate: Boolean = false,
-<i class="no-highlight">11</i>&nbsp;    var isGetter: Boolean = false,
-<i class="no-highlight">12</i>&nbsp;    var isPrivateSet: Boolean = false,
-<i class="no-highlight">13</i>&nbsp;) {
-<i class="no-highlight">14</i>&nbsp;    override fun toString(): String =
-<i class="no-highlight">15</i>&nbsp;        buildString {
-<i class="no-highlight">16</i>&nbsp;                val assignment =
-<i class="no-highlight">17</i>&nbsp;                    when {
-<i class="no-highlight">18</i>&nbsp;                        isDelegate -&gt; &quot;by&quot;
-<i class="no-highlight">19</i>&nbsp;                        isGetter -&gt; &quot;\nget() =\n&quot;.prependIndent()
-<i class="no-highlight">20</i>&nbsp;                        else -&gt; &quot;=&quot;
-<i class="no-highlight">21</i>&nbsp;                    }
-<i class="no-highlight">22</i>&nbsp;                val body: String =
-<i class="no-highlight">23</i>&nbsp;                    if (isGetter) {
-<i class="no-highlight">24</i>&nbsp;                        value
-<i class="no-highlight">25</i>&nbsp;                            .lines()
-<i class="no-highlight">26</i>&nbsp;                            .mapIndexed { index, line -&gt;
-<i class="no-highlight">27</i>&nbsp;                                val indent: String = if (index == 0) &quot;   &quot; else &quot;    &quot;
-<i class="no-highlight">28</i>&nbsp;                                line.prependIndent(indent)
-<i class="no-highlight">29</i>&nbsp;                            }
-<i class="no-highlight">30</i>&nbsp;                            .joinToString(&quot;\n&quot;)
-<i class="no-highlight">31</i>&nbsp;                    } else {
-<i class="no-highlight">32</i>&nbsp;                        value
-<i class="no-highlight">33</i>&nbsp;                    }
-<i class="no-highlight">34</i>&nbsp;                val propName = name.sanitizeKotlinKeyword()
-<i class="no-highlight">35</i>&nbsp;
-<i class="no-highlight">36</i>&nbsp;                val property = &quot;$visibility $mutability $propName: $returnType $assignment $body&quot;
-<i class="no-highlight">37</i>&nbsp;                appendLine(property)
-<i class="no-highlight">38</i>&nbsp;                if (isPrivateSet) appendLine(&quot;private set&quot;.prependIndent())
-<i class="no-highlight">39</i>&nbsp;            }
-<i class="no-highlight">40</i>&nbsp;            .lines()
-<i class="no-highlight">41</i>&nbsp;            .joinToString(&quot;\n&quot;) { it.dropLastWhile(Char::isWhitespace) }
-<i class="no-highlight">42</i>&nbsp;}
-<i class="no-highlight">43</i>&nbsp;
-<i class="no-highlight">44</i>&nbsp;internal fun buildKotlinProperty(
-<i class="no-highlight">45</i>&nbsp;    name: String,
-<i class="no-highlight">46</i>&nbsp;    returnType: String,
-<i class="no-highlight">47</i>&nbsp;    value: String,
-<b class="nc"><i class="no-highlight">48</i>&nbsp;    builder: KotlinProperty.() -&gt; Unit = {}</b>
-<i class="no-highlight">49</i>&nbsp;): KotlinProperty {
-<b class="fc"><i class="no-highlight">50</i>&nbsp;    val property = KotlinProperty(name = name, returnType = returnType, value = value)</b>
-<b class="fc"><i class="no-highlight">51</i>&nbsp;    builder(property)</b>
-<b class="fc"><i class="no-highlight">52</i>&nbsp;    return property</b>
-<i class="no-highlight">53</i>&nbsp;}
-</div>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.stuart.figmagen.kotlin.compose.extensions.internal
+&nbsp;
+&nbsp;internal data class KotlinProperty(
+&nbsp;    val annotations: MutableList&lt;KotlinAnnotation&gt; = mutableListOf(),
+&nbsp;    var visibility: KotlinVisibility = KotlinVisibility.Public,
+&nbsp;    var mutability: KotlinMutability = KotlinMutability.Val,
+&nbsp;    var name: String,
+&nbsp;    var returnType: String,
+&nbsp;    var value: String,
+&nbsp;    var isDelegate: Boolean = false,
+&nbsp;    var isGetter: Boolean = false,
+&nbsp;    var isPrivateSet: Boolean = false,
+&nbsp;) {
+&nbsp;    override fun toString(): String =
+&nbsp;        buildString {
+&nbsp;                val assignment =
+&nbsp;                    when {
+&nbsp;                        isDelegate -&gt; &quot;by&quot;
+&nbsp;                        isGetter -&gt; &quot;\nget() =\n&quot;.prependIndent()
+&nbsp;                        else -&gt; &quot;=&quot;
+&nbsp;                    }
+&nbsp;                val body: String =
+&nbsp;                    if (isGetter) {
+&nbsp;                        value
+&nbsp;                            .lines()
+&nbsp;                            .mapIndexed { index, line -&gt;
+&nbsp;                                val indent: String = if (index == 0) &quot;   &quot; else &quot;    &quot;
+&nbsp;                                line.prependIndent(indent)
+&nbsp;                            }
+&nbsp;                            .joinToString(&quot;\n&quot;)
+&nbsp;                    } else {
+&nbsp;                        value
+&nbsp;                    }
+&nbsp;                val propName = name.sanitizeKotlinKeyword()
+&nbsp;
+&nbsp;                val property = &quot;$visibility $mutability $propName: $returnType $assignment $body&quot;
+&nbsp;                appendLine(property)
+&nbsp;                if (isPrivateSet) appendLine(&quot;private set&quot;.prependIndent())
+&nbsp;            }
+&nbsp;            .lines()
+&nbsp;            .joinToString(&quot;\n&quot;) { it.dropLastWhile(Char::isWhitespace) }
+&nbsp;}
+&nbsp;
+&nbsp;internal fun buildKotlinProperty(
+&nbsp;    name: String,
+&nbsp;    returnType: String,
+&nbsp;    value: String,
+<b class="nc">&nbsp;    builder: KotlinProperty.() -&gt; Unit = {}</b>
+&nbsp;): KotlinProperty {
+<b class="fc">&nbsp;    val property = KotlinProperty(name = name, returnType = returnType, value = value)</b>
+<b class="fc">&nbsp;    builder(property)</b>
+<b class="fc">&nbsp;    return property</b>
+&nbsp;}
+</code>
 </pre>
 </div>
 
@@ -194,18 +195,15 @@ Current scope:     <a href="../../index.html">all classes</a>
     @*/
 
     if (!msie || msie && msie9) {
-        var codeBlock = document.getElementById('sourceCode');
-
-        if (codeBlock) {
-            hljs.highlightBlock(codeBlock);
-        }
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
     }
 })();
 </script>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2022-11-15 14:29</div>
+    <div style="float:right;">generated on 2023-01-19 11:09</div>
 </div>
 </body>
 </html>

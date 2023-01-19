@@ -7,9 +7,10 @@
   <title>Coverage Report > SwiftPropertyKt</title>
   <style type="text/css">
     @import "../../css/coverage.css";
-    @import "../../css/highlight-idea.css";
+    @import "../../css/idea.min.css";
   </style>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
 </head>
 
 <body>
@@ -126,60 +127,60 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.stuart.figmagen.swift.swift.ui.extensions.internal
-<i class="no-highlight">2</i>&nbsp;
-<i class="no-highlight">3</i>&nbsp;internal data class SwiftProperty(
-<i class="no-highlight">4</i>&nbsp;    var visibility: SwiftVisibility = SwiftVisibility.Public,
-<i class="no-highlight">5</i>&nbsp;    var mutability: SwiftMutability = SwiftMutability.Let,
-<i class="no-highlight">6</i>&nbsp;    var name: String,
-<i class="no-highlight">7</i>&nbsp;    var type: String,
-<i class="no-highlight">8</i>&nbsp;    var value: String? = null,
-<i class="no-highlight">9</i>&nbsp;    var isGetter: Boolean = false,
-<i class="no-highlight">10</i>&nbsp;) {
-<i class="no-highlight">11</i>&nbsp;    override fun toString(): String =
-<i class="no-highlight">12</i>&nbsp;        buildString {
-<i class="no-highlight">13</i>&nbsp;                val assignment = if (isGetter) &quot;\nreturn&quot;.prependIndent(&quot;    &quot;) else &quot;=&quot;
-<i class="no-highlight">14</i>&nbsp;
-<i class="no-highlight">15</i>&nbsp;                val name = name.sanitizeSwiftKeyword()
-<i class="no-highlight">16</i>&nbsp;
-<i class="no-highlight">17</i>&nbsp;                val body: String? = value
-<i class="no-highlight">18</i>&nbsp;
-<i class="no-highlight">19</i>&nbsp;                val property =
-<i class="no-highlight">20</i>&nbsp;                    when {
-<i class="no-highlight">21</i>&nbsp;                        body == null -&gt; {
-<i class="no-highlight">22</i>&nbsp;                            &quot;$visibility $mutability $name: $type&quot;
-<i class="no-highlight">23</i>&nbsp;                        }
-<i class="no-highlight">24</i>&nbsp;                        isGetter -&gt; {
-<i class="no-highlight">25</i>&nbsp;                            buildString {
-<i class="no-highlight">26</i>&nbsp;                                appendLine(&quot;$visibility ${SwiftMutability.Var} $name: $type {&quot;)
-<i class="no-highlight">27</i>&nbsp;                                appendLine(&quot;return $body&quot;.prependIndent(&quot;    &quot;))
-<i class="no-highlight">28</i>&nbsp;                                append(&quot;}&quot;)
-<i class="no-highlight">29</i>&nbsp;                            }
-<i class="no-highlight">30</i>&nbsp;                        }
-<i class="no-highlight">31</i>&nbsp;                        else -&gt; {
-<i class="no-highlight">32</i>&nbsp;                            buildString {
-<i class="no-highlight">33</i>&nbsp;                                appendLine(&quot;$visibility $mutability $name: $type $assignment&quot;)
-<i class="no-highlight">34</i>&nbsp;                                append(body.prependIndent(&quot;    &quot;))
-<i class="no-highlight">35</i>&nbsp;                            }
-<i class="no-highlight">36</i>&nbsp;                        }
-<i class="no-highlight">37</i>&nbsp;                    }
-<i class="no-highlight">38</i>&nbsp;
-<i class="no-highlight">39</i>&nbsp;                appendLine(property)
-<i class="no-highlight">40</i>&nbsp;            }
-<i class="no-highlight">41</i>&nbsp;            .lines()
-<i class="no-highlight">42</i>&nbsp;            .joinToString(&quot;\n&quot;) { it.dropLastWhile(Char::isWhitespace) }
-<i class="no-highlight">43</i>&nbsp;}
-<i class="no-highlight">44</i>&nbsp;
-<i class="no-highlight">45</i>&nbsp;internal fun buildSwiftProperty(
-<i class="no-highlight">46</i>&nbsp;    name: String,
-<i class="no-highlight">47</i>&nbsp;    type: String,
-<b class="nc"><i class="no-highlight">48</i>&nbsp;    builder: SwiftProperty.() -&gt; Unit = {}</b>
-<i class="no-highlight">49</i>&nbsp;): SwiftProperty {
-<b class="fc"><i class="no-highlight">50</i>&nbsp;    val property = SwiftProperty(name = name, type = type)</b>
-<b class="fc"><i class="no-highlight">51</i>&nbsp;    builder(property)</b>
-<b class="fc"><i class="no-highlight">52</i>&nbsp;    return property</b>
-<i class="no-highlight">53</i>&nbsp;}
-</div>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.stuart.figmagen.swift.swift.ui.extensions.internal
+&nbsp;
+&nbsp;internal data class SwiftProperty(
+&nbsp;    var visibility: SwiftVisibility = SwiftVisibility.Public,
+&nbsp;    var mutability: SwiftMutability = SwiftMutability.Let,
+&nbsp;    var name: String,
+&nbsp;    var type: String,
+&nbsp;    var value: String? = null,
+&nbsp;    var isGetter: Boolean = false,
+&nbsp;) {
+&nbsp;    override fun toString(): String =
+&nbsp;        buildString {
+&nbsp;                val assignment = if (isGetter) &quot;\nreturn&quot;.prependIndent(&quot;    &quot;) else &quot;=&quot;
+&nbsp;
+&nbsp;                val name = name.sanitizeSwiftKeyword()
+&nbsp;
+&nbsp;                val body: String? = value
+&nbsp;
+&nbsp;                val property =
+&nbsp;                    when {
+&nbsp;                        body == null -&gt; {
+&nbsp;                            &quot;$visibility $mutability $name: $type&quot;
+&nbsp;                        }
+&nbsp;                        isGetter -&gt; {
+&nbsp;                            buildString {
+&nbsp;                                appendLine(&quot;$visibility ${SwiftMutability.Var} $name: $type {&quot;)
+&nbsp;                                appendLine(&quot;return $body&quot;.prependIndent(&quot;    &quot;))
+&nbsp;                                append(&quot;}&quot;)
+&nbsp;                            }
+&nbsp;                        }
+&nbsp;                        else -&gt; {
+&nbsp;                            buildString {
+&nbsp;                                appendLine(&quot;$visibility $mutability $name: $type $assignment&quot;)
+&nbsp;                                append(body.prependIndent(&quot;    &quot;))
+&nbsp;                            }
+&nbsp;                        }
+&nbsp;                    }
+&nbsp;
+&nbsp;                appendLine(property)
+&nbsp;            }
+&nbsp;            .lines()
+&nbsp;            .joinToString(&quot;\n&quot;) { it.dropLastWhile(Char::isWhitespace) }
+&nbsp;}
+&nbsp;
+&nbsp;internal fun buildSwiftProperty(
+&nbsp;    name: String,
+&nbsp;    type: String,
+<b class="nc">&nbsp;    builder: SwiftProperty.() -&gt; Unit = {}</b>
+&nbsp;): SwiftProperty {
+<b class="fc">&nbsp;    val property = SwiftProperty(name = name, type = type)</b>
+<b class="fc">&nbsp;    builder(property)</b>
+<b class="fc">&nbsp;    return property</b>
+&nbsp;}
+</code>
 </pre>
 </div>
 
@@ -194,18 +195,15 @@ Current scope:     <a href="../../index.html">all classes</a>
     @*/
 
     if (!msie || msie && msie9) {
-        var codeBlock = document.getElementById('sourceCode');
-
-        if (codeBlock) {
-            hljs.highlightBlock(codeBlock);
-        }
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
     }
 })();
 </script>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2022-11-15 14:29</div>
+    <div style="float:right;">generated on 2023-01-19 11:09</div>
 </div>
 </body>
 </html>

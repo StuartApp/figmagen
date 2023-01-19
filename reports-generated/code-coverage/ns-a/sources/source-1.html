@@ -7,9 +7,10 @@
   <title>Coverage Report > PreOrderTreeIterator</title>
   <style type="text/css">
     @import "../../css/coverage.css";
-    @import "../../css/highlight-idea.css";
+    @import "../../css/idea.min.css";
   </style>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
 </head>
 
 <body>
@@ -85,7 +86,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     100%
   </span>
   <span class="absValue">
-    (44/44)
+    (43/43)
   </span>
 </td>
 </tr>
@@ -97,27 +98,27 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.stuart.figmagen.tree
-<i class="no-highlight">2</i>&nbsp;
-<i class="no-highlight">3</i>&nbsp;import java.util.Stack
-<i class="no-highlight">4</i>&nbsp;
-<b class="fc"><i class="no-highlight">5</i>&nbsp;internal class PreOrderTreeIterator&lt;T&gt;(root: TreeNode&lt;T&gt;) : Iterator&lt;TreeNode&lt;T&gt;&gt; {</b>
-<i class="no-highlight">6</i>&nbsp;
-<b class="fc"><i class="no-highlight">7</i>&nbsp;    private val stack = Stack&lt;TreeNode&lt;T&gt;&gt;()</b>
-<i class="no-highlight">8</i>&nbsp;
-<b class="fc"><i class="no-highlight">9</i>&nbsp;    init {</b>
-<b class="fc"><i class="no-highlight">10</i>&nbsp;        stack.push(root)</b>
-<b class="fc"><i class="no-highlight">11</i>&nbsp;    }</b>
-<i class="no-highlight">12</i>&nbsp;
-<b class="fc"><i class="no-highlight">13</i>&nbsp;    override fun hasNext(): Boolean = stack.isNotEmpty()</b>
-<i class="no-highlight">14</i>&nbsp;
-<i class="no-highlight">15</i>&nbsp;    override fun next(): TreeNode&lt;T&gt; {
-<b class="fc"><i class="no-highlight">16</i>&nbsp;        val node = stack.pop()</b>
-<b class="fc"><i class="no-highlight">17</i>&nbsp;        node.children.asReversed().forEach { stack.push(it) }</b>
-<b class="fc"><i class="no-highlight">18</i>&nbsp;        return node</b>
-<i class="no-highlight">19</i>&nbsp;    }
-<i class="no-highlight">20</i>&nbsp;}
-</div>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.stuart.figmagen.tree
+&nbsp;
+&nbsp;import java.util.Stack
+&nbsp;
+<b class="fc">&nbsp;internal class PreOrderTreeIterator&lt;T&gt;(root: TreeNode&lt;T&gt;) : Iterator&lt;TreeNode&lt;T&gt;&gt; {</b>
+&nbsp;
+<b class="fc">&nbsp;    private val stack = Stack&lt;TreeNode&lt;T&gt;&gt;()</b>
+&nbsp;
+<b class="fc">&nbsp;    init {</b>
+<b class="fc">&nbsp;        stack.push(root)</b>
+<b class="fc">&nbsp;    }</b>
+&nbsp;
+<b class="fc">&nbsp;    override fun hasNext(): Boolean = stack.isNotEmpty()</b>
+&nbsp;
+&nbsp;    override fun next(): TreeNode&lt;T&gt; {
+<b class="fc">&nbsp;        val node = stack.pop()</b>
+<b class="fc">&nbsp;        node.children.asReversed().forEach { stack.push(it) }</b>
+<b class="fc">&nbsp;        return node</b>
+&nbsp;    }
+&nbsp;}
+</code>
 </pre>
 </div>
 
@@ -132,18 +133,15 @@ Current scope:     <a href="../../index.html">all classes</a>
     @*/
 
     if (!msie || msie && msie9) {
-        var codeBlock = document.getElementById('sourceCode');
-
-        if (codeBlock) {
-            hljs.highlightBlock(codeBlock);
-        }
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
     }
 })();
 </script>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2022-11-15 14:29</div>
+    <div style="float:right;">generated on 2023-01-19 11:09</div>
 </div>
 </body>
 </html>

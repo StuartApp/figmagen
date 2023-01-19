@@ -2,6 +2,9 @@
   "tool": "Code Inspection",
   "category": "Probable bugs",
   "type": "Private data class constructor is exposed via the 'copy' method",
+  "tags": [
+    "kotlin"
+  ],
   "severity": "High",
   "comment": "Private primary constructor is exposed via the generated 'copy()' method of a 'data' class.",
   "detailsInfo": "Reports the `private` primary constructor in data classes.\n\n\n`data` classes have a `copy()` factory method that can be used similarly to a constructor.\nA constructor should not be marked as `private` to provide enough safety.\n\n**Example:**\n\n\n      data class User private constructor(val name: String)\n\nA quick-fix changes the constructor visibility modifier to `public`:\n\n\n      data class User(val name: String)\n",
@@ -26,4 +29,97 @@
     "inspectionName": "DataClassPrivateConstructor"
   },
   "hash": "4ae46284320fb0d8a8f0a09c600a092caf5b69cb63577e2a6af7857de5fd74a1"
+},{
+  "tool": "Code Inspection",
+  "category": "Migration",
+  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "High",
+  "comment": "Unnecessary safe call on a non-null receiver of type ResponseBody",
+  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "figmagen-core/main/kotlin/com/stuart/figmagen/tasks/ColorsTask.kt",
+      "language": "kotlin",
+      "line": 84,
+      "offset": 39,
+      "length": 2,
+      "code": {
+        "startLine": 82,
+        "length": 2,
+        "offset": 69,
+        "surroundingCode": "\n        val content: String =\n            checkNotNull(response.body?.string()) {\n                \"The request body for getting the Figma colors must not be null, check the file provided\"\n            }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "figmagen.figmagen-core.main",
+    "inspectionName": "KotlinDeprecation"
+  },
+  "hash": "cf2e95fefb332993430680058403a3f7343bf30aad5a14a1ea8b5d85e6dba3c6"
+},{
+  "tool": "Code Inspection",
+  "category": "Migration",
+  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "High",
+  "comment": "Unnecessary safe call on a non-null receiver of type ResponseBody",
+  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "figmagen-core/main/kotlin/com/stuart/figmagen/tasks/ColorsTask.kt",
+      "language": "kotlin",
+      "line": 120,
+      "offset": 89,
+      "length": 2,
+      "code": {
+        "startLine": 118,
+        "length": 2,
+        "offset": 124,
+        "surroundingCode": "        } else {\n            error(\n                \"There is an error: Status code: ${response.code}, body: ${response.body?.string()}\"\n            )\n        }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "figmagen.figmagen-core.main",
+    "inspectionName": "KotlinDeprecation"
+  },
+  "hash": "300359f18199c247ad52d3e415df65a95a76f98f8aee4a697b4e64433cc2fd4b"
+},{
+  "tool": "Code Inspection",
+  "category": "Migration",
+  "type": "Usage of redundant or deprecated syntax or deprecated symbols",
+  "tags": [
+    "kotlin"
+  ],
+  "severity": "High",
+  "comment": "Unnecessary safe call on a non-null receiver of type ResponseBody",
+  "detailsInfo": "Reports obsolete language features and unnecessarily verbose code constructs during the code cleanup operation (**Code \\| Code Cleanup** ).\n\n\nA quick-fix automatically replaces usages of obsolete language features or unnecessarily verbose code constructs with compact and up-to-date syntax.\n\n\nIt also replaces deprecated symbols with their proposed substitutions.",
+  "sources": [
+    {
+      "type": "file",
+      "path": "figmagen-core/main/kotlin/com/stuart/figmagen/internal/GetStyles.kt",
+      "language": "kotlin",
+      "line": 14,
+      "offset": 35,
+      "length": 2,
+      "code": {
+        "startLine": 12,
+        "length": 2,
+        "offset": 61,
+        "surroundingCode": "\n    val content: String =\n        checkNotNull(response.body?.string()) {\n            \"The request body for getting the Figma styles must not be null, check the file provided\"\n        }"
+      }
+    }
+  ],
+  "attributes": {
+    "module": "figmagen.figmagen-core.main",
+    "inspectionName": "KotlinDeprecation"
+  },
+  "hash": "ee557dfe40732b93cbad26aab8b4a8e23084ecb98695cb90f3ad571c57066b2f"
 }]}

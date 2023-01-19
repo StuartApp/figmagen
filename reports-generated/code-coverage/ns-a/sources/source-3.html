@@ -7,9 +7,10 @@
   <title>Coverage Report > TreeNodeDslKt</title>
   <style type="text/css">
     @import "../../css/coverage.css";
-    @import "../../css/highlight-idea.css";
+    @import "../../css/idea.min.css";
   </style>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
 </head>
 
 <body>
@@ -97,26 +98,26 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.stuart.figmagen.tree
-<i class="no-highlight">2</i>&nbsp;
-<i class="no-highlight">3</i>&nbsp;public fun &lt;T&gt; tree(
-<i class="no-highlight">4</i>&nbsp;    root: T,
-<b class="nc"><i class="no-highlight">5</i>&nbsp;    builder: (TreeNode&lt;T&gt;.() -&gt; TreeNode&lt;T&gt;)? = null,</b>
-<i class="no-highlight">6</i>&nbsp;): TreeNode&lt;T&gt; {
-<b class="fc"><i class="no-highlight">7</i>&nbsp;    val tree = TreeNode&lt;T&gt;(root)</b>
-<b class="pc"><i class="no-highlight">8</i>&nbsp;    builder?.invoke(tree)</b>
-<b class="fc"><i class="no-highlight">9</i>&nbsp;    return tree</b>
-<i class="no-highlight">10</i>&nbsp;}
-<i class="no-highlight">11</i>&nbsp;
-<i class="no-highlight">12</i>&nbsp;public fun &lt;T&gt; TreeNode&lt;T&gt;.node(
-<i class="no-highlight">13</i>&nbsp;    value: T,
-<b class="fc"><i class="no-highlight">14</i>&nbsp;    builder: (TreeNode&lt;T&gt;.() -&gt; TreeNode&lt;T&gt;)? = null,</b>
-<i class="no-highlight">15</i>&nbsp;): TreeNode&lt;T&gt; {
-<b class="fc"><i class="no-highlight">16</i>&nbsp;    val node = child(value)</b>
-<b class="fc"><i class="no-highlight">17</i>&nbsp;    builder?.invoke(node)</b>
-<b class="fc"><i class="no-highlight">18</i>&nbsp;    return node</b>
-<i class="no-highlight">19</i>&nbsp;}
-</div>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.stuart.figmagen.tree
+&nbsp;
+&nbsp;public fun &lt;T&gt; tree(
+&nbsp;    root: T,
+<b class="nc">&nbsp;    builder: (TreeNode&lt;T&gt;.() -&gt; TreeNode&lt;T&gt;)? = null,</b>
+&nbsp;): TreeNode&lt;T&gt; {
+<b class="fc">&nbsp;    val tree = TreeNode&lt;T&gt;(root)</b>
+<b class="pc">&nbsp;    builder?.invoke(tree)</b>
+<b class="fc">&nbsp;    return tree</b>
+&nbsp;}
+&nbsp;
+&nbsp;public fun &lt;T&gt; TreeNode&lt;T&gt;.node(
+&nbsp;    value: T,
+<b class="fc">&nbsp;    builder: (TreeNode&lt;T&gt;.() -&gt; TreeNode&lt;T&gt;)? = null,</b>
+&nbsp;): TreeNode&lt;T&gt; {
+<b class="fc">&nbsp;    val node = child(value)</b>
+<b class="fc">&nbsp;    builder?.invoke(node)</b>
+<b class="fc">&nbsp;    return node</b>
+&nbsp;}
+</code>
 </pre>
 </div>
 
@@ -131,18 +132,15 @@ Current scope:     <a href="../../index.html">all classes</a>
     @*/
 
     if (!msie || msie && msie9) {
-        var codeBlock = document.getElementById('sourceCode');
-
-        if (codeBlock) {
-            hljs.highlightBlock(codeBlock);
-        }
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
     }
 })();
 </script>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2022-11-15 14:29</div>
+    <div style="float:right;">generated on 2023-01-19 11:09</div>
 </div>
 </body>
 </html>

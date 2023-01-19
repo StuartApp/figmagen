@@ -7,9 +7,10 @@
   <title>Coverage Report > ColorsTask</title>
   <style type="text/css">
     @import "../../css/coverage.css";
-    @import "../../css/highlight-idea.css";
+    @import "../../css/idea.min.css";
   </style>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
 </head>
 
 <body>
@@ -55,26 +56,26 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    66.7%
+    46.9%
   </span>
   <span class="absValue">
-    (24/36)
+    (15/32)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    85.7%
+    83.1%
   </span>
   <span class="absValue">
-    (48/56)
+    (49/59)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    80.3%
+    80.4%
   </span>
   <span class="absValue">
-    (285/355)
+    (291/362)
   </span>
 </td>
 </tr>
@@ -122,7 +123,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     100%
   </span>
   <span class="absValue">
-    (8/8)
+    (9/9)
   </span>
 </td>
 <td class="coverageStat">
@@ -130,7 +131,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     100%
   </span>
   <span class="absValue">
-    (52/52)
+    (49/49)
   </span>
 </td>
   </tr>
@@ -157,7 +158,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     100%
   </span>
   <span class="absValue">
-    (3/3)
+    (4/4)
   </span>
 </td>
 <td class="coverageStat">
@@ -185,26 +186,26 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    65%
+    47.2%
   </span>
   <span class="absValue">
-    (26/40)
+    (17/36)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    86.8%
+    84.9%
   </span>
   <span class="absValue">
-    (59/68)
+    (62/73)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    82%
+    81.9%
   </span>
   <span class="absValue">
-    (391/477)
+    (394/481)
   </span>
 </td>
 </tr>
@@ -215,146 +216,154 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.stuart.figmagen.tasks
-<i class="no-highlight">2</i>&nbsp;
-<i class="no-highlight">3</i>&nbsp;import com.stuart.figmagen.Task
-<i class="no-highlight">4</i>&nbsp;import com.stuart.figmagen.internal.FigmaApi
-<i class="no-highlight">5</i>&nbsp;import com.stuart.figmagen.internal.await
-<i class="no-highlight">6</i>&nbsp;import com.stuart.figmagen.internal.baseRequest
-<i class="no-highlight">7</i>&nbsp;import com.stuart.figmagen.internal.baseUrl
-<i class="no-highlight">8</i>&nbsp;import com.stuart.figmagen.internal.client
-<i class="no-highlight">9</i>&nbsp;import com.stuart.figmagen.internal.fileJsonAdapter
-<i class="no-highlight">10</i>&nbsp;import com.stuart.figmagen.internal.getStyles
-<i class="no-highlight">11</i>&nbsp;import com.stuart.figmagen.internal.nodeIdsAsQueryParameter
-<i class="no-highlight">12</i>&nbsp;import com.stuart.figmagen.models.Color
-<i class="no-highlight">13</i>&nbsp;import com.stuart.figmagen.models.FileKey
-<i class="no-highlight">14</i>&nbsp;import com.stuart.figmagen.models.TaskFile
-<i class="no-highlight">15</i>&nbsp;import com.stuart.figmagen.models.isColor
-<i class="no-highlight">16</i>&nbsp;import kotlinx.coroutines.async
-<i class="no-highlight">17</i>&nbsp;import kotlinx.coroutines.awaitAll
-<i class="no-highlight">18</i>&nbsp;import kotlinx.coroutines.coroutineScope
-<i class="no-highlight">19</i>&nbsp;import okhttp3.Request
-<i class="no-highlight">20</i>&nbsp;
-<i class="no-highlight">21</i>&nbsp;/**
-<i class="no-highlight">22</i>&nbsp; * This task get the colors from a list of Figma files that has to be provided as instance of
-<i class="no-highlight">23</i>&nbsp; * `ThemeFile`.
-<i class="no-highlight">24</i>&nbsp; *
-<i class="no-highlight">25</i>&nbsp; * A `ThemeFile` associates a theme with a Figma file, for example
-<i class="no-highlight">26</i>&nbsp; *
-<i class="no-highlight">27</i>&nbsp; * ```kotlin
-<i class="no-highlight">28</i>&nbsp; * val lightThemeFile = ThemeFile(&quot;light&quot;, &quot;auAVu6zRJ39zECKv6hWDmH&quot;)
-<i class="no-highlight">29</i>&nbsp; * val darkThemeFile = ThemeFile(&quot;light&quot;, &quot;wizOikAT1Wigtx6zHpfC87&quot;)
-<i class="no-highlight">30</i>&nbsp; * ```
-<i class="no-highlight">31</i>&nbsp; *
-<i class="no-highlight">32</i>&nbsp; * There are default implementations of `ColorsTask` for multiple languages or frameworks, for
-<i class="no-highlight">33</i>&nbsp; * example for Kotlin Compose UI framework.
-<i class="no-highlight">34</i>&nbsp; */
-<b class="fc"><i class="no-highlight">35</i>&nbsp;public abstract class ColorsTask : Task() {</b>
-<i class="no-highlight">36</i>&nbsp;
-<i class="no-highlight">37</i>&nbsp;    public abstract val themeFiles: List&lt;ThemeFile&gt;
-<i class="no-highlight">38</i>&nbsp;
-<i class="no-highlight">39</i>&nbsp;    public abstract override suspend fun run(): List&lt;TaskFile&gt;
-<i class="no-highlight">40</i>&nbsp;
-<b class="fc"><i class="no-highlight">41</i>&nbsp;    public suspend fun getColors(): List&lt;Color&gt; = coroutineScope {</b>
-<b class="fc"><i class="no-highlight">42</i>&nbsp;        themeFiles</b>
-<b class="fc"><i class="no-highlight">43</i>&nbsp;            .map { themeFile -&gt;</b>
-<b class="fc"><i class="no-highlight">44</i>&nbsp;                val (theme: String, fileKey: FileKey) = themeFile</b>
-<b class="fc"><i class="no-highlight">45</i>&nbsp;                async {</b>
-<b class="fc"><i class="no-highlight">46</i>&nbsp;                    val colors = getColors(themeFile = themeFile)</b>
-<b class="pc"><i class="no-highlight">47</i>&nbsp;                    check(colors.isNotEmpty()) { &quot;the file key `$fileKey` has no colors&quot; }</b>
-<b class="fc"><i class="no-highlight">48</i>&nbsp;                    theme to colors</b>
-<i class="no-highlight">49</i>&nbsp;                }
-<i class="no-highlight">50</i>&nbsp;            }
-<b class="fc"><i class="no-highlight">51</i>&nbsp;            .awaitAll()</b>
-<b class="fc"><i class="no-highlight">52</i>&nbsp;            .toMap()</b>
-<b class="fc"><i class="no-highlight">53</i>&nbsp;            .values</b>
-<b class="fc"><i class="no-highlight">54</i>&nbsp;            .flatten()</b>
-<i class="no-highlight">55</i>&nbsp;    }
-<i class="no-highlight">56</i>&nbsp;
-<i class="no-highlight">57</i>&nbsp;    public open suspend fun getColors(themeFile: ThemeFile): List&lt;Color&gt; {
-<b class="fc"><i class="no-highlight">58</i>&nbsp;        val (theme: String, fileKey: FileKey) = themeFile</b>
-<i class="no-highlight">59</i>&nbsp;
-<b class="fc"><i class="no-highlight">60</i>&nbsp;        println(&quot;Getting colors for the theme $theme and the fileKey `$fileKey`&quot;)</b>
-<i class="no-highlight">61</i>&nbsp;
-<b class="fc"><i class="no-highlight">62</i>&nbsp;        val figmaStyle: List&lt;FigmaApi.Style&gt; = getStyles(fileKey.value, figmaToken)</b>
-<i class="no-highlight">63</i>&nbsp;
-<b class="fc"><i class="no-highlight">64</i>&nbsp;        val request: Request =</b>
-<b class="fc"><i class="no-highlight">65</i>&nbsp;            baseRequest(figmaToken)</b>
-<b class="fc"><i class="no-highlight">66</i>&nbsp;                .url(</b>
-<b class="fc"><i class="no-highlight">67</i>&nbsp;                    baseUrl</b>
-<b class="fc"><i class="no-highlight">68</i>&nbsp;                        .newBuilder()</b>
-<b class="fc"><i class="no-highlight">69</i>&nbsp;                        .addPathSegment(fileKey.value)</b>
-<b class="fc"><i class="no-highlight">70</i>&nbsp;                        .addPathSegment(&quot;nodes&quot;)</b>
-<b class="fc"><i class="no-highlight">71</i>&nbsp;                        .addQueryParameter(&quot;ids&quot;, figmaStyle.nodeIdsAsQueryParameter())</b>
-<b class="fc"><i class="no-highlight">72</i>&nbsp;                        .build()</b>
-<i class="no-highlight">73</i>&nbsp;                )
-<b class="fc"><i class="no-highlight">74</i>&nbsp;                .build()</b>
-<i class="no-highlight">75</i>&nbsp;
-<b class="fc"><i class="no-highlight">76</i>&nbsp;        val response = client.newCall(request).await()</b>
-<i class="no-highlight">77</i>&nbsp;
-<b class="fc"><i class="no-highlight">78</i>&nbsp;        val content: String =</b>
-<b class="pc"><i class="no-highlight">79</i>&nbsp;            checkNotNull(response.body?.string()) {</b>
-<b class="nc"><i class="no-highlight">80</i>&nbsp;                &quot;The request body for getting the Figma colors must not be null, check the file provided&quot;</b>
-<i class="no-highlight">81</i>&nbsp;            }
-<i class="no-highlight">82</i>&nbsp;
-<b class="pc"><i class="no-highlight">83</i>&nbsp;        if (response.code == 200) {</b>
-<b class="fc"><i class="no-highlight">84</i>&nbsp;            val data: FigmaApi.File =</b>
-<b class="pc"><i class="no-highlight">85</i>&nbsp;                checkNotNull(fileJsonAdapter.fromJson(content)) {</b>
-<b class="nc"><i class="no-highlight">86</i>&nbsp;                    &quot;There were an issue parsing the content to `FigmaApi.File`&quot;</b>
-<i class="no-highlight">87</i>&nbsp;                }
-<i class="no-highlight">88</i>&nbsp;
-<b class="fc"><i class="no-highlight">89</i>&nbsp;            val colors: List&lt;Color&gt; =</b>
-<b class="fc"><i class="no-highlight">90</i>&nbsp;                data.nodes.mapNotNull { (_, value) -&gt;</b>
-<b class="pc"><i class="no-highlight">91</i>&nbsp;                    val color: FigmaApi.Color? = value.document.fills.firstOrNull()?.color</b>
-<b class="fc"><i class="no-highlight">92</i>&nbsp;                    val path: String = value.document.name</b>
-<b class="fc"><i class="no-highlight">93</i>&nbsp;                    val pathAsList: List&lt;String&gt; = path.split(&quot;/&quot;)</b>
-<b class="fc"><i class="no-highlight">94</i>&nbsp;                    val isValidColor: Boolean =</b>
-<b class="pc"><i class="no-highlight">95</i>&nbsp;                        color != null &amp;&amp; pathAsList.size &gt;= 3 &amp;&amp; pathAsList.isColor</b>
-<i class="no-highlight">96</i>&nbsp;
-<b class="fc"><i class="no-highlight">97</i>&nbsp;                    if (color != null &amp;&amp; isValidColor) {</b>
-<b class="fc"><i class="no-highlight">98</i>&nbsp;                        val rgba: Color.RGBA =</b>
-<b class="fc"><i class="no-highlight">99</i>&nbsp;                            Color.RGBA(</b>
-<b class="fc"><i class="no-highlight">100</i>&nbsp;                                red = color.r,</b>
-<b class="fc"><i class="no-highlight">101</i>&nbsp;                                green = color.g,</b>
-<b class="fc"><i class="no-highlight">102</i>&nbsp;                                blue = color.b,</b>
-<b class="fc"><i class="no-highlight">103</i>&nbsp;                                alpha = color.a</b>
-<i class="no-highlight">104</i>&nbsp;                            )
-<i class="no-highlight">105</i>&nbsp;
-<b class="fc"><i class="no-highlight">106</i>&nbsp;                        Color(</b>
-<b class="fc"><i class="no-highlight">107</i>&nbsp;                            path = path,</b>
-<b class="fc"><i class="no-highlight">108</i>&nbsp;                            theme = theme,</b>
-<b class="fc"><i class="no-highlight">109</i>&nbsp;                            rgba = rgba,</b>
-<i class="no-highlight">110</i>&nbsp;                        )
-<b class="fc"><i class="no-highlight">111</i>&nbsp;                    } else null</b>
-<i class="no-highlight">112</i>&nbsp;                }
-<i class="no-highlight">113</i>&nbsp;
-<b class="fc"><i class="no-highlight">114</i>&nbsp;            return colors</b>
-<b class="nc"><i class="no-highlight">115</i>&nbsp;        } else error(&quot;There is an error: Status code: ${response.code}, body: ${response.body}&quot;)</b>
-<i class="no-highlight">116</i>&nbsp;    }
-<i class="no-highlight">117</i>&nbsp;
-<i class="no-highlight">118</i>&nbsp;    public fun checkThemesCorrectness(colors: List&lt;Color&gt;) {
-<b class="fc"><i class="no-highlight">119</i>&nbsp;        val colorsByTheme: Map&lt;String, List&lt;Color&gt;&gt; = colors.groupBy(Color::theme)</b>
-<b class="fc"><i class="no-highlight">120</i>&nbsp;        val numberOfThemes: Int = colorsByTheme.keys.size</b>
-<i class="no-highlight">121</i>&nbsp;
-<b class="pc"><i class="no-highlight">122</i>&nbsp;        check(numberOfThemes &gt; 1) {</b>
-<b class="nc"><i class="no-highlight">123</i>&nbsp;            &quot;To check the correctness of all themes is necessary to provide two or more themes&quot;</b>
-<i class="no-highlight">124</i>&nbsp;        }
-<i class="no-highlight">125</i>&nbsp;
-<b class="fc"><i class="no-highlight">126</i>&nbsp;        val missingColors: List&lt;Color&gt; =</b>
-<b class="fc"><i class="no-highlight">127</i>&nbsp;            colorsByTheme.values.flatten().mapNotNull { color -&gt;</b>
-<b class="pc"><i class="no-highlight">128</i>&nbsp;                if (colorsByTheme.all { (_, colors) -&gt; colors.any { it.path == color.path } }) null</b>
-<b class="nc"><i class="no-highlight">129</i>&nbsp;                else color</b>
-<i class="no-highlight">130</i>&nbsp;            }
-<i class="no-highlight">131</i>&nbsp;
-<b class="pc"><i class="no-highlight">132</i>&nbsp;        check(missingColors.isEmpty()) {</b>
-<b class="nc"><i class="no-highlight">133</i>&nbsp;            &quot;&quot;&quot;</b>
-<i class="no-highlight">134</i>&nbsp;                |The next colors are missing in some theme: 
-<b class="nc"><i class="no-highlight">135</i>&nbsp;                ${missingColors.joinToString(&quot;\n&quot;) { &quot;|  - ${it.theme}: ${it.path}&quot; } }</b>
-<b class="nc"><i class="no-highlight">136</i>&nbsp;            &quot;&quot;&quot;.trimMargin()</b>
-<i class="no-highlight">137</i>&nbsp;        }
-<i class="no-highlight">138</i>&nbsp;    }
-<i class="no-highlight">139</i>&nbsp;}
-</div>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.stuart.figmagen.tasks
+&nbsp;
+&nbsp;import com.stuart.figmagen.Task
+&nbsp;import com.stuart.figmagen.internal.FigmaApi
+&nbsp;import com.stuart.figmagen.internal.await
+&nbsp;import com.stuart.figmagen.internal.baseRequest
+&nbsp;import com.stuart.figmagen.internal.baseUrl
+&nbsp;import com.stuart.figmagen.internal.client
+&nbsp;import com.stuart.figmagen.internal.fileJsonAdapter
+&nbsp;import com.stuart.figmagen.internal.getStyles
+&nbsp;import com.stuart.figmagen.internal.nodeIdsAsQueryParameter
+&nbsp;import com.stuart.figmagen.models.Color
+&nbsp;import com.stuart.figmagen.models.FileKey
+&nbsp;import com.stuart.figmagen.models.TaskFile
+&nbsp;import com.stuart.figmagen.models.isColor
+&nbsp;import kotlinx.coroutines.async
+&nbsp;import kotlinx.coroutines.awaitAll
+&nbsp;import kotlinx.coroutines.coroutineScope
+&nbsp;import okhttp3.Request
+&nbsp;
+&nbsp;/**
+&nbsp; * This task get the colors from a list of Figma files that has to be provided as instance of
+&nbsp; * `ThemeFile`.
+&nbsp; *
+&nbsp; * A `ThemeFile` associates a theme with a Figma file, for example
+&nbsp; *
+&nbsp; * ```kotlin
+&nbsp; * val lightThemeFile = ThemeFile(&quot;light&quot;, &quot;auAVu6zRJ39zECKv6hWDmH&quot;)
+&nbsp; * val darkThemeFile = ThemeFile(&quot;light&quot;, &quot;wizOikAT1Wigtx6zHpfC87&quot;)
+&nbsp; * ```
+&nbsp; *
+&nbsp; * There are default implementations of `ColorsTask` for multiple languages or frameworks, for
+&nbsp; * example for Kotlin Compose UI framework.
+&nbsp; */
+<b class="fc">&nbsp;public abstract class ColorsTask : Task() {</b>
+&nbsp;
+&nbsp;    public abstract val themeFiles: List&lt;ThemeFile&gt;
+&nbsp;
+&nbsp;    public abstract override suspend fun run(): List&lt;TaskFile&gt;
+&nbsp;
+<b class="fc">&nbsp;    public suspend fun getColors(): List&lt;Color&gt; = coroutineScope {</b>
+<b class="fc">&nbsp;        themeFiles</b>
+<b class="fc">&nbsp;            .map { themeFile -&gt;</b>
+<b class="fc">&nbsp;                val (theme: String, fileKey: FileKey) = themeFile</b>
+<b class="fc">&nbsp;                async {</b>
+<b class="fc">&nbsp;                    val colors = getColors(themeFile = themeFile)</b>
+<b class="pc">&nbsp;                    check(colors.isNotEmpty()) { &quot;the file key `$fileKey` has no colors&quot; }</b>
+<b class="fc">&nbsp;                    theme to colors</b>
+&nbsp;                }
+&nbsp;            }
+<b class="fc">&nbsp;            .awaitAll()</b>
+<b class="fc">&nbsp;            .toMap()</b>
+<b class="fc">&nbsp;            .values</b>
+<b class="fc">&nbsp;            .flatten()</b>
+&nbsp;    }
+&nbsp;
+<b class="fc">&nbsp;    public open suspend fun getColors(themeFile: ThemeFile): List&lt;Color&gt; {</b>
+<b class="fc">&nbsp;        val (theme: String, fileKey: FileKey) = themeFile</b>
+&nbsp;
+<b class="fc">&nbsp;        println(&quot;Getting colors for the theme $theme and the fileKey `$fileKey`&quot;)</b>
+&nbsp;
+<b class="fc">&nbsp;        val figmaStyle: List&lt;FigmaApi.Style&gt; = getStyles(fileKey.value, figmaToken)</b>
+&nbsp;
+<b class="pc">&nbsp;        check(figmaStyle.isNotEmpty()) { &quot;There are no styles on the file ${fileKey.value}&quot; }</b>
+&nbsp;
+<b class="fc">&nbsp;        val request: Request =</b>
+<b class="fc">&nbsp;            baseRequest(figmaToken)</b>
+<b class="fc">&nbsp;                .url(</b>
+<b class="fc">&nbsp;                    baseUrl</b>
+<b class="fc">&nbsp;                        .newBuilder()</b>
+<b class="fc">&nbsp;                        .addPathSegment(fileKey.value)</b>
+<b class="fc">&nbsp;                        .addPathSegment(&quot;nodes&quot;)</b>
+<b class="fc">&nbsp;                        .addQueryParameter(</b>
+<b class="fc">&nbsp;                            &quot;ids&quot;,</b>
+<b class="fc">&nbsp;                            figmaStyle.filter { it.isFill }.nodeIdsAsQueryParameter()</b>
+&nbsp;                        )
+<b class="fc">&nbsp;                        .build()</b>
+&nbsp;                )
+<b class="fc">&nbsp;                .build()</b>
+&nbsp;
+<b class="fc">&nbsp;        val response = client.newCall(request).await()</b>
+&nbsp;
+<b class="fc">&nbsp;        val content: String =</b>
+<b class="pc">&nbsp;            checkNotNull(response.body?.string()) {</b>
+<b class="nc">&nbsp;                &quot;The request body for getting the Figma colors must not be null, check the file provided&quot;</b>
+&nbsp;            }
+&nbsp;
+<b class="pc">&nbsp;        if (response.code == 200) {</b>
+<b class="fc">&nbsp;            val data: FigmaApi.File =</b>
+<b class="pc">&nbsp;                checkNotNull(fileJsonAdapter.fromJson(content)) {</b>
+<b class="nc">&nbsp;                    &quot;There were an issue parsing the content to `FigmaApi.File`&quot;</b>
+&nbsp;                }
+&nbsp;
+<b class="fc">&nbsp;            val colors: List&lt;Color&gt; =</b>
+<b class="fc">&nbsp;                data.nodes.mapNotNull { (_, value) -&gt;</b>
+<b class="pc">&nbsp;                    val color: FigmaApi.Color? = value.document.fills.firstOrNull()?.color</b>
+<b class="fc">&nbsp;                    val path: String = value.document.name</b>
+<b class="pc">&nbsp;                    val isValidColor: Boolean = color != null &amp;&amp; path.isColor</b>
+&nbsp;
+<b class="pc">&nbsp;                    if (color != null &amp;&amp; isValidColor) {</b>
+<b class="fc">&nbsp;                        val rgba: Color.RGBA =</b>
+<b class="fc">&nbsp;                            Color.RGBA(</b>
+<b class="fc">&nbsp;                                red = color.r,</b>
+<b class="fc">&nbsp;                                green = color.g,</b>
+<b class="fc">&nbsp;                                blue = color.b,</b>
+<b class="fc">&nbsp;                                alpha = color.a</b>
+&nbsp;                            )
+&nbsp;
+<b class="fc">&nbsp;                        Color(</b>
+<b class="fc">&nbsp;                            path = path,</b>
+<b class="fc">&nbsp;                            theme = theme,</b>
+<b class="fc">&nbsp;                            rgba = rgba,</b>
+&nbsp;                        )
+<b class="nc">&nbsp;                    } else null</b>
+&nbsp;                }
+&nbsp;
+<b class="fc">&nbsp;            return colors</b>
+&nbsp;        } else {
+<b class="nc">&nbsp;            error(</b>
+<b class="nc">&nbsp;                &quot;There is an error: Status code: ${response.code}, body: ${response.body?.string()}&quot;</b>
+&nbsp;            )
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public fun checkThemesCorrectness(colors: List&lt;Color&gt;) {
+<b class="fc">&nbsp;        val colorsByTheme: Map&lt;String, List&lt;Color&gt;&gt; = colors.groupBy(Color::theme)</b>
+<b class="fc">&nbsp;        val numberOfThemes: Int = colorsByTheme.keys.size</b>
+&nbsp;
+<b class="pc">&nbsp;        check(numberOfThemes &gt; 1) {</b>
+<b class="nc">&nbsp;            &quot;To check the correctness of all themes is necessary to provide two or more themes&quot;</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        val missingColors: List&lt;Color&gt; =</b>
+<b class="fc">&nbsp;            colorsByTheme.values.flatten().mapNotNull { color -&gt;</b>
+<b class="pc">&nbsp;                if (colorsByTheme.all { (_, colors) -&gt; colors.any { it.path == color.path } }) null</b>
+<b class="nc">&nbsp;                else color</b>
+&nbsp;            }
+&nbsp;
+<b class="pc">&nbsp;        check(missingColors.isEmpty()) {</b>
+<b class="nc">&nbsp;            &quot;&quot;&quot;</b>
+&nbsp;                |The next colors are missing in some theme: 
+<b class="nc">&nbsp;                ${missingColors.joinToString(&quot;\n&quot;) { &quot;|  - ${it.theme}: ${it.path}&quot; } }</b>
+&nbsp;            &quot;&quot;&quot;
+<b class="nc">&nbsp;                .trimMargin()</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;}
+</code>
 </pre>
 </div>
 
@@ -369,18 +378,15 @@ Current scope:     <a href="../../index.html">all classes</a>
     @*/
 
     if (!msie || msie && msie9) {
-        var codeBlock = document.getElementById('sourceCode');
-
-        if (codeBlock) {
-            hljs.highlightBlock(codeBlock);
-        }
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
     }
 })();
 </script>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2022-11-15 14:29</div>
+    <div style="float:right;">generated on 2023-01-19 11:09</div>
 </div>
 </body>
 </html>

@@ -7,9 +7,10 @@
   <title>Coverage Report > ThemeFile</title>
   <style type="text/css">
     @import "../../css/coverage.css";
-    @import "../../css/highlight-idea.css";
+    @import "../../css/idea.min.css";
   </style>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
 </head>
 
 <body>
@@ -90,20 +91,20 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.stuart.figmagen.tasks
-<i class="no-highlight">2</i>&nbsp;
-<i class="no-highlight">3</i>&nbsp;import com.stuart.figmagen.models.FileKey
-<i class="no-highlight">4</i>&nbsp;
-<i class="no-highlight">5</i>&nbsp;/**
-<i class="no-highlight">6</i>&nbsp; * A custom pair which match a theme with a Figma file.
-<i class="no-highlight">7</i>&nbsp; *
-<i class="no-highlight">8</i>&nbsp; * ```kotlin
-<i class="no-highlight">9</i>&nbsp; * val lightThemeFile = ThemeFile(&quot;light&quot;, &quot;auAVu6zRJ39zECKv6hWDmH&quot;)
-<i class="no-highlight">10</i>&nbsp; * val darkThemeFile = ThemeFile(&quot;light&quot;, &quot;wizOikAT1Wigtx6zHpfC87&quot;)
-<i class="no-highlight">11</i>&nbsp; * ```
-<i class="no-highlight">12</i>&nbsp; */
-<b class="fc"><i class="no-highlight">13</i>&nbsp;public data class ThemeFile(val theme: String, val fileKey: FileKey)</b>
-</div>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.stuart.figmagen.tasks
+&nbsp;
+&nbsp;import com.stuart.figmagen.models.FileKey
+&nbsp;
+&nbsp;/**
+&nbsp; * A custom pair which match a theme with a Figma file.
+&nbsp; *
+&nbsp; * ```kotlin
+&nbsp; * val lightThemeFile = ThemeFile(&quot;light&quot;, &quot;auAVu6zRJ39zECKv6hWDmH&quot;)
+&nbsp; * val darkThemeFile = ThemeFile(&quot;light&quot;, &quot;wizOikAT1Wigtx6zHpfC87&quot;)
+&nbsp; * ```
+&nbsp; */
+<b class="fc">&nbsp;public data class ThemeFile(val theme: String, val fileKey: FileKey)</b>
+</code>
 </pre>
 </div>
 
@@ -118,18 +119,15 @@ Current scope:     <a href="../../index.html">all classes</a>
     @*/
 
     if (!msie || msie && msie9) {
-        var codeBlock = document.getElementById('sourceCode');
-
-        if (codeBlock) {
-            hljs.highlightBlock(codeBlock);
-        }
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
     }
 })();
 </script>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2022-11-15 14:29</div>
+    <div style="float:right;">generated on 2023-01-19 11:09</div>
 </div>
 </body>
 </html>

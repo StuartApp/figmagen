@@ -7,9 +7,10 @@
   <title>Coverage Report > SwiftFileKt</title>
   <style type="text/css">
     @import "../../css/coverage.css";
-    @import "../../css/highlight-idea.css";
+    @import "../../css/idea.min.css";
   </style>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
 </head>
 
 <body>
@@ -64,10 +65,10 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    91.7%
+    90.9%
   </span>
   <span class="absValue">
-    (33/36)
+    (30/33)
   </span>
 </td>
 </tr>
@@ -112,10 +113,10 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    91.7%
+    90.9%
   </span>
   <span class="absValue">
-    (33/36)
+    (30/33)
   </span>
 </td>
 </tr>
@@ -126,50 +127,50 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.stuart.figmagen.swift.swift.ui.extensions.internal
-<i class="no-highlight">2</i>&nbsp;
-<i class="no-highlight">3</i>&nbsp;internal data class SwiftFile(
-<i class="no-highlight">4</i>&nbsp;    val name: String,
-<i class="no-highlight">5</i>&nbsp;    val imports: MutableList&lt;String&gt; = mutableListOf(),
-<i class="no-highlight">6</i>&nbsp;    val properties: MutableList&lt;SwiftProperty&gt; = mutableListOf(),
-<i class="no-highlight">7</i>&nbsp;    val functions: MutableList&lt;SwiftFunction&gt; = mutableListOf(),
-<i class="no-highlight">8</i>&nbsp;    val classes: MutableList&lt;SwiftStruct&gt; = mutableListOf(),
-<i class="no-highlight">9</i>&nbsp;) {
-<i class="no-highlight">10</i>&nbsp;    override fun toString(): String {
-<i class="no-highlight">11</i>&nbsp;        val lines =
-<i class="no-highlight">12</i>&nbsp;            buildString {
-<i class="no-highlight">13</i>&nbsp;                    imports.forEach { import -&gt; appendLine(&quot;import $import&quot;) }
-<i class="no-highlight">14</i>&nbsp;                    appendLine()
-<i class="no-highlight">15</i>&nbsp;                    properties.forEach(::appendLine)
-<i class="no-highlight">16</i>&nbsp;                    functions.forEach(::appendLine)
-<i class="no-highlight">17</i>&nbsp;                    classes.forEach(::appendLine)
-<i class="no-highlight">18</i>&nbsp;                }
-<i class="no-highlight">19</i>&nbsp;                .lines()
-<i class="no-highlight">20</i>&nbsp;                .dropLastWhile(String::isBlank)
-<i class="no-highlight">21</i>&nbsp;
-<i class="no-highlight">22</i>&nbsp;        return lines
-<i class="no-highlight">23</i>&nbsp;            .mapIndexedNotNull { index, line -&gt;
-<i class="no-highlight">24</i>&nbsp;                val previousLine = lines.getOrNull(index - 1)?.filterNot(Char::isWhitespace)
-<i class="no-highlight">25</i>&nbsp;                val currentLine = line.filterNot(Char::isWhitespace)
-<i class="no-highlight">26</i>&nbsp;                val nextLine = lines.getOrNull(index + 1)?.filterNot(Char::isWhitespace)
-<i class="no-highlight">27</i>&nbsp;
-<i class="no-highlight">28</i>&nbsp;                if (previousLine == &quot;}&quot; &amp;&amp; currentLine.isBlank() &amp;&amp; nextLine == &quot;}&quot;) null else line
-<i class="no-highlight">29</i>&nbsp;            }
-<i class="no-highlight">30</i>&nbsp;            .joinToString(&quot;\n&quot;) { line -&gt; line.ifBlank { &quot;&quot; } } + &quot;\n&quot;
-<i class="no-highlight">31</i>&nbsp;    }
-<i class="no-highlight">32</i>&nbsp;}
-<i class="no-highlight">33</i>&nbsp;
-<i class="no-highlight">34</i>&nbsp;internal fun buildSwiftFile(
-<i class="no-highlight">35</i>&nbsp;    name: String,
-<b class="nc"><i class="no-highlight">36</i>&nbsp;    builder: SwiftFile.() -&gt; Unit = {},</b>
-<i class="no-highlight">37</i>&nbsp;): SwiftFile {
-<b class="fc"><i class="no-highlight">38</i>&nbsp;    val file = SwiftFile(name = name)</b>
-<b class="fc"><i class="no-highlight">39</i>&nbsp;    builder(file)</b>
-<b class="fc"><i class="no-highlight">40</i>&nbsp;    return file</b>
-<i class="no-highlight">41</i>&nbsp;}
-<i class="no-highlight">42</i>&nbsp;
-<b class="fc"><i class="no-highlight">43</i>&nbsp;internal fun String.indented(): List&lt;String&gt; = lines().map { it.prependIndent() }</b>
-</div>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.stuart.figmagen.swift.swift.ui.extensions.internal
+&nbsp;
+&nbsp;internal data class SwiftFile(
+&nbsp;    val name: String,
+&nbsp;    val imports: MutableList&lt;String&gt; = mutableListOf(),
+&nbsp;    val properties: MutableList&lt;SwiftProperty&gt; = mutableListOf(),
+&nbsp;    val functions: MutableList&lt;SwiftFunction&gt; = mutableListOf(),
+&nbsp;    val classes: MutableList&lt;SwiftStruct&gt; = mutableListOf(),
+&nbsp;) {
+&nbsp;    override fun toString(): String {
+&nbsp;        val lines =
+&nbsp;            buildString {
+&nbsp;                    imports.forEach { import -&gt; appendLine(&quot;import $import&quot;) }
+&nbsp;                    appendLine()
+&nbsp;                    properties.forEach(::appendLine)
+&nbsp;                    functions.forEach(::appendLine)
+&nbsp;                    classes.forEach(::appendLine)
+&nbsp;                }
+&nbsp;                .lines()
+&nbsp;                .dropLastWhile(String::isBlank)
+&nbsp;
+&nbsp;        return lines
+&nbsp;            .mapIndexedNotNull { index, line -&gt;
+&nbsp;                val previousLine = lines.getOrNull(index - 1)?.filterNot(Char::isWhitespace)
+&nbsp;                val currentLine = line.filterNot(Char::isWhitespace)
+&nbsp;                val nextLine = lines.getOrNull(index + 1)?.filterNot(Char::isWhitespace)
+&nbsp;
+&nbsp;                if (previousLine == &quot;}&quot; &amp;&amp; currentLine.isBlank() &amp;&amp; nextLine == &quot;}&quot;) null else line
+&nbsp;            }
+&nbsp;            .joinToString(&quot;\n&quot;) { line -&gt; line.ifBlank { &quot;&quot; } } + &quot;\n&quot;
+&nbsp;    }
+&nbsp;}
+&nbsp;
+&nbsp;internal fun buildSwiftFile(
+&nbsp;    name: String,
+<b class="nc">&nbsp;    builder: SwiftFile.() -&gt; Unit = {},</b>
+&nbsp;): SwiftFile {
+<b class="fc">&nbsp;    val file = SwiftFile(name = name)</b>
+<b class="fc">&nbsp;    builder(file)</b>
+<b class="fc">&nbsp;    return file</b>
+&nbsp;}
+&nbsp;
+<b class="fc">&nbsp;internal fun String.indented(): List&lt;String&gt; = lines().map { it.prependIndent() }</b>
+</code>
 </pre>
 </div>
 
@@ -184,18 +185,15 @@ Current scope:     <a href="../../index.html">all classes</a>
     @*/
 
     if (!msie || msie && msie9) {
-        var codeBlock = document.getElementById('sourceCode');
-
-        if (codeBlock) {
-            hljs.highlightBlock(codeBlock);
-        }
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
     }
 })();
 </script>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2022-11-15 14:29</div>
+    <div style="float:right;">generated on 2023-01-19 11:09</div>
 </div>
 </body>
 </html>

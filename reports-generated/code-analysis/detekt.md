@@ -2,11 +2,11 @@
 
 ## Metrics
 
-* 255 number of properties
+* 252 number of properties
 
 * 109 number of functions
 
-* 61 number of classes
+* 62 number of classes
 
 * 14 number of packages
 
@@ -14,27 +14,27 @@
 
 ## Complexity Report
 
-* 2,710 lines of code (loc)
+* 2,720 lines of code (loc)
 
-* 2,117 source lines of code (sloc)
+* 2,127 source lines of code (sloc)
 
-* 1,535 logical lines of code (lloc)
+* 1,543 logical lines of code (lloc)
 
-* 192 comment lines of code (cloc)
+* 194 comment lines of code (cloc)
 
-* 255 cyclomatic complexity (mcc)
+* 254 cyclomatic complexity (mcc)
 
-* 204 cognitive complexity
+* 249 cognitive complexity
 
-* 10 number of total code smells
+* 9 number of total code smells
 
 * 9% comment source ratio
 
-* 166 mcc per 1,000 lloc
+* 164 mcc per 1,000 lloc
 
-* 6 code smells per 1,000 lloc
+* 5 code smells per 1,000 lloc
 
-## Findings (10)
+## Findings (9)
 
 ### complexity, TooManyFunctions (2)
 
@@ -114,7 +114,7 @@ This implementation of Iterator does not correctly implement the next() method a
 
 ```
 
-### style, MagicNumber (3)
+### style, MagicNumber (2)
 
 Report magic numbers. Magic number is a numeric literal that is not defined as a constant and hence it's unclear what the purpose of this number is. It's better to declare such numbers as constants and give them a proper name. By default, -1, 0, 1, and 2 are not considered to be magic numbers.
 
@@ -136,35 +136,19 @@ This expression contains a magic number. Consider defining it to a well named co
 
 ```
 
-* figmagen-core/main/kotlin/com/stuart/figmagen/tasks/ColorsTask.kt:83:30
+* figmagen-core/main/kotlin/com/stuart/figmagen/tasks/ColorsTask.kt:88:30
 ```
 This expression contains a magic number. Consider defining it to a well named constant.
 ```
 ```kotlin
-80                 "The request body for getting the Figma colors must not be null, check the file provided"
-81             }
-82 
-83         if (response.code == 200) {
+85                 "The request body for getting the Figma colors must not be null, check the file provided"
+86             }
+87 
+88         if (response.code == 200) {
 !!                              ^ error
-84             val data: FigmaApi.File =
-85                 checkNotNull(fileJsonAdapter.fromJson(content)) {
-86                     "There were an issue parsing the content to `FigmaApi.File`"
-
-```
-
-* figmagen-core/main/kotlin/com/stuart/figmagen/tasks/ColorsTask.kt:95:61
-```
-This expression contains a magic number. Consider defining it to a well named constant.
-```
-```kotlin
-92                     val path: String = value.document.name
-93                     val pathAsList: List<String> = path.split("/")
-94                     val isValidColor: Boolean =
-95                         color != null && pathAsList.size >= 3 && pathAsList.isColor
-!!                                                             ^ error
-96 
-97                     if (color != null && isValidColor) {
-98                         val rgba: Color.RGBA =
+89             val data: FigmaApi.File =
+90                 checkNotNull(fileJsonAdapter.fromJson(content)) {
+91                     "There were an issue parsing the content to `FigmaApi.File`"
 
 ```
 
@@ -174,35 +158,35 @@ Checks whether files end with a line separator.
 
 [Documentation](https://detekt.dev/docs/rules/style#newlineatendoffile)
 
-* build.gradle.kts:21:2
+* build.gradle.kts:15:2
 ```
 The file /home/runner/work/figmagen/figmagen/build.gradle.kts is not ending with a new line.
 ```
 ```kotlin
-18         }
-19         nexus()
-20     }
-21 }
+12         }
+13         nexus()
+14     }
+15 }
 !!  ^ error
 
 ```
 
-* settings.gradle.kts:20:2
+* settings.gradle.kts:21:2
 ```
 The file /home/runner/work/figmagen/figmagen/settings.gradle.kts is not ending with a new line.
 ```
 ```kotlin
-17 
-18 plugins {
-19     id("com.javiersc.hubdle.settings")
-20 }
+18 
+19 plugins {
+20     id("com.javiersc.hubdle.settings")
+21 }
 !!  ^ error
 
 ```
 
 ### style, UnnecessaryAbstractClass (1)
 
-An abstract class is unnecessary and can be refactored. An abstract class should have both abstract and concrete properties or functions. An abstract class without a concrete member can be refactored to an interface. An abstract class without an abstract member can be refactored to a concrete class.
+An abstract class is unnecessary. May be refactored to an interface or to a concrete class.
 
 [Documentation](https://detekt.dev/docs/rules/style#unnecessaryabstractclass)
 
@@ -222,4 +206,4 @@ An abstract class without an abstract member can be refactored to a concrete cla
 
 ```
 
-generated with [detekt version 1.21.0](https://detekt.dev/) on 2022-11-15 14:28:45 UTC
+generated with [detekt version 1.22.0](https://detekt.dev/) on 2023-01-19 11:09:04 UTC

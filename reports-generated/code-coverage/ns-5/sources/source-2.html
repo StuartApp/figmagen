@@ -7,9 +7,10 @@
   <title>Coverage Report > ColorFile</title>
   <style type="text/css">
     @import "../../css/coverage.css";
-    @import "../../css/highlight-idea.css";
+    @import "../../css/idea.min.css";
   </style>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
 </head>
 
 <body>
@@ -190,86 +191,86 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.stuart.figmagen.models
-<i class="no-highlight">2</i>&nbsp;
-<i class="no-highlight">3</i>&nbsp;import java.util.Locale
-<i class="no-highlight">4</i>&nbsp;
-<i class="no-highlight">5</i>&nbsp;/**
-<i class="no-highlight">6</i>&nbsp; * To allow manage a tree of colors easily, this sealed class indicates the different type of files
-<i class="no-highlight">7</i>&nbsp; * it has.
-<i class="no-highlight">8</i>&nbsp; *
-<i class="no-highlight">9</i>&nbsp; * There are three:
-<i class="no-highlight">10</i>&nbsp; *
-<i class="no-highlight">11</i>&nbsp; * - `ColorFile.Root`:
-<i class="no-highlight">12</i>&nbsp; * - the root one, its name should be `colors`
-<i class="no-highlight">13</i>&nbsp; * - `ColorFile.Directory`:
-<i class="no-highlight">14</i>&nbsp; * - Intermediate directory in Figma
-<i class="no-highlight">15</i>&nbsp; * - Includes a property `parentDirectories`.
-<i class="no-highlight">16</i>&nbsp; * - `ColorFile.Color`:
-<i class="no-highlight">17</i>&nbsp; * - The color in Figma
-<i class="no-highlight">18</i>&nbsp; * - Includes the `color: Color` property.
-<i class="no-highlight">19</i>&nbsp; *
-<i class="no-highlight">20</i>&nbsp; * ```markdown
-<i class="no-highlight">21</i>&nbsp; * colors (ColorFile.Root)
-<i class="no-highlight">22</i>&nbsp; * ├── primary (ColorFile.Directory)
-<i class="no-highlight">23</i>&nbsp; * │   ├── main (ColorFile.Color)
-<i class="no-highlight">24</i>&nbsp; * │   ├── soft (ColorFile.Color)
-<i class="no-highlight">25</i>&nbsp; * │   └── contrast (ColorFile.Directory)
-<i class="no-highlight">26</i>&nbsp; * │       ├── main (ColorFile.Color)
-<i class="no-highlight">27</i>&nbsp; * │       └── soft (ColorFile.Color)
-<i class="no-highlight">28</i>&nbsp; * └── secondary (ColorFile.Directory)
-<i class="no-highlight">29</i>&nbsp; *     ├── main (ColorFile.Color)
-<i class="no-highlight">30</i>&nbsp; *     └── soft (ColorFile.Color)
-<i class="no-highlight">31</i>&nbsp; * ```
-<i class="no-highlight">32</i>&nbsp; */
-<b class="fc"><i class="no-highlight">33</i>&nbsp;public sealed class ColorFile {</b>
-<i class="no-highlight">34</i>&nbsp;    public abstract val name: String
-<i class="no-highlight">35</i>&nbsp;
-<i class="no-highlight">36</i>&nbsp;    public val isRoot: Boolean
-<b class="fc"><i class="no-highlight">37</i>&nbsp;        get() = this is Root</b>
-<i class="no-highlight">38</i>&nbsp;
-<i class="no-highlight">39</i>&nbsp;    public val isDirectory: Boolean
-<b class="fc"><i class="no-highlight">40</i>&nbsp;        get() = this is Directory</b>
-<i class="no-highlight">41</i>&nbsp;
-<i class="no-highlight">42</i>&nbsp;    public val isColor: Boolean
-<b class="fc"><i class="no-highlight">43</i>&nbsp;        get() = this is Color</b>
-<i class="no-highlight">44</i>&nbsp;
-<b class="nc"><i class="no-highlight">45</i>&nbsp;    public fun asString(): String = name</b>
-<i class="no-highlight">46</i>&nbsp;
-<i class="no-highlight">47</i>&nbsp;    public data class Root(
-<b class="fc"><i class="no-highlight">48</i>&nbsp;        override val name: String = &quot;colors&quot;,</b>
-<b class="fc"><i class="no-highlight">49</i>&nbsp;        val parentDirectories: List&lt;String&gt; = emptyList(),</b>
-<b class="fc"><i class="no-highlight">50</i>&nbsp;    ) : ColorFile()</b>
-<i class="no-highlight">51</i>&nbsp;
-<i class="no-highlight">52</i>&nbsp;    public data class Directory(
-<b class="fc"><i class="no-highlight">53</i>&nbsp;        public override val name: String,</b>
-<b class="fc"><i class="no-highlight">54</i>&nbsp;        public val parentDirectories: List&lt;String&gt;,</b>
-<b class="fc"><i class="no-highlight">55</i>&nbsp;    ) : ColorFile()</b>
-<i class="no-highlight">56</i>&nbsp;
-<i class="no-highlight">57</i>&nbsp;    public data class Color(
-<b class="fc"><i class="no-highlight">58</i>&nbsp;        public val color: com.stuart.figmagen.models.Color,</b>
-<b class="fc"><i class="no-highlight">59</i>&nbsp;    ) : ColorFile() {</b>
-<i class="no-highlight">60</i>&nbsp;
-<b class="fc"><i class="no-highlight">61</i>&nbsp;        public override val name: String = color.name</b>
-<b class="fc"><i class="no-highlight">62</i>&nbsp;        public val parentDirectories: List&lt;String&gt; = color.directories</b>
-<i class="no-highlight">63</i>&nbsp;    }
-<i class="no-highlight">64</i>&nbsp;}
-<i class="no-highlight">65</i>&nbsp;
-<i class="no-highlight">66</i>&nbsp;public val ColorFile.parentDirectories: List&lt;String&gt;
-<i class="no-highlight">67</i>&nbsp;    get() =
-<i class="no-highlight">68</i>&nbsp;        when (val file = this) {
-<i class="no-highlight">69</i>&nbsp;            is ColorFile.Root -&gt; emptyList()
-<i class="no-highlight">70</i>&nbsp;            is ColorFile.Directory -&gt; file.parentDirectories
-<i class="no-highlight">71</i>&nbsp;            is ColorFile.Color -&gt; file.parentDirectories
-<i class="no-highlight">72</i>&nbsp;        }
-<i class="no-highlight">73</i>&nbsp;
-<i class="no-highlight">74</i>&nbsp;public fun ColorFile.toCamelCase(): String =
-<i class="no-highlight">75</i>&nbsp;    &quot;${parentDirectories.joinToString(&quot;&quot;) { dir -&gt; dir.capitalize() }}${name.capitalize()}&quot;
-<i class="no-highlight">76</i>&nbsp;
-<i class="no-highlight">77</i>&nbsp;private fun String.capitalize(): String = replaceFirstChar {
-<i class="no-highlight">78</i>&nbsp;    if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString()
-<i class="no-highlight">79</i>&nbsp;}
-</div>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.stuart.figmagen.models
+&nbsp;
+&nbsp;import java.util.Locale
+&nbsp;
+&nbsp;/**
+&nbsp; * To allow manage a tree of colors easily, this sealed class indicates the different type of files
+&nbsp; * it has.
+&nbsp; *
+&nbsp; * There are three:
+&nbsp; *
+&nbsp; * - `ColorFile.Root`:
+&nbsp; * - the root one, its name should be `colors`
+&nbsp; * - `ColorFile.Directory`:
+&nbsp; * - Intermediate directory in Figma
+&nbsp; * - Includes a property `parentDirectories`.
+&nbsp; * - `ColorFile.Color`:
+&nbsp; * - The color in Figma
+&nbsp; * - Includes the `color: Color` property.
+&nbsp; *
+&nbsp; * ```markdown
+&nbsp; * colors (ColorFile.Root)
+&nbsp; * ├── primary (ColorFile.Directory)
+&nbsp; * │   ├── main (ColorFile.Color)
+&nbsp; * │   ├── soft (ColorFile.Color)
+&nbsp; * │   └── contrast (ColorFile.Directory)
+&nbsp; * │       ├── main (ColorFile.Color)
+&nbsp; * │       └── soft (ColorFile.Color)
+&nbsp; * └── secondary (ColorFile.Directory)
+&nbsp; *     ├── main (ColorFile.Color)
+&nbsp; *     └── soft (ColorFile.Color)
+&nbsp; * ```
+&nbsp; */
+<b class="fc">&nbsp;public sealed class ColorFile {</b>
+&nbsp;    public abstract val name: String
+&nbsp;
+&nbsp;    public val isRoot: Boolean
+<b class="fc">&nbsp;        get() = this is Root</b>
+&nbsp;
+&nbsp;    public val isDirectory: Boolean
+<b class="fc">&nbsp;        get() = this is Directory</b>
+&nbsp;
+&nbsp;    public val isColor: Boolean
+<b class="fc">&nbsp;        get() = this is Color</b>
+&nbsp;
+<b class="nc">&nbsp;    public fun asString(): String = name</b>
+&nbsp;
+&nbsp;    public data class Root(
+<b class="fc">&nbsp;        override val name: String = &quot;colors&quot;,</b>
+<b class="fc">&nbsp;        val parentDirectories: List&lt;String&gt; = emptyList(),</b>
+<b class="fc">&nbsp;    ) : ColorFile()</b>
+&nbsp;
+&nbsp;    public data class Directory(
+<b class="fc">&nbsp;        public override val name: String,</b>
+<b class="fc">&nbsp;        public val parentDirectories: List&lt;String&gt;,</b>
+<b class="fc">&nbsp;    ) : ColorFile()</b>
+&nbsp;
+&nbsp;    public data class Color(
+<b class="fc">&nbsp;        public val color: com.stuart.figmagen.models.Color,</b>
+<b class="fc">&nbsp;    ) : ColorFile() {</b>
+&nbsp;
+<b class="fc">&nbsp;        public override val name: String = color.name</b>
+<b class="fc">&nbsp;        public val parentDirectories: List&lt;String&gt; = color.directories</b>
+&nbsp;    }
+&nbsp;}
+&nbsp;
+&nbsp;public val ColorFile.parentDirectories: List&lt;String&gt;
+&nbsp;    get() =
+&nbsp;        when (val file = this) {
+&nbsp;            is ColorFile.Root -&gt; emptyList()
+&nbsp;            is ColorFile.Directory -&gt; file.parentDirectories
+&nbsp;            is ColorFile.Color -&gt; file.parentDirectories
+&nbsp;        }
+&nbsp;
+&nbsp;public fun ColorFile.toCamelCase(): String =
+&nbsp;    &quot;${parentDirectories.joinToString(&quot;&quot;) { dir -&gt; dir.capitalize() }}${name.capitalize()}&quot;
+&nbsp;
+&nbsp;private fun String.capitalize(): String = replaceFirstChar {
+&nbsp;    if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString()
+&nbsp;}
+</code>
 </pre>
 </div>
 
@@ -284,18 +285,15 @@ Current scope:     <a href="../../index.html">all classes</a>
     @*/
 
     if (!msie || msie && msie9) {
-        var codeBlock = document.getElementById('sourceCode');
-
-        if (codeBlock) {
-            hljs.highlightBlock(codeBlock);
-        }
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
     }
 })();
 </script>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2022-11-15 14:29</div>
+    <div style="float:right;">generated on 2023-01-19 11:09</div>
 </div>
 </body>
 </html>

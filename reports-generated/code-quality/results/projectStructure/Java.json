@@ -2,27 +2,27 @@
   "modules": [
     {
       "name": "figmagen",
-      "languageLevel": 11
+      "languageLevel": 17
     },
     {
       "name": "figmagen.exts",
-      "languageLevel": 11
+      "languageLevel": 17
     },
     {
       "name": "figmagen.figmagen-core",
-      "languageLevel": 11
+      "languageLevel": 17
     },
     {
       "name": "figmagen.figmagen-test",
-      "languageLevel": 11
+      "languageLevel": 17
     },
     {
       "name": "figmagen.exts.figmagen-kotlin-compose-ext",
-      "languageLevel": 11
+      "languageLevel": 17
     },
     {
       "name": "figmagen.exts.figmagen-swift-swiftui-ext",
-      "languageLevel": 11
+      "languageLevel": 17
     },
     {
       "name": "figmagen.figmagen-core.test",

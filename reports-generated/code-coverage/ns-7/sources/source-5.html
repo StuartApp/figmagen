@@ -7,9 +7,10 @@
   <title>Coverage Report > SwiftFunctionKt</title>
   <style type="text/css">
     @import "../../css/coverage.css";
-    @import "../../css/highlight-idea.css";
+    @import "../../css/idea.min.css";
   </style>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
 </head>
 
 <body>
@@ -126,41 +127,41 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.stuart.figmagen.swift.swift.ui.extensions.internal
-<i class="no-highlight">2</i>&nbsp;
-<i class="no-highlight">3</i>&nbsp;internal data class SwiftFunction(
-<i class="no-highlight">4</i>&nbsp;    var visibility: SwiftVisibility = SwiftVisibility.Public,
-<i class="no-highlight">5</i>&nbsp;    var name: String,
-<i class="no-highlight">6</i>&nbsp;    val valueArguments: MutableList&lt;SwiftValueArgument&gt; = mutableListOf(),
-<i class="no-highlight">7</i>&nbsp;    var returnType: String? = null,
-<i class="no-highlight">8</i>&nbsp;    var body: String? = null,
-<i class="no-highlight">9</i>&nbsp;) {
-<i class="no-highlight">10</i>&nbsp;    override fun toString(): String = buildString {
-<i class="no-highlight">11</i>&nbsp;        val funName = name
-<i class="no-highlight">12</i>&nbsp;        val returningType = if (returnType != null) &quot;: $returnType&quot; else &quot;&quot;
-<i class="no-highlight">13</i>&nbsp;        if (valueArguments.isEmpty()) {
-<i class="no-highlight">14</i>&nbsp;            appendLine(&quot;$visibility func $funName()$returningType {&quot;)
-<i class="no-highlight">15</i>&nbsp;        } else {
-<i class="no-highlight">16</i>&nbsp;            appendLine(&quot;$visibility func $funName(&quot;)
-<i class="no-highlight">17</i>&nbsp;            for (valueArgument in valueArguments) {
-<i class="no-highlight">18</i>&nbsp;                appendLine(&quot;$valueArgument,&quot;.prependIndent())
-<i class="no-highlight">19</i>&nbsp;            }
-<i class="no-highlight">20</i>&nbsp;            appendLine(&quot;)$returningType {&quot;)
-<i class="no-highlight">21</i>&nbsp;        }
-<i class="no-highlight">22</i>&nbsp;        body?.indented()?.dropLastWhile(String::isBlank)?.forEach(::appendLine)
-<i class="no-highlight">23</i>&nbsp;        appendLine(&quot;}&quot;)
-<i class="no-highlight">24</i>&nbsp;    }
-<i class="no-highlight">25</i>&nbsp;}
-<i class="no-highlight">26</i>&nbsp;
-<i class="no-highlight">27</i>&nbsp;internal fun buildSwiftFunction(
-<i class="no-highlight">28</i>&nbsp;    name: String,
-<b class="nc"><i class="no-highlight">29</i>&nbsp;    builder: SwiftFunction.() -&gt; Unit = {}</b>
-<i class="no-highlight">30</i>&nbsp;): SwiftFunction {
-<b class="nc"><i class="no-highlight">31</i>&nbsp;    val function = SwiftFunction(name = name)</b>
-<b class="nc"><i class="no-highlight">32</i>&nbsp;    builder(function)</b>
-<b class="nc"><i class="no-highlight">33</i>&nbsp;    return function</b>
-<i class="no-highlight">34</i>&nbsp;}
-</div>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.stuart.figmagen.swift.swift.ui.extensions.internal
+&nbsp;
+&nbsp;internal data class SwiftFunction(
+&nbsp;    var visibility: SwiftVisibility = SwiftVisibility.Public,
+&nbsp;    var name: String,
+&nbsp;    val valueArguments: MutableList&lt;SwiftValueArgument&gt; = mutableListOf(),
+&nbsp;    var returnType: String? = null,
+&nbsp;    var body: String? = null,
+&nbsp;) {
+&nbsp;    override fun toString(): String = buildString {
+&nbsp;        val funName = name
+&nbsp;        val returningType = if (returnType != null) &quot;: $returnType&quot; else &quot;&quot;
+&nbsp;        if (valueArguments.isEmpty()) {
+&nbsp;            appendLine(&quot;$visibility func $funName()$returningType {&quot;)
+&nbsp;        } else {
+&nbsp;            appendLine(&quot;$visibility func $funName(&quot;)
+&nbsp;            for (valueArgument in valueArguments) {
+&nbsp;                appendLine(&quot;$valueArgument,&quot;.prependIndent())
+&nbsp;            }
+&nbsp;            appendLine(&quot;)$returningType {&quot;)
+&nbsp;        }
+&nbsp;        body?.indented()?.dropLastWhile(String::isBlank)?.forEach(::appendLine)
+&nbsp;        appendLine(&quot;}&quot;)
+&nbsp;    }
+&nbsp;}
+&nbsp;
+&nbsp;internal fun buildSwiftFunction(
+&nbsp;    name: String,
+<b class="nc">&nbsp;    builder: SwiftFunction.() -&gt; Unit = {}</b>
+&nbsp;): SwiftFunction {
+<b class="nc">&nbsp;    val function = SwiftFunction(name = name)</b>
+<b class="nc">&nbsp;    builder(function)</b>
+<b class="nc">&nbsp;    return function</b>
+&nbsp;}
+</code>
 </pre>
 </div>
 
@@ -175,18 +176,15 @@ Current scope:     <a href="../../index.html">all classes</a>
     @*/
 
     if (!msie || msie && msie9) {
-        var codeBlock = document.getElementById('sourceCode');
-
-        if (codeBlock) {
-            hljs.highlightBlock(codeBlock);
-        }
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
     }
 })();
 </script>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2022-11-15 14:29</div>
+    <div style="float:right;">generated on 2023-01-19 11:09</div>
 </div>
 </body>
 </html>

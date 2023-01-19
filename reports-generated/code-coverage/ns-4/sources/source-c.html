@@ -7,9 +7,10 @@
   <title>Coverage Report > KotlinValueArgument</title>
   <style type="text/css">
     @import "../../css/coverage.css";
-    @import "../../css/highlight-idea.css";
+    @import "../../css/idea.min.css";
   </style>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
 </head>
 
 <body>
@@ -97,37 +98,37 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.stuart.figmagen.kotlin.compose.extensions.internal
-<i class="no-highlight">2</i>&nbsp;
-<i class="no-highlight">3</i>&nbsp;import com.javiersc.kotlin.stdlib.isNotNullNorBlank
-<i class="no-highlight">4</i>&nbsp;
-<b class="fc"><i class="no-highlight">5</i>&nbsp;internal data class KotlinValueArgument(</b>
-<b class="fc"><i class="no-highlight">6</i>&nbsp;    var visibility: KotlinVisibility = KotlinVisibility.Public,</b>
-<b class="fc"><i class="no-highlight">7</i>&nbsp;    var mutability: KotlinMutability = KotlinMutability.Val,</b>
-<b class="fc"><i class="no-highlight">8</i>&nbsp;    var name: String,</b>
-<b class="fc"><i class="no-highlight">9</i>&nbsp;    var type: String,</b>
-<b class="fc"><i class="no-highlight">10</i>&nbsp;    var defaultValue: String? = null</b>
-<i class="no-highlight">11</i>&nbsp;) {
-<b class="fc"><i class="no-highlight">12</i>&nbsp;    override fun toString(): String = buildString {</b>
-<b class="fc"><i class="no-highlight">13</i>&nbsp;        val defValue = defaultValue</b>
-<b class="fc"><i class="no-highlight">14</i>&nbsp;        val defaultValue =</b>
-<b class="fc"><i class="no-highlight">15</i>&nbsp;            if (defValue.isNotNullNorBlank()) &quot; = ${defValue.sanitizeKotlinKeyword()}&quot; else &quot;&quot;</b>
-<b class="fc"><i class="no-highlight">16</i>&nbsp;        val preName = if (mutability != KotlinMutability.Empty) &quot;$visibility $mutability &quot; else &quot;&quot;</b>
-<b class="fc"><i class="no-highlight">17</i>&nbsp;        val parameterName = &quot;$preName${name.sanitizeKotlinKeyword()}&quot;</b>
-<b class="fc"><i class="no-highlight">18</i>&nbsp;        append(&quot;$parameterName: $type$defaultValue&quot;)</b>
-<b class="fc"><i class="no-highlight">19</i>&nbsp;    }</b>
-<i class="no-highlight">20</i>&nbsp;}
-<i class="no-highlight">21</i>&nbsp;
-<i class="no-highlight">22</i>&nbsp;internal fun buildKotlinValueArgument(
-<i class="no-highlight">23</i>&nbsp;    name: String,
-<i class="no-highlight">24</i>&nbsp;    type: String,
-<i class="no-highlight">25</i>&nbsp;    builder: KotlinValueArgument.() -&gt; Unit = {}
-<i class="no-highlight">26</i>&nbsp;): KotlinValueArgument {
-<i class="no-highlight">27</i>&nbsp;    val valueArgument = KotlinValueArgument(name = name, type = type)
-<i class="no-highlight">28</i>&nbsp;    builder(valueArgument)
-<i class="no-highlight">29</i>&nbsp;    return valueArgument
-<i class="no-highlight">30</i>&nbsp;}
-</div>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.stuart.figmagen.kotlin.compose.extensions.internal
+&nbsp;
+&nbsp;import com.javiersc.kotlin.stdlib.isNotNullNorBlank
+&nbsp;
+<b class="fc">&nbsp;internal data class KotlinValueArgument(</b>
+<b class="fc">&nbsp;    var visibility: KotlinVisibility = KotlinVisibility.Public,</b>
+<b class="fc">&nbsp;    var mutability: KotlinMutability = KotlinMutability.Val,</b>
+<b class="fc">&nbsp;    var name: String,</b>
+<b class="fc">&nbsp;    var type: String,</b>
+<b class="fc">&nbsp;    var defaultValue: String? = null</b>
+&nbsp;) {
+<b class="fc">&nbsp;    override fun toString(): String = buildString {</b>
+<b class="fc">&nbsp;        val defValue = defaultValue</b>
+<b class="fc">&nbsp;        val defaultValue =</b>
+<b class="fc">&nbsp;            if (defValue.isNotNullNorBlank()) &quot; = ${defValue.sanitizeKotlinKeyword()}&quot; else &quot;&quot;</b>
+<b class="fc">&nbsp;        val preName = if (mutability != KotlinMutability.Empty) &quot;$visibility $mutability &quot; else &quot;&quot;</b>
+<b class="fc">&nbsp;        val parameterName = &quot;$preName${name.sanitizeKotlinKeyword()}&quot;</b>
+<b class="fc">&nbsp;        append(&quot;$parameterName: $type$defaultValue&quot;)</b>
+<b class="fc">&nbsp;    }</b>
+&nbsp;}
+&nbsp;
+&nbsp;internal fun buildKotlinValueArgument(
+&nbsp;    name: String,
+&nbsp;    type: String,
+&nbsp;    builder: KotlinValueArgument.() -&gt; Unit = {}
+&nbsp;): KotlinValueArgument {
+&nbsp;    val valueArgument = KotlinValueArgument(name = name, type = type)
+&nbsp;    builder(valueArgument)
+&nbsp;    return valueArgument
+&nbsp;}
+</code>
 </pre>
 </div>
 
@@ -142,18 +143,15 @@ Current scope:     <a href="../../index.html">all classes</a>
     @*/
 
     if (!msie || msie && msie9) {
-        var codeBlock = document.getElementById('sourceCode');
-
-        if (codeBlock) {
-            hljs.highlightBlock(codeBlock);
-        }
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
     }
 })();
 </script>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2022-11-15 14:29</div>
+    <div style="float:right;">generated on 2023-01-19 11:09</div>
 </div>
 </body>
 </html>

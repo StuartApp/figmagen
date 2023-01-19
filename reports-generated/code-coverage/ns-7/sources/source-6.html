@@ -7,9 +7,10 @@
   <title>Coverage Report > SwiftMutability</title>
   <style type="text/css">
     @import "../../css/coverage.css";
-    @import "../../css/highlight-idea.css";
+    @import "../../css/idea.min.css";
   </style>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
 </head>
 
 <body>
@@ -97,18 +98,18 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.stuart.figmagen.swift.swift.ui.extensions.internal
-<i class="no-highlight">2</i>&nbsp;
-<i class="no-highlight">3</i>&nbsp;import java.util.Locale
-<i class="no-highlight">4</i>&nbsp;
-<i class="no-highlight">5</i>&nbsp;internal enum class SwiftMutability {
-<b class="fc"><i class="no-highlight">6</i>&nbsp;    Let,</b>
-<b class="fc"><i class="no-highlight">7</i>&nbsp;    Var,</b>
-<b class="fc"><i class="no-highlight">8</i>&nbsp;    Empty;</b>
-<i class="no-highlight">9</i>&nbsp;
-<b class="pc"><i class="no-highlight">10</i>&nbsp;    override fun toString(): String = if (this == Empty) &quot;&quot; else name.lowercase(Locale.getDefault())</b>
-<i class="no-highlight">11</i>&nbsp;}
-</div>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.stuart.figmagen.swift.swift.ui.extensions.internal
+&nbsp;
+&nbsp;import java.util.Locale
+&nbsp;
+&nbsp;internal enum class SwiftMutability {
+<b class="fc">&nbsp;    Let,</b>
+<b class="fc">&nbsp;    Var,</b>
+<b class="fc">&nbsp;    Empty;</b>
+&nbsp;
+<b class="pc">&nbsp;    override fun toString(): String = if (this == Empty) &quot;&quot; else name.lowercase(Locale.getDefault())</b>
+&nbsp;}
+</code>
 </pre>
 </div>
 
@@ -123,18 +124,15 @@ Current scope:     <a href="../../index.html">all classes</a>
     @*/
 
     if (!msie || msie && msie9) {
-        var codeBlock = document.getElementById('sourceCode');
-
-        if (codeBlock) {
-            hljs.highlightBlock(codeBlock);
-        }
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
     }
 })();
 </script>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2022-11-15 14:29</div>
+    <div style="float:right;">generated on 2023-01-19 11:09</div>
 </div>
 </body>
 </html>

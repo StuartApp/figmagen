@@ -7,9 +7,10 @@
   <title>Coverage Report > UtilsKt</title>
   <style type="text/css">
     @import "../../css/coverage.css";
-    @import "../../css/highlight-idea.css";
+    @import "../../css/idea.min.css";
   </style>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
 </head>
 
 <body>
@@ -90,24 +91,24 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.stuart.figmagen.test.fakes
-<i class="no-highlight">2</i>&nbsp;
-<i class="no-highlight">3</i>&nbsp;import java.io.File
-<i class="no-highlight">4</i>&nbsp;import kotlin.io.path.createTempDirectory
-<i class="no-highlight">5</i>&nbsp;
-<i class="no-highlight">6</i>&nbsp;public fun Any.getResource(path: String): File =
-<b class="fc"><i class="no-highlight">7</i>&nbsp;    File(this.javaClass.classLoader.getResource(path)!!.path)</b>
-<i class="no-highlight">8</i>&nbsp;
-<i class="no-highlight">9</i>&nbsp;public fun createTemporalDir(): File {
-<b class="fc"><i class="no-highlight">10</i>&nbsp;    val colorsDirectory =</b>
-<b class="fc"><i class="no-highlight">11</i>&nbsp;        File(&quot;${System.getProperty(&quot;user.dir&quot;)}/build/generated/swift/colors&quot;).apply { mkdirs() }</b>
-<i class="no-highlight">12</i>&nbsp;
-<b class="fc"><i class="no-highlight">13</i>&nbsp;    return createTempDirectory(directory = colorsDirectory.toPath()).toFile().apply {</b>
-<b class="fc"><i class="no-highlight">14</i>&nbsp;        parentFile.mkdirs()</b>
-<b class="fc"><i class="no-highlight">15</i>&nbsp;        createNewFile()</b>
-<b class="fc"><i class="no-highlight">16</i>&nbsp;    }</b>
-<i class="no-highlight">17</i>&nbsp;}
-</div>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.stuart.figmagen.test.fakes
+&nbsp;
+&nbsp;import java.io.File
+&nbsp;import kotlin.io.path.createTempDirectory
+&nbsp;
+&nbsp;public fun Any.getResource(path: String): File =
+<b class="fc">&nbsp;    File(this.javaClass.classLoader.getResource(path)!!.path)</b>
+&nbsp;
+&nbsp;public fun createTemporalDir(): File {
+<b class="fc">&nbsp;    val colorsDirectory =</b>
+<b class="fc">&nbsp;        File(&quot;${System.getProperty(&quot;user.dir&quot;)}/build/generated/swift/colors&quot;).apply { mkdirs() }</b>
+&nbsp;
+<b class="fc">&nbsp;    return createTempDirectory(directory = colorsDirectory.toPath()).toFile().apply {</b>
+<b class="fc">&nbsp;        parentFile.mkdirs()</b>
+<b class="fc">&nbsp;        createNewFile()</b>
+<b class="fc">&nbsp;    }</b>
+&nbsp;}
+</code>
 </pre>
 </div>
 
@@ -122,18 +123,15 @@ Current scope:     <a href="../../index.html">all classes</a>
     @*/
 
     if (!msie || msie && msie9) {
-        var codeBlock = document.getElementById('sourceCode');
-
-        if (codeBlock) {
-            hljs.highlightBlock(codeBlock);
-        }
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
     }
 })();
 </script>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2022-11-15 14:29</div>
+    <div style="float:right;">generated on 2023-01-19 11:09</div>
 </div>
 </body>
 </html>

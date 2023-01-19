@@ -7,9 +7,10 @@
   <title>Coverage Report > Task</title>
   <style type="text/css">
     @import "../../css/coverage.css";
-    @import "../../css/highlight-idea.css";
+    @import "../../css/idea.min.css";
   </style>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
 </head>
 
 <body>
@@ -90,22 +91,22 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.stuart.figmagen
-<i class="no-highlight">2</i>&nbsp;
-<i class="no-highlight">3</i>&nbsp;import com.stuart.figmagen.models.TaskFile
-<i class="no-highlight">4</i>&nbsp;
-<i class="no-highlight">5</i>&nbsp;/**
-<i class="no-highlight">6</i>&nbsp; * A task is simply a function with returns a list of `TaskFile` that `Figmagen` will generate.
-<i class="no-highlight">7</i>&nbsp; *
-<i class="no-highlight">8</i>&nbsp; * There are default implementations for multiple styles or components like colors or typographies.
-<i class="no-highlight">9</i>&nbsp; */
-<b class="fc"><i class="no-highlight">10</i>&nbsp;public abstract class Task {</b>
-<i class="no-highlight">11</i>&nbsp;
-<b class="fc"><i class="no-highlight">12</i>&nbsp;    public lateinit var figmaToken: String</b>
-<i class="no-highlight">13</i>&nbsp;
-<i class="no-highlight">14</i>&nbsp;    public abstract suspend fun run(): List&lt;TaskFile&gt;
-<i class="no-highlight">15</i>&nbsp;}
-</div>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.stuart.figmagen
+&nbsp;
+&nbsp;import com.stuart.figmagen.models.TaskFile
+&nbsp;
+&nbsp;/**
+&nbsp; * A task is simply a function with returns a list of `TaskFile` that `Figmagen` will generate.
+&nbsp; *
+&nbsp; * There are default implementations for multiple styles or components like colors or typographies.
+&nbsp; */
+<b class="fc">&nbsp;public abstract class Task {</b>
+&nbsp;
+<b class="fc">&nbsp;    public lateinit var figmaToken: String</b>
+&nbsp;
+&nbsp;    public abstract suspend fun run(): List&lt;TaskFile&gt;
+&nbsp;}
+</code>
 </pre>
 </div>
 
@@ -120,18 +121,15 @@ Current scope:     <a href="../../index.html">all classes</a>
     @*/
 
     if (!msie || msie && msie9) {
-        var codeBlock = document.getElementById('sourceCode');
-
-        if (codeBlock) {
-            hljs.highlightBlock(codeBlock);
-        }
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
     }
 })();
 </script>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2022-11-15 14:29</div>
+    <div style="float:right;">generated on 2023-01-19 11:09</div>
 </div>
 </body>
 </html>

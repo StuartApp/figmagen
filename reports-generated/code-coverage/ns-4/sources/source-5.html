@@ -7,9 +7,10 @@
   <title>Coverage Report > KotlinFile</title>
   <style type="text/css">
     @import "../../css/coverage.css";
-    @import "../../css/highlight-idea.css";
+    @import "../../css/idea.min.css";
   </style>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
 </head>
 
 <body>
@@ -58,7 +59,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     100%
   </span>
   <span class="absValue">
-    (20/20)
+    (10/10)
   </span>
 </td>
 <td class="coverageStat">
@@ -74,7 +75,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     100%
   </span>
   <span class="absValue">
-    (324/324)
+    (295/295)
   </span>
 </td>
 </tr>
@@ -128,7 +129,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     100%
   </span>
   <span class="absValue">
-    (22/22)
+    (12/12)
   </span>
 </td>
 <td class="coverageStat">
@@ -144,7 +145,7 @@ Current scope:     <a href="../../index.html">all classes</a>
     100%
   </span>
   <span class="absValue">
-    (334/334)
+    (305/305)
   </span>
 </td>
 </tr>
@@ -155,55 +156,55 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.stuart.figmagen.kotlin.compose.extensions.internal
-<i class="no-highlight">2</i>&nbsp;
-<b class="fc"><i class="no-highlight">3</i>&nbsp;internal data class KotlinFile(</b>
-<b class="fc"><i class="no-highlight">4</i>&nbsp;    val name: String,</b>
-<b class="fc"><i class="no-highlight">5</i>&nbsp;    val packageName: String,</b>
-<b class="fc"><i class="no-highlight">6</i>&nbsp;    val imports: MutableList&lt;String&gt; = mutableListOf(),</b>
-<b class="fc"><i class="no-highlight">7</i>&nbsp;    val properties: MutableList&lt;KotlinProperty&gt; = mutableListOf(),</b>
-<b class="fc"><i class="no-highlight">8</i>&nbsp;    val functions: MutableList&lt;KotlinFunction&gt; = mutableListOf(),</b>
-<b class="fc"><i class="no-highlight">9</i>&nbsp;    val classes: MutableList&lt;KotlinClass&gt; = mutableListOf(),</b>
-<i class="no-highlight">10</i>&nbsp;) {
-<i class="no-highlight">11</i>&nbsp;    override fun toString(): String {
-<b class="fc"><i class="no-highlight">12</i>&nbsp;        val lines =</b>
-<b class="fc"><i class="no-highlight">13</i>&nbsp;            buildString {</b>
-<b class="fc"><i class="no-highlight">14</i>&nbsp;                    appendLine(&quot;package $packageName&quot;)</b>
-<b class="fc"><i class="no-highlight">15</i>&nbsp;                    appendLine()</b>
-<i class="no-highlight">16</i>&nbsp;
-<b class="fc"><i class="no-highlight">17</i>&nbsp;                    imports.forEach { import -&gt; appendLine(&quot;import $import&quot;) }</b>
-<b class="fc"><i class="no-highlight">18</i>&nbsp;                    appendLine()</b>
-<b class="fc"><i class="no-highlight">19</i>&nbsp;                    properties.forEach(::appendLine)</b>
-<b class="fc"><i class="no-highlight">20</i>&nbsp;                    functions.forEach(::appendLine)</b>
-<b class="fc"><i class="no-highlight">21</i>&nbsp;                    classes.forEach(::appendLine)</b>
-<b class="fc"><i class="no-highlight">22</i>&nbsp;                }</b>
-<b class="fc"><i class="no-highlight">23</i>&nbsp;                .lines()</b>
-<b class="fc"><i class="no-highlight">24</i>&nbsp;                .dropLastWhile(String::isBlank)</b>
-<i class="no-highlight">25</i>&nbsp;
-<b class="fc"><i class="no-highlight">26</i>&nbsp;        return lines</b>
-<b class="fc"><i class="no-highlight">27</i>&nbsp;            .mapIndexedNotNull { index, line -&gt;</b>
-<b class="fc"><i class="no-highlight">28</i>&nbsp;                val previousLine = lines.getOrNull(index - 1)?.filterNot(Char::isWhitespace)</b>
-<b class="fc"><i class="no-highlight">29</i>&nbsp;                val currentLine = line.filterNot(Char::isWhitespace)</b>
-<b class="fc"><i class="no-highlight">30</i>&nbsp;                val nextLine = lines.getOrNull(index + 1)?.filterNot(Char::isWhitespace)</b>
-<i class="no-highlight">31</i>&nbsp;
-<b class="fc"><i class="no-highlight">32</i>&nbsp;                if (previousLine == &quot;}&quot; &amp;&amp; currentLine.isBlank() &amp;&amp; nextLine == &quot;}&quot;) null else line</b>
-<i class="no-highlight">33</i>&nbsp;            }
-<b class="fc"><i class="no-highlight">34</i>&nbsp;            .joinToString(&quot;\n&quot;) { line -&gt; line.ifBlank { &quot;&quot; } } + &quot;\n&quot;</b>
-<i class="no-highlight">35</i>&nbsp;    }
-<i class="no-highlight">36</i>&nbsp;}
-<i class="no-highlight">37</i>&nbsp;
-<i class="no-highlight">38</i>&nbsp;internal fun buildKotlinFile(
-<i class="no-highlight">39</i>&nbsp;    name: String,
-<i class="no-highlight">40</i>&nbsp;    packageName: String,
-<i class="no-highlight">41</i>&nbsp;    builder: KotlinFile.() -&gt; Unit = {},
-<i class="no-highlight">42</i>&nbsp;): KotlinFile {
-<i class="no-highlight">43</i>&nbsp;    val file = KotlinFile(name = name, packageName = packageName)
-<i class="no-highlight">44</i>&nbsp;    builder(file)
-<i class="no-highlight">45</i>&nbsp;    return file
-<i class="no-highlight">46</i>&nbsp;}
-<i class="no-highlight">47</i>&nbsp;
-<i class="no-highlight">48</i>&nbsp;internal fun String.indented(): List&lt;String&gt; = lines().map { it.prependIndent() }
-</div>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.stuart.figmagen.kotlin.compose.extensions.internal
+&nbsp;
+<b class="fc">&nbsp;internal data class KotlinFile(</b>
+<b class="fc">&nbsp;    val name: String,</b>
+<b class="fc">&nbsp;    val packageName: String,</b>
+<b class="fc">&nbsp;    val imports: MutableList&lt;String&gt; = mutableListOf(),</b>
+<b class="fc">&nbsp;    val properties: MutableList&lt;KotlinProperty&gt; = mutableListOf(),</b>
+<b class="fc">&nbsp;    val functions: MutableList&lt;KotlinFunction&gt; = mutableListOf(),</b>
+<b class="fc">&nbsp;    val classes: MutableList&lt;KotlinClass&gt; = mutableListOf(),</b>
+&nbsp;) {
+&nbsp;    override fun toString(): String {
+<b class="fc">&nbsp;        val lines =</b>
+<b class="fc">&nbsp;            buildString {</b>
+<b class="fc">&nbsp;                    appendLine(&quot;package $packageName&quot;)</b>
+<b class="fc">&nbsp;                    appendLine()</b>
+&nbsp;
+<b class="fc">&nbsp;                    imports.forEach { import -&gt; appendLine(&quot;import $import&quot;) }</b>
+<b class="fc">&nbsp;                    appendLine()</b>
+<b class="fc">&nbsp;                    properties.forEach(::appendLine)</b>
+<b class="fc">&nbsp;                    functions.forEach(::appendLine)</b>
+<b class="fc">&nbsp;                    classes.forEach(::appendLine)</b>
+<b class="fc">&nbsp;                }</b>
+<b class="fc">&nbsp;                .lines()</b>
+<b class="fc">&nbsp;                .dropLastWhile(String::isBlank)</b>
+&nbsp;
+<b class="fc">&nbsp;        return lines</b>
+<b class="fc">&nbsp;            .mapIndexedNotNull { index, line -&gt;</b>
+<b class="fc">&nbsp;                val previousLine = lines.getOrNull(index - 1)?.filterNot(Char::isWhitespace)</b>
+<b class="fc">&nbsp;                val currentLine = line.filterNot(Char::isWhitespace)</b>
+<b class="fc">&nbsp;                val nextLine = lines.getOrNull(index + 1)?.filterNot(Char::isWhitespace)</b>
+&nbsp;
+<b class="fc">&nbsp;                if (previousLine == &quot;}&quot; &amp;&amp; currentLine.isBlank() &amp;&amp; nextLine == &quot;}&quot;) null else line</b>
+&nbsp;            }
+<b class="fc">&nbsp;            .joinToString(&quot;\n&quot;) { line -&gt; line.ifBlank { &quot;&quot; } } + &quot;\n&quot;</b>
+&nbsp;    }
+&nbsp;}
+&nbsp;
+&nbsp;internal fun buildKotlinFile(
+&nbsp;    name: String,
+&nbsp;    packageName: String,
+&nbsp;    builder: KotlinFile.() -&gt; Unit = {},
+&nbsp;): KotlinFile {
+&nbsp;    val file = KotlinFile(name = name, packageName = packageName)
+&nbsp;    builder(file)
+&nbsp;    return file
+&nbsp;}
+&nbsp;
+&nbsp;internal fun String.indented(): List&lt;String&gt; = lines().map { it.prependIndent() }
+</code>
 </pre>
 </div>
 
@@ -218,18 +219,15 @@ Current scope:     <a href="../../index.html">all classes</a>
     @*/
 
     if (!msie || msie && msie9) {
-        var codeBlock = document.getElementById('sourceCode');
-
-        if (codeBlock) {
-            hljs.highlightBlock(codeBlock);
-        }
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
     }
 })();
 </script>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2022-11-15 14:29</div>
+    <div style="float:right;">generated on 2023-01-19 11:09</div>
 </div>
 </body>
 </html>

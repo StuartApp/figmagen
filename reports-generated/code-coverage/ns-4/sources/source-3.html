@@ -7,9 +7,10 @@
   <title>Coverage Report > KotlinClass</title>
   <style type="text/css">
     @import "../../css/coverage.css";
-    @import "../../css/highlight-idea.css";
+    @import "../../css/idea.min.css";
   </style>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
 </head>
 
 <body>
@@ -82,10 +83,10 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    97.2%
+    97.1%
   </span>
   <span class="absValue">
-    (375/386)
+    (372/383)
   </span>
 </td>
 </tr>
@@ -97,52 +98,52 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.stuart.figmagen.kotlin.compose.extensions.internal
-<i class="no-highlight">2</i>&nbsp;
-<b class="fc"><i class="no-highlight">3</i>&nbsp;internal data class KotlinClass(</b>
-<b class="fc"><i class="no-highlight">4</i>&nbsp;    val annotations: MutableList&lt;KotlinAnnotation&gt; = mutableListOf(),</b>
-<b class="fc"><i class="no-highlight">5</i>&nbsp;    var visibility: KotlinVisibility = KotlinVisibility.Public,</b>
-<b class="fc"><i class="no-highlight">6</i>&nbsp;    var name: String,</b>
-<b class="fc"><i class="no-highlight">7</i>&nbsp;    val valueArguments: MutableList&lt;KotlinValueArgument&gt; = mutableListOf(),</b>
-<b class="fc"><i class="no-highlight">8</i>&nbsp;    val properties: MutableList&lt;KotlinProperty&gt; = mutableListOf(),</b>
-<b class="fc"><i class="no-highlight">9</i>&nbsp;    val functions: MutableList&lt;KotlinFunction&gt; = mutableListOf(),</b>
-<b class="fc"><i class="no-highlight">10</i>&nbsp;    val classes: MutableList&lt;KotlinClass&gt; = mutableListOf(),</b>
-<i class="no-highlight">11</i>&nbsp;) {
-<b class="fc"><i class="no-highlight">12</i>&nbsp;    override fun toString(): String = buildString {</b>
-<b class="fc"><i class="no-highlight">13</i>&nbsp;        for (annotation in annotations) {</b>
-<b class="fc"><i class="no-highlight">14</i>&nbsp;            appendLine(&quot;@$annotation&quot;)</b>
-<i class="no-highlight">15</i>&nbsp;        }
-<b class="pc"><i class="no-highlight">16</i>&nbsp;        appendLine(&quot;$visibility class $name&quot; + if (valueArguments.isNotEmpty()) &quot;(&quot; else &quot;&quot;)</b>
-<b class="fc"><i class="no-highlight">17</i>&nbsp;        for (valueArgument in valueArguments) {</b>
-<b class="fc"><i class="no-highlight">18</i>&nbsp;            appendLine(&quot;$valueArgument,&quot;.prependIndent())</b>
-<i class="no-highlight">19</i>&nbsp;        }
-<b class="pc"><i class="no-highlight">20</i>&nbsp;        if (valueArguments.isNotEmpty()) append(&quot;)&quot;)</b>
-<b class="pc"><i class="no-highlight">21</i>&nbsp;        if ((properties + functions + classes).isNotEmpty()) {</b>
-<b class="fc"><i class="no-highlight">22</i>&nbsp;            appendLine(&quot; {&quot;)</b>
-<b class="fc"><i class="no-highlight">23</i>&nbsp;            appendLine()</b>
-<b class="fc"><i class="no-highlight">24</i>&nbsp;            for (property in properties) {</b>
-<b class="fc"><i class="no-highlight">25</i>&nbsp;                &quot;$property&quot;.indented().forEach(::appendLine)</b>
-<i class="no-highlight">26</i>&nbsp;            }
-<b class="fc"><i class="no-highlight">27</i>&nbsp;            for (function in functions) {</b>
-<b class="fc"><i class="no-highlight">28</i>&nbsp;                &quot;$function&quot;.indented().forEach(::appendLine)</b>
-<i class="no-highlight">29</i>&nbsp;            }
-<i class="no-highlight">30</i>&nbsp;
-<b class="fc"><i class="no-highlight">31</i>&nbsp;            for (kclass in classes) {</b>
-<b class="fc"><i class="no-highlight">32</i>&nbsp;                &quot;$kclass&quot;.indented().forEach(::appendLine)</b>
-<i class="no-highlight">33</i>&nbsp;            }
-<b class="fc"><i class="no-highlight">34</i>&nbsp;            appendLine(&quot;}&quot;)</b>
-<i class="no-highlight">35</i>&nbsp;        } else {
-<b class="nc"><i class="no-highlight">36</i>&nbsp;            appendLine()</b>
-<i class="no-highlight">37</i>&nbsp;        }
-<b class="fc"><i class="no-highlight">38</i>&nbsp;    }</b>
-<i class="no-highlight">39</i>&nbsp;}
-<i class="no-highlight">40</i>&nbsp;
-<i class="no-highlight">41</i>&nbsp;internal fun buildKotlinClass(name: String, builder: KotlinClass.() -&gt; Unit = {}): KotlinClass {
-<i class="no-highlight">42</i>&nbsp;    val kclass = KotlinClass(name = name)
-<i class="no-highlight">43</i>&nbsp;    builder(kclass)
-<i class="no-highlight">44</i>&nbsp;    return kclass
-<i class="no-highlight">45</i>&nbsp;}
-</div>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.stuart.figmagen.kotlin.compose.extensions.internal
+&nbsp;
+<b class="fc">&nbsp;internal data class KotlinClass(</b>
+<b class="fc">&nbsp;    val annotations: MutableList&lt;KotlinAnnotation&gt; = mutableListOf(),</b>
+<b class="fc">&nbsp;    var visibility: KotlinVisibility = KotlinVisibility.Public,</b>
+<b class="fc">&nbsp;    var name: String,</b>
+<b class="fc">&nbsp;    val valueArguments: MutableList&lt;KotlinValueArgument&gt; = mutableListOf(),</b>
+<b class="fc">&nbsp;    val properties: MutableList&lt;KotlinProperty&gt; = mutableListOf(),</b>
+<b class="fc">&nbsp;    val functions: MutableList&lt;KotlinFunction&gt; = mutableListOf(),</b>
+<b class="fc">&nbsp;    val classes: MutableList&lt;KotlinClass&gt; = mutableListOf(),</b>
+&nbsp;) {
+<b class="fc">&nbsp;    override fun toString(): String = buildString {</b>
+<b class="fc">&nbsp;        for (annotation in annotations) {</b>
+<b class="fc">&nbsp;            appendLine(&quot;@$annotation&quot;)</b>
+&nbsp;        }
+<b class="pc">&nbsp;        appendLine(&quot;$visibility class $name&quot; + if (valueArguments.isNotEmpty()) &quot;(&quot; else &quot;&quot;)</b>
+<b class="fc">&nbsp;        for (valueArgument in valueArguments) {</b>
+<b class="fc">&nbsp;            appendLine(&quot;$valueArgument,&quot;.prependIndent())</b>
+&nbsp;        }
+<b class="pc">&nbsp;        if (valueArguments.isNotEmpty()) append(&quot;)&quot;)</b>
+<b class="pc">&nbsp;        if ((properties + functions + classes).isNotEmpty()) {</b>
+<b class="fc">&nbsp;            appendLine(&quot; {&quot;)</b>
+<b class="fc">&nbsp;            appendLine()</b>
+<b class="fc">&nbsp;            for (property in properties) {</b>
+<b class="fc">&nbsp;                &quot;$property&quot;.indented().forEach(::appendLine)</b>
+&nbsp;            }
+<b class="fc">&nbsp;            for (function in functions) {</b>
+<b class="fc">&nbsp;                &quot;$function&quot;.indented().forEach(::appendLine)</b>
+&nbsp;            }
+&nbsp;
+<b class="fc">&nbsp;            for (kclass in classes) {</b>
+<b class="fc">&nbsp;                &quot;$kclass&quot;.indented().forEach(::appendLine)</b>
+&nbsp;            }
+<b class="fc">&nbsp;            appendLine(&quot;}&quot;)</b>
+&nbsp;        } else {
+<b class="nc">&nbsp;            appendLine()</b>
+&nbsp;        }
+<b class="fc">&nbsp;    }</b>
+&nbsp;}
+&nbsp;
+&nbsp;internal fun buildKotlinClass(name: String, builder: KotlinClass.() -&gt; Unit = {}): KotlinClass {
+&nbsp;    val kclass = KotlinClass(name = name)
+&nbsp;    builder(kclass)
+&nbsp;    return kclass
+&nbsp;}
+</code>
 </pre>
 </div>
 
@@ -157,18 +158,15 @@ Current scope:     <a href="../../index.html">all classes</a>
     @*/
 
     if (!msie || msie && msie9) {
-        var codeBlock = document.getElementById('sourceCode');
-
-        if (codeBlock) {
-            hljs.highlightBlock(codeBlock);
-        }
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
     }
 })();
 </script>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2022-11-15 14:29</div>
+    <div style="float:right;">generated on 2023-01-19 11:09</div>
 </div>
 </body>
 </html>

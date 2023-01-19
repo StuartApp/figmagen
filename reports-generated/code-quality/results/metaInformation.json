@@ -1,16 +1,18 @@
 {
-  "total": 1,
+  "total": 4,
   "tools inspection": {
-    "Code Inspection": 1
+    "Code Inspection": 4
   },
   "attributes": {
     "vcs": {
       "sarifIdea": {
         "repositoryUri": "https://github.com/StuartApp/figmagen",
-        "revisionId": "1533fb158d61cc93bb07855881d40fb6297b8acf",
+        "revisionId": "e2f3e2cc41e04d58c88067f64445085fe38462d6",
         "branch": "main"
       }
     },
-    "deviceId": "200820300000000-0563-e4dd-4f5e-b257352be4b7"
+    "deviceId": "200820300000000-0563-e4dd-4f5e-b257352be4b7",
+    "jobUrl": "https://github.com/StuartApp/figmagen/actions/runs/3958048873",
+    "repoUrl": "https://github.com/StuartApp/figmagen"
   }
 }

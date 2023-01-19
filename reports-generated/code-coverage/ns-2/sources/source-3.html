@@ -7,9 +7,10 @@
   <title>Coverage Report > FigmaApiKt</title>
   <style type="text/css">
     @import "../../css/coverage.css";
-    @import "../../css/highlight-idea.css";
+    @import "../../css/idea.min.css";
   </style>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
 </head>
 
 <body>
@@ -23,9 +24,12 @@ Current scope:     <a href="../../index.html">all classes</a>
 <h1>Coverage Summary for Class: FigmaApiKt (com.stuart.figmagen.internal)</h1>
 
 <table class="coverageStats">
-
 <tr>
   <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
 <th class="coverageStat 
 ">
   Method, %
@@ -53,6 +57,14 @@ Current scope:     <a href="../../index.html">all classes</a>
     (1/1)
   </span>
 </td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
     <td class="coverageStat"/>
 <td class="coverageStat">
   <span class="percent">
@@ -71,62 +83,7 @@ Current scope:     <a href="../../index.html">all classes</a>
   </span>
 </td>
 </tr>
-  <tr>
-    <td class="name">FigmaApiKt$nodeIdsAsQueryParameter$1</td>
-<td class="coverageStat">
-  <span class="percent">
-    100%
-  </span>
-  <span class="absValue">
-    (1/1)
-  </span>
-</td>
-    <td class="coverageStat"/>
-<td class="coverageStat">
-  <span class="percent">
-    100%
-  </span>
-  <span class="absValue">
-    (1/1)
-  </span>
-</td>
-<td class="coverageStat">
-  <span class="percent">
-    100%
-  </span>
-  <span class="absValue">
-    (3/3)
-  </span>
-</td>
-  </tr>
-<tr>
-  <td class="name"><strong>Total</strong></td>
-<td class="coverageStat">
-  <span class="percent">
-    100%
-  </span>
-  <span class="absValue">
-    (2/2)
-  </span>
-</td>
-    <td class="coverageStat"/>
-<td class="coverageStat">
-  <span class="percent">
-    100%
-  </span>
-  <span class="absValue">
-    (2/2)
-  </span>
-</td>
-<td class="coverageStat">
-  <span class="percent">
-    100%
-  </span>
-  <span class="absValue">
-    (16/16)
-  </span>
-</td>
-</tr>
+
 </table>
 
 <br/>
@@ -134,34 +91,55 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.stuart.figmagen.internal
-<i class="no-highlight">2</i>&nbsp;
-<i class="no-highlight">3</i>&nbsp;import com.squareup.moshi.Json
-<i class="no-highlight">4</i>&nbsp;
-<i class="no-highlight">5</i>&nbsp;internal object FigmaApi {
-<i class="no-highlight">6</i>&nbsp;
-<i class="no-highlight">7</i>&nbsp;    data class Data&lt;T&gt;(val data: T)
-<i class="no-highlight">8</i>&nbsp;
-<i class="no-highlight">9</i>&nbsp;    data class StyleWrapper(val meta: Meta)
-<i class="no-highlight">10</i>&nbsp;
-<i class="no-highlight">11</i>&nbsp;    data class Meta(val styles: List&lt;Style&gt;)
-<i class="no-highlight">12</i>&nbsp;
-<i class="no-highlight">13</i>&nbsp;    data class Style(val key: String, @Json(name = &quot;node_id&quot;) val nodeId: String)
-<i class="no-highlight">14</i>&nbsp;
-<i class="no-highlight">15</i>&nbsp;    data class File(val name: String, val nodes: Map&lt;String, Node&gt;)
-<i class="no-highlight">16</i>&nbsp;
-<i class="no-highlight">17</i>&nbsp;    data class Node(val document: Document)
-<i class="no-highlight">18</i>&nbsp;
-<i class="no-highlight">19</i>&nbsp;    data class Document(val id: String, val name: String, val fills: List&lt;Fill&gt;)
-<i class="no-highlight">20</i>&nbsp;
-<i class="no-highlight">21</i>&nbsp;    data class Fill(val color: Color?)
-<i class="no-highlight">22</i>&nbsp;
-<i class="no-highlight">23</i>&nbsp;    data class Color(val r: Float, val g: Float, val b: Float, val a: Float)
-<i class="no-highlight">24</i>&nbsp;}
-<i class="no-highlight">25</i>&nbsp;
-<i class="no-highlight">26</i>&nbsp;internal fun List&lt;FigmaApi.Style&gt;.nodeIdsAsQueryParameter(): String =
-<b class="fc"><i class="no-highlight">27</i>&nbsp;    joinToString(&quot;,&quot;, transform = FigmaApi.Style::nodeId)</b>
-</div>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.stuart.figmagen.internal
+&nbsp;
+&nbsp;import com.squareup.moshi.Json
+&nbsp;
+&nbsp;internal object FigmaApi {
+&nbsp;
+&nbsp;    data class Data&lt;T&gt;(val data: T)
+&nbsp;
+&nbsp;    data class StyleWrapper(val meta: Meta)
+&nbsp;
+&nbsp;    data class Meta(val styles: List&lt;Style&gt;)
+&nbsp;
+&nbsp;    data class Style(
+&nbsp;        val key: String,
+&nbsp;        @Json(name = &quot;node_id&quot;) val nodeId: String,
+&nbsp;        @Json(name = &quot;style_type&quot;) val styleType: Type,
+&nbsp;    ) {
+&nbsp;        val isFill: Boolean
+&nbsp;            get() = styleType == Type.FILL
+&nbsp;
+&nbsp;        enum class Type {
+&nbsp;            FILL,
+&nbsp;            EFFECT,
+&nbsp;            GRID,
+&nbsp;            TEXT,
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    data class File(val name: String, val nodes: Map&lt;String, Node&gt;)
+&nbsp;
+&nbsp;    data class Node(val document: Document)
+&nbsp;
+&nbsp;    data class Document(
+&nbsp;        val id: String,
+&nbsp;        val name: String,
+&nbsp;        val fills: List&lt;Fill&gt;,
+&nbsp;        val effects: List&lt;Effect&gt;,
+&nbsp;    )
+&nbsp;
+&nbsp;    data class Fill(val color: Color?)
+&nbsp;
+&nbsp;    data class Effect(val type: String?)
+&nbsp;
+&nbsp;    data class Color(val r: Float, val g: Float, val b: Float, val a: Float)
+&nbsp;}
+&nbsp;
+&nbsp;internal fun List&lt;FigmaApi.Style&gt;.nodeIdsAsQueryParameter(): String =
+<b class="fc">&nbsp;    joinToString(&quot;,&quot;, transform = FigmaApi.Style::nodeId)</b>
+</code>
 </pre>
 </div>
 
@@ -176,18 +154,15 @@ Current scope:     <a href="../../index.html">all classes</a>
     @*/
 
     if (!msie || msie && msie9) {
-        var codeBlock = document.getElementById('sourceCode');
-
-        if (codeBlock) {
-            hljs.highlightBlock(codeBlock);
-        }
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
     }
 })();
 </script>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2022-11-15 14:29</div>
+    <div style="float:right;">generated on 2023-01-19 11:09</div>
 </div>
 </body>
 </html>

@@ -7,9 +7,10 @@
   <title>Coverage Report > NetworkConfigKt</title>
   <style type="text/css">
     @import "../../css/coverage.css";
-    @import "../../css/highlight-idea.css";
+    @import "../../css/idea.min.css";
   </style>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
 </head>
 
 <body>
@@ -97,35 +98,35 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.stuart.figmagen.internal
-<i class="no-highlight">2</i>&nbsp;
-<i class="no-highlight">3</i>&nbsp;import com.squareup.moshi.JsonAdapter
-<i class="no-highlight">4</i>&nbsp;import com.squareup.moshi.Moshi
-<i class="no-highlight">5</i>&nbsp;import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
-<i class="no-highlight">6</i>&nbsp;import okhttp3.HttpUrl
-<i class="no-highlight">7</i>&nbsp;import okhttp3.OkHttpClient
-<i class="no-highlight">8</i>&nbsp;import okhttp3.Request
-<i class="no-highlight">9</i>&nbsp;
-<b class="fc"><i class="no-highlight">10</i>&nbsp;internal val client = OkHttpClient()</b>
-<i class="no-highlight">11</i>&nbsp;
-<b class="fc"><i class="no-highlight">12</i>&nbsp;internal val baseUrl: HttpUrl =</b>
-<b class="fc"><i class="no-highlight">13</i>&nbsp;    HttpUrl.Builder()</b>
-<b class="fc"><i class="no-highlight">14</i>&nbsp;        .scheme(&quot;https&quot;)</b>
-<b class="fc"><i class="no-highlight">15</i>&nbsp;        .host(&quot;api.figma.com&quot;)</b>
-<b class="fc"><i class="no-highlight">16</i>&nbsp;        .addPathSegment(&quot;v1&quot;)</b>
-<b class="fc"><i class="no-highlight">17</i>&nbsp;        .addPathSegment(&quot;files&quot;)</b>
-<b class="fc"><i class="no-highlight">18</i>&nbsp;        .build()</b>
-<i class="no-highlight">19</i>&nbsp;
-<b class="fc"><i class="no-highlight">20</i>&nbsp;internal val moshi: Moshi = Moshi.Builder().addLast(KotlinJsonAdapterFactory()).build()</b>
-<i class="no-highlight">21</i>&nbsp;
-<i class="no-highlight">22</i>&nbsp;internal fun baseRequest(figmaToken: String?): Request.Builder =
-<b class="pc"><i class="no-highlight">23</i>&nbsp;    Request.Builder().addHeader(&quot;X-FIGMA-TOKEN&quot;, checkNotNull(figmaToken))</b>
-<i class="no-highlight">24</i>&nbsp;
-<b class="fc"><i class="no-highlight">25</i>&nbsp;internal val fileJsonAdapter: JsonAdapter&lt;FigmaApi.File&gt; = moshi.adapter(FigmaApi.File::class.java)</b>
-<i class="no-highlight">26</i>&nbsp;
-<b class="fc"><i class="no-highlight">27</i>&nbsp;internal val styleWrapperJsonAdapter: JsonAdapter&lt;FigmaApi.StyleWrapper&gt; =</b>
-<b class="fc"><i class="no-highlight">28</i>&nbsp;    moshi.adapter(FigmaApi.StyleWrapper::class.java)</b>
-</div>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.stuart.figmagen.internal
+&nbsp;
+&nbsp;import com.squareup.moshi.JsonAdapter
+&nbsp;import com.squareup.moshi.Moshi
+&nbsp;import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+&nbsp;import okhttp3.HttpUrl
+&nbsp;import okhttp3.OkHttpClient
+&nbsp;import okhttp3.Request
+&nbsp;
+<b class="fc">&nbsp;internal val client = OkHttpClient()</b>
+&nbsp;
+<b class="fc">&nbsp;internal val baseUrl: HttpUrl =</b>
+<b class="fc">&nbsp;    HttpUrl.Builder()</b>
+<b class="fc">&nbsp;        .scheme(&quot;https&quot;)</b>
+<b class="fc">&nbsp;        .host(&quot;api.figma.com&quot;)</b>
+<b class="fc">&nbsp;        .addPathSegment(&quot;v1&quot;)</b>
+<b class="fc">&nbsp;        .addPathSegment(&quot;files&quot;)</b>
+<b class="fc">&nbsp;        .build()</b>
+&nbsp;
+<b class="fc">&nbsp;internal val moshi: Moshi = Moshi.Builder().addLast(KotlinJsonAdapterFactory()).build()</b>
+&nbsp;
+&nbsp;internal fun baseRequest(figmaToken: String?): Request.Builder =
+<b class="pc">&nbsp;    Request.Builder().addHeader(&quot;X-FIGMA-TOKEN&quot;, checkNotNull(figmaToken))</b>
+&nbsp;
+<b class="fc">&nbsp;internal val fileJsonAdapter: JsonAdapter&lt;FigmaApi.File&gt; = moshi.adapter(FigmaApi.File::class.java)</b>
+&nbsp;
+<b class="fc">&nbsp;internal val styleWrapperJsonAdapter: JsonAdapter&lt;FigmaApi.StyleWrapper&gt; =</b>
+<b class="fc">&nbsp;    moshi.adapter(FigmaApi.StyleWrapper::class.java)</b>
+</code>
 </pre>
 </div>
 
@@ -140,18 +141,15 @@ Current scope:     <a href="../../index.html">all classes</a>
     @*/
 
     if (!msie || msie && msie9) {
-        var codeBlock = document.getElementById('sourceCode');
-
-        if (codeBlock) {
-            hljs.highlightBlock(codeBlock);
-        }
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
     }
 })();
 </script>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2022-11-15 14:29</div>
+    <div style="float:right;">generated on 2023-01-19 11:09</div>
 </div>
 </body>
 </html>

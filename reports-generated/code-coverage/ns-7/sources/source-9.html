@@ -7,9 +7,10 @@
   <title>Coverage Report > SwiftStruct</title>
   <style type="text/css">
     @import "../../css/coverage.css";
-    @import "../../css/highlight-idea.css";
+    @import "../../css/idea.min.css";
   </style>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
 </head>
 
 <body>
@@ -82,10 +83,10 @@ Current scope:     <a href="../../index.html">all classes</a>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    87%
+    87.2%
   </span>
   <span class="absValue">
-    (220/253)
+    (218/250)
   </span>
 </td>
 </tr>
@@ -97,41 +98,41 @@ Current scope:     <a href="../../index.html">all classes</a>
 
 
 <pre>
-<div class="sourceCode" id="sourceCode"><i class="no-highlight">1</i>&nbsp;package com.stuart.figmagen.swift.swift.ui.extensions.internal
-<i class="no-highlight">2</i>&nbsp;
-<b class="fc"><i class="no-highlight">3</i>&nbsp;internal class SwiftStruct(</b>
-<b class="fc"><i class="no-highlight">4</i>&nbsp;    var visibility: SwiftVisibility = SwiftVisibility.Public,</b>
-<b class="fc"><i class="no-highlight">5</i>&nbsp;    var name: String,</b>
-<b class="fc"><i class="no-highlight">6</i>&nbsp;    val properties: MutableList&lt;SwiftProperty&gt; = mutableListOf(),</b>
-<b class="fc"><i class="no-highlight">7</i>&nbsp;    val functions: MutableList&lt;SwiftFunction&gt; = mutableListOf(),</b>
-<b class="fc"><i class="no-highlight">8</i>&nbsp;    val classes: MutableList&lt;SwiftStruct&gt; = mutableListOf()</b>
-<i class="no-highlight">9</i>&nbsp;) {
-<b class="fc"><i class="no-highlight">10</i>&nbsp;    override fun toString(): String = buildString {</b>
-<b class="fc"><i class="no-highlight">11</i>&nbsp;        appendLine(&quot;$visibility struct $name {&quot;)</b>
-<b class="pc"><i class="no-highlight">12</i>&nbsp;        if ((properties + functions + classes).isNotEmpty()) {</b>
-<b class="fc"><i class="no-highlight">13</i>&nbsp;            appendLine()</b>
-<b class="fc"><i class="no-highlight">14</i>&nbsp;            for (property in properties) {</b>
-<b class="fc"><i class="no-highlight">15</i>&nbsp;                &quot;$property&quot;.indented().forEach(::appendLine)</b>
-<i class="no-highlight">16</i>&nbsp;            }
-<b class="pc"><i class="no-highlight">17</i>&nbsp;            for (function in functions) {</b>
-<b class="nc"><i class="no-highlight">18</i>&nbsp;                &quot;$function&quot;.indented().forEach(::appendLine)</b>
-<i class="no-highlight">19</i>&nbsp;            }
-<b class="fc"><i class="no-highlight">20</i>&nbsp;            for (swiftClass in classes) {</b>
-<b class="fc"><i class="no-highlight">21</i>&nbsp;                &quot;$swiftClass&quot;.indented().forEach(::appendLine)</b>
-<i class="no-highlight">22</i>&nbsp;            }
-<i class="no-highlight">23</i>&nbsp;        } else {
-<b class="nc"><i class="no-highlight">24</i>&nbsp;            appendLine()</b>
-<i class="no-highlight">25</i>&nbsp;        }
-<b class="fc"><i class="no-highlight">26</i>&nbsp;        appendLine(&quot;}&quot;)</b>
-<b class="fc"><i class="no-highlight">27</i>&nbsp;    }</b>
-<i class="no-highlight">28</i>&nbsp;}
-<i class="no-highlight">29</i>&nbsp;
-<i class="no-highlight">30</i>&nbsp;internal fun buildSwiftClass(name: String, builder: SwiftStruct.() -&gt; Unit = {}): SwiftStruct {
-<i class="no-highlight">31</i>&nbsp;    val swiftStruct = SwiftStruct(name = name)
-<i class="no-highlight">32</i>&nbsp;    builder(swiftStruct)
-<i class="no-highlight">33</i>&nbsp;    return swiftStruct
-<i class="no-highlight">34</i>&nbsp;}
-</div>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.stuart.figmagen.swift.swift.ui.extensions.internal
+&nbsp;
+<b class="fc">&nbsp;internal class SwiftStruct(</b>
+<b class="fc">&nbsp;    var visibility: SwiftVisibility = SwiftVisibility.Public,</b>
+<b class="fc">&nbsp;    var name: String,</b>
+<b class="fc">&nbsp;    val properties: MutableList&lt;SwiftProperty&gt; = mutableListOf(),</b>
+<b class="fc">&nbsp;    val functions: MutableList&lt;SwiftFunction&gt; = mutableListOf(),</b>
+<b class="fc">&nbsp;    val classes: MutableList&lt;SwiftStruct&gt; = mutableListOf()</b>
+&nbsp;) {
+<b class="fc">&nbsp;    override fun toString(): String = buildString {</b>
+<b class="fc">&nbsp;        appendLine(&quot;$visibility struct $name {&quot;)</b>
+<b class="pc">&nbsp;        if ((properties + functions + classes).isNotEmpty()) {</b>
+<b class="fc">&nbsp;            appendLine()</b>
+<b class="fc">&nbsp;            for (property in properties) {</b>
+<b class="fc">&nbsp;                &quot;$property&quot;.indented().forEach(::appendLine)</b>
+&nbsp;            }
+<b class="pc">&nbsp;            for (function in functions) {</b>
+<b class="nc">&nbsp;                &quot;$function&quot;.indented().forEach(::appendLine)</b>
+&nbsp;            }
+<b class="fc">&nbsp;            for (swiftClass in classes) {</b>
+<b class="fc">&nbsp;                &quot;$swiftClass&quot;.indented().forEach(::appendLine)</b>
+&nbsp;            }
+&nbsp;        } else {
+<b class="nc">&nbsp;            appendLine()</b>
+&nbsp;        }
+<b class="fc">&nbsp;        appendLine(&quot;}&quot;)</b>
+<b class="fc">&nbsp;    }</b>
+&nbsp;}
+&nbsp;
+&nbsp;internal fun buildSwiftClass(name: String, builder: SwiftStruct.() -&gt; Unit = {}): SwiftStruct {
+&nbsp;    val swiftStruct = SwiftStruct(name = name)
+&nbsp;    builder(swiftStruct)
+&nbsp;    return swiftStruct
+&nbsp;}
+</code>
 </pre>
 </div>
 
@@ -146,18 +147,15 @@ Current scope:     <a href="../../index.html">all classes</a>
     @*/
 
     if (!msie || msie && msie9) {
-        var codeBlock = document.getElementById('sourceCode');
-
-        if (codeBlock) {
-            hljs.highlightBlock(codeBlock);
-        }
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
     }
 })();
 </script>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2022-11-15 14:29</div>
+    <div style="float:right;">generated on 2023-01-19 11:09</div>
 </div>
 </body>
 </html>

@@ -1,75 +1,75 @@
 {
   "libraries": [
     {
-      "name": "Gradle: com.squareup.moshi:moshi-adapters:1.13.0",
+      "name": "Gradle: com.squareup.moshi:moshi-adapters:1.14.0",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.squareup.moshi/moshi-adapters/1.13.0/3ca94c73d99d286c4410e3a3a6e70fcc6cd5e729/moshi-adapters-1.13.0.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.squareup.moshi/moshi-adapters/1.14.0/486bdd39ab11d367dc3b88de857f324d80521257/moshi-adapters-1.14.0.jar!/"
       ]
     },
     {
-      "name": "Gradle: com.squareup.moshi:moshi-kotlin:1.13.0",
+      "name": "Gradle: com.squareup.moshi:moshi-kotlin:1.14.0",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.squareup.moshi/moshi-kotlin/1.13.0/5cacbc44534ccc4a04719be599fff66fb1fbdfb9/moshi-kotlin-1.13.0.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.squareup.moshi/moshi-kotlin/1.14.0/f784be7c3766768da9fc8aedf5e8bd0b623386f1/moshi-kotlin-1.14.0.jar!/"
       ]
     },
     {
-      "name": "Gradle: com.squareup.moshi:moshi:1.13.0",
+      "name": "Gradle: com.squareup.moshi:moshi:1.14.0",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.squareup.moshi/moshi/1.13.0/da685586facab9eb5c4fb630ce248be14e7da21b/moshi-1.13.0.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.squareup.moshi/moshi/1.14.0/df173a3bfa0bd9e0cd2a8fc14b24fc336dca0de0/moshi-1.14.0.jar!/"
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10",
+      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.20",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.7.10/d70d7d2c56371f7aa18f32e984e3e2e998fe9081/kotlin-stdlib-jdk8-1.7.10.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.7.20/eac6656981d9d7156e838467d2d8d79093b1570/kotlin-stdlib-jdk8-1.7.20.jar!/"
       ]
     },
     {
-      "name": "Gradle: com.squareup.okhttp3:okhttp:4.9.3",
+      "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.7.0",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/4.9.3/b0b14b3d12980912723fb8b66afb48dcda742fcb/okhttp-4.9.3.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.7.0/e660b0079fdaf744dc9cc7f6f3aa3c761ec839b0/kotlin-reflect-1.7.0.jar!/"
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.6.0",
+      "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.4",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.6.0/a215a7f914d5916dc5fd2d45cea16524e0220203/kotlin-reflect-1.6.0.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-jvm/1.6.4/2c997cd1c0ef33f3e751d3831929aeff1390cb30/kotlinx-coroutines-core-jvm-1.6.4.jar!/"
       ]
     },
     {
-      "name": "Gradle: com.squareup.okio:okio:2.10.0",
+      "name": "Gradle: com.javiersc.kotlin:kotlin-stdlib-jvm:0.1.0-alpha.12",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/2.10.0/accaddddbb597fb70290fd40358b1ce66b8c2b3d/okio-jvm-2.10.0.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.javiersc.kotlin/kotlin-stdlib-jvm/0.1.0-alpha.12/f93a78fce811a650444ae373d760afeccee997c1/kotlin-stdlib-jvm-0.1.0-alpha.12.jar!/"
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.6.3",
+      "name": "Gradle: com.squareup.okhttp3:okhttp-jvm:5.0.0-alpha.10",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-jvm/1.6.3/b2c2f0c8e99eac632a8db723b365bd59067cf7bd/kotlinx-coroutines-core-jvm-1.6.3.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-jvm/5.0.0-alpha.10/27e6e9807cb38ce2f05145ce58ec79eb7c761004/okhttp-jvm-5.0.0-alpha.10.jar!/"
       ]
     },
     {
-      "name": "Gradle: com.javiersc.kotlin:kotlin-stdlib-jvm:0.1.0-alpha.11",
+      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.20",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.javiersc.kotlin/kotlin-stdlib-jvm/0.1.0-alpha.11/1912fdb6b7874fa50a5893702b8d18b354a09a62/kotlin-stdlib-jvm-0.1.0-alpha.11.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.7.20/2a729aa8763306368e665e2b747abd1dfd29b9d5/kotlin-stdlib-jdk7-1.7.20.jar!/"
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10",
+      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.20",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.7.10/1ef73fee66f45d52c67e2aca12fd945dbe0659bf/kotlin-stdlib-jdk7-1.7.10.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.7.20/726594ea9ba2beb2ee113647fefa9a10f9fabe52/kotlin-stdlib-1.7.20.jar!/"
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.7.10",
+      "name": "Gradle: com.squareup.okio:okio-jvm:3.2.0",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.7.10/d2abf9e77736acc4450dc4a3f707fa2c10f5099d/kotlin-stdlib-1.7.10.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/com.squareup.okio/okio-jvm/3.2.0/332d1c5dc82b0241cb1d35bb0901d28470cc89ca/okio-jvm-3.2.0.jar!/"
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.10",
+      "name": "Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.7.20",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.7.10/bac80c520d0a9e3f3673bc2658c6ed02ef45a76a/kotlin-stdlib-common-1.7.10.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.7.20/e15351bdaf9fa06f009be5da7a202e4184f00ae3/kotlin-stdlib-common-1.7.20.jar!/"
       ],
       "properties": {}
     },
@@ -80,27 +80,27 @@
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.kotlin:kotlin-test:1.6.21",
+      "name": "Gradle: org.jetbrains.kotlin:kotlin-test:1.7.20",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test/1.6.21/1e9d81b013e31b22da67464948869fc56c652527/kotlin-test-1.6.21.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test/1.7.20/1cfae9a58285c1bafb4ad0bd1b27406d97a2623c/kotlin-test-1.7.20.jar!/"
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-test-jvm:1.6.3",
+      "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-test-jvm:1.6.4",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-test-jvm/1.6.3/a3df48df354832fafd29f33795dfea8e90f8c8db/kotlinx-coroutines-test-jvm-1.6.3.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-test-jvm/1.6.4/27cee4a22d4149a86095bb1b4f4c5f10fbd3be97/kotlinx-coroutines-test-jvm-1.6.4.jar!/"
       ]
     },
     {
-      "name": "Gradle: io.kotest:kotest-assertions-core-jvm:5.3.2",
+      "name": "Gradle: io.kotest:kotest-assertions-core-jvm:5.5.4",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/io.kotest/kotest-assertions-core-jvm/5.3.2/e3197d94d742c3b6da5e4edbc6d99356c532529f/kotest-assertions-core-jvm-5.3.2.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/io.kotest/kotest-assertions-core-jvm/5.5.4/ab40f3267df9c8c6ce68b3ab7f708bcd4a8748a4/kotest-assertions-core-jvm-5.5.4.jar!/"
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.kotlin:kotlin-test-junit5:1.6.21",
+      "name": "Gradle: org.jetbrains.kotlin:kotlin-test-junit5:1.7.20",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test-junit5/1.6.21/ed8b4f0709ee0509c5fc6ac90ab60bc54c6ce60e/kotlin-test-junit5-1.6.21.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-test-junit5/1.7.20/262797b12ea731ca9a58a5a992d5deb8a55e0834/kotlin-test-junit5-1.7.20.jar!/"
       ]
     },
     {
@@ -110,9 +110,9 @@
       ]
     },
     {
-      "name": "Gradle: io.kotest:kotest-assertions-shared-jvm:5.3.2",
+      "name": "Gradle: io.kotest:kotest-assertions-shared-jvm:5.5.4",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/io.kotest/kotest-assertions-shared-jvm/5.3.2/9b4db306f5692311979255c778cc553812966d62/kotest-assertions-shared-jvm-5.3.2.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/io.kotest/kotest-assertions-shared-jvm/5.5.4/bb14c2e2e6ec60eb16a3ea33dd6ba4e24bef6986/kotest-assertions-shared-jvm-5.5.4.jar!/"
       ]
     },
     {
@@ -134,21 +134,15 @@
       ]
     },
     {
-      "name": "Gradle: io.kotest:kotest-assertions-api-jvm:5.3.2",
+      "name": "Gradle: io.kotest:kotest-assertions-api-jvm:5.5.4",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/io.kotest/kotest-assertions-api-jvm/5.3.2/d23ca1d8371eca125a2881132455993c974ee222/kotest-assertions-api-jvm-5.3.2.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/io.kotest/kotest-assertions-api-jvm/5.5.4/119bff97e591506fbe708ca75f6ef2cf500e0abb/kotest-assertions-api-jvm-5.5.4.jar!/"
       ]
     },
     {
-      "name": "Gradle: org.jetbrains.kotlin:kotlin-reflect:1.6.21",
+      "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:1.6.4",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.6.21/5dc3574d9b7bebfcb4ec6b10ada4aaa9e140bd0b/kotlin-reflect-1.6.21.jar!/"
-      ]
-    },
-    {
-      "name": "Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:1.6.3",
-      "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-jdk8/1.6.3/9381b4f9b62d3667c0dc15a17cd390eddd3ecd15/kotlinx-coroutines-jdk8-1.6.3.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-jdk8/1.6.4/5bc4b0bf6fd90fc190fd2f17e919c74c6274cb71/kotlinx-coroutines-jdk8-1.6.4.jar!/"
       ]
     },
     {
@@ -158,9 +152,9 @@
       ]
     },
     {
-      "name": "Gradle: io.kotest:kotest-common-jvm:5.3.2",
+      "name": "Gradle: io.kotest:kotest-common-jvm:5.5.4",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/io.kotest/kotest-common-jvm/5.3.2/c699827b9abbbce2b5f4766554cdb681747ed2c1/kotest-common-jvm-5.3.2.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/io.kotest/kotest-common-jvm/5.5.4/4778924a952debb650c4ed34c86c4dc582c63fcc/kotest-common-jvm-5.5.4.jar!/"
       ]
     },
     {
@@ -170,9 +164,9 @@
       ]
     },
     {
-      "name": "Gradle: io.github.java-diff-utils:java-diff-utils:4.11",
+      "name": "Gradle: io.github.java-diff-utils:java-diff-utils:4.12",
       "roots": [
-        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/io.github.java-diff-utils/java-diff-utils/4.11/e674e7408acefe082e7421d37f5d866e49dc468f/java-diff-utils-4.11.jar!/"
+        "jar://$PROJECT_DIR$/../cache/gradle/caches/modules-2/files-2.1/io.github.java-diff-utils/java-diff-utils/4.12/1a712a91324d566eef39817fc5c9980eb10c21db/java-diff-utils-4.12.jar!/"
       ]
     }
   ]
