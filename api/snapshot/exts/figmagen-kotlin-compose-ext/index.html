@@ -3,12 +3,19 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>figmagen-kotlin-compose-ext</title>
-<link href="../../images/logo-icon.svg" rel="icon" type="image/svg">
-    <script>var pathToRoot = "../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
-const savedDarkMode = storage ? JSON.parse(storage) : false
-if(savedDarkMode === true){
-    document.getElementsByTagName("html")[0].classList.add("theme-dark")
-}</script>
+<link href="../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
 <script type="text/javascript" src="../../scripts/sourceset_dependencies.js" async></script>
 <link href="../../styles/style.css" rel="Stylesheet">
 <link href="../../styles/jetbrains-mono.css" rel="Stylesheet">
@@ -19,7 +26,8 @@ if(savedDarkMode === true){
 <script type="text/javascript" src="../../scripts/navigation-loader.js" async></script>
 <script type="text/javascript" src="../../scripts/platform-content-handler.js" async></script>
 <script type="text/javascript" src="../../scripts/main.js" defer></script>
-<script type="text/javascript" src="../../scripts/prism.js" async></script></head>
+<script type="text/javascript" src="../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
 <body>
 <div class="navigation-wrapper" id="navigation-wrapper">
     <div id="leftToggler"><span class="icon-toggler"></span></div>
@@ -42,7 +50,7 @@ if(savedDarkMode === true){
   <div class="breadcrumbs"></div>
   <div class="cover ">
     <h1 class="cover"><span><span>figmagen-kotlin-compose-ext</span></span></h1>
-    <div class="platform-hinted UnderCoverText" data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":exts:figmagen-kotlin-compose-ext:dokkaHtmlPartial/main"><h2 class="">/main/kotlin/com/stuart/figmagen/kotlin/compose/extensions/KotlinComposeColorsTask.kt</h2><p class="paragraph">The Kotlin Compose task generates a file with all the necessary info, a sample of this can be seen test/resources/MockColors.expected.kotlin</p><p class="paragraph">It needs 4 arguments:</p><ul><li><p class="paragraph"><code class="lang-kotlin">packageName: String</code>: The package that the generated file will have at the top.</p></li><li><p class="paragraph"><code class="lang-kotlin">checkColorCorrectness: Boolean</code>: If there are more than one theme, it can check all themes has   the same number and names of color tokens. If one is missing in one theme, it crashes indicating   the missing one/s.</p></li><li><p class="paragraph"><code class="lang-kotlin">outputPath: String</code>: The path where the file will be generated</p></li><li><p class="paragraph">a <code class="lang-kotlin">varargs</code> of <code class="lang-kotlin">ThemeFile</code>: the list of figma files associated to a specific theme by name.</p></li></ul><p class="paragraph">Sample:</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">val kotlinComposeColorsTask: Task =<br>    KotlinComposeColorsTask(<br>        packageName = "com.stuart.shared.ui.design.system.core",<br>        checkColorCorrectness = true,<br>        outputPath = "some/path/to/module/with/Colors.kt",<br>        ThemeFile("light", FileKey("auAVu6zRJ39zECKv6hWDmH")),<br>        ThemeFile("dark", FileKey("wizOikAT1Wigtx6zHpfC87")),<br>    )</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+    <div class="platform-hinted UnderCoverText" data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":exts:figmagen-kotlin-compose-ext:dokkaHtmlPartial/main"><h2 class=""> /main/kotlin/com/stuart/figmagen/kotlin/compose/extensions/KotlinComposeColorsTask.kt</h2><p class="paragraph">The Kotlin Compose task generates a file with all the necessary info, a sample of this can be seen test/resources/MockColors.expected.kotlin</p><p class="paragraph">It needs 4 arguments:</p><ul><li><p class="paragraph"><code class="lang-kotlin">packageName: String</code>: The package that the generated file will have at the top.</p></li><li><p class="paragraph"><code class="lang-kotlin">checkColorCorrectness: Boolean</code>: If there are more than one theme, it can check all themes has   the same number and names of color tokens. If one is missing in one theme, it crashes indicating   the missing one/s.</p></li><li><p class="paragraph"><code class="lang-kotlin">outputPath: String</code>: The path where the file will be generated</p></li><li><p class="paragraph">a <code class="lang-kotlin">varargs</code> of <code class="lang-kotlin">ThemeFile</code>: the list of figma files associated to a specific theme by name.</p></li></ul><p class="paragraph">Sample:</p><div class="sample-container"><pre><code class="block lang-kotlin" theme="idea">val kotlinComposeColorsTask: Task =<br>    KotlinComposeColorsTask(<br>        packageName = "com.stuart.shared.ui.design.system.core",<br>        checkColorCorrectness = true,<br>        outputPath = "some/path/to/module/with/Colors.kt",<br>        ThemeFile("light", FileKey("auAVu6zRJ39zECKv6hWDmH")),<br>        ThemeFile("dark", FileKey("wizOikAT1Wigtx6zHpfC87")),<br>    )</code></pre><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
   </div>
   <h2 class="">Packages</h2>
   <div class="table"><a data-name="-1717485733%2FPackages%2F-66341471" anchor-label="com.stuart.figmagen.kotlin.compose.extensions" id="-1717485733%2FPackages%2F-66341471" data-filterable-set=":exts:figmagen-kotlin-compose-ext:dokkaHtmlPartial/main"></a>
@@ -61,8 +69,9 @@ if(savedDarkMode === true){
     </div>
   </div>
 </div>
-        <div class="footer"><span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
-        </div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
     </div>
 </div>
 
