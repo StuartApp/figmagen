@@ -18,7 +18,7 @@ hubdle {
                     implementation(libs.moshi)
                     implementation(libs.moshi.adapters)
                     implementation(libs.moshi.kotlin)
-                    implementation(libs.okhttp)
+                    implementation(squareupOkhttp3Okhttp())
                 }
             }
             test {

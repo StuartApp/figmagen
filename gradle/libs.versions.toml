@@ -1,18 +1,11 @@
 [versions]
-coroutines = "1.6.3"
-hubdle = "0.2.0-alpha.30"
-kotlin = "1.7.0"
-moshi = "1.13.0"
-okhttp = "4.9.3"
+hubdle = "0.2.0-alpha.46"
+moshi = "1.14.0"
 
 [libraries]
-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
-kotlin-kotlinGradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 moshi = { module = "com.squareup.moshi:moshi", version.ref = "moshi" }
 moshi-adapters = { module = "com.squareup.moshi:moshi-adapters", version.ref = "moshi" }
 moshi-kotlin = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshi" }
-okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
 
 [plugins]
 hubdle = { id = "com.javiersc.hubdle", version.ref = "hubdle" }
