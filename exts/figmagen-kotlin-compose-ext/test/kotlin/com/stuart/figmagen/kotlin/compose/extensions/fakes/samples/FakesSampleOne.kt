@@ -10,56 +10,56 @@ import com.stuart.figmagen.tree.TreeNode
 
 internal val Group1_Subgroup1_one_Color =
     Color(
-        path = "color/group1/subgroup1/one",
+        path = "group1/subgroup1/one",
         theme = "light",
         rgba = RGBA(0F, 0F, 0F, 0F),
     )
 
 internal val Group1_Subgroup1_two_Color =
     Color(
-        path = "color/group1/subgroup1/two",
+        path = "group1/subgroup1/two",
         theme = "light",
         rgba = RGBA(0F, 0F, 0F, 0F),
     )
 
 internal val Group2_Subgroup1_one_Color =
     Color(
-        path = "color/group2/subgroup1/one",
+        path = "group2/subgroup1/one",
         theme = "light",
         rgba = RGBA(0F, 0F, 0F, 0F),
     )
 
 internal val Group1_Subgroup2_one_Color =
     Color(
-        path = "color/group1/subgroup2/one",
+        path = "group1/subgroup2/one",
         theme = "light",
         rgba = RGBA(0F, 0F, 0F, 0F),
     )
 
 internal val Group2_Subgroup1_two_Color =
     Color(
-        path = "color/group2/subgroup1/two",
+        path = "group2/subgroup1/two",
         theme = "light",
         rgba = RGBA(0F, 0F, 0F, 0F),
     )
 
 internal val Group2_Subgroup2_one_Color =
     Color(
-        path = "color/group2/subgroup2/one",
+        path = "group2/subgroup2/one",
         theme = "light",
         rgba = RGBA(0F, 0F, 0F, 0F),
     )
 
 internal val Group1_Subgroup1_AnotherGroup1_one_Color =
     Color(
-        path = "color/group1/subgroup1/anothergroup1/one",
+        path = "group1/subgroup1/anothergroup1/one",
         theme = "light",
         rgba = RGBA(0F, 0F, 0F, 0F),
     )
 
 internal val Group1_Subgroup1_AnotherGroup1_two_Color =
     Color(
-        path = "color/group1/subgroup1/anothergroup1/two",
+        path = "group1/subgroup1/anothergroup1/two",
         theme = "light",
         rgba = RGBA(0F, 0F, 0F, 0F),
     )

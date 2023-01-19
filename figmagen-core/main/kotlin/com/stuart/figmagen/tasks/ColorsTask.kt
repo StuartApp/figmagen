@@ -61,6 +61,8 @@ public abstract class ColorsTask : Task() {
 
         val figmaStyle: List<FigmaApi.Style> = getStyles(fileKey.value, figmaToken)
 
+        check(figmaStyle.isNotEmpty()) { "There are no styles on the file ${fileKey.value}" }
+
         val request: Request =
             baseRequest(figmaToken)
                 .url(
@@ -68,7 +70,10 @@ public abstract class ColorsTask : Task() {
                         .newBuilder()
                         .addPathSegment(fileKey.value)
                         .addPathSegment("nodes")
-                        .addQueryParameter("ids", figmaStyle.nodeIdsAsQueryParameter())
+                        .addQueryParameter(
+                            "ids",
+                            figmaStyle.filter { it.isFill }.nodeIdsAsQueryParameter()
+                        )
                         .build()
                 )
                 .build()
@@ -90,9 +95,7 @@ public abstract class ColorsTask : Task() {
                 data.nodes.mapNotNull { (_, value) ->
                     val color: FigmaApi.Color? = value.document.fills.firstOrNull()?.color
                     val path: String = value.document.name
-                    val pathAsList: List<String> = path.split("/")
-                    val isValidColor: Boolean =
-                        color != null && pathAsList.size >= 3 && pathAsList.isColor
+                    val isValidColor: Boolean = color != null && path.isColor
 
                     if (color != null && isValidColor) {
                         val rgba: Color.RGBA =
@@ -112,7 +115,11 @@ public abstract class ColorsTask : Task() {
                 }
 
             return colors
-        } else error("There is an error: Status code: ${response.code}, body: ${response.body}")
+        } else {
+            error(
+                "There is an error: Status code: ${response.code}, body: ${response.body?.string()}"
+            )
+        }
     }
 
     public fun checkThemesCorrectness(colors: List<Color>) {
@@ -133,7 +140,8 @@ public abstract class ColorsTask : Task() {
             """
                 |The next colors are missing in some theme: 
                 ${missingColors.joinToString("\n") { "|  - ${it.theme}: ${it.path}" } }
-            """.trimMargin()
+            """
+                .trimMargin()
         }
     }
 }

@@ -10,15 +10,36 @@ internal object FigmaApi {
 
     data class Meta(val styles: List<Style>)
 
-    data class Style(val key: String, @Json(name = "node_id") val nodeId: String)
+    data class Style(
+        val key: String,
+        @Json(name = "node_id") val nodeId: String,
+        @Json(name = "style_type") val styleType: Type,
+    ) {
+        val isFill: Boolean
+            get() = styleType == Type.FILL
+
+        enum class Type {
+            FILL,
+            EFFECT,
+            GRID,
+            TEXT,
+        }
+    }
 
     data class File(val name: String, val nodes: Map<String, Node>)
 
     data class Node(val document: Document)
 
-    data class Document(val id: String, val name: String, val fills: List<Fill>)
+    data class Document(
+        val id: String,
+        val name: String,
+        val fills: List<Fill>,
+        val effects: List<Effect>,
+    )
 
     data class Fill(val color: Color?)
+
+    data class Effect(val type: String?)
 
     data class Color(val r: Float, val g: Float, val b: Float, val a: Float)
 }

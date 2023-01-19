@@ -3,7 +3,7 @@ package com.stuart.figmagen.models
 import com.stuart.figmagen.tree.TreeNode
 
 /**
- * @property path Full path including all groups of the color -> `color/customer/primary/main`
+ * @property path Full path including all groups of the color -> `customer/primary/main`
  * @property theme The theme which the color belongs -> `light`
  * @property rgba RGBA color values
  * @property name The color name, should be the same that the last group -> `main`
@@ -11,8 +11,11 @@ import com.stuart.figmagen.tree.TreeNode
  * @property nameAsColorFile transform the `Color` in `ColorFile.Color`.
  * @property pathAsList the path split by `/` so it returns `List<String>` instead of `String`.
  *
- * A valid color must have a `path` with at least three files, two directories (`color/group`) and
- * the value (`value`), for example: `color/group/value/`
+ * A valid color must have a `path` with at least two files, one directory, and the color, examples:
+ * - `primary/main`
+ * - `primary/contrast`
+ * - `surface/primary/main`
+ * - `surface/primary/contrast`
  */
 public data class Color(
     val path: String,
@@ -21,7 +24,7 @@ public data class Color(
 ) {
     val name: String = path.split("/").last()
 
-    public val directories: List<String> = path.split("/").drop(1).dropLast(1)
+    public val directories: List<String> = path.split("/").dropLast(1)
 
     public val nameAsColorFile: ColorFile.Color = ColorFile.Color(this)
 

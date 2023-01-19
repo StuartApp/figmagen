@@ -10,112 +10,112 @@ import com.stuart.figmagen.tree.TreeNode
 
 internal val Color_Primary_Main =
     Color(
-        path = "color/primary/main",
+        path = "primary/main",
         theme = "light",
         rgba = RGBA(0.0f, 0.36f, 1.0f, 1.0f),
     )
 
 internal val Color_Primary_Soft =
     Color(
-        path = "color/primary/soft",
+        path = "primary/soft",
         theme = "light",
         rgba = RGBA(0.8f, 0.87f, 1.0f, 1.0f),
     )
 
 internal val Color_Primary_Contrast_Main =
     Color(
-        path = "color/primary/contrast/main",
+        path = "primary/contrast/main",
         theme = "light",
         rgba = RGBA(1.0f, 1.0f, 1.0f, 1.0f),
     )
 
 internal val Color_Primary_Contrast_High =
     Color(
-        path = "color/primary/contrast/high",
+        path = "primary/contrast/high",
         theme = "light",
         rgba = RGBA(0.0f, 1.0f, 0.0f, 1.0f),
     )
 
 internal val Color_Secondary_Main =
     Color(
-        path = "color/secondary/main",
+        path = "secondary/main",
         theme = "light",
         rgba = RGBA(0.23f, 0.81f, 0.67f, 1.0f),
     )
 
 internal val Color_Secondary_Soft =
     Color(
-        path = "color/secondary/soft",
+        path = "secondary/soft",
         theme = "light",
         rgba = RGBA(0.83f, 0.94f, 0.93f, 1.0f),
     )
 
 internal val Color_Tertiary_Main =
     Color(
-        path = "color/tertiary/main",
+        path = "tertiary/main",
         theme = "light",
         rgba = RGBA(1.0f, 0.75f, 0.18f, 1.0f),
     )
 
 internal val Color_Tertiary_Soft =
     Color(
-        path = "color/tertiary/soft",
+        path = "tertiary/soft",
         theme = "light",
         rgba = RGBA(1.0f, 0.98f, 0.91f, 1.0f),
     )
 
 internal val Color_Surface_Main =
     Color(
-        path = "color/surface/main",
+        path = "surface/main",
         theme = "light",
         rgba = RGBA(1.0f, 1.0f, 1.0f, 1.0f),
     )
 
 internal val Color_Surface_Soft =
     Color(
-        path = "color/surface/soft",
+        path = "surface/soft",
         theme = "light",
         rgba = RGBA(0.93f, 0.97f, 1.0f, 1.0f),
     )
 
 internal val Color_Surface_Contrast_High =
     Color(
-        path = "color/surface/contrast/high",
+        path = "surface/contrast/high",
         theme = "light",
         rgba = RGBA(0.5f, 0.0f, 0.5f, 1.0f),
     )
 
 internal val Color_Surface_Contrast_Main =
     Color(
-        path = "color/surface/contrast/main",
+        path = "surface/contrast/main",
         theme = "light",
         rgba = RGBA(0.22f, 0.25f, 0.32f, 1.0f),
     )
 
 internal val Color_Disabled_Main =
     Color(
-        path = "color/disabled/main",
+        path = "disabled/main",
         theme = "light",
         rgba = RGBA(0.59f, 0.64f, 0.69f, 1.0f),
     )
 
 internal val Color_Disabled_Soft =
     Color(
-        path = "color/disabled/soft",
+        path = "disabled/soft",
         theme = "light",
         rgba = RGBA(0.82f, 0.84f, 0.86f, 1.0f),
     )
 
 internal val Color_Disabled_Package =
     Color(
-        path = "color/disabled/package",
+        path = "disabled/package",
         theme = "light",
         rgba = RGBA(0.82f, 0.84f, 0.86f, 1.0f),
     )
 
 internal val Color_Package_Main =
     Color(
-        path = "color/package/main",
+        path = "package/main",
         theme = "light",
         rgba = RGBA(0.82f, 0.84f, 0.86f, 1.0f),
     )

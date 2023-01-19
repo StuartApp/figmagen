@@ -21,8 +21,8 @@ internal class SwiftExtensionsTest {
             SwiftUiColorsTask(
                 checkColorCorrectness = true,
                 outputPath = "${temporalDir.path}/DummyColors.actual.swift",
-                ThemeFile("light", FileKey("auAVu6zRJ39zECKv6hWDmH")),
-                ThemeFile("dark", FileKey("wizOikAT1Wigtx6zHpfC87")),
+                ThemeFile("light", FileKey("UTHeBUbIE5aVyXXCLj48jp")),
+                ThemeFile("dark", FileKey("JZoiFxRXtx0DH5RmzmbLLQ")),
             )
 
         val figmagen = Figmagen().apply { addTask(swiftUiColorsTask) }

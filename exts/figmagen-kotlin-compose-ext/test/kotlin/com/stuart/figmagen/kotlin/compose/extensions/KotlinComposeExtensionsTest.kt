@@ -24,8 +24,8 @@ internal class KotlinComposeExtensionsTest {
                     packageName = "com.stuart.shared.ui.design.system.core",
                     checkColorCorrectness = true,
                     outputPath = "${temporalDir.path}/DummyColors.actual.kotlin",
-                    ThemeFile("light", FileKey("auAVu6zRJ39zECKv6hWDmH")),
-                    ThemeFile("dark", FileKey("wizOikAT1Wigtx6zHpfC87")),
+                    ThemeFile("light", FileKey("UTHeBUbIE5aVyXXCLj48jp")),
+                    ThemeFile("dark", FileKey("JZoiFxRXtx0DH5RmzmbLLQ")),
                 )
                 .apply { contentColorFor(::contrastBasedContentColorFor) }
 
